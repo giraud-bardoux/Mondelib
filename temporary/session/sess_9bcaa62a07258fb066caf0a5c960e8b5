@@ -1,1 +1,0 @@
-ZendSession|a:2:{s:2:"ip";s:10:"172.18.0.1";s:2:"ua";s:111:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36";}InstallController|a:2:{s:10:"inProgress";b:1;s:6:"sanity";a:3:{s:13:"maxErrorLevel";i:1;s:17:"maxFileErrorLevel";i:0;s:18:"maxOtherErrorLevel";i:1;}}
