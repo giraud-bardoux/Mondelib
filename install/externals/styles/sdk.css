@@ -1,0 +1,254 @@
+/*SDK*/
+.sdk > a.buttonlink{
+	margin-top:15px;
+}
+.sdk{
+	overflow:hidden;
+	padding:0px;
+}
+.sdk > h3{
+	margin-bottom:10px;
+}
+.sdk h3 a{
+	font-weight:bold;
+}
+.sdk h3 a:hover{
+	text-decoration:underline;
+}
+.sdk a.buttonbig{
+  display:block;
+  width:140px;
+  padding:10px 10px 10px 35px;
+  font-weight:bold;
+  float:left;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  font-weight:bold;
+  border:1px solid #efefef;
+  margin-right:5px;
+  background-color:#f4f8f9;
+  background-repeat:no-repeat;
+  background-position:10px 10px;
+  outline:none;
+  margin-top:10px;
+  }
+.sdk a.buttonbig span{
+	display:block;
+	font-size:.8em;
+	min-height:60px;
+	display:none;
+	margin-top:5px;
+}
+.sdk a.buttonbig span.showhelp{
+	display:block;	
+}
+.sdk .helpbutton{
+	background:url(../images/help.png) no-repeat;
+	display:block;
+	outline:none;
+	padding:10px 10px 10px 20px;
+	font-weight:bold;
+	float:left;
+  font-weight:bold;
+  margin-left:10px;
+  background-repeat:no-repeat;
+  background-position:0px 10px;
+  margin-top:10px;
+}
+.sdk.manage p{
+	margin-bottom:14px;
+}
+.sdk .button-container{
+	padding:0 0 10px;
+}
+.sdk.manage .button-container{
+  padding:10px 0 0;
+}
+.sdk .button-container button{
+  border-radius:50px;
+  padding:10px 20px;
+  font-size:13px;
+}
+.sdk_table{
+	width:100%;
+  border:1px solid #ccc;
+  border-radius:10px;
+  border-spacing:0;
+}
+.sdk_table.build{
+	margin-top:15px;
+	margin-bottom:10px;
+}
+.sdk_table.manage{
+  margin:12px 0 15px;
+}
+table.sdk_table.build th:first-child .checkbox{
+  display:block !important;
+}
+.sdk_table.manage td a{
+	font-weight:normal;
+}
+.sdk_table th{
+	text-align:left;
+}
+.sdk_table th:first-child{
+	width:10px;
+}
+.sdk_table a{
+	font-weight:600;
+  text-decoration:none !important;
+}
+.sdk_table thead tr{
+	background-color:rgba(96, 69, 226, .08);
+}
+.sdk_table thead tr th{
+  border-bottom:0 !important;
+}
+.sdk_table tr.alt{
+	background-color:#f9f9f9;
+}
+.sdk_table thead tr th,
+.sdk_table tbody tr td{
+	padding:10px;
+	border-bottom:1px solid #e3e3e3;
+}
+.sdk_table thead tr th a{
+	font-size:14px;
+}
+.sdk_table thead tr th{
+  color:#208ED3;
+  font-weight:600;
+}
+.sdk_table thead tr th a:hover{
+	text-decoration:underline;
+}
+.sdk_table tbody tr:last-child td{
+  border-bottom:0;
+}
+.sdk_table td, .sdk_table {
+	vertical-align:text-top;
+}
+.sdk_table.manage td input{
+  position:relative;
+  top:2px;
+}
+.sdk_table.manage td .buttonlink{
+  padding-left:20px;
+}
+.sdk_table th.package{
+	width:40%;
+}
+.sdk_table th.moreinfo{
+	width:10%;
+	text-align:right;
+}
+.sdk_table td.moreinfo a{
+	font-weight:normal;
+}
+.sdk_table td.moreinfo{
+	text-align:right;
+  white-space:nowrap;
+}
+.sdk_table th.version{
+	width:10%;
+}
+.buttonlink.sdk-download{
+	background:url(../images/download.png) no-repeat -3px 7px;
+	padding-left:15px;
+}
+.buttonlink.sdk-download span{
+	color:#a7a7a7;
+}
+.sdk .sdk_build_moreinfo_container{
+	display:none;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+.sdk .sdk_build_moreinfo_container p{
+	margin-top:10px;
+}
+.sdk .sdk_build_moreinfo_container.show-more{
+	display:block;
+}
+.sdk .sdk_build_description{
+  margin-top:10px;
+}
+.sdk .sdk_build_description p,
+.sdk .sdk_build_location p{
+  margin-top:0px;
+  padding-top:0px;
+  display:inline-block;
+  font-weight:600;
+  font-size:13px;
+}
+strong{
+	font-weight:bold;
+	color:#161616;
+	font-size:.9em;
+}
+.sdk_inner > li,
+.other_tools > li,
+.import_tools_list > li{
+  margin-top:22px;
+}
+.sdk .buttonlink,
+.other_tools .buttonlink,
+.import_tools_list .buttonlink{
+  position:relative;
+  padding-left:48px;
+  font-size:16px;
+}
+.sdk .buttontext,
+.other_tools .buttontext,
+.import_tools_list  .buttontext{
+  margin:-2px 0px 0px 48px;
+}
+.sdk .sdk_inner .buttonlink::before,
+.other_tools .buttonlink::before,
+.import_tools_list .buttonlink::before{
+  content:'';
+  width:40px;
+  height:40px;
+  background-color:rgba(96, 69, 226, .08);
+  border-radius:50px;
+  position:absolute;
+  left:0;
+  background-size:26px;
+  background-repeat:no-repeat;
+  background-position:center;
+  top:6px;
+}
+.buttonlink.import_ning{
+  background-image:url(../../externals/images/package_go.png);
+}
+.buttonlink.import_version3{
+  background-image:url(../../externals/images/package_go.png);
+}
+.sdk .sdk_inner .sdk_packages_add::before{
+	background-image:url(../images/package_add.png);
+}
+.sdk .sdk_inner .sdk_packages_build::before{
+	background-image:url(../images/package_go.png);
+}
+.sdk .sdk_inner .sdk_packages_manage::before{
+	background-image:url(../images/package.png);
+}
+.other_tools > li .other_tools_check:before{
+	background-image:url(../../externals/images/checked.png);
+}
+.other_tools > li .other_tools_search:before{
+	background-image:url(../../externals/images/search.png);
+}
+.other_tools > li .other_tools_php:before{
+	background-image:url(../../externals/images/php.png);
+}
+.other_tools > li .other_tools_log:before{
+	background-image:url(../../externals/images/log.png);
+}
+#package-created{
+	display:none;
+}
+.dev_sdk_link{
+  font-weight:bold;
+  background-image:url(../images/cog.png);
+}

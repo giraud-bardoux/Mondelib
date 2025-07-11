@@ -1,0 +1,15 @@
+<?php
+/**
+ * SocialEngine
+ *
+ * @category   Application_Core
+ * @package    Messages
+ * @copyright  Copyright 2006-2020 Webligo Developments
+ * @license    http://www.socialengine.com/license/
+ * @version    $Id: success.tpl 9747 2012-07-26 02:08:08Z john $
+ * @author     John
+ */
+?>
+<div class="layout_content p-3">
+  <div class="success_msg"><?php echo $this->translate('Your message has been sent successfully.') ?>
+</div>

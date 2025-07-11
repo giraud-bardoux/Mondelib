@@ -1,0 +1,200 @@
+"Step %1$d";"Step %1$d"
+"Request limit reached, please try again later";"Request limit reached, please try again later."
+
+"Return to Admin Panel";"Return to Admin Panel"
+"Package Manager";"Package Manager"
+"Manage Packages";"Manage Packages"
+"Packages are plugins, themes, mods, and other extensions that you can add
+    to your social network.";"Packages are plugins, themes, mods, and other extensions that you can add
+    to your social network."
+	
+"SocialEngine SDK";"SocialEngine SDK"
+"The SocialEngine PHP SDK allows you to create packages for distribution.";"The SocialEngine PHP SDK allows you to create packages for distribution."
+"More info: ";"More info: "
+"See KB article";"See KB article"
+"Create a Package";"Create a Package"
+"Sets up bare-bones modules, widgets, and more for your local development
+    environment.";"Sets up bare-bones modules, widgets, and more for your local development
+    environment."
+"Build Packages";"Build Packages"
+"Turns your packages into files that are installable and ready for
+    distribution.";"Turns your packages into files that are installable and ready for
+    distribution."
+	
+"Manage Package Files";"Manage Package Files"
+"Download package files you've built, combine packages, or delete ones you
+    don't want.";"Download package files you've built, combine packages, or delete ones you
+    don't want."
+
+"Package(s) successfully created. Download below.";"Package(s) successfully created. Download below."
+"Manage Package Files";"Manage Package Files"
+"These are the built package files we found on your system at";"These are the built package files we found on your system at"
+"temporary/package/sdk";"temporary/package/sdk"
+"No packages were found.";"No packages were found."
+"Combine";"Combine"
+"Delete";"Delete"
+"Build Packages";"Build Packages"
+"These are the packages we found on your system. Choose the ones you want to
+    build into distributable files.";"These are the packages we found on your system. Choose the ones you want to
+    build into distributable files."
+	
+"Your package(s) have been built successfully.";"Your package(s) have been built successfully."
+"No packages were found.";"No packages were found."
+"Package";"Package"
+"Version";"Version"
+"Type";"Type"
+"Author";"Author"
+"Location:";"Location:"
+"Description:";"Description:"
+"More info";"More info"
+"Build Packages";"Build Packages"
+"Package File";"Package File"
+"Date Built";"Date Built"
+"Developer SDK";"Developer SDK"
+
+
+"Import Tools";"Import Tools"
+"Below is a list of supported import tools that can be utilized for importing your data into SocialEngine.";"Below is a list of supported import tools that can be utilized for importing your data into SocialEngine."
+"Ning Import";"Ning Import"
+"Transfer your data from a Ning Export to a new SocialEngine 4 Installation";"Transfer your data from a Ning Export to a new SocialEngine 4 Installation"
+"phpFox Import";"phpFox Import"
+"Transfer your data from a phpFox site to a new SocialEngine 4 Installation";"Transfer your data from a phpFox site to a new SocialEngine 4 Installation"
+"SocialEngine 3 Import";"SocialEngine 3 Import"
+"Transfer your data from a SocialEngine 3 installation to a new SocialEngine 4 installation";"Transfer your data from a SocialEngine 3 installation to a new SocialEngine 4 installation"
+
+"Requirement and Dependency Check";"Requirement and Dependency Check"
+"Double check the requirements and dependencies of your installed packages.";"Double check the requirements and dependencies of your installed packages."
+"Search for Modified Files";"Search for Modified Files"
+"Lists files that have been modified since installation. You can view a
+      side-by-side diff of the files if you upload the original package.";"Lists files that have been modified since installation. You can view a
+      side-by-side diff of the files if you upload the original package."
+	  
+"PHP Info";"PHP Info"
+"Displays the results of the phpinfo() function.";"Displays the results of the phpinfo() function."
+"Log Browser";"Log Browser"
+"Allows viewing of error logs.";"Allows viewing of error logs."
+"Adminer";"Adminer"
+"Adminer is a MySQL database management utility, similar to phpMyAdmin.";"Adminer is a MySQL database management utility, similar to phpMyAdmin."
+"Other Tools";"Other Tools"
+"Logout";"Logout"
+
+"Let's get started with installing your new packages. First, you will need to upload
+  the packages you want to install. Click the 'Upload Packages' link below to select one or
+  multiple packages from your computer to upload them to the server.";"Let's get started with installing your new packages. First, you will need to upload
+  the packages you want to install. Click the 'Upload Packages' link below to select one or
+  multiple packages from your computer to upload them to the server."
+  
+"Note: The packages are extracted on upload, so the progress bar will pause at 100% for
+  up to several minutes (depending on the size of the package).";"Note: The packages are extracted on upload, so the progress bar will pause at 100% for
+  up to several minutes (depending on the size of the package)."
+
+"Add Packages";"Add Packages"
+"Check All";"Check All"
+"Uncheck All";"Uncheck All"
+
+"Please wait until the upload finishes or while archives are extracted.";"Please wait until the upload finishes or while archives are extracted."
+"Please upload or select a package.";"Please upload or select a package."
+"If you're ready to install the packages checked above, click the button below.
+        In the next step, we will check to make sure your server has everything it needs
+        to complete the installation.";"If you're ready to install the packages checked above, click the button below.
+        In the next step, we will check to make sure your server has everything it needs
+        to complete the installation."
+		
+"Continue";"Continue"
+" or ";" or "
+"cancel installation";"cancel installation"
+
+"Choose Packages";"Choose Packages"
+"Run Pre-install Check";"Run Pre-install Check"
+"Enter FTP Info";"Enter FTP Info"
+"Run Permissions Check";"Run Permissions Check"
+"Copy Files";"Copy Files"
+"Update Database";"Update Database"
+"Complete!";"Complete!"
+"Actions";"Actions"
+"These are the actions that will be performed during this installation:";"These are the actions that will be performed during this installation:"
+
+"Delete Packages?";"Delete Packages?"
+"Are you sure you want to delete these packages?";"Are you sure you want to delete these packages?"
+"Delete Packages";"Delete Packages"
+
+"Creates a skeleton package, with the proper directory structure and manifest files";"Creates a skeleton package, with the proper directory structure and manifest files"
+"Name";"Name"
+"Title";"Title"
+"Description";"Description"
+"Build Date";"Build Date"
+"Create Package";"Create Package"
+"cancel";"cancel"
+"Dependency Check";"Dependency Check"
+"These items must already be installed to continue with this installation:";"These items must already be installed to continue with this installation:"
+"These system requirements must be correct to continue with this installation:";"These system requirements must be correct to continue with this installation:"
+"System Requirements Check";"System Requirements Check"
+
+"Enter FTP Information";"Enter FTP Information"
+'Please provide your FTP login information so that the installer can connect to your server, extract the new files, and set permissions automatically. If you would rather not use FTP to set permissions automatically, you can choose "None" as the connection type and PHP will attempt to set the necessary permissions. This method can be slightly less reliable, so we strongly suggest using FTP.';'Please provide your FTP login information so that the installer can connect to your server, extract the new files, and set permissions automatically. If you would rather not use FTP to set permissions automatically, you can choose "None" as the connection type and PHP will attempt to set the necessary permissions. This method can be slightly less reliable, so we strongly suggest using FTP.'
+"FTP Connection Type";"FTP Connection Type"
+
+"Ning Import Instructions";"Ning Import Instructions"
+"This Ning Import tool is designed to migrate your Ning 2 content provided by Ning's Archive Tool to SocialEngine.
+  New Ning 3 does not currently support exporting, thus content from that version of Ning cannot be imported.";"This Ning Import tool is designed to migrate your Ning 2 content provided by Ning's Archive Tool to SocialEngine.
+  New Ning 3 does not currently support exporting, thus content from that version of Ning cannot be imported."
+  
+"Your site already has content. The content will be removed from the existing installation if you use this
+    import tool.";"Your site already has content. The content will be removed from the existing installation if you use this
+    import tool."
+	
+"Do not create content or post anything. Having admin user is OK.";"Do not create content or post anything. Having admin user is OK."
+"Export your Ning Community using";"Export your Ning Community using"
+"their archive tool";"their archive tool"
+"Be sure to download everything.";"Be sure to download everything."
+"In the export folder, check that you have these files and folders:";"In the export folder, check that you have these files and folders:"
+"You can import as much or as little data as you wish, but at very least you will need ning-members.json.";"You can import as much or as little data as you wish, but at very least you will need ning-members.json."
+
+"Use our Ning Import tool to import all your existing Ning members, content,
+    and data.";"Use our Ning Import tool to import all your existing Ning members, content,
+    and data."
+	
+"Start Import";"Start Import"
+"After import tool completes, delete all ning-related JSON files and directories. Do not delete SocialEngine files.
+    Your Ning Community is now imported and you're ready to start using SocialEngine!";"After import tool completes, delete all ning-related JSON files and directories. Do not delete SocialEngine files.
+    Your Ning Community is now imported and you're ready to start using SocialEngine!"
+	
+
+#phpfox import
+
+"PHPfox Import Instructions";"PHPfox Import Instructions"
+"This PHPfox Import tool is designed to migrate content directly from a PHPfox installation into SocialEngine. It is intended to be used on a fresh install of SocialEngine PHP. It will remove any existing content on the network.";"This PHPfox Import tool is designed to migrate content directly from a PHPfox installation into SocialEngine. It is intended to be used on a fresh install of SocialEngine PHP. It will remove any existing content on the network."
+"Your site already has content. The content will be removed if you use this
+    import tool.";"Your site already has content. The content will be removed if you use this
+    import tool."
+"All admin and user accounts.";"All admin and user accounts."
+"User levels.";"User levels."
+"All user content.";"All user content."
+"All announcements.";"All announcements."
+"Files uploaded in the admin panel media manager.";"Files uploaded in the admin panel media manager."
+"All admin created categoried (i.e. blog categories, video categories, etc)";"All admin created categoried (i.e. blog categories, video categories, etc)"
+"Any installed plugins, themes, widgets, or language packs.";"Any installed plugins, themes, widgets, or language packs."
+"Custom pages or changes to existing pages made in the layout editor.";"Custom pages or changes to existing pages made in the layout editor."
+"Global settings";"Global settings"
+"Level settings";"Level settings"
+"Note: In Order to proceed with the import process from phpfox, you need to enter the Youtube API Key in the Global Settings of the Video Plugin in your SocialEngine installation.";"Note: In Order to proceed with the import process from phpfox, you need to enter the Youtube API Key in the Global Settings of the Video Plugin in your SocialEngine installation."
+"The following types of data";"The following types of data"
+"will be removed or overwritten from the existing ";"will be removed or overwritten from the existing "
+"SocialEngine PHP";"SocialEngine PHP"
+" installation";" installation"
+"may be removed or overwritten from the existing ";"may be removed or overwritten from the existing "
+
+#socialengine3 import
+
+"SocialEngine 3 Import Instructions";"SocialEngine 3 Import Instructions"
+"This SocialEngine 3 Import tool is designed to migrate content directly from a
+  SocialEngine 3 installation. It is intended to be used on a fresh
+  install of SocialEngine 4; it will remove any existing content on the network.";"This SocialEngine 3 Import tool is designed to migrate content directly from a
+  SocialEngine 3 installation. It is intended to be used on a fresh
+  install of SocialEngine 4; it will remove any existing content on the network."
+	
+"Install New Packages";"Install New Packages"
+"install";"install"
+"enable";"enable"
+"disable";"disable"
+"delete";"delete"

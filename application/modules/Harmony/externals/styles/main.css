@@ -1,0 +1,242 @@
+/*Common Css*/
+.container{
+	max-width:var(--theme-main-width);
+}
+.harmony_landingpage{
+	background-color:var(--theme-list-background-color);
+}
+.harmony_title::after {
+	background-color:var(--theme-color);
+}
+.harmony_title::before {
+	background-color:var(--theme-color);
+}
+/*Banner Section*/
+.harmony_landing_page_banner_inner .btn i {
+	background-color:var(--theme-button-font-color);
+	color:var(--theme-button-background-color) !important;
+}
+.harmony_landing_page_banner::after {
+	background-color:var(--theme-list-background-color);
+}
+/*Features Section*/
+.harmony_landingpage_features article figure{
+	background-color:var(--theme-list-background-color);
+}
+/*Services Page*/
+.harmony_landingpage_service article:before{
+	background-color:var(--theme-list-background-color);
+}
+/*Landing Page Cta Section*/
+.harmony_landingpage_cta_section {
+	background-color:var(--theme-button-background-color);
+}
+.harmony_landingpage_cta_right ._btn{
+	border-color:var(--theme-button-font-color);
+	color:var(--theme-button-font-color) !important;
+}
+.harmony_landingpage_cta_right ._btn span{
+	color:var(--theme-button-font-color) !important;
+}
+.harmony_landingpage_cta_right ._btn:hover{
+	color:var(--theme-button-font-color) !important;
+	background-color:var(--theme-button-background-color);
+	border-radius:5px 20px 5px 20px;
+}
+.harmony_landingpage_cta_right ._btn:hover span {
+	color: var(--theme-button-font-color) !important;
+}
+.harmony_landingpage_cta_right ._btn i::before{
+	color:var(--theme-button-font-color) !important;
+	background-color:var(--theme-button-background-color);
+}
+.harmony_landingpage_cta_right ._btn:hover i::before{
+	background-color:var(--theme-button-font-color) !important;
+	color:var(--theme-button-background-color) !important;	
+}
+/*Why Choose Us*/
+.harmony_landingpage_why_choose{
+	background-color:var(--theme-list-background-color-alt);
+}
+.harmony_landingpage_features_item_icon {
+	background-color:var(--theme-button-background-color);
+	border-color:var(--theme-list-background-color) !important;
+}
+/*Landing Page App Section*/
+/*Default Landing Page*/
+body#global_page_core-index-index div#global_wrapper {
+	padding-top: 0;
+}
+.generic_layout_container.layout_core_parallax,
+.layout_core_landing_page_features{
+	background: transparent !important;
+	box-shadow: inherit !important;
+}
+.layout_core_landing_page_features {
+	padding: 35px 0 !important;
+}
+.layout_core_landing_page_features > h3{
+	text-align:center !important;
+	border:0 !important;
+	background: transparent !important;
+	box-shadow: inherit !important;
+	font-size:2em !important;
+	padding-bottom:30px !important;
+}
+.core_landingpage_features > div > div > article{
+	margin:0;
+}
+.layout_core_parallax {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+
+
+
+
+
+.harmony_landingpage_service a * {
+  position: relative;
+}
+.harmony_landingpage_service a {
+  position: relative;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, .06);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px 0 !important;
+  height: 100%;
+  transition: .5s;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.harmony_landingpage_service a:hover * {
+  color: #fff !important;
+}
+.harmony_landingpage_service_inner a:hover {
+  background-color: #1AB69D!important;
+}
+.harmony_landingpage_service_inner:nth-child(2) a:hover, 
+.harmony_landingpage_service_inner:nth-child(7) a:hover {
+  background-color: #EE4A62!important;
+}
+.harmony_landingpage_service_inner:nth-child(3) a:hover, 
+.harmony_landingpage_service_inner:nth-child(6) a:hover {
+  background-color: #F8BA27!important;
+}
+.harmony_landingpage_service_inner:nth-child(4) a:hover, 
+.harmony_landingpage_service_inner:nth-child(5) a:hover {
+  background-color: #4664E4!important;
+}
+.harmony_landingpage_service a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: .8;
+}
+
+.harmony_landingpage_service a:hover .harmony_landingpage_service_icon i {
+    background-color: rgba(255,255,255,.12)!important;
+    color: #fff !important;
+}
+.harmony_landingpage_service a .harmony_landingpage_service_icon i {
+    width: 65px;
+    height: 65px;
+    background-color: #f4fffd !important;
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: .5s;
+    font-size: 2em;
+    color: #1AB69D!important;
+}
+.harmony_landingpage_service p {
+    color: var(--theme-font-color);
+    word-wrap: break-word;
+}
+
+/* feature css */
+.harmony_landingpage_features a {
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.06);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 40px 0 15px;
+    height: 100%;
+    transition: .5s;
+    background-color: #f4fffd;
+}
+.harmony_landingpage_features_inner a:hover {
+    background-color: #1AB69D;
+}
+.harmony_landingpage_features_inner:nth-child(2) a {
+    background-color: #FFF7F8;
+}
+.harmony_landingpage_features_inner:nth-child(2) a:hover {
+    background-color: #EE4A62;
+}
+.harmony_landingpage_features_inner:nth-child(3) a {
+    background-color: #FEF3D8;
+}
+.harmony_landingpage_features_inner:nth-child(3) a:hover {
+    background-color: #F8BA27;
+}
+.harmony_landingpage_features_inner:nth-child(4) a {
+    background-color: #FAFBFF;
+}
+.harmony_landingpage_features_inner:nth-child(4) a:hover {
+    background-color: #4664E4;
+}
+.harmony_landingpage_features a figure {
+    width: 70px;
+    height: 70px;
+    margin: -55px auto 14px;
+    border-width: 1px;
+    border-color: #1AB69D!important;
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: .5s;
+}
+.harmony_landingpage_features_inner:nth-child(2) a figure {
+    border-color: #EE4A62 !important;
+}
+.harmony_landingpage_features_inner:nth-child(3) a figure {
+    border-color: #F8BA27!important;
+}
+.harmony_landingpage_features_inner:nth-child(4) a figure {
+    border-color: #4664E4!important;
+}
+.harmony_landingpage_features_inner a:hover * {
+    color: #fff !important;
+}
+.harmony_landingpage_features a figure {
+    background-color: var(--theme-list-background-color);
+}
+.harmony_landingpage_features a figure img {
+    width: 32px;
+}
+.harmony_landingpage_features_inner a figure::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    background-color: #1AB69D;
+    opacity: .15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    position: absolute;
+    transition: .5s;
+}

@@ -1,0 +1,78 @@
+{
+  "type": "external",
+  "name": "smoothbox",
+  "version": "7.3.0",
+  "revision": "9747",
+  "path": "externals\/smoothbox",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+  "title": "Smoothbox",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+    "title": "Smoothbox",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/smoothbox": {
+      "type": "directory",
+      "path": "externals\/smoothbox",
+      "structure": [
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 374,
+          "sha1": "1f90c8523c537f1e84044958fe8fdb68b3a8a5cd"
+        },
+        {
+          "path": "loading.gif",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1588,
+          "sha1": "a6621b4c1ea148c727cc2b1a360261b9e1317c8b"
+        },
+        {
+          "path": "smoothbox4.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 16122,
+          "sha1": "a1d87f5688d9f1d2b8b44f815f7b744a166359ab"
+        },
+        {
+          "path": "smoothbox.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14782,
+          "sha1": "48bd4036799c685aa6239b9afdca5f1715a4d74a"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<?php
+/**
+ * SocialEngine
+ *
+ * @category   Application_Extensions
+ * @package    Activity
+ * @copyright  Copyright 2006-2024 Ahead WebSoft Technologies
+ * @license    https://socialengine.com/eula
+ * @version    $Id: Hashtags.php 2024-10-28 00:00:00Z 
+ * @author     SocialEngine
+ */
+
+/**
+ * @category   Application_Extensions
+ * @package    Activity
+ * @copyright  Copyright 2006-2024 Ahead WebSoft Technologies
+ * @license    https://socialengine.com/eula
+ */
+
+class Activity_Model_DbTable_Hashtags extends Engine_Db_Table {
+
+  public function getAllHashtags($action_id) {
+    
+    $select = $this->select()
+                  ->from($this->info('name'))
+                  ->where('action_id =?', $action_id);
+    return $this->fetchAll($select);
+  }
+}

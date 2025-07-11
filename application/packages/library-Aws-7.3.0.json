@@ -1,0 +1,3254 @@
+{
+  "type": "library",
+  "name": "Aws",
+  "version": "7.3.0",
+  "revision": null,
+  "path": "application\/libraries\/Aws",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+  "title": "Amazon S3 API",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+    "title": "Amazon S3 API",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "application\/libraries\/Aws": {
+      "type": "directory",
+      "path": "application\/libraries\/Aws",
+      "structure": [
+        {
+          "path": "LICENSE",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 9202,
+          "sha1": "7d0b5e07432c16b84ea981c7d715bd60daade08c"
+        },
+        {
+          "path": "aws-autoloader.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 29568,
+          "sha1": "d922de0e602101452f3c027545aa9d50798dcb18"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 345,
+          "sha1": "f8f9a6941c5b354107137d4fded5b1e5afce4e1d"
+        },
+        {
+          "path": "Psr",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Psr\/Http",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Psr\/Http\/Message",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Psr\/Http\/Message\/ResponseInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2591,
+          "sha1": "00593c5ed88c411142374b8477ec403c14d91e73"
+        },
+        {
+          "path": "Psr\/Http\/Message\/MessageInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6910,
+          "sha1": "8296270ba3fb421c130456626c68f2e32825b342"
+        },
+        {
+          "path": "Psr\/Http\/Message\/UploadedFileInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4689,
+          "sha1": "16d515f00721f693057b64b3a0c4123167a7acff"
+        },
+        {
+          "path": "Psr\/Http\/Message\/StreamInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4746,
+          "sha1": "05d247777c02c5508ef812f24679761fd6cd527f"
+        },
+        {
+          "path": "Psr\/Http\/Message\/ServerRequestInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10098,
+          "sha1": "4ac1c2f317b9a223ca86ae25878ace9df23a26e7"
+        },
+        {
+          "path": "Psr\/Http\/Message\/UriInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 12607,
+          "sha1": "a8f69d73e2ca020f5a56d580625c6d598f936a24"
+        },
+        {
+          "path": "Psr\/Http\/Message\/RequestInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4814,
+          "sha1": "bd020d9e1b339da190eac3c973ec06b11e995da6"
+        },
+        {
+          "path": "GuzzleHttp",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "GuzzleHttp\/PrepareBodyMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3224,
+          "sha1": "15fe82c0444d36aa07475abbde6ace3ca82ffe53"
+        },
+        {
+          "path": "GuzzleHttp\/RequestOptions.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10356,
+          "sha1": "fb9fa5e9f1f6d7844be1d35d8618c90e33b1b1d8"
+        },
+        {
+          "path": "GuzzleHttp\/Cookie",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "GuzzleHttp\/Cookie\/SessionCookieJar.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1950,
+          "sha1": "f6e74a72c5e69482e2cc9da0c70b66a9f7184449"
+        },
+        {
+          "path": "GuzzleHttp\/Cookie\/SetCookie.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10596,
+          "sha1": "ebeb41d2f353b0d246e9edf29dedda3a6c80e19e"
+        },
+        {
+          "path": "GuzzleHttp\/Cookie\/CookieJarInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2801,
+          "sha1": "7ad26e32e2405a0cb1608d90c71a6bf421207a48"
+        },
+        {
+          "path": "GuzzleHttp\/Cookie\/FileCookieJar.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2657,
+          "sha1": "315af0141713025d8d2c946d11873e39b09fcfa0"
+        },
+        {
+          "path": "GuzzleHttp\/Cookie\/CookieJar.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 9609,
+          "sha1": "79a0cc962e28e82016ce24209129a703b1211240"
+        },
+        {
+          "path": "GuzzleHttp\/RetryMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3503,
+          "sha1": "07c54a097f23be5e74ea8b56943ac575c79d23ce"
+        },
+        {
+          "path": "GuzzleHttp\/Middleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 9892,
+          "sha1": "8dfc9b4ff999aa659d4de820ec94bdd8231b010b"
+        },
+        {
+          "path": "GuzzleHttp\/functions_include.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 160,
+          "sha1": "28f0e7a04af02f198fc7f4c1ea95db9590752646"
+        },
+        {
+          "path": "GuzzleHttp\/Utils.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2797,
+          "sha1": "d9df5b114c13a0c96ceafc93368d1b402084bda0"
+        },
+        {
+          "path": "GuzzleHttp\/UriTemplate.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8118,
+          "sha1": "382a60b3b4eb1e414c0096a67f33a61f6b796922"
+        },
+        {
+          "path": "GuzzleHttp\/Pool.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4836,
+          "sha1": "e175daa0e03f96d44fcb35c9199e9ca028b87ced"
+        },
+        {
+          "path": "GuzzleHttp\/RedirectMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8282,
+          "sha1": "29da8ba556d77fa15e1e4bdfd525f5a2c3aee33f"
+        },
+        {
+          "path": "GuzzleHttp\/Client.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 19315,
+          "sha1": "2ffe7623cc6c44d4180ec1f8bd1756bac63eda76"
+        },
+        {
+          "path": "GuzzleHttp\/Promise",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/Promise.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8944,
+          "sha1": "25466693d31173d1aa848161d3ff53f79eaa61a1"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/Create.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2112,
+          "sha1": "f24b17fc6b752814c88dd9783745b593cbf04cee"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/Each.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2887,
+          "sha1": "8a00087ecf297a57be1ab171364c7581e9775e8a"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/functions_include.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 167,
+          "sha1": "21fa23fd68e7242075a98b65619cac09570f8ebe"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/Is.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 999,
+          "sha1": "3e828784fd01257921a2320a7d7c4759795ddb68"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/TaskQueueInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 433,
+          "sha1": "6d65afe77b510a88ec15dcbfa2fdad26916622d3"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/Utils.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8704,
+          "sha1": "62451509598e2f760b8f1a1499babfb8a6a56091"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/TaskQueue.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1940,
+          "sha1": "d376ce029640b2a66abb11e046311f841ef40ca3"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/RejectedPromise.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2284,
+          "sha1": "b017452b9c9d98daa1aaf5a57e2b5876021da2e8"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/RejectionException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1218,
+          "sha1": "565fa091deacdf2c53a84fda9d6f68ee067fe7b3"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/PromiseInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2852,
+          "sha1": "8c7d96069ef579dd4df26e51810fdeb10da29794"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/EachPromise.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8017,
+          "sha1": "2ce3d626b033e5749ff2278a2a4b8a42555030d6"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/AggregateException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 380,
+          "sha1": "0772762e30926c2bb99287b1cc7c88d8643343a6"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/PromisorInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 244,
+          "sha1": "904eaefe1217cec91e589a6dc456dfe517e2cbf4"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/functions.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10128,
+          "sha1": "3458d05be46fa5dbf6dcf3fda06ebcb637b05cc3"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/Coroutine.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4346,
+          "sha1": "4b7987d07a8dda82ac869d2ad742060e3da0bdec"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/FulfilledPromise.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1991,
+          "sha1": "7eb71fa47e80d5f55400aa619ae18c2376117b41"
+        },
+        {
+          "path": "GuzzleHttp\/Promise\/CancellationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 183,
+          "sha1": "c36686e9f7f0d01c9f229f16c79c35723a9ac323"
+        },
+        {
+          "path": "GuzzleHttp\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/ConnectException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 726,
+          "sha1": "0f7d61d39cb0642e3c7ac404680628c56c4f6d29"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/ClientException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 162,
+          "sha1": "b56d3b0b28b5de64866d4d578b4e504097840fbb"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/TransferException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 120,
+          "sha1": "dc219447ad6654c74cc75887a847f7996135a03e"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/BadResponseException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 806,
+          "sha1": "ddf58005fd68081273aefcebf51b22045e612672"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/GuzzleException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 471,
+          "sha1": "d666408180f03ef16e628ea11e530c42a0dbccb7"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/InvalidArgumentException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 142,
+          "sha1": "6d94e8bc111065363dd91fe187941cb302d6a18a"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/SeekException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 588,
+          "sha1": "651a87878b06202b4ee543462744954fc6eab3c9"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/RequestException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5142,
+          "sha1": "dd1aacf278d6b1f4e897a394e64ccb6bd3625633"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/ServerException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 162,
+          "sha1": "ffad7aad333954d8c5eba312b3ac15c2280872da"
+        },
+        {
+          "path": "GuzzleHttp\/Exception\/TooManyRedirectsException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 100,
+          "sha1": "64d3132a227360ca644eb4a238c0ccb355ab219e"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Rfc7230.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 691,
+          "sha1": "dd3641e389d587db408146b06d9ccca746cc94f1"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Response.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4809,
+          "sha1": "70dd451b02e025b5289b5d375b6f76d540260dd2"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/StreamWrapper.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3779,
+          "sha1": "92d1b19b42741e6268f2f2ce06efe49724fceab0"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/MultipartStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4769,
+          "sha1": "fc473342390ba15fb3c47b96dd136b2040b1944f"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/MessageTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7880,
+          "sha1": "95a5d8c980efbe6b3ebe21e095321759e470c665"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/InflateStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1845,
+          "sha1": "c100d9c56bfb27b5faa5ca8b7777c33c879861f2"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/MimeType.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5109,
+          "sha1": "bcddb2e399167c22272d59cfad251a07ef062919"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/functions_include.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 156,
+          "sha1": "82ace3d3065a2518755d743843861c89861f4390"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/NoSeekStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 439,
+          "sha1": "8bf0ae8b9b8649bc7efc4785210e98007ab6eabc"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Query.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3490,
+          "sha1": "01bb0d8b32b2c4f6d22cc71300a9ebb4515340b3"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/FnStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3958,
+          "sha1": "c6202abfcef1987cbbc15233c9cdeed466826918"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/DroppingStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1094,
+          "sha1": "0f4a9dc6577380c4b51fbcce105516eb7278d0e4"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/UploadedFile.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7771,
+          "sha1": "220b943671baabe20ed6e0d6581b8850abca359c"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Utils.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14673,
+          "sha1": "62d77fe44861b2f09b099d4573953666d2177b9d"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/BufferStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3079,
+          "sha1": "be4488d2607c37d95d0bd83cd26846f8726cc3de"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Message.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8276,
+          "sha1": "91060e29210be292f74263db108b26b3d8190e8e"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/LimitStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4225,
+          "sha1": "408fee6b29520c338e9b4cdf48033db111b316c1"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/AppendStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5768,
+          "sha1": "bdb65e26c1424b80d29f0e7b6c58d87f1ebac4f7"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Request.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3719,
+          "sha1": "8ade5f5e19dd55472ff07a550220b8a4ad5d34a3"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/CachingStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4450,
+          "sha1": "23e657d45588252d391e9dda48f1bb69e6fd0fc5"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/LazyOpenStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 900,
+          "sha1": "59999e753e00581489bc2b747464137483da949d"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Stream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6810,
+          "sha1": "ae6e745df4884ca3a247dce43344475f9c7b317e"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Header.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2178,
+          "sha1": "f130f073a57258e36fac2ea045ca2aa256980dca"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/Uri.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 22898,
+          "sha1": "522cce349209e4434430fb6b9faf341765d698d2"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/functions.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 13409,
+          "sha1": "c733336670dc697963965e9ead4e7b9a818e0047"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/ServerRequest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 9852,
+          "sha1": "874c2660af29b0f640be596fcd467a8badaf06a0"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/StreamDecoratorTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3291,
+          "sha1": "60f99a2c3b110a0722656dd868475623963c6060"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/UriNormalizer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8331,
+          "sha1": "f85aad7a4ac5be453165f837cc210ed9294d8fbb"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/PumpStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4084,
+          "sha1": "3a41b1719ad7347c7df6837cf611821a24db2054"
+        },
+        {
+          "path": "GuzzleHttp\/Psr7\/UriResolver.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8789,
+          "sha1": "68002bf385b67e7dca0d7ea8c1dc051fcd32bc3e"
+        },
+        {
+          "path": "GuzzleHttp\/ClientInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2864,
+          "sha1": "9c1cca5c2e5af36f8389b3b3efa5c09d2bc02331"
+        },
+        {
+          "path": "GuzzleHttp\/MessageFormatter.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7262,
+          "sha1": "604a5fc2278b50c40893493b6e830823dd813228"
+        },
+        {
+          "path": "GuzzleHttp\/HandlerStack.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7768,
+          "sha1": "dd228b9beb40785b42daabfc6c13e425eb127893"
+        },
+        {
+          "path": "GuzzleHttp\/functions.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 9928,
+          "sha1": "eb5669521a15c4c376fc54b7e90561699bbf7aa5"
+        },
+        {
+          "path": "GuzzleHttp\/Handler",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/CurlHandler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1263,
+          "sha1": "2c659e0fa3a1f4e7ff4c9ce6ef3c8cc97640be5d"
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/CurlFactory.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 21544,
+          "sha1": "a568713580e06682dbf99dcbadeb2442bad5663c"
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/Proxy.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1775,
+          "sha1": "84c082a1e86f232979e62b4bdd5cd7f2769c17e8"
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/StreamHandler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 18618,
+          "sha1": "2c1385b58fb14b73c389fa44fed7a8368cd7be32"
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/CurlFactoryInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 702,
+          "sha1": "53d198fc966252d426e5267a2a67be9ea971439f"
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/CurlMultiHandler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6411,
+          "sha1": "0de8ed4a9275387cfc88a2c6669968c244d8262f"
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/EasyHandle.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2825,
+          "sha1": "0bccaba254cb638c09ac505726323703d40c7cb4"
+        },
+        {
+          "path": "GuzzleHttp\/Handler\/MockHandler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6067,
+          "sha1": "22826b712b77c50d85a96a3876e212682056d707"
+        },
+        {
+          "path": "GuzzleHttp\/TransferStats.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3115,
+          "sha1": "77205999c20ec8f58fa979ccb6e26d34bc07c0d6"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 976846,
+          "sha1": "6846fe37a2cae2378c98b6a2aa0bbd7ac71a4ac0"
+        },
+        {
+          "path": "Aws",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/HandlerList.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 13560,
+          "sha1": "95ebc2d2b06e10e2bba7f2862f70bdcb91195318"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 835,
+          "sha1": "7f773f3d7a63247dae2b19278006518076ef4ea1"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/AbstractMonitoringMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8138,
+          "sha1": "c2a1ca27a7a561017c338f53d4001d6d676478af"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1649,
+          "sha1": "53489ded6f586ee11b9cc7ae284b27455a582f9f"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/ApiCallAttemptMonitoringMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8407,
+          "sha1": "668ff721d8fcb91a5a5d7cf80281f07c3ffcae40"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 348,
+          "sha1": "f5f587a0e0fb779acc134af11bd997ee72731b7e"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/MonitoringMiddlewareInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 793,
+          "sha1": "f06902999a42cccf7db69e5606a18dfa7503144c"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/ApiCallMonitoringMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4793,
+          "sha1": "f9f8f5261d0f46c1ac45a6259cdb490711a07e69"
+        },
+        {
+          "path": "Aws\/ClientSideMonitoring\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8767,
+          "sha1": "bc3b20670092a53a7d73193f2141c868730902f7"
+        },
+        {
+          "path": "Aws\/DefaultsMode",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/DefaultsMode\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1040,
+          "sha1": "9aaceed290a269c933cbf4a33fea3d47c1166150"
+        },
+        {
+          "path": "Aws\/DefaultsMode\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3724,
+          "sha1": "4c44f824cf4ad4d5df8eea511a5e85ae81875259"
+        },
+        {
+          "path": "Aws\/DefaultsMode\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/DefaultsMode\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 316,
+          "sha1": "2586aa3a3c351d637d51b040b505db9f5664c111"
+        },
+        {
+          "path": "Aws\/DefaultsMode\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7000,
+          "sha1": "fd947e98bb56064539f576f277c29ea9b62e45bd"
+        },
+        {
+          "path": "Aws\/Sdk.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 54392,
+          "sha1": "b78016415cedfbbe2af1a7fe1349e3fd8805ca82"
+        },
+        {
+          "path": "Aws\/AwsClientInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5529,
+          "sha1": "0a1c7a4dade4cd2289a10d0efbdd39a483411445"
+        },
+        {
+          "path": "Aws\/ClientResolver.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 44409,
+          "sha1": "5c8a79f82d99c63322b9d0546c51109e41659e04"
+        },
+        {
+          "path": "Aws\/HasMonitoringEventsTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 869,
+          "sha1": "6119a85e5e42664296a972247aa5228f0d045046"
+        },
+        {
+          "path": "Aws\/StreamRequestPayloadMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2632,
+          "sha1": "70802c45c3f6ba54194564e36b1906161069a66a"
+        },
+        {
+          "path": "Aws\/InputValidationMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2494,
+          "sha1": "0883e84ac1bc61a60b9620649976654202308715"
+        },
+        {
+          "path": "Aws\/ResultInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1372,
+          "sha1": "8b9e908afe6f00575f12e9917f72c60423c16e72"
+        },
+        {
+          "path": "Aws\/Credentials",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Credentials\/CredentialsInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1138,
+          "sha1": "fe9355bec7089625c57aaf8b2c49682de25357a2"
+        },
+        {
+          "path": "Aws\/Credentials\/CredentialProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 34030,
+          "sha1": "1f9677a73e55a40298770ab79af410f07434e590"
+        },
+        {
+          "path": "Aws\/Credentials\/Credentials.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2718,
+          "sha1": "ec24281f8fad02ba56feccfce1cf823edb03338d"
+        },
+        {
+          "path": "Aws\/Credentials\/AssumeRoleWithWebIdentityCredentialProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6202,
+          "sha1": "f6c695c01992504614f17e2da85298901e6c2c35"
+        },
+        {
+          "path": "Aws\/Credentials\/AssumeRoleCredentialProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1936,
+          "sha1": "2552292467267e4e8c02de11f6ab2e217fefaa28"
+        },
+        {
+          "path": "Aws\/Credentials\/EcsCredentialProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3921,
+          "sha1": "440220dcb980fe404db253210af8bb72dbb4d4da"
+        },
+        {
+          "path": "Aws\/Credentials\/InstanceProfileProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10327,
+          "sha1": "191a341293872fc2e1757dc1ab35f0eb3776cdb1"
+        },
+        {
+          "path": "Aws\/Command.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1427,
+          "sha1": "206d6ea191a806fe2b03b1b121e0c504466566be"
+        },
+        {
+          "path": "Aws\/EndpointParameterMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2799,
+          "sha1": "46bb287c7a3f2888f8ac010729609df8c845fb12"
+        },
+        {
+          "path": "Aws\/RetryMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8673,
+          "sha1": "3370278ac49a98fb157e25d379038e88bc2e3e1d"
+        },
+        {
+          "path": "Aws\/EndpointDiscovery",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/EndpointDiscovery\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 580,
+          "sha1": "8596b596c8eff12668867831017c96af48900aa4"
+        },
+        {
+          "path": "Aws\/EndpointDiscovery\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1097,
+          "sha1": "041eeed9eec0d33df5962d678222429462230b30"
+        },
+        {
+          "path": "Aws\/EndpointDiscovery\/EndpointList.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1943,
+          "sha1": "9571539e8ebf7497ad967f706b36e36f431b5243"
+        },
+        {
+          "path": "Aws\/EndpointDiscovery\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/EndpointDiscovery\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 339,
+          "sha1": "9d217aed27378dec7432d9c477c1e5bd145c3902"
+        },
+        {
+          "path": "Aws\/EndpointDiscovery\/EndpointDiscoveryMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 13603,
+          "sha1": "19548ffaa91053470cdaafb501d6fef1f9b7e487"
+        },
+        {
+          "path": "Aws\/EndpointDiscovery\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8841,
+          "sha1": "a8c40fa271c8a06c84ea28dc1e74b8f8aa73cbfc"
+        },
+        {
+          "path": "Aws\/Middleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14264,
+          "sha1": "97b892fee4753d1e3f7f859b8225335e23ec2afc"
+        },
+        {
+          "path": "Aws\/Result.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1170,
+          "sha1": "7ba3abab09c8e94cebd092e647d36c94d79a9599"
+        },
+        {
+          "path": "Aws\/data",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/data\/endpoints.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 385055,
+          "sha1": "2b50629a905354cd9e03e871e8b7edaf2c7c0505"
+        },
+        {
+          "path": "Aws\/data\/manifest.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 39940,
+          "sha1": "c39417dc338756df150a391bda8801bcf15f4b4d"
+        },
+        {
+          "path": "Aws\/data\/endpoints_prefix_history.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 356,
+          "sha1": "1397af535a89415af34dfec88724a31aa117300a"
+        },
+        {
+          "path": "Aws\/data\/s3",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/data\/s3\/2006-03-01",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/data\/s3\/2006-03-01\/smoke.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 256,
+          "sha1": "79042414a5219385c2ffdd78313e2832d05a61b2"
+        },
+        {
+          "path": "Aws\/data\/s3\/2006-03-01\/waiters-2.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1117,
+          "sha1": "d433f4129cf938103bc98fd7e775759ca424ddb0"
+        },
+        {
+          "path": "Aws\/data\/s3\/2006-03-01\/paginators-1.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1282,
+          "sha1": "a9b509def09310b1cadd1d812ab71a5d4480d78d"
+        },
+        {
+          "path": "Aws\/data\/s3\/2006-03-01\/waiters-1.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 648,
+          "sha1": "df963b5a7582f180aafbc504e88639763f83ddc3"
+        },
+        {
+          "path": "Aws\/data\/s3\/2006-03-01\/api-2.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 201952,
+          "sha1": "acbb8ad410e893d4803778204364160f678fdd32"
+        },
+        {
+          "path": "Aws\/data\/sdk-default-configuration.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4051,
+          "sha1": "69756ea522a80b56e46a1b2443f2496ef6283e41"
+        },
+        {
+          "path": "Aws\/data\/aliases.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 512,
+          "sha1": "e07986828846e66017d98baaf043138517e8f1d9"
+        },
+        {
+          "path": "Aws\/data\/sns",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/data\/sns\/2010-03-31",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/data\/sns\/2010-03-31\/smoke.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 393,
+          "sha1": "a2ebed0f956d087cce6c6fad9eac2cc93814ef47"
+        },
+        {
+          "path": "Aws\/data\/sns\/2010-03-31\/endpoint-tests-1.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14394,
+          "sha1": "e61aa369a2e134b3af4d50a23ef0d2d65a1891ab"
+        },
+        {
+          "path": "Aws\/data\/sns\/2010-03-31\/endpoint-rule-set-1.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4911,
+          "sha1": "b62f3bc3556eea075f8fa7ff310e092479e40ebe"
+        },
+        {
+          "path": "Aws\/data\/sns\/2010-03-31\/paginators-1.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1198,
+          "sha1": "670fc49ab5358d8a77fd090e46cedfa0109d2d68"
+        },
+        {
+          "path": "Aws\/data\/sns\/2010-03-31\/api-2.json.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 49420,
+          "sha1": "96b23b2857386d494665112231102739dde73dd2"
+        },
+        {
+          "path": "Aws\/AwsClientTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2733,
+          "sha1": "4290a72f8f8b46b4190131dc18adfcad0cf05d30"
+        },
+        {
+          "path": "Aws\/CommandInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 946,
+          "sha1": "87809e1d90017ea03ed659415ab880b0f5bb4dd6"
+        },
+        {
+          "path": "Aws\/AbstractConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4572,
+          "sha1": "c296e745c0b06c1dec278e09ac07684a9e381fdd"
+        },
+        {
+          "path": "Aws\/WrappedHttpHandler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7139,
+          "sha1": "77a540fbe452a1ad4828b5dfdcb693b423ccdb7b"
+        },
+        {
+          "path": "Aws\/LruArrayCache.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2272,
+          "sha1": "675de4c6260370ac30d75df4f900dfbbd76bf165"
+        },
+        {
+          "path": "Aws\/Sns",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Sns\/MessageValidator.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6314,
+          "sha1": "3e44db950ebb71b6175e673ae7e01e89641f76da"
+        },
+        {
+          "path": "Aws\/Sns\/Message.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4258,
+          "sha1": "20770cc38a31b9754b6a8d3c49305b3575b4a9d1"
+        },
+        {
+          "path": "Aws\/Sns\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Sns\/Exception\/SnsException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 200,
+          "sha1": "c9de323dc6d1a355642f7513d00ca87c71ec56fe"
+        },
+        {
+          "path": "Aws\/Sns\/Exception\/InvalidSnsMessageException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 165,
+          "sha1": "e0902a0de3d245912bcec611c32560807b9ad110"
+        },
+        {
+          "path": "Aws\/Sns\/SnsClient.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6281,
+          "sha1": "87114e1bb125c00ccbeae9e0d7d8dfac52b54dc7"
+        },
+        {
+          "path": "Aws\/Endpoint",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Endpoint\/PartitionEndpointProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3885,
+          "sha1": "b0a3db90e3ff8a6487160f96748e1e56b84c9b9f"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseFipsEndpoint",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Endpoint\/UseFipsEndpoint\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 354,
+          "sha1": "09b1e475f204bd47a58cd8d4e785770baa4b5f32"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseFipsEndpoint\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 855,
+          "sha1": "d8f71e0ea638ff6cb60574d9b5a453f60d0c5770"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseFipsEndpoint\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Endpoint\/UseFipsEndpoint\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 341,
+          "sha1": "216e50a1e2568af2d79b35b219058d49a18da5b6"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseFipsEndpoint\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6884,
+          "sha1": "cd3212373e0a5e08c47be87df3f45028c7329aa2"
+        },
+        {
+          "path": "Aws\/Endpoint\/EndpointProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3313,
+          "sha1": "9c0f55a5287b808bdce3b3fc0f5db4495147e61b"
+        },
+        {
+          "path": "Aws\/Endpoint\/PartitionInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1642,
+          "sha1": "61af73ffcee33aadd12c601020af5033e15bec57"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseDualstackEndpoint",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Endpoint\/UseDualstackEndpoint\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 369,
+          "sha1": "f36eb99e509181277cc0a30604f6c401910f0596"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseDualstackEndpoint\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1151,
+          "sha1": "78632694c123bbc5e06aa1fab47cfa823216d621"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseDualstackEndpoint\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Endpoint\/UseDualstackEndpoint\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 351,
+          "sha1": "ce38fcbd4fca2cf435b7b9228c198fa2d08c2a1d"
+        },
+        {
+          "path": "Aws\/Endpoint\/UseDualstackEndpoint\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6818,
+          "sha1": "6580e865a89b398140ea269c3d2d31a9c27d7062"
+        },
+        {
+          "path": "Aws\/Endpoint\/Partition.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10150,
+          "sha1": "68fbd5ac9f6bc5e192d36580012f9ce7a9b133dd"
+        },
+        {
+          "path": "Aws\/Endpoint\/PatternEndpointProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1353,
+          "sha1": "5f8c75ad1ea941c024f626ea6a954d365fc54424"
+        },
+        {
+          "path": "Aws\/ConfigurationProviderInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 246,
+          "sha1": "539af08acd460f7d5d8fad0467ac429a281c5eb4"
+        },
+        {
+          "path": "Aws\/AwsClient.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 18535,
+          "sha1": "11f8eb04e8b2fb3aec674916cd1c6acd398a952f"
+        },
+        {
+          "path": "Aws\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Exception\/IncalculablePayloadException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 242,
+          "sha1": "6a7f8e94762e01a7a96199d4f3fcfdc414abb795"
+        },
+        {
+          "path": "Aws\/Exception\/UnresolvedEndpointException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 241,
+          "sha1": "b1a5aa9dcfc2d74c954b6b446d1085c80ed60a59"
+        },
+        {
+          "path": "Aws\/Exception\/InvalidRegionException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 236,
+          "sha1": "245c64b66dd9411c005d74c0e2e5db99d5866d97"
+        },
+        {
+          "path": "Aws\/Exception\/CryptoPolyfillException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 160,
+          "sha1": "31eb703f4217e05ca1eb71beccf846c83c62105d"
+        },
+        {
+          "path": "Aws\/Exception\/AwsException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7025,
+          "sha1": "6f961ba087419fc2c1ba9e04da57e546053cc7fd"
+        },
+        {
+          "path": "Aws\/Exception\/UnresolvedSignatureException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 242,
+          "sha1": "8d9165ac47859104fde5f2b47dff8a5735a0e778"
+        },
+        {
+          "path": "Aws\/Exception\/EventStreamDataException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 783,
+          "sha1": "a0d8f96da59d336b16e55e8f3c37310433108875"
+        },
+        {
+          "path": "Aws\/Exception\/CommonRuntimeException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 96,
+          "sha1": "a55780a2b4d66cbd7949d6b945497b3482653c85"
+        },
+        {
+          "path": "Aws\/Exception\/CryptoException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 191,
+          "sha1": "5f68fe0f058ed609ddacf61726cbd8d7c9a052b4"
+        },
+        {
+          "path": "Aws\/Exception\/InvalidJsonException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 234,
+          "sha1": "71e6d8cdf7ca3d1b04274ae96d1885b9aeba3b98"
+        },
+        {
+          "path": "Aws\/Exception\/CouldNotCreateChecksumException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1075,
+          "sha1": "fb9d3b2b05a7879641a3abfcff031464552574f6"
+        },
+        {
+          "path": "Aws\/Exception\/UnresolvedApiException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 236,
+          "sha1": "5f59acc02ecd33c44a23e65a8d80f4ccdcbb4b14"
+        },
+        {
+          "path": "Aws\/Exception\/MultipartUploadException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1888,
+          "sha1": "f22c552ed0082c8ab7fd3cb1cca9bc49e7ba16b3"
+        },
+        {
+          "path": "Aws\/Exception\/CredentialsException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 234,
+          "sha1": "fe49b2c53f99561ebb8dae8d9c00dc279d594691"
+        },
+        {
+          "path": "Aws\/MonitoringEventsInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 742,
+          "sha1": "135620ac9beccac144627bc8ef6e24114fdc6668"
+        },
+        {
+          "path": "Aws\/Retry",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Retry\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 587,
+          "sha1": "098b794bdaf3af6c40f6df35e59fc406845bcbc1"
+        },
+        {
+          "path": "Aws\/Retry\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1389,
+          "sha1": "3d9450d1f781f83cfe644c1d7cf574abd1a713af"
+        },
+        {
+          "path": "Aws\/Retry\/QuotaManager.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2570,
+          "sha1": "27a557bdecba4a683cd9fd16bfe29cf06c58cb9e"
+        },
+        {
+          "path": "Aws\/Retry\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Retry\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 310,
+          "sha1": "5b3fa7fe7ba0fb9f57424a0c33a89c3b7426accf"
+        },
+        {
+          "path": "Aws\/Retry\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7915,
+          "sha1": "e6a02af12d8d7fd8150effdf4c84c4e34af79b8f"
+        },
+        {
+          "path": "Aws\/Retry\/RateLimiter.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5145,
+          "sha1": "6d1a5432ea1a91c9955ba5085475c3e14937038c"
+        },
+        {
+          "path": "Aws\/Retry\/RetryHelperTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1556,
+          "sha1": "95cbea908eb8470777fd77caab1f77353a8ff2d7"
+        },
+        {
+          "path": "Aws\/S3",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/S3\/S3UriParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5027,
+          "sha1": "d58c1c4550ff301e2b658b36944321c10778a136"
+        },
+        {
+          "path": "Aws\/S3\/RetryableMalformedResponseParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1453,
+          "sha1": "8048334e378da9b3ae012bb04308a60f4d7795a6"
+        },
+        {
+          "path": "Aws\/S3\/S3ClientInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14193,
+          "sha1": "8e49a7a53435895d37cbbe897f02551e248e3dd2"
+        },
+        {
+          "path": "Aws\/S3\/PutObjectUrlMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1569,
+          "sha1": "88bfd20113809b5d9786fc641032d7941e766d0c"
+        },
+        {
+          "path": "Aws\/S3\/GetBucketLocationParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1320,
+          "sha1": "44dac31b262007b8b4c89b8ef99d160026ee1eff"
+        },
+        {
+          "path": "Aws\/S3\/PostObject.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3927,
+          "sha1": "c71af9fc1ff20a2b3901df7fa4c6da0da6c4668b"
+        },
+        {
+          "path": "Aws\/S3\/StreamWrapper.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 30973,
+          "sha1": "4f9cd7537bac307a11923b59acb2285f71cfb174"
+        },
+        {
+          "path": "Aws\/S3\/AmbiguousSuccessParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2280,
+          "sha1": "a55f9b4c100fae8390d2ba1e9d1f8c97b7192cd0"
+        },
+        {
+          "path": "Aws\/S3\/EndpointRegionHelperTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3230,
+          "sha1": "2f4aed0be06f36dd0f935418592828a565f4380b"
+        },
+        {
+          "path": "Aws\/S3\/ValidateResponseChecksumParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5209,
+          "sha1": "c3d365575f74d10bc86c69dffbcb0e9e9f315bfc"
+        },
+        {
+          "path": "Aws\/S3\/PermanentRedirectMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1742,
+          "sha1": "fa8c467309d08fac26a43e90de1f8858b000b293"
+        },
+        {
+          "path": "Aws\/S3\/MultipartUploadingTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3951,
+          "sha1": "3c729ceb81394d4cc88c3a887993c8b980d4c904"
+        },
+        {
+          "path": "Aws\/S3\/SSECMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2289,
+          "sha1": "33ea491e322c49786e37a341a4ca18f4189458c6"
+        },
+        {
+          "path": "Aws\/S3\/RegionalEndpoint",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/S3\/RegionalEndpoint\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 421,
+          "sha1": "32165f2ff5bd8f210d151945a75f7227484a1673"
+        },
+        {
+          "path": "Aws\/S3\/RegionalEndpoint\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 766,
+          "sha1": "9e52cdfac3afab7a0dcadd2c6a0b463606599e73"
+        },
+        {
+          "path": "Aws\/S3\/RegionalEndpoint\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/S3\/RegionalEndpoint\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 345,
+          "sha1": "b231317b12ad99cda08598163982e5f7350713d3"
+        },
+        {
+          "path": "Aws\/S3\/RegionalEndpoint\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7189,
+          "sha1": "68c90b54413bbe7cb27cdaec107f54cc12622d3d"
+        },
+        {
+          "path": "Aws\/S3\/ObjectUploader.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5235,
+          "sha1": "f481121a87fb37326c9f6b8b16b72b21e86d9f93"
+        },
+        {
+          "path": "Aws\/S3\/S3MultiRegionClient.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 19797,
+          "sha1": "67dff05733a1afa1db09fd3df1cba189020182ae"
+        },
+        {
+          "path": "Aws\/S3\/MultipartCopy.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 9028,
+          "sha1": "1175f4dfffee73d5f59eee98e25f130c92c7bfdf"
+        },
+        {
+          "path": "Aws\/S3\/BucketEndpointArnMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 13457,
+          "sha1": "266137b02001548c4a1cc52c8bf381aa46030ccc"
+        },
+        {
+          "path": "Aws\/S3\/Crypto",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/InstructionFileMetadataStrategy.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2965,
+          "sha1": "248dec147ff9ef2654eac7c74c2b4fd0f01e3457"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/CryptoParamsTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2568,
+          "sha1": "9bef0887147d8ca950240dc5a0aed1ecbf449a37"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/HeadersMetadataStrategy.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1623,
+          "sha1": "37361272d00cbb94a2cabd1856851b363ffd14aa"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/S3EncryptionClientV2.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 18357,
+          "sha1": "c9e5f7aa437f812c77762bd56edafd025e7508f1"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/S3EncryptionClient.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 13738,
+          "sha1": "d3a817ea241ccc41b823a72ca48a95342a56aa36"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/CryptoParamsTraitV2.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 505,
+          "sha1": "3db23d427bc46809e9b091d29b291d4cf03b1edd"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/S3EncryptionMultipartUploader.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6808,
+          "sha1": "555ca2e36053c3e43a97c4aac8a1d1e950afe751"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/UserAgentTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 968,
+          "sha1": "2d870c4b253d482744e3a3d1c4c11ebc8562e430"
+        },
+        {
+          "path": "Aws\/S3\/Crypto\/S3EncryptionMultipartUploaderV2.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7438,
+          "sha1": "6f05b61e51d5b943552957d9e335b75df927f98e"
+        },
+        {
+          "path": "Aws\/S3\/BatchDelete.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7654,
+          "sha1": "7e09708f936ed5c5fb3f43487f07bf8335e96966"
+        },
+        {
+          "path": "Aws\/S3\/ObjectCopier.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5820,
+          "sha1": "d1d32422d8e2992885be9270787fe5ef89e46fdd"
+        },
+        {
+          "path": "Aws\/S3\/MultipartUploader.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6116,
+          "sha1": "e02b5aa950a878a95954e35f57c226fb438d336d"
+        },
+        {
+          "path": "Aws\/S3\/S3Client.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 44025,
+          "sha1": "f650616a6c2f6b229a3c9760454a917b8760a7a5"
+        },
+        {
+          "path": "Aws\/S3\/UseArnRegion",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/S3\/UseArnRegion\/ConfigurationInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 367,
+          "sha1": "34463a86590f04d609e6063820bccb8014625c88"
+        },
+        {
+          "path": "Aws\/S3\/UseArnRegion\/Configuration.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 783,
+          "sha1": "1db895ecc06586a14d45c2cfa51174cfc020d63d"
+        },
+        {
+          "path": "Aws\/S3\/UseArnRegion\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/S3\/UseArnRegion\/Exception\/ConfigurationException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 336,
+          "sha1": "6625ea674ef48ce1d0fdec3a1b90676eec76da68"
+        },
+        {
+          "path": "Aws\/S3\/UseArnRegion\/ConfigurationProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6545,
+          "sha1": "dd9cc3a06e11c6b5f992ccf1fc171dfed22d8001"
+        },
+        {
+          "path": "Aws\/S3\/Transfer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 15244,
+          "sha1": "d630d908a2131dc878f241e123407b8e98c5d82d"
+        },
+        {
+          "path": "Aws\/S3\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/S3\/Exception\/DeleteMultipleObjectsException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1873,
+          "sha1": "7d5f77ab1572e64e8adb58e6910555f117d09bd4"
+        },
+        {
+          "path": "Aws\/S3\/Exception\/PermanentRedirectException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 91,
+          "sha1": "ba0a48a9d1cb5a0053e6c14917b9134e316c9d70"
+        },
+        {
+          "path": "Aws\/S3\/Exception\/S3Exception.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 193,
+          "sha1": "3c4312d00573776d8d6baa0cb0895c37526cfdc5"
+        },
+        {
+          "path": "Aws\/S3\/Exception\/S3MultipartUploadException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2664,
+          "sha1": "b7bf7207659361a20d0ca47236fdbe39ab482d37"
+        },
+        {
+          "path": "Aws\/S3\/BucketEndpointMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1914,
+          "sha1": "a6b701bde969f158022b9e01666713e9855acea7"
+        },
+        {
+          "path": "Aws\/S3\/CalculatesChecksumTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1751,
+          "sha1": "3974ebfb7d4cc31426617aabae9d54fa37232502"
+        },
+        {
+          "path": "Aws\/S3\/PostObjectV4.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5430,
+          "sha1": "314f7cedb55b8f748a8ebeadadc3efe80a8c59a0"
+        },
+        {
+          "path": "Aws\/S3\/ApplyChecksumMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3887,
+          "sha1": "bbf008db8c3f0f9a111868071c2ddb88005e455d"
+        },
+        {
+          "path": "Aws\/S3\/S3ClientTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10163,
+          "sha1": "85b4158e54cf5dcf7ce935e30f25be1a5029ae90"
+        },
+        {
+          "path": "Aws\/S3\/S3EndpointMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 11320,
+          "sha1": "21975df0ec0a2586c428c4d6b6b21aa5627396a5"
+        },
+        {
+          "path": "Aws\/Arn",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Arn\/ResourceTypeAndIdTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 650,
+          "sha1": "b1445757d435a2f4f90ec7fbf3a87554e96ec940"
+        },
+        {
+          "path": "Aws\/Arn\/AccessPointArnInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 148,
+          "sha1": "289d4718f6daa3a1ab99898d36645e26bcd26eeb"
+        },
+        {
+          "path": "Aws\/Arn\/ArnParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2062,
+          "sha1": "10c9eee8ab99cfe017816f803c71ab6c5f87e920"
+        },
+        {
+          "path": "Aws\/Arn\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Arn\/Exception\/InvalidArnException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 150,
+          "sha1": "6a2de261ab0eccd68b42870dcc82554842896bc8"
+        },
+        {
+          "path": "Aws\/Arn\/S3",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Arn\/S3\/OutpostsBucketArn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2841,
+          "sha1": "e7c2d81fb73399be0cd8285e113cbc1f890894e2"
+        },
+        {
+          "path": "Aws\/Arn\/S3\/OutpostsArnInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 169,
+          "sha1": "39b420f3b445bfffd1d0caaf7b01d3de5502688a"
+        },
+        {
+          "path": "Aws\/Arn\/S3\/BucketArnInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 168,
+          "sha1": "4de24b961e24deb331c55eba17bd82dd9d0a41c5"
+        },
+        {
+          "path": "Aws\/Arn\/S3\/OutpostsAccessPointArn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3710,
+          "sha1": "8c3790c27546926f1f1fc6ea5251deb08b51ece0"
+        },
+        {
+          "path": "Aws\/Arn\/S3\/MultiRegionAccessPointArn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 695,
+          "sha1": "d74bb6c0bb3787434e25bc4c44acce20eda4c766"
+        },
+        {
+          "path": "Aws\/Arn\/S3\/AccessPointArn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 683,
+          "sha1": "9a0d2e6980e68b9beca3bb248d2a04dc5bb9e687"
+        },
+        {
+          "path": "Aws\/Arn\/ObjectLambdaAccessPointArn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 797,
+          "sha1": "44a68da4115d3d2b0a60d2f0682e0225febc9d72"
+        },
+        {
+          "path": "Aws\/Arn\/ArnInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 864,
+          "sha1": "bb4906c0654c29bbc5fafe3524de2c36db74cc18"
+        },
+        {
+          "path": "Aws\/Arn\/Arn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5117,
+          "sha1": "a0426ca2f15c3e0d60d70ad19562c719cc2afca0"
+        },
+        {
+          "path": "Aws\/Arn\/AccessPointArn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1924,
+          "sha1": "db7d3a41932830866d4eab1f944a6321e88f3c79"
+        },
+        {
+          "path": "Aws\/HasDataTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1495,
+          "sha1": "f75288db0ff4cefe14d4b9db20c407521ebdbf55"
+        },
+        {
+          "path": "Aws\/IdempotencyTokenMiddleware.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3782,
+          "sha1": "4a94b8b9f37b2b2c672be639f6f35af5a6f08881"
+        },
+        {
+          "path": "Aws\/functions.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 13908,
+          "sha1": "dedc2b05f9c8757a125595e66f9cd064ba4b3a98"
+        },
+        {
+          "path": "Aws\/Api",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Api\/ApiProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7653,
+          "sha1": "b229628ec63de40c8810444efb552fa60384c955"
+        },
+        {
+          "path": "Aws\/Api\/Operation.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2276,
+          "sha1": "7211d18c1d7014812ea315ace5c0dc86b4d56e0d"
+        },
+        {
+          "path": "Aws\/Api\/ShapeMap.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1497,
+          "sha1": "e8df7f952db3e32670b51598a0bb0d968a0d39cc"
+        },
+        {
+          "path": "Aws\/Api\/MapShape.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1172,
+          "sha1": "01d19d1735c3a87701c3d14187ea3aecb9dc91e9"
+        },
+        {
+          "path": "Aws\/Api\/Service.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 12381,
+          "sha1": "48df127e5e65c82efbe01c61093b75b7ee0f5c7f"
+        },
+        {
+          "path": "Aws\/Api\/DateTimeResult.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3741,
+          "sha1": "94bf0189426f85241284108f7fb9daa4eb2e51f4"
+        },
+        {
+          "path": "Aws\/Api\/DocModel.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3156,
+          "sha1": "c9f0a6cf93d52e4bcc5eecbc582a3f1cbb7a6bdd"
+        },
+        {
+          "path": "Aws\/Api\/ErrorParser",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Api\/ErrorParser\/RestJsonErrorParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1614,
+          "sha1": "3e4519e90b552dd022ec6b5f854595f10698e8e4"
+        },
+        {
+          "path": "Aws\/Api\/ErrorParser\/XmlErrorParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3161,
+          "sha1": "e9da6e2f06dba25a0c1d4a54c0e82b78e9999fe2"
+        },
+        {
+          "path": "Aws\/Api\/ErrorParser\/JsonParserTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1004,
+          "sha1": "c66024a9cdeee78ee357396a9d6a48921917b3d6"
+        },
+        {
+          "path": "Aws\/Api\/ErrorParser\/AbstractErrorParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2963,
+          "sha1": "0fbda8f30fea03dde95ab8acd1af6dbe18b763a3"
+        },
+        {
+          "path": "Aws\/Api\/ErrorParser\/JsonRpcErrorParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1225,
+          "sha1": "08a46af46aa98266897087136f373187dae2ee89"
+        },
+        {
+          "path": "Aws\/Api\/Serializer",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/XmlBody.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5916,
+          "sha1": "15f96f3e2cb1539112358fee691941f1a33cb46a"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/QueryParamBuilder.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4019,
+          "sha1": "92eaf0a791f698f3fd293269194791a06976e600"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/QuerySerializer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1725,
+          "sha1": "218ce550882f7283ab8e49e657c818ed65d60c54"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/JsonRpcSerializer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1792,
+          "sha1": "2cfa160b0e3bbe6abbe62d0bdb5017b5389c0474"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/JsonBody.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2772,
+          "sha1": "3ae43cff80b1dbc933c76ac4e5179c86fda8c713"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/RestJsonSerializer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1124,
+          "sha1": "34548c64f0b164fd4af0e54e4c2f51f0d9204de9"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/RestXmlSerializer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1283,
+          "sha1": "a929e0212a4575ff51178daee8948358a5b38b45"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/RestSerializer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8276,
+          "sha1": "9ac2012aa102dc7a4422c86350d60a02643f72c7"
+        },
+        {
+          "path": "Aws\/Api\/Serializer\/Ec2ParamBuilder.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 866,
+          "sha1": "113be58391cf0579cddc46c4117f9f4a79063f9b"
+        },
+        {
+          "path": "Aws\/Api\/StructureShape.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1687,
+          "sha1": "2d9eae8a357bc89d98e36de0f77a1285cddfe5fc"
+        },
+        {
+          "path": "Aws\/Api\/AbstractModel.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1827,
+          "sha1": "4c3be822e1c0cebabe548615f47beb73f62a496c"
+        },
+        {
+          "path": "Aws\/Api\/Shape.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1752,
+          "sha1": "63e80c6403bca882d4656b97808717c8e144b7ef"
+        },
+        {
+          "path": "Aws\/Api\/Parser",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Api\/Parser\/XmlParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5138,
+          "sha1": "a9164afacc44d2a5a7881fcb4d9ea2dc1e1f7da1"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/JsonRpcParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1321,
+          "sha1": "618e94a3f34259988126fff5be4f21d0a71d444b"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/QueryParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1769,
+          "sha1": "980f8c80c9b33751b04ba35b7d2a5f114fc4beb0"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/Crc32ValidatingParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1516,
+          "sha1": "5991d90cfa191375120b2a4830e58b11c42a3b0f"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/EventParsingIterator.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3101,
+          "sha1": "9371f395ee49064d54ea5f5e3fc083fa080bb96b"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/AbstractParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1006,
+          "sha1": "d84ac965d8cdb6cbab97e30d3bd68a17691e1ea6"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/PayloadParserTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1475,
+          "sha1": "abf7633d7f5305d37fe2f551c7c6f910e51a138e"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/DecodingEventStreamIterator.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8961,
+          "sha1": "f55e3f00edd149199f1a58db1653d22d983fa80d"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/MetadataParserTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2635,
+          "sha1": "9d5c38131f28731fe98b9449d6470ae544b0af4a"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/RestJsonParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1246,
+          "sha1": "711c36d8a4360fd03e4dde144a804b89b6d1b9fe"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/AbstractRestParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5603,
+          "sha1": "4506230457648d961cd5a3b150de70bf5c5ed78a"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/Exception",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Api\/Parser\/Exception\/ParserException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1370,
+          "sha1": "df13a69e7539485570d8b407f52447777a7de974"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/RestXmlParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1083,
+          "sha1": "a92ba16d6cd4191bcc16c12462c6e7d5a88e066c"
+        },
+        {
+          "path": "Aws\/Api\/Parser\/JsonParser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2059,
+          "sha1": "b867175c9462ada2418feb6eea6ec9b3baddbf05"
+        },
+        {
+          "path": "Aws\/Api\/TimestampShape.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1472,
+          "sha1": "8f62cd5db78ad9f8cfeabd8243387c3e7d84be02"
+        },
+        {
+          "path": "Aws\/Api\/Validator.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10235,
+          "sha1": "26a643f6d8f2dc38cc5aa1f28b1829ec56807aa5"
+        },
+        {
+          "path": "Aws\/Api\/ListShape.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 786,
+          "sha1": "cd92c3dc9662382dd47fbfa4f8962f095c79803c"
+        },
+        {
+          "path": "Aws\/Handler",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Handler\/GuzzleV6",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Handler\/GuzzleV6\/GuzzleHandler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2530,
+          "sha1": "fdc9760fed1acd6d6a385e60806a6629f3f3b603"
+        },
+        {
+          "path": "Aws\/Handler\/GuzzleV5",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Handler\/GuzzleV5\/GuzzleStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 541,
+          "sha1": "2859fb0297df7726dad5e51f32cb11a654d485b7"
+        },
+        {
+          "path": "Aws\/Handler\/GuzzleV5\/GuzzleHandler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6786,
+          "sha1": "b5f1749f444888fc6fd7e02bb17f89e41a755096"
+        },
+        {
+          "path": "Aws\/Handler\/GuzzleV5\/PsrStream.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 706,
+          "sha1": "ed7efb6d2097a125a28af82df3331bad9353eca3"
+        },
+        {
+          "path": "Aws\/CacheInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 755,
+          "sha1": "adeadfbd6ed169a638dbb7186cd3296a17f51527"
+        },
+        {
+          "path": "Aws\/Signature",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Aws\/Signature\/SignatureV4.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 17589,
+          "sha1": "cc9d4a90f833dd6a221765d615346de196129742"
+        },
+        {
+          "path": "Aws\/Signature\/S3SignatureV4.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2611,
+          "sha1": "b8b820c09ef40d835cd0ff50577dfecc8f589f2e"
+        },
+        {
+          "path": "Aws\/Signature\/SignatureInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1422,
+          "sha1": "ff82d87ec651b9421fb9b679cdcd0c51dd585304"
+        },
+        {
+          "path": "Aws\/Signature\/AnonymousSignature.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 667,
+          "sha1": "770d5ccd74f78f1f4b476e7de7a3dc5fbd3b75a6"
+        },
+        {
+          "path": "Aws\/Signature\/SignatureTrait.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1321,
+          "sha1": "2efb91a86757d30f173667145a720f757a7460f6"
+        },
+        {
+          "path": "Aws\/Signature\/SignatureProvider.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4724,
+          "sha1": "87f1889020460188f4794ec996b171f8daa64060"
+        },
+        {
+          "path": "Aws\/ResponseContainerInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 246,
+          "sha1": "c043eee2b7cbe6fb19524ca273d2dd58d4613653"
+        },
+        {
+          "path": "README.md",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 12035,
+          "sha1": "a37d971a444e9d5c3cf4c01079bfb821ff9583ee"
+        },
+        {
+          "path": "JmesPath",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "JmesPath\/Lexer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 15262,
+          "sha1": "344374f2f7e5e4b700dcd2082fcb0a8254a26a8d"
+        },
+        {
+          "path": "JmesPath\/FnDispatcher.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 12470,
+          "sha1": "94558b845bdcb25bc643239f67f18a54a3380e2f"
+        },
+        {
+          "path": "JmesPath\/CompilerRuntime.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2617,
+          "sha1": "a55b5608b9e53f27afea014e51c7e0a9496746a5"
+        },
+        {
+          "path": "JmesPath\/Env.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2479,
+          "sha1": "8930ab1eb19fe8d377b58ee117efed2e5d5f8b53"
+        },
+        {
+          "path": "JmesPath\/TreeCompiler.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 13082,
+          "sha1": "ae9662e4b2d0eab0b5061d7c4633a8ceeff9525a"
+        },
+        {
+          "path": "JmesPath\/TreeInterpreter.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7838,
+          "sha1": "dd55460607d3a755e52f5f29ce6ef2dafb54442e"
+        },
+        {
+          "path": "JmesPath\/SyntaxErrorException.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1134,
+          "sha1": "7efa10143241c4866d227434c314d0de4d68720c"
+        },
+        {
+          "path": "JmesPath\/AstRuntime.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1462,
+          "sha1": "1881a3fd8c060a570e909e5025560dc5b0500227"
+        },
+        {
+          "path": "JmesPath\/Utils.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7441,
+          "sha1": "149e7a9698f1e792999e339900d0e51f4dc9ba13"
+        },
+        {
+          "path": "JmesPath\/Parser.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14227,
+          "sha1": "fe016ff45c9ff67645951b3f09cda7a5df57b7fc"
+        },
+        {
+          "path": "JmesPath\/DebugRuntime.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3184,
+          "sha1": "9197266d9e6540f7bb3c9da66314f79858cc63c4"
+        },
+        {
+          "path": "JmesPath\/JmesPath.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 373,
+          "sha1": "ce84c774e670aca019ebe0f04217a867bb0631f0"
+        },
+        {
+          "path": "NOTICE",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 638,
+          "sha1": "20107d5b7b777b2e57c8cd1a3b8514785938c2a3"
+        },
+        {
+          "path": "Symfony",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Symfony\/Polyfill",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/LICENSE",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1111,
+          "sha1": "f4314116517442b948853a86fc5d663380992cb3"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/deviation.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 83,
+          "sha1": "30921c4924e1c441db39da5959e10f9aa049ae25"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/Regex.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 100362,
+          "sha1": "62d183b2059df300e51431bff7ce09e9d4e2c278"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/disallowed_STD3_valid.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 964,
+          "sha1": "6a3880ae062b405f1131e4c0cbef84c3ae330cc4"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/virama.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 853,
+          "sha1": "58b60fca1ef27d6accc0cf885b54ab7f59204a6e"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/ignored.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4832,
+          "sha1": "0d56021e6ce7b6cadb65c122e3029d734c872238"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/DisallowedRanges.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8707,
+          "sha1": "c88fcf39eb796d6a69ebcfa43a7bc152ed1e05b5"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/disallowed.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 44492,
+          "sha1": "04048fa8bc75ba2c3c55640605b3ab5f75773a9b"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/mapped.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 103243,
+          "sha1": "8d522abcde803a678ca24059b5fe977558481dd6"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Resources\/unidata\/disallowed_STD3_mapped.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5442,
+          "sha1": "363ce9738fbfc457143aad782d15fe346b79eb0e"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Info.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 493,
+          "sha1": "905cbc46e76ba9aac804723e39e9dccf9a6bf23d"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/bootstrap.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4610,
+          "sha1": "350dcd83501076239958fc0b30733b828b69f30d"
+        },
+        {
+          "path": "Symfony\/Polyfill\/Intl\/Idn\/Idn.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 30216,
+          "sha1": "370bfb278cee1b192e1f80b830dbc2b83ed0cc6f"
+        }
+      ]
+    }
+  }
+}

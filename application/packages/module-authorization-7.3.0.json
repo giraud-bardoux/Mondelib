@@ -1,0 +1,609 @@
+{
+  "type": "module",
+  "name": "authorization",
+  "version": "7.3.0",
+  "revision": "10111",
+  "path": "application\/modules\/Authorization",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:19 +0000",
+  "title": "Authorization",
+  "description": "Authorization",
+  "thumb": "application\/modules\/Core\/externals\/images\/thumb.png",
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:19 +0000",
+    "title": "Authorization",
+    "description": "Authorization",
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    "install",
+    "upgrade",
+    "refresh"
+  ],
+  "callback": {
+    "path": "application\/modules\/Authorization\/settings\/install.php",
+    "class": "Authorization_Install",
+    "priority": 5000
+  },
+  "dependencies": {
+    "module-core": {
+      "type": "module",
+      "name": "core",
+      "guid": "module-core",
+      "minVersion": "5.0.0",
+      "maxVersion": null,
+      "excludeExcept": null
+    }
+  },
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "application\/modules\/Authorization": {
+      "type": "directory",
+      "path": "application\/modules\/Authorization",
+      "structure": [
+        {
+          "path": "views",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts\/admin-level",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts\/admin-level\/edit-mapping.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 369,
+          "sha1": "5c42b01e10e569e8e79071f89da6f105f3e26d81"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/index.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7050,
+          "sha1": "e01a992b883b6c79815c3c94dbf26f6cf4081aa9"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/create.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 767,
+          "sha1": "be28b8fa0622c5230224fe2da14a5d34fb3737d1"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/update-member-level.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2038,
+          "sha1": "433366f894ee34cc64df0eed61803053a3eb501e"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/deleteselected.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1567,
+          "sha1": "3373967a5d23025c8b030d52dadd2f52fdbcee88"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/delete-selected-mapping.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3603,
+          "sha1": "0aaf5877f200b17d73d61cacf9b0efe9c740ff3e"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/map-profile-type.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 593,
+          "sha1": "d07ade0edb7e0a7875ac7aeb3363709597eecf99"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/delete.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 762,
+          "sha1": "76ed3ac6a0607bcfbee19b2f86eef67e0c0aabdf"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/delete-mapping.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 340,
+          "sha1": "a3e5d98e22440d4ef9240efa1358e221ad80edeb"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/edit.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3125,
+          "sha1": "99c81f89567d9af12a4269b57f8ecf9a2549d79e"
+        },
+        {
+          "path": "views\/scripts\/admin-level\/manage-profile-type-mapping.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5449,
+          "sha1": "4fe8585c8251eda56623fa838ae5858b4de12e5b"
+        },
+        {
+          "path": "Form",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Admin",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Admin\/ProfileTypeLevelMap",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Admin\/ProfileTypeLevelMap\/Delete.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1752,
+          "sha1": "e6b3ad8ed5907a0230ca4cb728c86c5698cbfcd8"
+        },
+        {
+          "path": "Form\/Admin\/ProfileTypeLevelMap\/Update.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4202,
+          "sha1": "69552c21ce091dbb3a5213c717282b3c31ab8e97"
+        },
+        {
+          "path": "Form\/Admin\/Level",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Admin\/Level\/Create.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2866,
+          "sha1": "d6aca08097fd4c404fb30eb0585d1e625adc03f3"
+        },
+        {
+          "path": "Form\/Admin\/Level\/Delete.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1741,
+          "sha1": "6c4626d6cc2f6953cbe88a3f49e37fba1e504d47"
+        },
+        {
+          "path": "Form\/Admin\/Level\/Abstract.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2784,
+          "sha1": "bc974896219a995a134b1a5f977b1e553d2338f9"
+        },
+        {
+          "path": "Form\/Admin\/Level\/Edit.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 16403,
+          "sha1": "5cf45254b6ee3882f7f719a6d5c2f131453e7126"
+        },
+        {
+          "path": "Form\/Admin\/Level\/Filter.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 846,
+          "sha1": "fd2b3be930d8acaa15d5564dec71ec8fff69fb49"
+        },
+        {
+          "path": "Model",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Model\/DbTable",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Model\/DbTable\/Permissions.php",
+          "dir": false,
+          "file": true,
+          "perms": "0755",
+          "size": 8300,
+          "sha1": "9595e7a1e778fe74be211dd2139eefbb310352ea"
+        },
+        {
+          "path": "Model\/DbTable\/MapProfileTypeLevels.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1647,
+          "sha1": "a32a8f7328df56d7448e972e0ffd1581a8d1b5a0"
+        },
+        {
+          "path": "Model\/DbTable\/Values.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2526,
+          "sha1": "0b2b3365d99d12bf47cfb752123bc972cea48c88"
+        },
+        {
+          "path": "Model\/DbTable\/Allow.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14882,
+          "sha1": "7d68abd9f59bdcf780491c9e474513b5ed0fba8f"
+        },
+        {
+          "path": "Model\/DbTable\/Levels.php",
+          "dir": false,
+          "file": true,
+          "perms": "0755",
+          "size": 1925,
+          "sha1": "a016728027e83a69e1466c49345f3280116e77f1"
+        },
+        {
+          "path": "Model\/DbTable\/Options.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1437,
+          "sha1": "e9b306b8a68c4ccd6db258b190c2907b054c0346"
+        },
+        {
+          "path": "Model\/MapProfileTypeLevel.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1441,
+          "sha1": "671ce1b171f2f8d47f2f51d22e9a435ac5df1f20"
+        },
+        {
+          "path": "Model\/Option.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 663,
+          "sha1": "8d696e85bc86ee34a336128839d2dfdadd8febc2"
+        },
+        {
+          "path": "Model\/Value.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 660,
+          "sha1": "8912c3267ba626552b63ca5b9229eff5733c2e2b"
+        },
+        {
+          "path": "Model\/Level.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2143,
+          "sha1": "99751cba8e770ebf51b52a632b6c1e66fa139abf"
+        },
+        {
+          "path": "Model\/AdapterInterface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2242,
+          "sha1": "f3af6fe65dff4ac4a60aea06d55494c9e761a919"
+        },
+        {
+          "path": "Model\/Exception.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 531,
+          "sha1": "ec1c8ab3e20be08856f8c384d877a6d4c0f1c0a9"
+        },
+        {
+          "path": "externals",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "externals\/images",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "externals\/images\/admin",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "externals\/images\/admin\/add.png",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 746,
+          "sha1": "56a6f12c36ef9e5220b070830a3d36b23450ff22"
+        },
+        {
+          "path": "externals\/.htaccess",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1042,
+          "sha1": "6c835f103d253edf70bfd5ba2430ebe3fa8cacdd"
+        },
+        {
+          "path": "Bootstrap.php",
+          "dir": false,
+          "file": true,
+          "perms": "0755",
+          "size": 673,
+          "sha1": "1550a1c6cc2c7ef71647134b0c9d253a3a2aa2aa"
+        },
+        {
+          "path": "controllers",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "controllers\/AdminLevelController.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 21162,
+          "sha1": "56612a5a108c06c89ac4a0422fea422ea00bd3f2"
+        },
+        {
+          "path": "Plugin",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Plugin\/Core.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 869,
+          "sha1": "02e5c1c2dba3ac7a5b9146a49f0b6f6cd23fbf5f"
+        },
+        {
+          "path": "Api",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Api\/Core.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8340,
+          "sha1": "e03eb50097174c00442ed47ededc096175c895ac"
+        },
+        {
+          "path": "settings",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "settings\/my-upgrade-4.0.0rc1-4.0.0rc2.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 842,
+          "sha1": "29b668c2dd22f0a4a459c9958fb14f0a4bd096f6"
+        },
+        {
+          "path": "settings\/my-upgrade-4.0.3-4.0.4.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 406,
+          "sha1": "a99fe9c3a321a530986da74c249aa43f25db844b"
+        },
+        {
+          "path": "settings\/manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1890,
+          "sha1": "6d3b7c1785719177ce54c8b99f676677e87d866b"
+        },
+        {
+          "path": "settings\/my-upgrade-4.9.4p4-4.10.0beta1.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1106,
+          "sha1": "383e20093f675bff64b4fad3e6fdd61b362f387a"
+        },
+        {
+          "path": "settings\/my-upgrade-4.10.5-5.0.0b1.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 435,
+          "sha1": "852134a2f662da2f5793a5344e459c9f91f22ab7"
+        },
+        {
+          "path": "settings\/my-upgrade-4.0.0beta3-4.0.0rc1.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 617,
+          "sha1": "5a8c3ac1ebe8667f5716dc8bfc256ae8a96dc3b5"
+        },
+        {
+          "path": "settings\/install.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1251,
+          "sha1": "3fc67c6c4d422c3dd7948831e848aa246119d5df"
+        },
+        {
+          "path": "settings\/my-upgrade-6.4.4-6.5.0.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1404,
+          "sha1": "dac431c2e3ffd2341217e4d44e905ba27e2067a9"
+        },
+        {
+          "path": "settings\/my-upgrade-4.1.2p1-4.1.3.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 75,
+          "sha1": "b11fdd40c7cd4d99c3556e185daef1b97688432c"
+        },
+        {
+          "path": "settings\/my.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10015,
+          "sha1": "6b94a65c7377ca9f5acf42c194a4d1861c9992b2"
+        },
+        {
+          "path": "settings\/my-upgrade-4.0.1-4.0.2.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3391,
+          "sha1": "694b32a8e7b176580f80a320081ab77b7660024f"
+        },
+        {
+          "path": "Controller",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Controller\/Action",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Controller\/Action\/Helper",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Controller\/Action\/Helper\/RequireAuth.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3188,
+          "sha1": "857477178372b0ca370ded08db593282c45b3406"
+        }
+      ]
+    },
+    "application\/languages\/en\/authorization.csv": {
+      "type": "file",
+      "path": "application\/languages\/en\/authorization.csv",
+      "structure": {
+        "path": "authorization.csv",
+        "dir": false,
+        "file": true,
+        "perms": "0755",
+        "size": 5057,
+        "sha1": "ce57317270a6c2f4634a5889b4c7aab02c81377a"
+      }
+    }
+  }
+}

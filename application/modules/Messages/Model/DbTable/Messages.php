@@ -1,0 +1,30 @@
+<?php
+/**
+ * SocialEngine
+ *
+ * @category   Application_Core
+ * @package    Messages
+ * @copyright  Copyright 2006-2020 Webligo Developments
+ * @license    http://www.socialengine.com/license/
+ * @version    $Id: Messages.php 9747 2012-07-26 02:08:08Z john $
+ * @author     John
+ */
+
+/**
+ * @category   Application_Core
+ * @package    Messages
+ * @copyright  Copyright 2006-2020 Webligo Developments
+ * @license    http://www.socialengine.com/license/
+ */
+class Messages_Model_DbTable_Messages extends Engine_Db_Table
+{
+  protected $_rowClass = 'Messages_Model_Message';
+  public function getMessageId($params = array()) {
+    return $this->select()
+              ->from($this->info('name'), 'message_id')
+              ->where('attachment_type =?', $params['resource_type'])
+              ->where('attachment_id =?', $params['resource_id'])
+              ->query()
+              ->fetchColumn();
+  }
+}

@@ -1,0 +1,15 @@
+ALTER TABLE `engine4_activity_notificationtypes` ADD `is_admin` TINYINT(1) NOT NULL DEFAULT '0';
+ALTER TABLE `engine4_activity_actions` ADD `share_count` INT(11) NOT NULL DEFAULT '0';
+ALTER TABLE `engine4_activity_notifications` ADD `is_admin` TINYINT(1) NOT NULL DEFAULT '0';
+ALTER TABLE `engine4_activity_actions` ADD INDEX(`date`);
+ALTER TABLE `engine4_activity_actions` ADD INDEX(`modified_date`);
+ALTER TABLE `engine4_activity_actions` ADD INDEX(`attachment_count`);
+ALTER TABLE `engine4_activity_actions` ADD INDEX(`comment_count`);
+ALTER TABLE `engine4_activity_actions` ADD INDEX(`like_count`);
+ALTER TABLE `engine4_activity_actions` ADD INDEX(`privacy`);
+ALTER TABLE `engine4_activity_actions` ADD INDEX(`share_count`);
+ALTER TABLE `engine4_activity_comments` ADD INDEX(`creation_date`);
+ALTER TABLE `engine4_activity_comments` ADD INDEX(`like_count`);
+ALTER TABLE `engine4_activity_notifications` ADD INDEX(`is_admin`);
+ALTER TABLE `engine4_activity_notificationtypes` ADD INDEX(`is_admin`);
+ALTER TABLE `engine4_activity_stream` ADD INDEX(`type`);

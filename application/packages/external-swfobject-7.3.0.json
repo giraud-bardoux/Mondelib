@@ -1,0 +1,70 @@
+{
+  "type": "external",
+  "name": "swfobject",
+  "version": "7.3.0",
+  "revision": "9747",
+  "path": "externals\/swfobject",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+  "title": "Swfobject",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+    "title": "Swfobject",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/swfobject": {
+      "type": "directory",
+      "path": "externals\/swfobject",
+      "structure": [
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 374,
+          "sha1": "8e05672f5d5d3538ed22fa38a117e7b7cf09dbb6"
+        },
+        {
+          "path": "swfobject.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10220,
+          "sha1": "5847ed101f55d51c53538a7078971e7de8fb6762"
+        },
+        {
+          "path": "expressInstall.swf",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 727,
+          "sha1": "1c12004633e89d6de3bbe4a190093a537bdecebe"
+        }
+      ]
+    }
+  }
+}
