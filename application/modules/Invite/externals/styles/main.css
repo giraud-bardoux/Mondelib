@@ -1,0 +1,763 @@
+.user_invite_tabs .tabs{
+	margin:0 !important;
+	flex-wrap:wrap;
+}
+.user_setting_main_page_main .layout_middle > .user_invite_tabs{
+	padding:5px 0px 0 !important;
+}
+.user_invite_tabs .tabs{
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+}
+.user_invite_tabs .tabs ul.navigation{
+	flex:1;
+}
+.user_invite_tabs .invite_invite_btns > a{
+	padding:6px 10px;
+}
+.user_invite_tabs ._des{
+	font-size:14px;
+	padding:0 10px;
+}
+.invites_notify a,
+.invites_notify b{
+	color:var(--theme-button-background-color);
+	font-weight:600;
+}
+.invite-primary,
+.invite-secondary{
+	display:inline-block;
+	padding:7px 14px;
+	border:2px solid;
+	border-radius:4px;
+	margin:10px 0;
+}
+.invite-primary{
+  color:var(--theme-button-background-color) !important;	
+}
+.invite-secondary{
+	border:2px solid var(--theme-button-background-color);
+	color:var(--theme-button-font-color) !important;	
+	background:var(--theme-button-background-color);	
+}
+.invite-primary > i,
+.invite-secondary > i{
+	margin-right:5px;
+}
+.invite-primary.disable{
+	opacity:0.6;
+}
+.invite_table{
+  max-width:500px;
+	margin-bottom:10px;
+}
+.invite_table > div{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	border-bottom-width:1px;
+}
+.invite_table .invite_email{
+  font-weight:bold;
+	padding-right:10px;
+}
+.invite_invite_form #invite_invite textarea{
+	border-radius:5px;
+	padding:5px 10px;
+}
+@media(max-width:991px){
+	.user_setting_main_page_main .layout_middle > .user_invite_tabs{
+		padding:5px 10px 0 !important;
+	}
+	.user_invite_tabs .tabs ul.navigation{
+		flex:inherit;
+	}
+}
+@media(max-width:767px){
+ .invite_table > div{
+    align-items:baseline;
+    flex-direction:column;
+  }	
+	.invite_table .invite_email{
+	  padding-right:0;
+  }
+	.invite_tab_content_heading{
+		font-size: 1.1rem;
+	}
+}
+@media(max-width:600px){
+	.user_invite_tabs .invite_invite_btns{
+    margin:0 0 0 6px !important;
+	}
+	[dir="rtl"] .user_invite_tabs .invite_invite_btns {
+		margin:0 6px 0 0px !important;
+	}
+	.user_invite_tabs ._des{
+		padding:0 6px;
+		padding-left:0;
+	}
+	[dir="rtl"] .user_invite_tabs ._des{
+		padding-right:0px;
+		padding-left:6px;
+	}
+	.invite_invite_form	input#friendship{
+		float:left !important;
+	}
+	[dir="rtl"] .invite_invite_form input#friendship{
+		float:right !important;
+	}
+	.invite_invite_form .global_form input + label,
+	.invite_main .invite_invite_form .global_form input + label,
+	div#invite_form .global_form input + label{
+		float:none !important;
+		font-size:0.8125rem;
+	  margin:0;
+	}
+	.invite_main .invite_invite_form .global_form input + label{
+		margin-bottom:10px;
+	}
+	.invite_invite_form .global_form div#submit-label{
+		display:none;
+	}
+	.invite_invite_form .global_form #submit-element{
+		margin-top:0.625rem;
+	}
+}
+/*Generic Layout Container*/
+[class*='layout_invite_'],
+[id^='global_page_invite-'] .layout_core_content{
+  clear:both;
+  margin-bottom:15px;
+}
+[class*='layout_invite_']:after,
+[id^='global_page_invite-'] .layout_core_content:after{
+	clear:both;
+	content:'';
+	display:block;
+}
+[class*='tab_layout_invite_']{
+  margin:0;
+  clear:none;
+}
+/*INVITE PAGE START*/
+.invite_tab{
+	margin-bottom:15px;
+}
+.invite_tab ul{
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+	margin:0 -5px;
+}
+.invite_tab ul li{
+	padding:0 5px;
+}
+.invite_tab ul li a{
+	padding:10px 14px;
+	display:block;
+  border-radius:10px;
+	border-width:1px;
+	border-color:var(--theme-border-color);
+	font-size:0.90em;
+	color:var(--theme-font-color);
+	transition:0.5s;
+}
+.invite_tab a.active,
+.invite_tab a:hover{
+	position:relative;
+	color:var(--theme-button-font-color) !important;
+	background-color:var(--theme-button-background-color) !important;
+	border-color:var(--theme-button-background-color) !important;
+	text-decoration:none;
+}
+.invite_main .tabcontent{
+	display:none;
+}
+/*Social Buttons Tab*/
+.invite_tab_content_heading{
+	padding:0;
+	margin:0;
+  border-width:0;
+	color:var(--theme-font-color);
+}
+.invite_tab_content_des{
+	margin:8px 0 0;
+	text-align:left;
+}
+[dir="rtl"] .invite_tab_content_des{
+	text-align:right;
+}
+.invite_social_buttons{
+	margin:5px 0px 0;
+}
+.invite_social_buttons ul{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:flex-start;
+	width:100%;
+	margin:0 -5px;
+}
+.invite_social_buttons ul > li{
+	padding:8px 5px 5px;
+	width:120px;
+}
+.invite_social_buttons li a{
+	border-radius:5px;
+	text-decoration:none;
+	width:100%;
+	font-size:13px;
+	display:flex;
+	justify-content:center;
+	align-items:center;	
+	height:40px;
+	color:#fff !important;
+}
+.invite_social_buttons li a *,
+.invite_social_buttons li a:hover{
+	color:#fff !important;
+}
+.invite_social_buttons li.facebook a{
+	background-color:#4867aa;
+}
+.invite_social_buttons li.email a{
+	background-color:#dc4a38;
+}
+.invite_social_buttons li.csv a{
+	background-color:#89C429;
+}
+.invite_social_buttons li:hover{
+	opacity:0.8;
+}
+.invite_social_buttons li a i{
+	margin-right:5px;
+	display:flex;
+	align-items:center;
+}
+[dir="rtl"] .invite_social_buttons li a i{
+	margin-left:5px;
+	margin-right:0;
+}
+.invite_social_buttons li a i svg{
+	fill:#fff;
+	height:16px;
+	width:16px;
+}
+/*Upload Contacts Tab*/
+.invite_upload_contacts .helplink{
+	margin:15px 0;
+}
+.invite_upload_contacts .helplink a i{
+	margin-right:5px;
+}
+[dir="rtl"] .invite_upload_contacts .helplink a i{
+	margin-left:5px;
+	margin-right:0;
+}
+.invite_upload_contacts .upload_csv_file #errorUploadCsvFile{
+	margin-top:5px;
+	margin-left:2px;
+}
+/*Invite Form*/
+.invite_invite_form{
+	position:relative;
+}
+.invite_invite_form .global_form,
+.invite_invite_form .global_form > div,
+.invite_invite_form .global_form > div > div,
+.invite_invite_form .global_form .form-elements{
+	background:none !important;
+	border:0 !important;
+	padding:0 !important;
+}
+.invite_invite_form .global_form > div > div > h3{
+	border-width:0;
+	margin:0 0 10px !important;
+	padding:0;
+	font-size:1.2em;
+	color:var(--theme-font-color);
+}
+.invite_invite_form .global_form > div > div > h3 + p{
+	padding:0 !important;
+	margin:0 !important;
+}
+.invite_invite_form .global_form #friendship-label,
+.invite_invite_form .global_form #submit-label{
+	margin:0;
+	height:0;
+}
+#global_page_invite-index-inviteef #global_content_simple > .invite_invite_form{
+	padding:10px;
+}
+.invite_invite_form .global_form div.form-label{
+	font-size:1em;
+	font-weight:400;
+}
+@media (max-width:767px){
+	.invite_tab{
+		overflow:auto;
+		padding-bottom:6px;
+	}
+	.invite_tab ul{
+		margin:0;
+		white-space:nowrap;
+	}
+}
+/*INVITE PAGE END*/
+/*MODAL CSS START*/
+.invite_help_modal{
+	display:none;
+	position:fixed;
+	z-index:9;
+	padding-top:100px;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	overflow:auto;
+	background-color:rgba(0,0,0,0.4);
+}
+.invite_help_modal_content{
+	border-radius:5px;
+	margin:auto;
+	padding:10px;
+	width:100%;
+	max-width:500px;
+	position:relative;
+	background-color:var(--theme-list-background-color);
+}
+.invite_help_modal_content .close{
+	background-color:#000;
+	color:#fff !important;
+	font-size:20px;
+	font-weight:bold;
+	position:absolute;
+	display:block;
+	top:-10px;
+	right:-10px;
+	height:30px;
+	width:30px;
+	line-height:28px;
+	border-radius:50%;
+	text-align:center !important;
+}
+[dir="rtl"] .invite_help_modal_content .close{
+	left:-10px;
+	right:auto;
+}
+.invite_help_modal_content .close:hover,
+.invite_help_modal_content .close:focus{
+	color:#fff;
+	text-decoration:none;
+	cursor:pointer;
+}
+.invite_help_modal_content > div > div {
+	margin-bottom:15px;
+}
+.invite_help_modal_content > div > div:last-child{
+	margin-bottom:0px;
+}
+.invite_help_modal_content p{
+	margin:0px;
+}
+.invite_help_modal_content p.title a{
+	background-color:var(--theme-list-background-color-alt);
+	text-transform:capitalize;
+	text-decoration:none;
+	font-weight:bold;
+	padding:10px;
+	display:block;
+	border-radius:5px;
+}
+.invite_help_modal_sec p.discription{
+	padding:10px;
+	display:none;
+}
+.invite_help_modal_sec:nth-child(1) p.discription{
+	display:block;
+}
+.invite_help_modal_sec p.discription span{
+	display:block;
+	margin-bottom:8px;
+}
+.invite_help_modal_sec p.discription span a{
+	color:var(--theme-button-background-color);
+}
+.invite_help_modal_content_inner {
+	max-height:78vh;
+	overflow-x:auto;
+}
+@media (max-width:768px){
+	.invite_help_modal_content{
+		max-width:90%;
+	}
+}
+.invite_import_contacts_modal{
+	 position:fixed;
+	 z-index:100;
+	 padding-top:50px;
+	 left:0;
+	 top:0;
+	 width:100%;
+	 height:100%;
+	 overflow:auto;
+	 background-color:rgb(0,0,0);
+	 background-color:rgba(0,0,0,0.4);
+}
+.invite_import_contacts_modal_content{
+	border-radius:5px;
+	margin:auto;
+	width:100%;
+	max-width:500px;
+	position:relative;
+	overflow:hidden;
+	background-color:var(--theme-list-background-color);
+}
+.invite_import_contacts_modal_content .ic_close{
+	font-size:28px;
+	font-weight:bold;
+	position:absolute;
+	top:15px;
+	right:15px;
+	cursor:pointer;
+}
+[dir="rtl"] .invite_import_contacts_modal_content .ic_close{
+	left:15px;
+	right:auto;
+}
+.invite_import_contacts_modal_content .ic_close:hover,
+.invite_import_contacts_modal_content .ic_close:focus{
+ text-decoration:none;
+ cursor:pointer;
+}
+@media (max-width:767px){
+	.invite_import_contacts_modal_content{
+		max-width:90%;
+	}
+}
+/*MODAL CSS END*/
+/*IMPORT CONTACT LIST START*/
+.invite_import_contactlist{
+	border:1px solid var(--theme-border-color);
+}
+.invite_import_contactlist h2{
+	background-color:var(--theme-list-background-color-alt);
+	border-bottom-width:1px;
+	padding:0 15px;
+	margin:0px;
+	line-height:50px;
+	font-size:1.2rem;
+}
+.invite_import_contactlist_content{
+	padding:15px;
+}
+.invite_import_contactlist_content > p{
+	margin-bottom:10px;
+}
+.invite_import_contactlist_content #emailerror_message{
+	margin-bottom:10px;
+	color:#d60000;
+}
+.invite_import_contactlist_search{
+	clear:both;
+	overflow:hidden;
+	margin-bottom:10px;
+}
+.invite_import_contactlist_search input[type=text]{
+	width:100%;
+	padding:10px;
+	margin-bottom:20px;
+}
+.invite_import_contactlist_search p.select_all{
+	display:flex;
+	align-items:center;
+}
+.invite_import_contactlist_search p.select_all input[type=checkbox]{
+	margin-top:0;
+	width:16px;
+	height:16px;
+	margin-right:5px;
+}
+[dir="rtl"] .invite_import_contactlist_search p.select_all input[type=checkbox]{
+	margin-left:5px;
+	margin-right:0;
+}
+.invite_import_contactlist_content .contacts_list{
+	max-height:350px;
+	overflow:auto;
+	margin:15px -15px;
+	padding:0 15px;
+}
+.invite_import_popup_list_item{
+	border-width:1px;
+	border-radius:10px;
+	padding:15px;
+	display:flex;
+	align-items:center;
+	position:relative;
+}
+.invite_import_popup_list_item + li{
+	margin-top:10px;
+}
+.invite_import_popup_list_item ._input{
+	margin-right:10px;
+}
+[dir="rtl"] .invite_import_popup_list_item ._input{
+	margin-right:0;
+	margin-left:10px;
+}
+.invite_import_popup_list_item ._input input[type=checkbox]{
+	position:relative;
+	z-index:2;
+	margin:0;
+}
+.invite_import_popup_list_item ._input input[type=checkbox]:checked + span{
+	background-image:url(../images/transprant-bg.png);
+	display:block;
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	z-index:1;
+}
+.invite_import_popup_list_item ._details{
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+	overflow:hidden;
+}
+.invite_import_popup_list_item ._details p{
+	margin-bottom:0;
+}
+.invite_import_popup_list_item ._details > p.name{
+	font-weight:600;
+}
+.invite_import_popup_list_item ._details > p + p:before{
+	content:"|";
+	margin:0 10px;
+}
+.invite_import_popup_list_item ._details .email_id{
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	display:block;
+}
+.invite_send_invitions_form{
+	padding:15px;
+}
+.invite_send_invitions_form .torow .mailing_box_holdier{
+	position:relative;
+	overflow:hidden;
+	margin:10px 0px;
+}
+.invite_send_invitions_form .torow .mailing_box_holdier ul{
+	width:100%;
+	overflow:auto;
+	max-height:100px;
+	border-width:1px;
+	box-sizing:border-box;
+}
+.invite_send_invitions_form .torow .mailing_box_holdier ul li{
+	display:inline-block;
+	padding:5px 11px;
+	background:var(--theme-list-background-color-alt);
+	margin:6px 0px 6px 9px;
+	border-radius:3px;
+}
+.invite_send_invitions_form .torow .mailing_box_holdier ul li > div > div{
+	display:inline-block;
+}
+.invite_send_invitions_form .torow .mailing_box_holdier ul li .mailing_name_close{
+	cursor:pointer;
+	margin-left:5px;
+}
+.invite_send_invitions_form .torow .mailing_box_holdier input[type=text]{
+	visibility:hidden;
+	position:absolute;
+}
+.invite_send_invitions_form .mailing_box_holdier input,
+.send_invitions_invite_send_invitions_formform .mailing_box_holdier textarea{
+	width:100%;
+	padding:10px;
+	border-radius:3px;
+	border:1px solid var(--theme-border-color);
+	margin:10px 0px;
+}
+.invite_send_invitions_form .mailing_box_holdier textarea{
+	height:120px;
+}
+.invite_import_contacts_modal_footer{
+	border-top-width:1px;
+	display:flex;
+	justify-content:space-between;
+	padding-top:15px;
+	margin-top:10px;
+}
+.invite_import_contacts_modal_footer input[type=submit]{
+	border:none;
+	cursor:pointer;
+	padding:10px 20px;
+	border-radius:3px;
+	width:auto;
+	height:auto;
+	background-color:var(--theme-button-background-color);
+	color:var(--theme-button-font-color);
+}
+.invite_import_contacts_modal_footer .mailing_footer_back input{
+	border-width:1px;
+	cursor:pointer;
+	border:none;
+	padding:10px 20px;
+	border-radius:3px;
+	width:auto;
+	height:auto;
+}
+@media (max-width:767px){
+	.invite_import_contacts_modal_content{
+		max-width:90%;
+	}
+}
+@media (max-width:480px){
+	.invite_import_contacts_modal{
+		padding-top:0;
+	}
+	.invite_import_contacts_modal_content{
+    max-width:95%;
+    top:50%;
+    transform:translate(0px, -50%);
+	}
+}
+/*IMPORT CONTACT LIST START*/
+/*INVITOR POPUP CSS START*/
+.ajaxsmoothbox_container .invite_main{
+	width:650px;
+}
+.ajaxsmoothbox_container .invite_section{
+	padding:20px;
+}
+.ajaxsmoothbox_container .invite_main .social_link_contact > li{
+	padding:25px 15px 25px 0px;
+	width:33%;
+}
+.ajaxsmoothbox_container .invite_main .social_link_contact > li a{
+	height:90px;
+	line-height:90px;
+}
+.invite_button{
+	border-radius:0px;
+	text-transform:capitalize;
+	padding:20px;
+	margin-bottom:15px;
+}
+@media screen and (max-width:767px){
+	.ajaxsmoothbox_container .invite_main{
+		width:90%;
+	}
+}
+/*INVITOR POPUP CSS END*/
+/*INVITE FRIEND START*/
+.invite_firends_container_main{
+	margin-top:12px;
+	border-top-width:1px;
+	padding-top:12px;
+}
+.invite_firends_container_main .invite_tab_content_heading{
+	color:var(--theme-font-color);
+}
+/*INVITE FRIEND END*/
+#global_page_invite-index-inviteef{
+	text-align:center !important;
+}
+body#global_page_invite-index-inviteef img{
+	width:90px;
+	margin-top:20px;
+}
+body#global_page_invite-index-inviteef a{
+	color:var(--theme-button-background-color);
+	font-weight:600;
+}
+.invite_invite_form .global_form div.form-wrapper div#submit-element button{
+	margin-top:10px;
+}
+.manage_invite_table table td{
+	vertical-align:middle;
+}
+.manage_invite_table table td ._btn_icon{
+	width:30px;
+	height:30px;
+	line-height:30px;
+	display:inline-block;
+	border-width:1px;
+	text-align:center;
+	border-radius:5px;
+	background-color:transparent;
+	border-color:var(--theme-button-background-color) !important;
+	transition:0.5s;
+	margin:0 2px;
+}
+.manage_invite_table table td ._btn_joined{
+	border-width:1px;
+	padding:0px 8px;
+	border-radius:5px;
+	margin:0 4px;
+	height:30px;
+	display:inline-block;
+	line-height:28px;
+}
+.manage_invite_table table td ._btn_joined i{
+	margin-right:3px;
+	font-size:0.92em;
+}
+[dir="rtl"] .manage_invite_table table td ._btn_joined{
+	margin-left:3px;
+	margin-right:0;
+}
+.manage_invite_table table td ._btn_icon i{
+	color:var(--theme-button-background-color) !important;
+}
+.manage_invite_table table td ._btn_icon:hover{
+	background-color:var(--theme-button-background-color);
+}
+.manage_invite_table table td ._btn_icon:hover i{
+  color:var(--theme-button-font-color) !important;
+}
+.invite_manage_search  .global_form_box > div{
+	width:33.33%;
+}
+@media (max-width:767px){
+	.invite_manage_search  .global_form_box > div{
+		width:100%;
+	}	
+}
+/*Password Copy Success Notification*/
+.core_success_notification,
+.core_reject_notification{
+  position:fixed;
+  left:10px;
+  z-index:999;
+  bottom:10px !important;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:5px;
+}
+.core_success_notification{
+  background-color:green;
+}
+.core_reject_notification{
+  background-color:#f00;
+}
+[dir="rtl"] .core_success_notification,
+[dir="rtl"] .core_reject_notification{
+  left:auto;
+  right:10px;
+}
+.core_success_notification span,
+.core_reject_notification span{
+  margin-left:5px;
+}
+[dir="rtl"] .core_success_notification span,
+[dir="rtl"] .core_reject_notification span{
+  margin-left:0;
+  margin-right:5px;
+}

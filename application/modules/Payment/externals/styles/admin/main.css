@@ -1,0 +1,479 @@
+/* $Id:main.css 8221 2011-01-15 00:24:02Z john $ */
+
+.payment_transaction_details_popup{
+  min-width:500px;
+  padding:10px;
+}
+.payment_transaction_detail_headline{
+  padding:0;
+  clear:both;
+  font-size:20px;
+}
+.payment_transaction_details{
+  overflow:inherit !important;
+}
+.payment_transaction_details td{
+  padding:5px 0;
+	word-break:break-word;
+}
+.payment_transaction_details td:nth-child(1){
+  min-height:16px;
+  min-width:250px;
+}
+table.payment_transaction_list{
+  width:100%;
+}
+#global_page_payment-admin-index-receipt .item_photo_payment_transaction {
+  width:100%;
+}
+.package_create_form #recurrence-element input,
+.package_create_form #recurrence-element select,
+.package_create_form #duration-wrapper input,
+.package_create_form #duration-wrapper select{
+	width:150px !important;
+}
+.package_create_form #recurrence-element input,
+.package_create_form #duration-element input{
+  margin-right:10px;
+}
+.payment_search_result{
+  margin-bottom:10px;
+}
+.payment_search_result .admin_link_btn{
+  margin-bottom:0;
+}
+.payment_icon_back::before{
+  content:'\\f053';
+  font-family:'Font Awesome 6 Free';
+  font-weight:900;
+  display:inline-block;
+  margin-right:5px;
+}
+[dir="rtl"] .payment_icon_back::before{
+  margin-right:0px;
+  margin-left:5px;
+}
+.payment_plan_style_form .global_form div fieldset,
+.payment_plan_features_form .global_form div fieldset{
+	width:100%;
+	display:flex;
+	flex-wrap:wrap;
+}
+.payment_plan_style_form .global_form div fieldset > div,
+.payment_plan_features_form .global_form div fieldset > div{
+	width:33.33%;
+	display:block;
+  padding:10px 3% 10px 0;
+}
+[dir="rtl"] .payment_plan_style_form .global_form div fieldset > div,
+[dir="rtl"] .payment_plan_features_form .global_form div fieldset > div{
+  padding:10px 0 10px 3%;
+}
+.payment_plan_style_form .global_form div fieldset > div .form-label,
+.payment_plan_features_form .global_form div fieldset > div .form-label{
+	margin:0;
+	width:100%;
+}
+.payment_plan_style_form .global_form div fieldset > div .form-label label,
+.payment_plan_features_form .global_form div fieldset > div .form-label label{
+	display:block;
+	width:100%;
+	margin-bottom:10px;
+}
+.payment_plan_style_form .global_form div fieldset > div input[type="text"],
+.payment_plan_features_form .global_form div fieldset > div input[type="text"],
+.payment_plan_style_form .global_form div fieldset > div select,
+.payment_plan_features_form .global_form div fieldset > div select{
+	width:100% !important;
+}
+.payment_plan_features_form .global_form div fieldset .form-element input + .description,
+.payment_plan_style_form .global_form div .description{
+	font-size:0.8rem;
+}
+.payment_plan_style_form #show_label-wrapper,
+.payment_plan_style_form #show_highlight-wrapper{
+	display:inline-block;
+	width:33.33%;
+	vertical-align:top;
+}
+.payment_plan_style_form #show_label-wrapper .form-label{
+	width:100%;
+	margin:0;
+}
+.payment_plan_style_form #show_label-wrapper .form-element select{
+	width:100%;
+}
+.payment_plan_style_form select,
+.payment_plan_style_form input{
+	height:52px;
+}
+.global_form .form-elements > div div#show_highlight-label {
+	margin-bottom:3px;
+}
+@media (max-width:767px){
+	.payment_plan_style_form .global_form div fieldset > div,
+	.payment_plan_features_form .global_form div fieldset > div {
+		width:100%;
+		padding:10px 5px;
+	}
+	.payment_plan_style_form #show_label-wrapper,
+	.payment_plan_style_form #show_highlight-wrapper {
+		width:100%;
+	}
+}
+/*SUBSCRIPTIONS TABLE CSS START HERE*/
+.payment_subscription_plans_table{
+	width:100%;
+	margin:0 auto;
+	text-align:center;
+	border-radius:20px;
+	overflow:hidden;
+}
+.smoothbox_body .payment_subscription_plans_table{
+	width:950px;
+	margin:20px 0 0 20px;
+}
+.payment_subscription_plans_table_header{
+	padding:30px 20px;
+	background-color:$theme_list_background_color_alt;
+}
+.payment_subscription_plans_table_heading{
+	font-size:2em;
+	margin-bottom:8px;
+	text-align:center;
+	letter-spacing:1px;
+	font-weight:bold;
+	line-height:140%;
+}
+.payment_subscription_plans_table_des{
+	margin-bottom:20px;
+	text-align:center;
+	line-height:180%;
+	font-size:1em;
+}
+.payment_subscription_plans_listing{
+	display:flex;
+	justify-content:center;
+	flex-wrap:wrap;
+	margin:50px 0px 0px;
+	padding-bottom:25px;
+}
+.payment_subscription_plans_overlap .payment_subscription_plans_listing {
+	margin-top:-28px;
+}
+.payment_subscription_plans_listing_item{
+	padding-bottom:20px;
+	width:32%;
+  margin:0 5px;
+	margin-bottom:20px;
+}
+.payment_subscription_plans_listing_item.heighlighted{
+	margin:-15px -1px 40px;	
+	z-index:1;
+}
+.payment_subscription_plans_listing_item article{
+	border-width:1px;
+	position:relative;
+	padding:12px;
+	border-radius:20px;
+	height:100%;
+	display:flex;
+	flex-direction:column;
+	background-color:$theme_list_background_color;
+}
+.dark_mode .payment_subscription_plans_listing_item article{
+  background-color:#646464;
+}
+.payment_subscription_plans_listing_item.heighlighted article {
+	border-width:4px;
+	border-color:var(--theme-button-background-color);
+}
+.payment_subscription_plans_listing_top{
+	background-color:$theme_list_background_color_alt;
+	padding:20px 15px;
+	border-radius:20px;
+	min-height:120px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+}
+.dark_mode .payment_subscription_plans_listing_top{
+	background-color:#5f5f5f;
+}
+/*Top Content*/
+.payment_subscription_plans_listing_img{
+	background-size:cover;
+	background-position:center;
+	height:80px;
+	width:80px;
+	margin:0 auto 10px;
+}
+.payment_subscription_plans_listing_title span{
+	display:block;
+	font-size:1.2em;
+	padding:0 10px 10px;
+	text-align:center;
+}
+.payment_subscription_plans_listing_content{
+	position:relative;
+	text-align:center;
+}
+.payment_subscription_plans_listing_content .price{
+	position:relative;
+	display:inline-block;
+	line-height:200%;
+}
+.payment_subscription_plans_listing_content .price span{    
+	font-size:1.8em;
+	vertical-align:middle;
+	font-weight:600;
+	color:var(--theme-button-background-color);
+}
+.payment_subscription_plans_listing_content .price sup{
+	font-size:1.2em;    
+	vertical-align:super;
+}
+.payment_subscription_plans_listing_content .price sub{
+	font-size:1.1em;    
+	vertical-align:middle;
+	font-weight:600;
+}
+.payment_subscription_plans_listing_content .duration{
+	font-weight:600;
+	font-size:1em; 
+	margin-bottom:0;
+}
+.payment_subscription_plans_listing_hint{
+	border-bottom-width:0px;
+	font-style:normal;
+	font-size:95%;
+	text-align:center;
+	min-height:70px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+	padding:8px 0;
+}
+/*Features*/
+ul.payment_subscription_plans_listing_features{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	text-align:left;
+}
+.payment_subscription_plans_listing_features.iscenter{
+	text-align:center !important;
+}
+.payment_subscription_plans_listing_features li{
+	border-bottom-width:1px;
+	border-bottom-style:dashed;
+	height:60px;
+	padding:6px 0;
+	overflow:hidden;
+	margin:0px;
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+	font-size:95%;
+}
+.payment_subscription_plans_listing_features.iscenter li{
+	justify-content:center;	
+	text-align:center !important;
+}
+.payment_subscription_plans_listing_features li .payment_font_icon{
+	margin-right:6px;
+	vertical-align:middle;
+	width:20px;
+	height:20px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	position:relative;
+	z-index:1;
+	color:var(--theme-button-background-color);
+	font-size:12px;
+}
+[dir="rtl"] .payment_subscription_plans_listing_features li .payment_font_icon{
+	margin-right:0px;
+	margin-left:6px;
+}
+.payment_subscription_plans_listing_features li .payment_font_icon::after{
+	content:'';
+	width:100%;
+	height:100%;
+	border-radius:50%;
+	background-color:var(--theme-button-background-color);
+	display:block;
+	position:absolute;
+	left:0;
+	right:0;
+	margin:auto;
+	z-index:0;
+	opacity:0.1;
+}
+.payment_subscription_plans_listing_features li .payment_custom_tip_show{
+	margin-left:8px;
+	cursor:pointer;
+}
+[dir="rtl"] .payment_subscription_plans_listing_features li .payment_custom_tip_show{
+	margin-left:0;
+	margin-right:8px;
+}
+.payment_subscription_plans_listing_features li span{
+	overflow:hidden;
+	flex:1;
+	height:100%;
+	display:flex;
+	align-items:center;
+	overflow-y:auto;
+	margin-right:5px;
+}
+[dir="rtl"] .payment_subscription_plans_listing_features li span{
+	margin-left:5px;
+	margin-right:0;
+}
+.payment_subscription_plans_listing_features.iscenter li span{
+	flex:inherit;
+}
+.payment_subscription_plans_listing_features li span::-webkit-scrollbar-track{
+	background-color:transparent;
+}
+.payment_subscription_plans_listing_features li span::-webkit-scrollbar{
+	width:0px;
+	background-color:transparent;
+}
+.payment_subscription_plans_listing_features li span::-webkit-scrollbar-thumb{
+	background-color:transparent;
+}
+.payment_subscription_plans_listing_features li .mCSB_dragger{
+	min-height:10px !important;
+}
+.payment_subscription_plans_listing_features.iscenter li,
+.payment_subscription_plans_listing_features.iscenter li .mCSB_container{
+	text-align:left;
+}
+/*Footer Button*/
+.payment_subscription_plans_listing_footer{
+	position:relative;
+	padding:20px 10px 0;
+	text-align:center;
+	margin-top:auto;
+}
+.payment_subscription_plans_listing_footer input{
+	margin-top:10px;
+	opacity:0;
+	position:absolute;
+	visibility:hidden;
+}
+.payment_subscription_plans_listing_footer a{
+	border-radius:50px;
+	display:inline-flex;
+	align-items:center;
+  justify-content:center;
+	font-size:14px;
+	font-weight:600;
+	position:relative;
+	height:50px;
+	margin:0 auto;
+	text-decoration:none;
+	text-align:center;
+	padding:0 30px;
+	transition:0.5s;
+  color:var(--theme-button-font-color) !important;
+	background-color:var(--theme-button-background-color);
+}
+.payment_subscription_plans_listing_footer:hover a{
+	opacity:.8;
+  color:var(--theme-button-font-color) !important;
+  background-color:var(--theme-button-background-color);
+}
+/*Ribbon*/
+.payment_subscription_plans_listing_label{
+  position:absolute;
+  top:0;
+  right:0;
+  width:110px;
+  height:110px;
+  overflow:hidden;
+}
+.payment_subscription_plans_listing_label div{
+  background-color:var(--theme-button-background-color);
+	color:var(--theme-button-font-color) ;
+  font-size:15px;
+  font-weight:bold;
+  text-align:center;
+  text-transform:uppercase;
+  position:relative;
+  padding:5px 10px;
+	top:18px;
+  width:158px;
+}
+.payment_subscription_plans_listing_label.left{
+	left:0
+}
+.payment_subscription_plans_listing_label.left > div{
+  left:-45px;
+  -webkit-transform:rotate(-45deg) translate3d(0, 0, 0);
+  -moz-transform:rotate(-45deg) translate3d(0, 0, 0);
+  -ms-transform:rotate(-45deg) translate3d(0, 0, 0);
+  -o-transform:rotate(-45deg) translate3d(0, 0, 0);
+}
+.payment_subscription_plans_listing_label.right{
+	right:0;
+}
+.payment_subscription_plans_listing_label.right > div{
+  left:-8px;
+  -webkit-transform:rotate(45deg) translate3d(0, 0, 0);
+  -moz-transform:rotate(45deg) translate3d(0, 0, 0);
+  -ms-transform:rotate(45deg) translate3d(0, 0, 0);
+  -o-transform:rotate(45deg) translate3d(0, 0, 0);
+}
+/*SUBSCRIPTIONS TABLE CSS END HERE*/
+/*NOTE CSS START HERE*/
+.payment_subscription_plans_listing_note{
+	padding:20px 0;
+}
+.payment_rich_content{
+	overflow:hidden;
+	margin-left:20px;
+}
+.payment_rich_content p,
+.payment_rich_content ul,
+.payment_rich_content ol{
+	line-height:150%;
+	margin-bottom:10px;
+}
+.payment_rich_content ul{
+	list-style:disc;
+}
+.payment_rich_content ul,
+.payment_rich_content ol{
+	padding-left:20px;
+}
+[dir="rtl"] .payment_rich_content ul,
+[dir="rtl"] .payment_rich_content ol{
+	padding-left:0;
+	padding-right:20px;
+}
+.payment_rich_content img{
+	margin:5px;
+	max-width:100%;
+	height:auto;
+}
+.dark_mode ul.form-errors > li a:hover{
+	color:#fff !important;
+}
+#global_content_simple .global_form .form-elements > div#placement-wrapper div#placement-label{
+	margin-bottom:0;
+}
+#global_content_simple .global_form .form-elements > div > div#placement-element p.description{
+	margin-bottom:0.8em;
+	font-size:0.9em;
+}
+/*Currency Page*/
+.admin_results .disabled.admin_link_btn{
+	pointer-events:none;
+	background-color:#dddddd;
+}

@@ -1,0 +1,881 @@
+"Payment";"Payment"
+
+"ADMIN_SIGNUP_STEP_PAYMENT_PLUGIN_SIGNUP_SUBSCRIPTION";"Choose Subscription"
+
+# admin menu
+"Billing";"Billing"
+"Gateways";"Gateways"
+"Plans";"Plans"
+"Subscription";"Subscription"
+"Subscriptions";"Subscriptions"
+"Transactions";"Transactions"
+
+# package description
+"Free";"Free"
+# price period i.e. $40 weekly
+"%1$s %2$s";"%1$s %2$s"
+# price per x period i.e. $2 per 3 days
+"%1$s per %2$s %3$s";"%1$s per %2$s %3$s"
+"day";"day";"days"
+"week";"week";"weeks"
+"month";"month";"months"
+"year";"year";"years"
+"daily";"daily"
+"weekly";"weekly"
+"monthly";"monthly"
+"yearly";"yearly"
+"One-time fee of %1$s";"One-time fee of %1$s"
+# Limited one-time fee i.e. $30 for 2 months
+"%1$s for %2$s %3$s";"%1$s for %2$s %3$s"
+
+# payment.admin-gateway
+"Manage Payment Gateways";"Manage Payment Gateways"
+"PAYMENT_VIEWS_ADMIN_GATEWAYS_INDEX_DESCRIPTION";"Browse and manage payment
+gateways.<br /> These payment gateways are just for recharge the wallet on your website."
+"%s gateway found";"%s gateway found";"%s gateways found"
+"PayPal";"PayPal"
+"Payment Gateway: PayPal";"Payment Gateway: PayPal"
+"API Signature";"API Signature"
+"API Certificate";"API Certificate"
+"2Checkout";"2Checkout"
+"Payment Gateway: 2Checkout";"Payment Gateway: 2Checkout"
+"API Username";"API Username"
+"API Password";"API Password"
+
+"PAYMENT_FORM_ADMIN_GATEWAY_2CHECKOUT_DESCRIPTION";"2Checkout Account Configuration:<br />
+1) If you haven't already, you will need to establish a <a href=""%6$s"" target=""_blank"">2Checkout account</a>.<br />
+2) <a target=""_blank"" href=""%1$s"">Create a new username</a>, checking both the API Access and API Updating checkboxes.  Insert the newly created username and password into this form below.<br />
+<em>Note: If you change the secret word in your 2Checkout account, you will need to visit this page again and re-save the settings.</em><br />
+3) <a target=""_blank"" href=""%2$s"">Enable Instant Notification Settings</a> (INS). Paste the following URL into the Global Settings > Global URL box, then click Apply and Enable All Notifications, then Save Settings:<br />%3$s<br />
+4) <a target=""_blank"" href=""%4$s"">Update the Site Management</a> page, selecting the ""Header Redirect"" option, and pasting the following into the ""Approved URL"" field:<br />%5$s"
+
+"PAYMENT_FORM_ADMIN_GATEWAY_PAYPAL_DESCRIPTION";"PayPal Account Configuration: <br />
+1) If you haven't already, you will need to establish a <a target=""_blank"" href=""%1$s"">PayPal account</a>.<br />
+2) Enable <a target=""_blank"" href=""%1$s"">API access</a> on your Paypal account via: <em>My Account &gt; Profile &gt; API Access &gt; Request API credentials &gt; Request API Signature</em>.<br />
+3) Insert the Paypal API <a target=""_blank"" href=""%1$s"">username, password, and signature</a> values into this form.<br />
+4) Enable <a target=""_blank"" href=""%2$s"">Instant Payment Notifications</a> via: <em>My Account &gt; Profile &gt; Instant Payment Notification Preferences &gt; Choose IPN Settings</em>.  The <em>IPN messages</em> should be <strong>enabled</strong>, and the <em>Notification URL</em> should be set to:<br /><strong>%3$s</strong>"
+
+"PAYMENT_FORM_ADMIN_GATEWAY_TESTING_DESCRIPTION";"<b>This gateway is only for testing the payment functions and should not be enabled for normal site operation.</b>"
+
+"PAYMENT_FORM_ADMIN_GATEWAY_FREE_DESCRIPTION";"If you want the users to subscribe to the Free Membership for your website then enable the below settings:"
+"PAYMENT_FORM_ADMIN_GATEWAY_BANK_DESCRIPTION";"If you want to enable the Bank Gateway for the Membership Subscription for your website then fill the below given details of the Bank for the users."
+
+"PAYMENT_FORM_ADMIN_GATEWAY_CASH_DESCRIPTION";"Enabling the Cash Gateway for the Membership Subscriptions for your website will allow you to accept offsite manual payments."
+
+"PAYMENT_FORM_ADMIN_GATEWAY_CHEQUE_DESCRIPTION";"If you want to enable the Cheque Gateway for the Membership Subscription for your website then fill the below given details of Cheque for the users."
+
+"PAYMENT_FORM_GATEWAY_BANK_DESCRIPTION";"Make the payment on the below given details of Bank and then upload the receipt of your transaction."
+"PAYMENT_FORM_GATEWAY_CASH_DESCRIPTION";"Make the payment for the Membership Subscription by Cash and then upload the receipt of your transaction."
+"PAYMENT_FORM_GATEWAY_CHEQUE_DESCRIPTION";"Make the payment on the below given details of Cheque."
+
+# payment.admin-index
+"PAYMENT_VIEWS_ADMIN_INDEX_INDEX_DESCRIPTION";"Browse transactions. The search
+box will look through the member name, username, email, transaction ID, and
+order ID. PayPal or other gateway transactions may not show right away and could take 24-48 hours to show up."
+"%s transaction found";"%s transaction found";"%s transactions found"
+"Gateway";"Gateway"
+"Transaction ID";"Transaction ID"
+"Parent Transaction ID";"Parent Transaction ID"
+"Order ID";"Order ID"
+"Deleted or Unknown Member";"Deleted or Unknown Member"
+"Unknown Gateway";"Unknown Gateway"
+"Refund";"Refund"
+"Refunded";"Refunded"
+"Okay";"Okay"
+"Completed";"Completed"
+"(%1$s)";"(%1$s)"
+"details";"details"
+"Member";"Member"
+"Amount";"Amount"
+"Transaction Details";"Transaction Details"
+"Payment Gateway";"Payment Gateway"
+"Payment Type";"Payment Type"
+"Payment State";"Payment State"
+"Payment Amount";"Payment Amount"
+"Gateway Transaction ID";"Gateway Transaction ID"
+"Gateway Order ID";"Gateway Order ID"
+
+# payment.admin-package
+"Manage Subscription Plans";"Manage Subscription Plans"
+"PAYMENT_VIEWS_ADMIN_PACKAGES_INDEX_DESCRIPTION";"Browse and manage subscription plans."
+"Add Plan";"Add Plan"
+"%s plan found";"%s plan found";"%s plans found"
+"Signup";"Signup"
+"Day(s)";"Day(s)"
+"Week(s)";"Week(s)"
+"Month(s)";"Month(s)"
+"Year(s)";"Year(s)"
+"Forever";"Forever"
+"Yes, members may select this plan.";"Yes, members may select this plan."
+"No, members may not select this plan.";"No, members may not select this plan."
+"Yes, show this plan on signup.";"Yes, show this plan on signup."
+"No, do not show this plan on signup.";"No, do not show this plan on signup."
+"Day";"Day"
+"Week";"Week"
+"Month";"Month"
+"Year";"Year"
+"The member will be placed into this level upon subscribing to this plan. If left empty, the default level at the time a subscription is chosen will be used.";"The member will be placed into this level upon subscribing to this plan. If left empty, the default level at the time a subscription is chosen will be used."
+"The amount to charge the member. This will be charged once for one-time plans, and each billing cycle for recurring plans. Setting this to zero will make this a free plan.";"The amount to charge the member. This will be charged once for one-time plans, and each billing cycle for recurring plans. Setting this to zero will make this a free plan."
+"One-time";"One-time"
+"Fully Supported";"Fully Supported"
+"Partially Supported";"Partially Supported"
+"How often should members in this plan be billed?";"How often should members in this plan be billed?"
+"Billing Cycle";"Billing Cycle"
+"When should this plan expire? For one-time plans, the plan will expire after the period of time set here. For recurring plans, the user will be billed at the above billing cycle for the period of time specified here.";"When should this plan expire? For one-time plans, the plan will expire after the period of time set here. For recurring plans, the user will be billed at the above billing cycle for the period of time specified here."
+"Billing Duration";"Billing Duration"
+"Trial Duration";"Trial Duration"
+"Please note that payment parameters (Price, Recurrence, Duration, Trial Duration) cannot be edited after creation. If you wish to change these, you will have to create a new plan and disable the current one.";"Please note that payment parameters (Price, Recurrence, Duration, Trial Duration) cannot be edited after creation. If you wish to change these, you will have to create a new plan and disable the current one."
+"Create Subscription Plan";"Create Subscription Plan"
+"Can members choose this plan? Please note that disabling this plan will grandfather in existing plan members until they pick a new plan.";"Can members choose this plan? Please note that disabling this plan will grandfather in existing plan members until they pick a new plan."
+"Can members choose this plan on signup?";"Can members choose this plan on signup?"
+"Show on signup?";"Show on signup?"
+"Create Plan";"Create Plan"
+
+# payment.admin-subscription
+"Manage Subscriptions";"Manage Subscriptions"
+"PAYMENT_VIEWS_ADMIN_SUBSCRIPTION_INDEX_DESCRIPTION";"Browse and manage
+subscriptions. The search box will look through member name, username, and
+email."
+"%s subscription found";"%s subscription found";"%s subscriptions found"
+"Plan";"Plan"
+"Missing Plan";"Missing Plan"
+"Deleted Member";"Deleted Member"
+"Initial";"Initial"
+"Trial";"Trial"
+"Pending Payment";"Pending Payment"
+"Cancelled";"Cancelled"
+"Expired";"Expired"
+"Overdue";"Overdue"
+"Refunded";"Refunded"
+
+"ACTIVITY_TYPE_PAYMENT_SUBSCRIPTION_CHANGED";"When your plan is changed"
+"ACTIVITY_TYPE_PAYMENT_SUBSCRIPTION_EXPIREDSOON";"When plan is about to expire"
+# mail templates
+
+# payment_subscription_active
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_TITLE";"Subscription Activated"
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_DESCRIPTION";"This is the email that gets sent to a member when their subscription is activated."
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_SUBJECT";"Your subscription is now active."
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_BODY";"[header]
+
+Thank you for subscribing to our social network! Your subscription is now active.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+You may follow the link below to sign in.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_cancelled
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_TITLE";"Subscription Cancelled"
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_DESCRIPTION";"This is the email that gets sent to a member when their subscription is cancelled."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_SUBJECT";"Your subscription has been cancelled."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_BODY";"[header]
+
+Your subscription has been cancelled.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+Please follow the link below to renew your subscription.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_expired
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_TITLE";"Subscription Expired"
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_DESCRIPTION";"This is the email that gets sent to a member when their subscription expires."
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_SUBJECT";"Your subscription has expired."
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_BODY";"[header]
+
+Your subscription has expired.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+Please follow the link below to renew your subscription.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_overdue
+"_EMAIL_PAYMENT_SUBSCRIPTION_OVERDUE_TITLE";"Subscription Overdue"
+"_EMAIL_PAYMENT_SUBSCRIPTION_OVERDUE_DESCRIPTION";"This is the email that gets sent to a member when their subscription is overdue."
+"_EMAIL_PAYMENT_SUBSCRIPTION_OVERDUE_SUBJECT";"Your subscription is overdue."
+"_EMAIL_PAYMENT_SUBSCRIPTION_OVERDUE_BODY";"[header]
+
+Your subscription is overdue because of a failed or missed payment.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+Please follow the link below to renew your subscription.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_pending
+"_EMAIL_PAYMENT_SUBSCRIPTION_PENDING_TITLE";"Subscription Pending"
+"_EMAIL_PAYMENT_SUBSCRIPTION_PENDING_DESCRIPTION";"This is the email that gets sent to a member when their subscription is pending."
+"_EMAIL_PAYMENT_SUBSCRIPTION_PENDING_SUBJECT";"Your subscription is pending."
+"_EMAIL_PAYMENT_SUBSCRIPTION_PENDING_BODY";"[header]
+
+Thank you for subscribing to our social network! Your subscription is
+pending, awaiting completion of the transaction. Your membership will be
+activated soon; we will notify you by email when it is ready.
+Thank you for your patience.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+[footer]"
+
+# payment_subscription_recurrence
+"_EMAIL_PAYMENT_SUBSCRIPTION_RECURRENCE_TITLE";"Subscription Payment Recurrence"
+"_EMAIL_PAYMENT_SUBSCRIPTION_RECURRENCE_DESCRIPTION";"This is the email that gets sent to a member when they are billed for a recurring payment."
+"_EMAIL_PAYMENT_SUBSCRIPTION_RECURRENCE_SUBJECT";"Your subscription has been billed."
+"_EMAIL_PAYMENT_SUBSCRIPTION_RECURRENCE_BODY";"[header]
+
+Your subscription has been billed. You should receive an email from the
+payment gateway regarding this charge. Thank you for subscribing to our social
+network.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+You may follow the link below to sign in.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_refunded
+"_EMAIL_PAYMENT_SUBSCRIPTION_REFUNDED_TITLE";"Subscription Refunded"
+"_EMAIL_PAYMENT_SUBSCRIPTION_REFUNDED_DESCRIPTION";"This is the email that gets sent to a member when their subscription is refunded."
+"_EMAIL_PAYMENT_SUBSCRIPTION_REFUNDED_SUBJECT";"Your subscription has been refunded."
+"_EMAIL_PAYMENT_SUBSCRIPTION_REFUNDED_BODY";"[header]
+
+Your subscription has been refunded and is no longer active.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+You may follow the link below to sign in.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_reject
+"_EMAIL_PAYMENT_SUBSCRIPTION_REJECT_TITLE";"Member Account Rejected"
+"_EMAIL_PAYMENT_SUBSCRIPTION_REJECT_DESCRIPTION";"This is the email that gets sent to a member when their account is rejected by an admin."
+"_EMAIL_PAYMENT_SUBSCRIPTION_REJECT_SUBJECT";"Your account has been rejected."
+"_EMAIL_PAYMENT_SUBSCRIPTION_REJECT_BODY";"
+
+[header]
+
+Your account has been rejected by an administrator due to [reject_Reason]. Please click the following link to signup again:
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_expiredsoon
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_TITLE";"Subscription Plan Expiring Soon"
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_DESCRIPTION";"This is the email that will be sent to members when their subscription plan going to expire."
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_SUBJECT";"Your subscription plan is expiring soon."
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_BODY";"
+
+[header]
+
+Your subscription plan [plan_name] is going to expire soon on [period]. You may click on the following link to upgrade/purchase the plan.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_changed
+"_EMAIL_PAYMENT_SUBSCRIPTION_CHANGED_TITLE";"Subscription Plan Changed"
+"_EMAIL_PAYMENT_SUBSCRIPTION_CHANGED_DESCRIPTION";"This is the email that will be sent to members when their subscription plan changed."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CHANGED_SUBJECT";"Your subscription plan is changed."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CHANGED_BODY";"
+
+[header]
+
+Your subscription plan changed from [current_plan] to [changed_plan].
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+Click on the following link to sign in.
+
+[object_link]
+
+[footer]"
+
+# payment_subscription_transaction
+"_EMAIL_PAYMENT_SUBSCRIPTION_TRANSACTION_TITLE";"Membership Payment Received"
+"_EMAIL_PAYMENT_SUBSCRIPTION_TRANSACTION_DESCRIPTION";"This is the email that is received by admin when there will be any payment for membership will come or waiting for admin action."
+"_EMAIL_PAYMENT_SUBSCRIPTION_TRANSACTION_SUBJECT";"New [gateway_type] Payment Received"
+"_EMAIL_PAYMENT_SUBSCRIPTION_TRANSACTION_BODY";"
+
+[header]
+
+New [gateway_type] payment has been received for the subscription of membership on your website. Please click the following link to approve or reject the payment:
+
+[object_link]
+
+[footer]"
+
+"Confirm Subscription";"Confirm Subscription"
+"You are about to subscribe to the plan: %1$s";"You are about to subscribe to the plan: %1$s"
+"Are you sure you want to do this? You will be charged: %1$s";"Are you sure you want to do this? You will be charged: %1$s"
+"If yes, click the button below and you will be taken to a payment page. When you have completed your payment, please remember to click the button that takes you back to our site.";"If yes, click the button below and you will be taken to a payment page. When you have completed your payment, please remember to click the button that takes you back to our site."
+"Please note that no refund will be provided for any unused portion of your current plan.";"Please note that no refund will be provided for any unused portion of your current plan."
+
+"The plan you are currently subscribed to is: %1$s";"The plan you are currently subscribed to is: %1$s"
+"You are currently paying: %1$s";"You are currently paying: %1$s"
+"If you would like to change your subscription, please select an option below.";"If you would like to change your subscription, please select an option below."
+"You have not yet selected a subscription plan. Please choose one now below.";"You have not yet selected a subscription plan. Please choose one now below."
+"Change Plan";"Change Plan"
+"(%1$s)";"(%1$s)"
+
+"Subscriptions are not required for administrators and moderators.";"Subscriptions are not required for administrators and moderators."
+
+"Payment Pending";"Payment Pending"
+"Thank you for submitting your payment. Your payment is currently pending - your account will be activated when we are notified that the payment has completed successfully. Please return to our login page when you receive an email notifying you that the payment has completed.";"Thank you for submitting your payment. Your payment is currently pending - your account will be activated when we are notified that the payment has completed successfully. Please return to our login page when you receive an email notifying you that the payment has completed."
+"Back to Home";"Back to Home"
+"Payment Complete";"Payment Complete"
+"Thank you! Your payment has completed successfully.";"Thank you! Your payment has completed successfully."
+"Our payment processor has notified us that your payment could not be completed successfully. We suggest that you try again with another credit card or funding source.";"Our payment processor has notified us that your payment could not be completed successfully. We suggest that you try again with another credit card or funding source."
+"Payment Failed";"Payment Failed"
+
+"Subscription Plan Confirmation";"Subscription Plan Confirmation"
+"Are you sure you want to subscribe to the selected plan? Please click ""Proceed to Pay"" button to continue and complete your payment.";"Are you sure you want to subscribe to the selected plan? Please click ""Proceed to Pay"" button to continue and complete your payment."
+"Please setup your subscription to continue:";"Please setup your subscription to continue:"
+"Please pay a one-time fee to continue:";"Please pay a one-time fee to continue:"
+"Pay with %1$s";"Pay with %1$s"
+"Are you sure you want to subscribe to the selected plan? Please click ""Yes"" to proceed further.";"Are you sure you want to subscribe to the selected plan? Please click ""Yes"" to proceed further."
+
+"The subscription has been cancelled.";"The subscription has been cancelled."
+"There was a problem cancelling the subscription. The message was:";"There was a problem cancelling the subscription. The message was:"
+
+"Subscription Details";"Subscription Details"
+"Subscription ID";"Subscription ID"
+"Plan Deleted";"Plan Deleted"
+"Current Member Level";"Current Member Level"
+"Plan";"Plan"
+"Plan Member Level";"Plan Member Level"
+"Subscription State";"Subscription State"
+"Created";"Created"
+"Expires";"Expires"
+"N/A";"N/A"
+"Options";"Options"
+"Member Subscription History";"Member Subscription History"
+"Member Transaction History";"Member Transaction History"
+"Cancel Subscription";"Cancel Subscription"
+"Edit Subscription";"Edit Subscription"
+"Related Transactions";"Related Transactions"
+"Transaction ID";"Transaction ID"
+"Gateway";"Gateway"
+"Type";"Type"
+"State";"State"
+"Amount";"Amount"
+"Unknown Gateway";"Unknown Gateway"
+"(%s)";"(%s)"
+"details";"details"
+"Transaction Details";"Transaction Details"
+"Transaction ID";"Transaction ID"
+"Raw Order Details";"Raw Order Details"
+"Order could not be found.";"Order could not be found."
+"Raw Transaction Details";"Raw Transaction Details"
+"cancel";"cancel"
+"Approve Payment";"Approve Payment"
+"Cancel Payment";"Cancel Payment"
+"Subscription Plan";"Subscription Plan"
+"Please select a subscription plan from the list below.";"Please select a subscription plan from the list below."
+"Choose Plan:";"Choose Plan:"
+"Plan Expiry Date: ";"Plan Expiry Date: "
+"Member Level: ";"Member Level: "
+"Subscription Day Left: <b>%s Day</b>";"Subscription Day Left: <b>%s Day</b>";"Subscription Days Left: <b>%s Days</b>"
+"Proceed";"Proceed"
+
+
+
+# PAYMENT_MANUAL_SUBSCRIBE
+"_EMAIL_PAYMENT_MANUAL_SUBSCRIBE_TITLE";"Manual Payment Method Notification"
+"_EMAIL_PAYMENT_MANUAL_SUBSCRIBE_DESCRIPTION";"This is the email that gets sent to Admin if anyone subscribes with a manual payment method on the site."
+"_EMAIL_PAYMENT_MANUAL_SUBSCRIBE_SUBJECT";"Subscribes with Manual Payment Method on the Social Network"
+"_EMAIL_PAYMENT_MANUAL_SUBSCRIBE_BODY";"[header]
+
+[sender_name] has subscribe with payment method [payment_method] on this site. Please click the following link to take the appropriate action:
+
+[admin_link]
+
+[footer]"
+
+"{item:$subject} has subscribe with payment method {var:$payment_method} on this {var:$adminsidelink}.";"{item:$subject} has subscribe with payment method {var:$payment_method} on this {var:$adminsidelink}."
+
+"ACTIVITY_TYPE_PAYMENT_MANUAL_SUBSCRIBE";"When people subscribes with a manual payment method (cash, check, free, bank)."
+
+"%1$s: Choose Subscription";"%1$s: Choose Subscription"
+"Choose Subscription Plan";"Choose Subscription Plan"
+"Do you want your users to be able to choose a subscription plan upon signup?";"Do you want your users to be able to choose a subscription plan upon signup?"
+"Yes, give users the option to choose upon signup.";"Yes, give users the option to choose upon signup."
+"No, do not allow users to choose upon signup.";"No, do not allow users to choose upon signup."
+
+"Transaction History";"Transaction History"
+"Below you can view the transaction history of your orders towards membership payments. Entering criteria into the filter fields will help you find specific order.";"Below you can view the transaction history of your orders towards membership payments. Entering criteria into the filter fields will help you find specific order."
+"Order Date";"Order Date"
+"Status";"Status"
+"Plan Name";"Plan Name"
+
+
+# payment_verification_active
+"_EMAIL_PAYMENT_VERIFICATION_ACTIVE_TITLE";"User Verification Activated"
+"_EMAIL_PAYMENT_VERIFICATION_ACTIVE_DESCRIPTION";"This is the email that gets sent to a member when their user profile verification is activated."
+"_EMAIL_PAYMENT_VERIFICATION_ACTIVE_SUBJECT";"Congatulations, your profile verification is activated."
+"_EMAIL_PAYMENT_VERIFICATION_ACTIVE_BODY";"[header]
+
+Your user profile verification is activated. You are now a verified member of this site.
+
+[subscription_terms]
+
+Please click the following link to view it:
+
+[object_link]
+
+[footer]"
+
+# payment_verification_pending
+"_EMAIL_PAYMENT_VERIFICATION_PENDING_TITLE";"User Verification Pending"
+"_EMAIL_PAYMENT_VERIFICATION_PENDING_DESCRIPTION";"This is the email that gets sent to a member when their user profile verification is pending."
+"_EMAIL_PAYMENT_VERIFICATION_PENDING_SUBJECT";"Your profile verification is pending."
+"_EMAIL_PAYMENT_VERIFICATION_PENDING_BODY";"[header]
+
+Your profile verification is pending until the transaction is completed. We'll notify you by email once it's activated.
+
+Thank you for your patience.
+
+[subscription_terms]
+
+[footer]"
+
+
+# payment_verification_overdue
+"_EMAIL_PAYMENT_VERIFICATION_OVERDUE_TITLE";"User Verification Payment Overdue"
+"_EMAIL_PAYMENT_VERIFICATION_OVERDUE_DESCRIPTION";"This is the email that gets sent to a member when their user profile verification payment is overdue."
+"_EMAIL_PAYMENT_VERIFICATION_OVERDUE_SUBJECT";"Your profile verification payment is overdue."
+"_EMAIL_PAYMENT_VERIFICATION_OVERDUE_BODY";"[header]
+
+Your profile verification payment is overdue due to a failed or missed payment.
+
+[subscription_terms]
+
+Please follow the link below to renew your verification.
+
+[object_link]
+
+[footer]"
+
+
+# payment_verification_refunded
+"_EMAIL_PAYMENT_VERIFICATION_REFUNDED_TITLE";"User Verification Payment Refunded"
+"_EMAIL_PAYMENT_VERIFICATION_REFUNDED_DESCRIPTION";"This is the email that gets sent to a member when their user profile verification payment is refunded."
+"_EMAIL_PAYMENT_VERIFICATION_REFUNDED_SUBJECT";"Your profile verification payment has been refunded."
+"_EMAIL_PAYMENT_VERIFICATION_REFUNDED_BODY";"[header]
+
+Your profile verification payment has been refunded, and your verification status is no longer active.
+
+[subscription_terms]
+
+You may follow the link below to sign in.
+
+[object_link]
+
+[footer]"
+
+# payment_verification_recurrence
+"_EMAIL_PAYMENT_VERIFICATION_RECURRENCE_TITLE";"User Verification Recurring Payment Billed from Members"
+"_EMAIL_PAYMENT_VERIFICATION_RECURRENCE_DESCRIPTION";"This email is sent to members when they are billed for recurring user verification payments."
+"_EMAIL_PAYMENT_VERIFICATION_RECURRENCE_SUBJECT";"Recurring Payment Billed for Profile Verification"
+"_EMAIL_PAYMENT_VERIFICATION_RECURRENCE_BODY";"[header]
+
+Payment for your profile verification has been billed. You should receive an email from the payment gateway regarding this charge.
+
+[subscription_terms]
+
+You may follow the link below:
+
+[object_link]
+
+[footer]"
+
+
+# payment_manual_verification
+"_EMAIL_PAYMENT_MANUAL_VERIFICATION_TITLE";"User Verification Payment Received"
+"_EMAIL_PAYMENT_MANUAL_VERIFICATION_DESCRIPTION";"This email is sent to the admin when there is a new payment for user verification and that might be pending or requiring admin action."
+"_EMAIL_PAYMENT_MANUAL_VERIFICATION_SUBJECT";"New [payment_method] Payment Received"
+"_EMAIL_PAYMENT_MANUAL_VERIFICATION_BODY";"[header]
+
+New [payment_method] payment has been received for the user verification on your website. 
+
+[sender_name] has made the payment. Please click the following link to take the appropriate action if needed:
+
+[admin_link]
+
+[footer]"
+
+
+# payment_verification_cancelled
+"_EMAIL_PAYMENT_VERIFICATION_CANCELLED_TITLE";"User Verification Payment Rejected"
+"_EMAIL_PAYMENT_VERIFICATION_CANCELLED_DESCRIPTION";"This is the email that gets sent to a member when their user verification payment is rejected."
+"_EMAIL_PAYMENT_VERIFICATION_CANCELLED_SUBJECT";"Your user verification payment has been rejected."
+"_EMAIL_PAYMENT_VERIFICATION_CANCELLED_BODY";"[header]
+
+Your user verification payment has been rejected.
+
+You may follow the link below:
+
+[object_link]
+
+[footer]"
+
+
+"Your verification request has been rejected by {item:$subject}.";"Your verification request has been rejected by {item:$subject}."
+"Your verification request has been approved by {item:$subject}. You are verified member.";"Your verification request has been approved by {item:$subject}. You are verified member."
+"{item:$subject} has send verification request and is waiting for approval.";"{item:$subject} has send verification request and is waiting for approval."
+"{item:$subject} has verification with payment method {var:$payment_method} on this {var:$adminsidelink}.";"{item:$subject} has verification with payment method {var:$payment_method} on this {var:$adminsidelink}."
+
+"ACTIVITY_TYPE_PAYMENT_MANUAL_VERIFICATION";"When members make payment for user verification."
+
+"ACTIVITY_TYPE_USER_VERIFIED";"When my profile is verified."
+"ACTIVITY_TYPE_USER_VERIREQUESTTO_SUPERADMIN";"When member has send user Verification request and is waiting for approval."
+"ACTIVITY_TYPE_USER_VERIREQUEST_APPROVED";"When user verification request has been approved."
+"ACTIVITY_TYPE_USER_VERIREQUEST_REJECT";"When user verification request has been rejected"
+
+"Membership Subscription";"Membership Subscription"
+"Verification Subscription";"Verification Subscription"
+"Manage Verifications";"Manage Verifications"
+"Verification Settings";"Verification Settings"
+"Manage Verification Requests";"Manage Verification Requests"
+"This page offers User Verification Settings, allowing you to customize user verification on your website. Additionally, you can choose a verified icon image to display alongside the names of verified users on your site.<br /><br />These settings are applied individually to different member levels. Start by selecting the member level you wish to modify, and then adjust the settings for that level below.<br /><br />Note: You can also manually adjust the verification status of specific users by editing them in the '<a href=""%1$s"" target=""_blank"">Manage Member</a>' section.<br /><br />You can approve or reject payments made via Bank, Cash or Cheque from <a href=""%2$s"" target=""_blank"">Trasactions</a> section.";"This page offers User Verification Settings, allowing you to customize user verification on your website. Additionally, you can choose a verified icon image to display alongside the names of verified users on your site.<br /><br />These settings are applied individually to different member levels. Start by selecting the member level you wish to modify, and then adjust the settings for that level below.<br /><br />Note: You can also manually adjust the verification status of specific users by editing them in the '<a href=""%1$s"" target=""_blank"">Manage Member</a>' section.<br /><br />You can approve or reject payments made via Bank, Cash or Cheque from <a href=""%2$s"" target=""_blank"">Transactions</a> section."
+"Choose the image to be shown alongside verified users on your site. This image will show in both user panel and admin panel of your site. [Note: You can add a new image from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]";"Choose the image to be shown alongside verified users on your site. This image will show in both user panel and admin panel of your site. [Note: You can add a new image from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]"
+"Tip text on Badge Icon";"Tip text on Badge Icon"
+"Enter the text which you want to show when users mouseover on verification badge for this member level.";"Enter the text which you want to show when users mouseover on verification badge for this member level."
+"Choose Verified Icon";"Choose Verified Icon"
+"Allow User Verification";"Allow User Verification"
+"Do you want to enable user verification for members of this level? Below you can choose how members can be verified.";"Do you want to enable user verification for members of this level? Below you can choose how members can be verified."
+"Yes, auto verify users.";"Yes, auto verify users."
+"Yes, allow users to request verification. If you choose this, then users will be able to request for verification from their Settings page.";"Yes, allow users to request verification. If you choose this, then users will be able to request for verification from their Settings page."
+"Yes, verify users on Payment basis. If you choose this, then you can configure payment settings below. Users will be able to manage verification on their Settings page.";"Yes, verify users on Payment basis. If you choose this, then you can configure payment settings below. Users will be able to manage verification on their Settings page."
+"No, do not allow user verification.";"No, do not allow user verification."
+"There are currently no enabled payment gateways. You must %1$sadd one%2$s before this page is available.";"There are currently no enabled payment gateways. You must %1$sadd one%2$s before this page is available."
+"Enter Price for Verified Member";"Enter Price for Verified Member"
+"Enter the price for verified member that you want to charge.";"Enter the price for verified member that you want to charge."
+"How often should members in this be billed?";"How often should members in this be billed?"
+"Verify Existing Users";"Verify Existing Users"
+"Do you want to verify existing users of this member level?";"Do you want to verify existing users of this member level?"
+"Currently, there are no verification requests.";"Currently, there are no verification requests."
+"Existing users have been successfully verified.";"Existing users have been successfully verified."
+"Verifications Requests are not required for administrators and moderators.";"Verifications Requests are not required for administrators and moderators."
+"Congratulations, you are a verified member of this site.";"Congratulations, you are a verified member of this site."
+"At present, your membership on this site is not verified. To initiate the verification process for your profile, please click the 'Request Verification' button below.";"At present, your membership on this site is not verified. To initiate the verification process for your profile, please click the 'Request Verification' button below."
+"Request Verification";"Request Verification"
+"Your verification request is being processed. To cancel the request, click 'Cancel Request' below.";"Your verification request is being processed. To cancel the request, click 'Cancel Request' below."
+"Cancel Request";"Cancel Request"
+
+"Thank you for your payment. We'll review it promptly. You'll receive a notification once your payment is approved, and your user profile is verified.";"Thank you for your payment. We'll review it promptly. You'll receive a notification once your payment is approved, and your user profile is verified."
+"Visit Verification Settings";"Visit Verification Settings"
+"Your user profile verification is currently suspended.";"Your user profile verification is currently suspended."
+"{item:$subject} has made {var:$payment_method} payment for user verification. You can take appropriate action in {var:$adminsidelink}.";"{item:$subject} has made {var:$payment_method} payment for user verification. You can take appropriate action in {var:$adminsidelink}."
+
+
+"PAYMENT_FORM_ADMIN_GATEWAY_STRIPE_DESCRIPTION";"Steps to generate Stripe API Keys:<br />
+1) If you haven't already created any account, you will need to establish a <a target=""_blank"" href=""%1$s"">Stripe account</a>.<br />
+2) If you have created earlier, then log in to your Stripe dashboard.<br />
+3) Click your account name in the top left.<br />
+4) Click API in the left menu.<br />
+5) Your secret and publishable keys should be on this page.<br />
+Note: You may be promoted to enter your password to receive the secret key.<br />
+6) Enable <a target=""_blank"" href=""%2$s"">Instant Payment Notifications</a> via: <em>Developers &gt; Webhooks &gt;</em>.  The <em>IPN messages</em> should be <strong>enabled</strong>, and the <em>Notification URL</em> should be set to:<br /><strong>%3$s</strong>"
+
+"PAGETITLE-PAYMENT-SETTINGS-ADMIN-PACKAGE";"Membership Global Settings"
+"PAGETITLE-PAYMENT-CREATE-ADMIN-PACKAGE";"Create Subscription Plan"
+"PAGETITLE-PAYMENT-CURRENCY-ADMIN-SETTINGS";"Manage Currency"
+"PAGETITLE-PAYMENT-DETAIL-ADMIN-SUBSCRIPTION";"Subscription Details"
+"PAGETITLE-PAYMENT-FEATURES-ADMIN-PACKAGE";"Manage Features"
+"PAGETITLE-PAYMENT-CHANGE-STYLES-ADMIN-PACKAGE";"Change Style of This Plan"
+"pagetitle-payment-finish-subscription";"Payment Complete"
+"pagetitle-payment-confirm-settings";"Confirm Subscription"
+"pagetitle-payment-choose-subscription";"Choose Subscription"
+
+"Publishable key";"Publishable key"
+"Secret key";"Secret key"
+"Webhook Signing Secret";"Webhook Signing Secret"
+"Icon";"Icon"
+"Choose an icon to show with this gateway. This icon will show in both user panel and admin panel of your site. [Note: You can add a new icon from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]";"Choose an icon to show with this gateway. This icon will show in both user panel and admin panel of your site. [Note: You can add a new icon from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]"
+"There are currently no icons in the <a href=""%1$s"" target=""_blank""> File & Media Manager </a> section of your site. Please begin by uploading an icon to get started.";"There are currently no icons in the <a href=""%1$s"" target=""_blank""> File & Media Manager </a> section of your site. Please begin by uploading an icon to get started."
+"Enable Test Mode?";"Enable Test Mode?"
+"Enable?";"Enable?"
+"Choose an image to show with this plan. This image will show with this plan at the user panel of your site. [Note: You can add a new image from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]";"Choose an image to show with this plan. This image will show with this plan at the user panel of your site. [Note: You can add a new image from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]"
+"Choose an icon to show with this currency. This icon will show in both user panel and admin panel of your site. [Note: You can add a new icon from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]";"Choose an icon to show with this currency. This icon will show in both user panel and admin panel of your site. [Note: You can add a new icon from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]"
+
+
+"Enter Currency Converter API Key";"Enter Currency Converter API Key"
+"Automatically Update Currency Exchange Rates";"Automatically Update Currency Exchange Rates"
+"Enter the currency converter API key. %s to create the API key.";"Enter the currency converter API key. %s to create the API key."
+
+"Edit Currency";"Edit Currency"
+"Add New Currency";"Add New Currency"
+"Currency Code";"Currency Code"
+"Change Rate";"Change Rate"
+"Currency Symbol";"Currency Symbol"
+"Thousand Seprator";"Thousand Seprator"
+"Comma (,)";"Comma (,)"
+"Decimal (.)";"Decimal (.)"
+"Symbol Placement";"Symbol Placement"
+"Note: This setting doesn''t work with RTL languages.";"Note: This setting doesn''t work with RTL languages."
+"Pre (for eg: $5)";"Pre (for eg: $5)"
+"Post (for eg: 5$)";"Post (for eg: 5$)"
+"Choose an icon to show with this currency. This icon will show in both user panel and admin panel of your site. [Note: You can add a new icon from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]";"Choose an icon to show with this currency. This icon will show in both user panel and admin panel of your site. [Note: You can add a new icon from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]"
+"Currency Icon (This will show up in the currency dropdown next to the currency code.)";"Currency Icon (This will show up in the currency dropdown next to the currency code.)"
+"There are currently no icons in the <a href=""%1$s"" target=""_blank""> File & Media Manager </a> section of your site. Please begin by uploading an icon to get started.";"There are currently no icons in the <a href=""%1$s"" target=""_blank""> File & Media Manager </a> section of your site. Please begin by uploading an icon to get started."
+"Do you want enable this currency?";"Do you want enable this currency?"
+"Manage Currency";"Manage Currency"
+"This page list all the currencies you can enable on your website.";"This page list all the currencies you can enable on your website."
+"The price of the content will be saved in Default currency in the database and will be shown in different currencies according to the Currency Rate below. You can manually enter the currency rates with below given formula or click on "Update Currency Rates" button to update the currencies.";"The price of the content will be saved in Default currency in the database and will be shown in different currencies according to the Currency Rate below. You can manually enter the currency rates with below given formula or click on "Update Currency Rates" button to update the currencies."
+"<strong class=""bold"">Formula:</strong><br>To enter currency rates:
+1 Default Currency = Desired Currency Value";"<strong class=""bold"">Formula:</strong><br>To enter currency rates:
+1 Default Currency = Desired Currency Value"
+"<strong class=""bold"">For example:</strong><br> If US Dollar is default currency and 1 US Dollar = 1.33 Australian Dollar<br />Then the Currency rate will be 1.33 for the Australian Dollar.";"<strong class=""bold"">For example:</strong><br> If US Dollar is default currency and 1 US Dollar = 1.33 Australian Dollar<br />Then the Currency rate will be 1.33 for the Australian Dollar."
+"Update Currency Rates";"Update Currency Rates"
+"You haven''t added the currency converter API key yet. Enter the API key from the <a href='admin/payment/settings'>Global Settings</a> page to enable automatic updates for currency rates.";"You haven''t added the currency converter API key yet. Enter the API key from the <a href='admin/payment/settings'>Global Settings</a> page to enable automatic updates for currency rates."
+"Add New Currency";"Add New Currency"
+"Currency Name";"Currency Name"
+"This currency code already exists.";"This currency code already exists."
+"You have successfully add new currency.";"You have successfully add new currency."
+"You have successfully edit currency.";"You have successfully edit currency."
+"Choose an image to show with this plan. This image will show in the user panel of your site. [Note: You can add a new image from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]";"Choose an image to show with this plan. This image will show in the user panel of your site. [Note: You can add a new image from the ""<a href=""%1$s"" target=""_blank"">File & Media Manager</a>"" section. If you leave the field blank then nothing will show.]"
+
+"Subscription Plans";"Subscription Plans"
+"Please choose a subscription plan from the options below.";"Please choose a subscription plan from the options below."
+
+"Membership Subscription Membership Table Settings";"Membership Subscription Membership Table Settings"
+"Membership Table Title";"Membership Table Title"
+"Enter the title of the membership subscription table on your website.";"Enter the title of the membership subscription table on your website."
+"Membership Table Description";"Membership Table Description"
+"Enter the description of the membership subscription table on your website.";"Enter the description of the membership subscription table on your website."
+"Enable Footer Note";"Enable Footer Note"
+"Do you want to show a note in the Footer of the membership pricing table?";"Do you want to show a note in the Footer of the membership pricing table?"
+"Footer Note Text";"Footer Note Text"
+"Enter the text for the note which will be displayed in the footer of the membership pricing table.";"Enter the text for the note which will be displayed in the footer of the membership pricing table."
+"Membership Table Container Background Color";"Membership Table Container Background Color"
+"Membership Table Header Background Color";"Membership Table Header Background Color"
+"Membership Table Header Font Color";"Membership Table Header Font Color"
+"Overlap Container Over Header";"Overlap Container Over Header"
+"Do you want to overlap the membership table container over the table header?";"Do you want to overlap the membership table container over the table header?"
+"Edit Style";"Edit Style"
+"Edit Style of This Plan";"Edit Style of This Plan"
+"Features Rows Height (in pixels)";"Features Rows Height (in pixels)"
+"Features Rows Border Color";"Features Rows Border Color"
+"Features Rows Background Color";"Features Rows Background Color"
+"Features Rows Font Color";"Features Rows Font Color"
+"Select Text Alignment";"Select Text Alignment"
+"Show Side Label";"Show Side Label"
+"Do you want to show side label for this plan? If you choose “Yes”, then you will be able to configure details for the highlight side label.";"Do you want to show side label for this plan? If you choose “Yes”, then you will be able to configure details for the highlight side label."
+"Label Font Color";"Label Font Color"
+"Column Header of This Plan";"Column Header of This Plan"
+"From here you can change the display style of this subscription plan.";"From here you can change the display style of this subscription plan."
+"General";"General"
+"Column Width (in pixels)";"Column Width (in pixels)"
+"Column Space";"Column Space"
+"This name is for your indication only and will not be shown at the user side.";"This name is for your indication only and will not be shown at the user side."
+"Highlight This Column";"Highlight This Column"
+"Do you want to highlight this column?";"Do you want to highlight this column?"
+"Label Text";"Label Text"
+"Label Background Color";"Label Background Color"
+"Enter the text for the label which will be shown as titled strip.";"Enter the text for the label which will be shown as titled strip."
+"Label Alignment";"Label Alignment"
+"Right";"Right"
+"Left";"Left"
+"Plan Description Height";"Plan Description Height"
+"Column Header Background Color";"Column Header Background Color"
+"Column Header Font Color";"Column Header Font Color"
+"Button Background Color";"Button Background Color"
+"Button Font Color";"Button Font Color"
+"Enter the margin space to the right of this column in pixels.";"Enter the margin space to the right of this column in pixels."
+"Back to Plans";"Back to Plans"
+"Center";"Center"
+"From here, you can manage content for all the features of this subscription plans on your website.";"From here, you can manage content for all the features of this subscription plans on your website."
+"Feature 1";"Feature 1"
+"Feature 2";"Feature 2"
+"Feature 3";"Feature 3"
+"Feature 4";"Feature 4"
+"Feature 5";"Feature 5"
+"Feature 6";"Feature 6"
+"Feature 7";"Feature 7"
+"Feature 8";"Feature 8"
+"Feature 9";"Feature 9"
+"Feature 10";"Feature 10"
+"Feature 11";"Feature 11"
+"Feature 12";"Feature 12"
+"Feature 13";"Feature 13"
+"Feature 14";"Feature 14"
+"Feature 15";"Feature 15"
+"Description";"Description"
+"Enter the description of this feature.";"Enter the description of this feature."
+"Hint";"Hint"
+"Enter the hint text. [A question-mark icon will be shown to display this text on mouse-over of the icon.]";"Enter the hint text. [A question-mark icon will be shown to display this text on mouse-over of the icon.]"
+"Font Icon";"Font Icon"
+"Enter the font icon.";"Enter the font icon."
+"Manage Features";"Manage Features"
+"Manage Features - %s";"Manage Features - %s"
+
+"Default Currency";"Default Currency"
+"Choose the default currency to be enabled on your site. Note: All the currencies enabled from the Manage Currencies page will be shown in this dropdown.";"Choose the default currency to be enabled on your site. Note: All the currencies enabled from the Manage Currencies page will be shown in this dropdown."
+"This is the default currency, so before disabling it, please choose another default currency for your site.";"This is the default currency, so before disabling it, please choose another default currency for your site."
+
+"ACTIVITY_TYPE_PAYMENT_MANUAL_WALLET";"When members make payment for wallet recharge."
+
+# PAYMENT_WALLET_ACTIVE
+"_EMAIL_PAYMENT_WALLET_ACTIVE_TITLE";"Wallet Recharge"
+"_EMAIL_PAYMENT_WALLET_ACTIVE_DESCRIPTION";"This is the email that gets sent to a member when user recharge their wallet."
+"_EMAIL_PAYMENT_WALLET_ACTIVE_SUBJECT";"Congratulations, your wallet has been recharged successfully."
+"_EMAIL_PAYMENT_WALLET_ACTIVE_BODY";"[header]
+
+Your wallet has been recharged successfully.
+
+[wallet_terms]
+
+Please click the link below to view your wallet balance:
+
+[object_link]
+
+[footer]"
+
+
+# PAYMENT_WALLET_PENDING
+"_EMAIL_PAYMENT_WALLET_PENDING_TITLE";"Wallet Recharge Pending"
+"_EMAIL_PAYMENT_WALLET_PENDING_DESCRIPTION";"This is the email that gets sent to a member when user recharge their wallet."
+"_EMAIL_PAYMENT_WALLET_PENDING_SUBJECT";"Your wallet recharge is pending."
+"_EMAIL_PAYMENT_WALLET_PENDING_BODY";"[header]
+
+Your wallet recharge is pending until the transaction is completed. We'll notify you by email once it's recharge successfully.
+
+Thank you for your patience.
+
+[wallet_terms]
+
+[footer]"
+
+
+# PAYMENT_MANUAL_WALLET
+"_EMAIL_PAYMENT_MANUAL_WALLET_TITLE";"Wallet Recharge Payment Received"
+"_EMAIL_PAYMENT_MANUAL_WALLET_DESCRIPTION";"This email is sent to the admin when there is a new payment for wallet recharge and that might be pending or requiring admin action."
+"_EMAIL_PAYMENT_MANUAL_WALLET_SUBJECT";"New [payment_method] Payment Received"
+"_EMAIL_PAYMENT_MANUAL_WALLET_BODY";"[header]
+
+New [payment_method] payment has been received for the wallet recharge on your website. 
+
+[sender_name] has made the payment. Please click the following link to take the appropriate action if needed:
+
+[admin_link]
+
+[footer]"
+
+# PAYMENT_WALLET_CANCELLED
+"_EMAIL_PAYMENT_WALLET_CANCELLED_TITLE";"Wallet Recharge Payment Rejected"
+"_EMAIL_PAYMENT_WALLET_CANCELLED_DESCRIPTION";"This is the email that gets sent to a member when their wallet recharge payment is rejected."
+"_EMAIL_PAYMENT_WALLET_CANCELLED_SUBJECT";"Your wallet recharge payment has been rejected."
+"_EMAIL_PAYMENT_WALLET_CANCELLED_BODY";"[header]
+
+Your wallet recharge payment has been rejected.
+
+You may follow the link below:
+
+[object_link]
+
+[footer]"
+
+
+# payment_verification_transaction
+"_EMAIL_PAYMENT_VERIFICATION_TRANSACTION_TITLE";"Verification Payment Received"
+"_EMAIL_PAYMENT_VERIFICATION_TRANSACTION_DESCRIPTION";"This is the email that is received by admin when there will be any payment for verification will come or waiting for admin action."
+"_EMAIL_PAYMENT_VERIFICATION_TRANSACTION_SUBJECT";"New [gateway_type] Payment Received"
+"_EMAIL_PAYMENT_VERIFICATION_TRANSACTION_BODY";"
+
+[header]
+
+New [gateway_type] payment has been received for the subscription of verification on your website. Please click the following link to approve or reject the payment:
+
+[object_link]
+
+[footer]"
+"Your subscription plan {var:$planName} is going to expire soon on {var:$period}.";"Your subscription plan {var:$planName} is going to expire soon on {var:$period}."
+
+"Your subscription plan changed from {var:$currentPlan} to {var:$changedPlan}.";"Your subscription plan changed from {var:$currentPlan} to {var:$changedPlan}."
+
+"{item:$subject} has subscribe with payment method {var:$payment_method} on this {var:$adminsidelink}.";"{item:$subject} has subscribe with payment method {var:$payment_method} on this {var:$adminsidelink}."
+
+"{item:$subject} has made {var:$payment_method} payment for user verification. You can take appropriate action in {var:$adminsidelink}.";"{item:$subject} has made {var:$payment_method} payment for user verification. You can take appropriate action in {var:$adminsidelink}."
+
+"Your {var:$walletlink} has been successfully recharged using {var:$payment_method}.";"Your {var:$walletlink} has been successfully recharged using {var:$payment_method}."
+"ACTIVITY_TYPE_PAYMENT_WALLET_ACTIVE";"When your wallet is recharged successfully."
+"Enable Wallet";"Enable Wallet"
+"Do you want enable wallet feature for payments on your website?";"Do you want enable wallet feature for payments on your website?"
+"Wallet";"Wallet"
+"Current balance";"Current balance"
+"Add Funds";"Add Funds"
+"Add Fund";"Add Fund"
+"Wallet are not required for administrators and moderators.";"Wallet are not required for administrators and moderators."
+"You can use this wallet balance for Membership subscription, Verification subscription, and any other payment activities on the website.";"You can use this wallet balance for Membership subscription, Verification subscription, and any other payment activities on the website."
+"Recharge with %1$s";"Recharge with %1$s"
+"Enter the fund below to recharge your wallet.";"Enter the fund below to recharge your wallet."
+" wallet";" wallet"
+"You don't have enough balance to subscribe paid plans, please first recharge your  ";"You don't have enough balance to subscribe paid plans, please first recharge your  "
+"Payment Completed";"Payment Completed"
+"Thank you! Your payment has been completed successfully, and your wallet has been recharged.";"Thank you! Your payment has been completed successfully, and your wallet has been recharged."
+"Visit Wallet";"Visit Wallet"
+"Current balance: ";"Current balance: "
+"You don't have enough balance to subscribe this plan, please first recharge your  ";"You don't have enough balance to subscribe this plan, please first recharge your  "
+"Thank you for your payment! We will review it promptly. You’ll receive a notification once it’s approved, and your wallet will be recharged.";"Thank you for your payment! We will review it promptly. You’ll receive a notification once it’s approved, and your wallet will be recharged."
+"You don't have enough balance for verification subscription, please first recharge your ";"You don't have enough balance for verification subscription, please first recharge your "
+"Wallet Recharge";"Wallet Recharge"
+"Wallet recharge";"Wallet recharge"
+"Payment";"Payment"
+"Payment Verification";"Payment Verification"
+"View Attachment";"View Attachment"
+"Pay By Wallet";"Pay By Wallet"
+"Verification Subscription";"Verification Subscription"
+"At present, your membership on this site is not verified. To initiate the verification process for your profile, please make the payment by click on button below.";"At present, your membership on this site is not verified. To initiate the verification process for your profile, please make the payment by click on button below."
+"Verification Fees: %s";"Verification Fees: %s"
+"Are you sure that you want to pay using wallet for this verification subscription?";"Are you sure that you want to pay using wallet for this verification subscription?"
+"Proceed to Pay";"Proceed to Pay"
+"If you would like to cancel your verification subscription, please click on Cancel button below.";"If you would like to cancel your verification subscription, please click on Cancel button below."
+"Payment verification";"Payment verification"
+"Pending";"Pending"
+"{item:$subject} has made {var:$payment_method} payment for wallet recharge. You can take appropriate action in {var:$adminsidelink}.";"{item:$subject} has made {var:$payment_method} payment for wallet recharge. You can take appropriate action in {var:$adminsidelink}."
+
+"forever";"forever"
+"Choose Plan";"Choose Plan"
+"Join Now";"Join Now"
+"Reload After Adding Funds";"Reload After Adding Funds"
+"Your balance will not update automatically. Please reload this page after recharging your wallet.";"Your balance will not update automatically. Please reload this page after recharging your wallet."
+"Reload";"Reload"
+"Choose Currencies";"Choose Currencies"
+"Choose the currencies you want to enable for this payment gateway. If you do not select any, then this gateway will not be available to users.";"Choose the currencies you want to enable for this payment gateway. If you do not select any, then this gateway will not be available to users."

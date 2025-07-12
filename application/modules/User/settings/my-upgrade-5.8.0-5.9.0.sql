@@ -1,0 +1,2 @@
+ALTER TABLE `engine4_user_logins` DROP `source`;
+INSERT IGNORE INTO `engine4_core_menuitems` ( `name`, `module`, `label`, `plugin`, `params`, `menu`, `submenu`, `enabled`, `custom`, `order`) VALUES ("core_mini_friends", "user", "Friend Requests", "User_Plugin_Menus", '{"route":"default","module":"user","controller":"index","action":"friend-request","icon":"fas fa-user-friends"}', "core_mini", "",1,0, 5);

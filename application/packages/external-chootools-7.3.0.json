@@ -1,0 +1,78 @@
+{
+  "type": "external",
+  "name": "chootools",
+  "version": "7.3.0",
+  "revision": "9747",
+  "path": "externals\/audio",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+  "title": "Audio JS",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+    "title": "Audio JS",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/audio": {
+      "type": "directory",
+      "path": "externals\/audio",
+      "structure": [
+        {
+          "path": "audiojs.swf",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1644,
+          "sha1": "2eeb4456487c4f216e5fd72971a2241847431719"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 422,
+          "sha1": "6fc1b02973e5ab7edd8d4799f183e69f05288dd8"
+        },
+        {
+          "path": "player-graphics.gif",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4499,
+          "sha1": "7eef05e27d804a97926d00c4c114f2ec6397d271"
+        },
+        {
+          "path": "audio.min.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 28230,
+          "sha1": "5d8f3e393f04f8295abb26f02826777552ae4761"
+        }
+      ]
+    }
+  }
+}

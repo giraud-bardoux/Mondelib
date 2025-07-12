@@ -1,0 +1,200 @@
+.light_mode{
+  --harmony-header-background-color:#FFFFFF;
+  --harmony-mainmenu-background-color:#FFFFFF;
+  --harmony-mainmenu-links-color:#333333;
+  --harmony-mainmenu-links-hover-color:#000000;
+  --harmony-minimenu-search-background-color:#F6F6F6;
+  --harmony-minimenu-search-font-color:#1E293B;
+  --harmony-footer-background-color:#FDFDFD;
+  --harmony-footer-font-color:#1F1F1F;
+  --harmony-footer-links-color:#4f4f4f;
+  --harmony-footer-border-color:#FFFFFF;
+  --harmony-body-background-color:#EFEDE9;
+  --harmony-font-color:#1E293B;
+  --harmony-font-color-light:#64748B;
+  --harmony-headline-color:#1E293B;
+  --harmony-border-color:#d5d5d5;
+  --harmony-box-background-color:#FFFFFF;
+  --harmony-box-background-color-alt:#F5F5F5;
+  --harmony-input-background-color:#FFFFFF;
+  --harmony-input-font-color:#1F1F1F;
+  --harmony-input-border-color:#CBD5E1;
+  --harmony-secondary-button-background-color:#f2f2f2;
+  --harmony-secondary-button-background-color-hover:#e5e5e5;
+  --harmony-secondary-button-font-color:#212529;
+  --harmony-secondary-button-font-color-hover:#212529;
+  --harmony-secondary-button-border-color:#E4E6EB;
+  --harmony-secondary-button-border-color-hover:#d8dadf;
+  --harmony-comments-background-color:#FDFDFD; 
+}
+
+.dark_mode{
+  --harmony-header-background-color:#333536;
+  --harmony-mainmenu-background-color:#333536;
+  --harmony-mainmenu-links-color:#FFFFFF;
+  --harmony-mainmenu-links-hover-color:#FFFFFF;
+  --harmony-minimenu-search-background-color:#1E1D1D;
+  --harmony-minimenu-search-font-color:#FFFFFF;
+  --harmony-footer-background-color:#1E1E1E;
+  --harmony-footer-font-color:#FFFFFF;
+  --harmony-footer-links-color:#FFFFFF;
+  --harmony-footer-border-color:#6D6D6D;
+  --harmony-body-background-color:#1D1D1F;
+  --harmony-font-color:#FFFFFF;
+  --harmony-font-color-light:#F1F1F1;
+  --harmony-headline-color:#FFFFFF;
+  --harmony-border-color:#4f4f4f;
+  --harmony-box-background-color:#3A3A3A;
+  --harmony-box-background-color-alt:#2F2F2F;
+  --harmony-input-background-color:#3A3A3A;
+  --harmony-input-font-color:#FFFFFF;
+  --harmony-input-border-color:#666666;
+  --harmony-secondary-button-background-color:#343536;
+  --harmony-secondary-button-background-color-hover:#4c4d4e;
+  --harmony-secondary-button-font-color:#e4e6eb;
+  --harmony-secondary-button-font-color-hover:#dbdbdb;
+  --harmony-secondary-button-border-color:#4c4d4e;
+  --harmony-secondary-button-border-color-hover:#d8dadf;
+  --harmony-comments-background-color:#FDFDFD;
+}
+/*
+DEFAULT STYLES FOR THIS --theme
+*/
+:root {
+  /*
+  PAGE WIDTHS & BACKGROUND COLOR
+  Specify the top bar wrapper width (which contains the mini menu, logo, and main menu
+  by default), the footer width, and the width of left & right-side columns.
+  */
+  --theme-main-width:1200px;
+  --theme-header-menu-width:100%;
+  --theme-content-width:var(--theme-main-width);
+  --theme-content-columns-left-width:300px;
+  --theme-content-columns-right-width:300px;
+  --theme-body-background-color:var(--harmony-body-background-color);
+  --theme-color:var(--harmony-theme-color);
+  /*
+  HEADER AND FOOTER COLORS
+  These values are only used to style the site-wide header and footer.
+  */
+  --theme-header-background-color:var(--harmony-header-background-color);
+  --theme-header-menu-background-color:var(--harmony-mainmenu-background-color);
+  --theme-header-menu-link-background-color:transparent;
+  --theme-header-menu-link-background-color-hover:transparent;
+  --theme-header-menu-link-color:var(--harmony-mainmenu-links-color);
+  --theme-header-menu-link-hover-color:var(--harmony-mainmenu-links-hover-color);
+  --theme-header-minimenu-link-color:transparent;
+	--theme-header-minimenu-link-background-color:transparent;
+	--theme-header-minimenu-signup-background-color:var(--harmony-minimenu-signup-background-color);
+	--theme-header-minimenu-signup-font-color:var(--harmony-minimenu-signup-font-color);
+  --theme-header-search-background-color:var(--harmony-minimenu-search-background-color);
+  --theme-header-search-font-color: var(--harmony-minimenu-search-font-color);
+
+  --theme-footer-background-color:var(--harmony-footer-background-color);
+  --theme-footer-font-color:var(--harmony-footer-font-color);
+  --theme-footer-link-color:var(--harmony-footer-links-color);
+  --theme-footer-border-color:var(--harmony-footer-border-color);
+  /*
+  TEXT & LINKS
+  These values affect the size and colors of your text and links throughout your layout.
+  */
+  --theme-font-color:var(--harmony-font-color);
+  --theme-font-color-light:var(--harmony-font-color-light);
+  --theme-link-color:var(--harmony-links-color);
+  --theme-link-color-hover:var(--harmony-links-hover-color);
+  --theme-headline-color:var(--harmony-headline-color);
+  --theme-border-color:var(--harmony-border-color);
+  /*
+  INPUT FIELDS AND BUTTONS
+  These values style input fields and buttons that appear throughout the layout.
+  */
+  --theme-input-background-color:var(--harmony-input-background-color);
+  --theme-input-font-color:var(--harmony-input-font-color);
+  --theme-input-border-colors:var(--harmony-input-border-color);
+  --theme-button-background-color:var(--harmony-button-background-color);
+  --theme-button-background-color-hover:var(--harmony-button-background-color-hover);
+  --theme-button-font-color:var(--harmony-button-font-color);
+  --theme-button-font-color-hover:var(--harmony-button-font-color-hover);
+  --theme-button-border-color:var(--harmony-button-border-color);
+  --theme-button-border-color-hover:var(--harmony-button-border-color-hover);
+  --theme-secondary-button-background-color:var(--harmony-secondary-button-background-color);
+  --theme-secondary-button-background-color-hover:var(--harmony-secondary-button-background-color-hover);
+  --theme-secondary-button-font-color:var(--harmony-secondary-button-font-color);
+  --theme-secondary-button-font-color-hover:var(--harmony-secondary-button-font-color-hover);
+  --theme-secondary-button-border-color:var(--harmony-secondary-button-border-color);
+  --theme-secondary-button-border-color-hover:var(--harmony-secondary-button-border-color-hover);
+  /*
+  TABS (BUTTON-STYLE)
+  These colors are applied to the button-style tab menus which are often shown
+  on browse pages.
+  */
+	--theme-buttontabs-font-color:var(--harmony-font-color);
+	--theme-buttontabs-font-color-hover:var(--harmony-theme-color);
+	--theme-buttontabs-font-color-active:var(--harmony-theme-color);
+	--theme-buttontabs-border-color:transparent;
+	--theme-buttontabs-border-color-active:var(--harmony-theme-color);;
+  /*
+  TABS
+  These colors are applied to tab menus (as seen on several pages, including
+  the member profile page).
+  */
+  --theme-tabs-background-color:var(--harmony-box-background-color);
+  --theme-tabs-background-color-active:var(--harmony-button-background-color);
+  --theme-tabs-font-color:var(--harmony-font-color);
+  --theme-tabs-font-color-active:var(--harmony-button-font-color);
+  --theme-tabs-border-color:transparent;
+  --theme-tabs-border-color-hover:var(--harmony-theme-color);
+  --theme-tabs-border-color-active:var(--harmony-theme-color);
+  /*
+  LISTS
+  These colors are applied to some lists, especially in pull-down menus.
+  */
+  --theme-list-background-color:var(--harmony-box-background-color);
+  --theme-list-background-color-alt:var(--harmony-box-background-color-alt);
+  --theme-list-background-color-hover:var(--harmony-box-background-color-alt);
+  --theme-comments-background-color:var(--harmony-comments-background-colo);
+  /*
+  TAGS
+  These colors are applied to tags, which appear on blogs, messages, etc.
+  */
+  --theme-tag-background-color:var(--theme-secondary-button-background-color);
+  --theme-tag-font-color:var(--theme-secondary-button-font-color);
+  /*
+  INLINE PULLDOWN MENUS
+  These colors style the inline pulldown menus that appear throughout the layout.
+  */
+  --theme-pulldown-background-color:var(--theme-list-background-color);
+  --theme-pulldown-background-color-hover:var(--theme-button-background-color);
+	--theme-pulldown-background-color-active:var(--theme-button-background-color);
+  --theme-pulldown-font-color-active:var(--theme-button-font-color);
+  --theme-pulldown-border-color:var(--theme-border-color);
+  --theme-pulldown-contents-background-color:var(--theme-list-background-color);
+  --theme-pulldown-contents-list-background-color-hover:var(--theme-list-background-color-hover);
+  --theme-pulldown-contents-list-background-color-active:var(--theme-list-background-color-hover);
+  --theme-pulldown-contents-list-font-color-active:var(--theme-font-color);
+  
+  /*Font Size*/
+  --theme-font-size:var(--harmony-body-fontsize);
+	--theme-font-size-small:0.8125rem;
+  --theme-headline-size-large:1.5rem;
+  --theme-headline-size-medium:var(--harmony-heading-fontsize);
+  --theme-title-size:var(--theme-font-size);
+  --theme-menu-link-size:var(--harmony-mainmenu-fontsize);
+  --theme-tabs-font-size:var(--harmony-tab-fontsize);
+  --theme-font-weight-bold:500;
+
+  /*Font Family*/
+  --theme-font-family:var(--harmony-body-fontfamily);
+	--theme-heading-font-family:var(--harmony-heading-fontfamily);
+  --theme-header-menu-font-family:var(--harmony-mainmenu-fontfamily);
+	--theme-buttontabs-font-family:var(--harmony-tab-fontfamily);
+  --theme-tabs-font-family:var(--harmony-tab-fontfamily);
+  
+  --theme-item-spacing:0.625rem;
+  --theme-item-radius:0.625rem;
+  --theme-item-transition:all .2s ease-in-out;
+  --theme-item-shadow:0 0 5px rgba(0, 0, 0, .1);
+  --theme-item-shadow-hover:0 0 5px rgba(0, 0, 0, .2);
+  --theme-widget-spacing:1.25rem;
+  --theme-widget-radius:var(--themewidget-radius);
+}

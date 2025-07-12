@@ -1,0 +1,167 @@
+"Invite";"Invite"
+"Invitation Sent";"Invitation Sent";"Invitations Sent"
+"If the person you invited decide to join, he/she will automatically receive a friend request from you.";"If the person you invited decide to join, he/she will automatically receive a friend request from you.";"If the persons you invited decide to join, they will automatically receive a friend request from you."
+"Invites were not sent to these email addresses because they do not appear to be valid:";"Invites were not sent to these email addresses because they do not appear to be valid:"
+
+"The member you are trying to invite is already a member: ";"The member you are trying to invite is already a member: ";"The following members you are trying to invite are already members: "
+
+"OK, thanks!";"OK, thanks!"
+
+"Invite Your Friends";"Invite Your Friends"
+"_INVITE_FORM_DESCRIPTION";"Invite your friends to join! Enter up to 10 email addresses separated by commas in the recipients box below. If your friends decide to sign up, a friend request from you will be waiting for them when they first sign in."
+"Recipients";"Recipients"
+"Comma-separated list, or one-email-per-line.";"Comma-separated list, or one-email-per-line."
+"Custom Message";"Custom Message"
+"Use %invite_url% to add a link to our sign up page.";"Use %invite_url% to add a link to our sign up page."
+"Send Invites";"Send Invites"
+
+"PAGETITLE-INVITE-INDEX-ADMIN-MANAGE";"Manage Invites"
+"PAGETITLE-INVITE-INDEX-ADMIN-SETTINGS";"Invite Settings"
+
+"_INVITE_EMAIL_CONTENT_CAN_BE_FOUND_IN_THE_FILE";"custom.csv"
+
+"Modify your invite settings for your members.";"Modify your invite settings for your members."
+"Subject";"Subject"
+"This is the subject line of emails sent to invited people.  Use %siteName% to include your site's name.";"This is the subject line of emails sent to invited people.  Use %siteName% to include your site's name."
+"From (name)";"From (name)"
+"Whom the invite email is shown as being from (usually your website name)";"Whom the invite email is shown as being from (usually your website name)"
+"From (email)";"From (email)"
+"The ""Reply-To"" address for emails";"The ""Reply-To"" address for emails"
+"Allow custom invite message?";"Allow custom invite message?"
+"If disabled, the invite email will use the message below.";"If disabled, the invite email will use the message below."
+"Default Invite Message";"Default Invite Message"
+"Use %invite_url% to include the invite URL";"Use %invite_url% to include the invite URL"
+
+"Invite Settings";"Invite Settings"
+"Settings were saved successfully.";"Settings were saved successfully."
+
+"Inviters";"Inviters"
+"Movers and Shakers";"Movers and Shakers"
+"Top 10 Inviters";"Top 10 Inviters"
+"Most invites sent out";"Most invites sent out"
+
+"Username";"Username"
+"Invites";"Invites"
+"Recruits";"Recruits"
+"Conversion Ratio";"Conversion Ratio"
+
+"Top 10 Recruiters";"Top 10 Recruiters"
+"Most members that joined from their invites";"Most members that joined from their invites"
+
+"Please enter only valid email addresses.";"Please enter only valid email addresses."
+
+# mail templates
+
+# invite
+"_EMAIL_INVITE_TITLE";"Invitation"
+"_EMAIL_INVITE_DESCRIPTION";"This is the email that gets sent when members invite their friends to join during the signup process."
+"_EMAIL_INVITE_SUBJECT";"You have received an invitation to join our social network."
+"_EMAIL_INVITE_BODY";"[header]
+
+You have been invited by [sender_title] to join our social network. To join, please follow the link below:
+
+http://[host][object_link]
+
+----------------------------------------
+[message]
+----------------------------------------
+
+[footer]"
+
+# invite_code
+"_EMAIL_INVITE_CODE_TITLE";"Invite Code"
+"_EMAIL_INVITE_CODE_DESCRIPTION";"This email is sent to someone when they are invited by a member and an invite code is required."
+"_EMAIL_INVITE_CODE_SUBJECT";"You have received an invitation to join our social network!"
+"_EMAIL_INVITE_CODE_BODY";"[header]
+
+You have been invited by [sender_title] to join our social network. To join, please follow the link below:
+
+http://[host][object_link]
+
+----------------------------------------
+[message]
+----------------------------------------
+
+[footer]"
+
+"You are being invited to join our social network.";"You are being invited to join our social network."
+"Request Invite";"Request Invite"
+
+
+"Below listed Email Addresses has already been invited to join network.";"Below listed Email Addresses has already been invited to join network."
+"Resend Invite";"Resend Invite"
+"Notify Admin";"Notify Admin"
+"Invitation Not Sent";"Invitation Not Sent";"Invitations Not Sent"
+"You have already invited <b>%s</b> to join the social network.";"You have already invited <b>%s</b> to join the social network."
+"<b>%s</b> has already been invited to join the social network.";"<b>%s</b> has already been invited to join the social network."
+"Notified Admin";"Notified Admin"
+"Invited";"Invited"
+"Resend Invite Successfully.";"Resend Invite Successfully."
+"Notify Admin Successfully.";"Notify Admin Successfully."
+"<b>%s</b> has been successfully invited to join your social network.";"<b>%s</b> has been successfully invited to join your social network."
+"ACTIVITY_TYPE_INVITE_NOTIFY_ADMIN";"When people request to cancel the invite request done by the others."
+"There are no invites yet.";"There are no invites yet."
+
+"Invitation Sent Date";"Invitation Sent Date"
+"Recipient Email";"Recipient Email"
+"Copied";"Copied"
+"Invitation Date";"Invitation Date"
+"Enable Invite Feature";"Enable Invite Feature"
+"Do you want to enable the invite feature on your website? If you choose 'No,' then no one can invite other members on your website.";"Do you want to enable the invite feature on your website? If you choose 'No,' then no one can invite other members on your website."
+"Enable Invite Code For Signup";"Enable Invite Code For Signup"
+"Would you like to activate the invite code feature during the website signup process?";"Would you like to activate the invite code feature during the website signup process?"
+"Yes, enable invite code and make it optional.";"Yes, enable invite code and make it optional."
+"Yes, enable invite code and make it mandatory.";"Yes, enable invite code and make it mandatory."
+"No, do not enable the invite code during website signup.";"No, do not enable the invite code during website signup."
+"Enable External Invite Options";"Enable External Invite Options"
+"Select from the external site options below, where you like your site members to invite their friends to this website.";"Select from the external site options below, where you like your site members to invite their friends to this website."
+"CSV";"CSV"
+"Direct Email";"Direct Email"
+"Upload Your Contacts";"Upload Your Contacts"
+"Import your contacts by uploading the file in the required format and invite them to join this community.";"Import your contacts by uploading the file in the required format and invite them to join this community."
+"How to create a contact file.";"How to create a contact file."
+"Outlook";"Outlook"
+"1. Sign into your Outlook Email account.";"1. Sign into your Outlook Email account."
+"2. Click on the People menu at the upper-left corner of your screen.";"2. Click on the People menu at the upper-left corner of your screen."
+"3. Click Manage contacts in the menu bar.";"3. Click Manage contacts in the menu bar."
+"4. Choose Export Contacts.";"4. Choose Export Contacts."
+"5. Now you can Export the contacts by clicking on Export button.";"5. Now you can Export the contacts by clicking on Export button."
+"Yahoo";"Yahoo"
+"1. Launch Yahoo email and sign in.";"1. Launch Yahoo email and sign in."
+"2. Click on the Contacts tab.";"2. Click on the Contacts tab."
+"3. Click the Actions dropdown box.";"3. Click the Actions dropdown box."
+"4. Choose Export.";"4. Choose Export."
+"5. Click "Export to CSV file" which is the type of file to which you want to export your contacts.";"5. Click "Export to CSV file" which is the type of file to which you want to export your contacts."
+"Other";"Other"
+"- Comma-separated values (.csv)";"- Comma-separated values (.csv)"
+"Please select a valid CSV file.";"Please select a valid CSV file."
+"How do you want to invite people to join this community? Pick a service to send invitations.";"How do you want to invite people to join this community? Pick a service to send invitations."
+"Import Your Contacts";"Import Your Contacts"
+"Referral Link";"Referral Link"
+"Copy";"Copy"
+"Referral link copied successfully.";"Referral link copied successfully."
+"Referral Code";"Referral Code"
+"Referral code copied successfully.";"Referral code copied successfully."
+"We support the following types of contact file:";"We support the following types of contact file:"
+"Click here";"Click here"
+" to download the sample csv file.";" to download the sample csv file."
+"CSV Import";"CSV Import"
+"Connect with people you know.";"Connect with people you know."
+"Search...";"Search..."
+"We found %s people from your CSV file. Select the people you'd like to connect to.";"We found %s people from your CSV file. Select the people you'd like to connect to."
+"Select All";"Select All"
+"Message*";"Message*"
+"Uploading...";"Uploading..."
+"Manage Invites";"Manage Invites"
+"Below you can view the invitation history. Entering criteria into the filter fields will help you find specific invitation.";"Below you can view the invitation history. Entering criteria into the filter fields will help you find specific invitation."
+"Invitation Method";"Invitation Method"
+"Delete Invite";"Delete Invite"
+"Are you sure you want to delete this invite?";"Are you sure you want to delete this invite?"
+"The email address of users invited to your social network are listed below. if you need to search for a specific member, enter email address in the field below.";"The email address of users invited to your social network are listed below. if you need to search for a specific member, enter email address in the field below."
+"Copy URL";"Copy URL"
+"Invite Code";"Invite Code"
+"Sender Email";"Sender Email"
+"Sender Name";"Sender Name"
+"Copy Link";"Copy Link"
+"To enable the invite feature through Facebook, you will need to create an application via the <a href=""https://developers.facebook.com/apps"" target=""_blank"">Facebook Developers</a> page. Additionally, please utilize the provided Callback URL when creating an application on Facebook. Callback URL: ";"To enable the invite feature through Facebook, you will need to create an application via the <a href=""https://developers.facebook.com/apps"" target=""_blank"">Facebook Developers</a> page. Additionally, please utilize the provided Callback URL when creating an application on Facebook. Callback URL: "
+"Invite New User";"Invite New User"

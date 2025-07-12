@@ -1,0 +1,54 @@
+{
+  "type": "external",
+  "name": "autocompleter",
+  "version": "7.3.0",
+  "revision": "10111",
+  "path": "externals\/autocompleter",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+  "title": "Autocompleter",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+    "title": "Autocompleter",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/autocompleter": {
+      "type": "directory",
+      "path": "externals\/autocompleter",
+      "structure": [
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 392,
+          "sha1": "2c8609c11902f34ef8626df1c79a7e71f96c3c12"
+        }
+      ]
+    }
+  }
+}

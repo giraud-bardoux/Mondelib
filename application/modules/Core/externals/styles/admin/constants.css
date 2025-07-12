@@ -1,0 +1,94 @@
+
+/* $Id: constants.css 9899 2013-02-14 01:13:32Z alex $ */
+:root{
+  --theme-base-color:#208ED3;
+  --theme-body-background-color:#F6F9FF;
+  --theme-box-background-color:#fff;
+  --theme-box-background-alt-color:#f9f9f9;
+  --theme-font-headline-color:#333333;
+  --theme-font-secondary-color:#fff;
+  --theme-font-light-color:#899bbd;
+  --theme-border-color:#D9D9D9;
+  --theme-button-font-color:#fff;
+  --theme-button-background-color:#208ED3;
+  --box-shadow-color:0px 2px 20px rgba(1, 41, 112, 0.1);
+  --theme-link-color:#208ED3;
+  --theme-input-background-color:#fbfbfb;
+  --theme-tip-background-color:#ebf7ff;
+  --font-size:14px;
+  --font-size-small:13px;
+   
+   /*Layout editor constant*/
+   --theme-layout-editor-tobbar-background-color:#f1f1f1;
+   --admin-edit-layout-background-color: #E8FCCC;
+   --admin-edit-layout-border-color: #c3dca0;
+   --admin-edit-layout-font-color: #333333;
+   --admin-edit-layout-disbeld-background-color:#e7e7e7;
+   --admin-edit-layout-special-background-color:#fcefcc;
+   --admin-edit-layout-special-border-color: #dccca0;
+  }
+
+:root.dark_mode {
+  --theme-base-color: #208ED3;
+  --theme-body-background-color: #1D1D1F;
+  --theme-box-background-color: #333536;
+  --theme-box-background-alt-color: #2c2c2c;
+  --theme-font-headline-color: #fff;
+  --theme-font-secondary-color: #111;
+  --theme-font-light-color: #f1f1f1;
+  --theme-border-color: #4a4a4a;
+  --theme-button-font-color: #fff;
+  --theme-button-background-color: #208ED3;
+  --box-shadow-color:0px 2px 20px rgba(1, 41, 112, 0.1);
+  --admin-edit-layout-background-color: #efffd7;
+  --admin-edit-layout-border-color: #5e5e5e;
+  --theme-link-color: #208ED3;
+  --theme-input-background-color: #3b3d3e;
+  --theme-tip-background-color: #384443;
+
+  /*Layout editor constant*/
+  --theme-layout-editor-tobbar-background-color: #282626;
+  --admin-edit-layout-background-color: #3c3c3c;
+  --admin-edit-layout-border-color: #747474;
+  --admin-edit-layout-font-color: #fff;
+  --admin-edit-layout-disbeld-background-color: #6a6a6a;
+  --admin-edit-layout-special-background-color: #605e6a;
+  --admin-edit-layout-special-border-color: #3b3946;
+
+}
+
+=foreground{
+  background-color: var(--theme-box-background-color);
+  box-shadow:var(--box-shadow-color);
+} 
+/* Gives an element a drop shadow */
+=shadow($offset_x = 0, $offset_y = 0, $blur_radius = 0, $spread_radius = 0, $shadow_color = "#aaa"){
+  -moz-box-shadow: $offset_x $offset_y $blur_radius $spread_radius $shadow_color;
+  -webkit-box-shadow: $offset_x $offset_y $blur_radius $spread_radius $shadow_color;
+  box-shadow: $offset_x $offset_y $blur_radius $spread_radius $shadow_color;
+}
+=rounded($radius = 5px, $hidecorner1 = false, $hidecorner2 = false, $hidecorner3 = false, $hidecorner4 = false){
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  @if($hidecorner1 == true){
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-radius-topleft: 0px;
+  }
+  @if($hidecorner2 == true){
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-radius-topright: 0px;
+  }
+  @if($hidecorner3 == true){
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-radius-bottomright: 0px;
+  }
+  @if($hidecorner4 == true){
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-radius-bottomleft: 0px;
+  }
+}

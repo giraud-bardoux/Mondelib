@@ -1,0 +1,1 @@
+INSERT IGNORE INTO `engine4_core_menuitems` (`name`, `module`, `label`, `plugin`, `params`, `menu`, `submenu`, `order`) VALUES ('core_admin_main_manage_tags', 'core', 'Manage Tags', '', '{"route":"admin_default","module":"core","controller":"managetags"}', 'core_admin_main_manage', '', 8);

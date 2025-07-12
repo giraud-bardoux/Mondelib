@@ -1,0 +1,84 @@
+
+/* $Id:main.css 8825 2011-04-09 01:34:20Z john $ */
+/*
+NETWORK SETTINGS
+Used to style the networks page in the member's
+settings area.
+*/
+.netwroks_main_section{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+  margin:0 -15px;
+}
+.netwroks_main_section > div{
+  width:50%;
+  padding:0 15px;
+}
+.netwroks_main_section > div h3{
+	background-color:var(--theme-list-background-color-alt);
+	margin:0 0 10px;
+	border-radius:10px;
+	padding:12px 15px;
+	font-weight:600;
+}
+.networks_left ul.networks,
+.networks_right ul{
+  border-top-width:1px;
+}
+.netwroks_main_section > .networks_left .form-elements input[type=text]{
+  width:100%;
+  border-radius:10px;
+}
+ul.networks{
+  width:100%;
+  margin:15px 0px 15px 0px;
+}
+ul.networks > li{
+  overflow:hidden;
+  border:1px solid var(--theme-border-color);
+	border-top:none;
+  padding:10px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+ul.networks > li > div{
+  overflow:hidden;
+  font-weight:bold;
+  flex:1;
+}
+ul.networks > li > div > span{
+  font-weight:normal;
+  font-size:var(--theme-font-size-small);
+}
+ul.networks > li > a{
+  display:block;
+  overflow:hidden;
+  margin-left:5px;
+}
+[dir="rtl"] ul.networks > li > a{
+  text-align:left;
+  margin-left:0;
+  margin-right:5px;
+}
+/* USER NETWORK SETTINGS */
+form#network-form input.network_join_selected{
+  background-color:#eee;
+}
+/* ITEM TYPE ICONS */
+.item_icon_network:before{
+  content:"\f0ac";
+	font-weight:900;
+}
+/* ACTION TYPE ICONS */
+.activity_icon_network_join:before{
+  content:"\f0ac";
+	font-weight:900;
+}
+@media(max-width:767px){
+	.netwroks_main_section > div{
+	  width:100%;	
+	}
+}

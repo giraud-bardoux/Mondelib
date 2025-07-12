@@ -1,0 +1,3736 @@
+/* DEFAULT PHOTO THUMB */
+.bg_item_nophoto.bg_item_photo_user:before{
+  content:"\f007";
+}
+.bg_item_nophoto.bg_item_nophoto_private:before{
+  content:"\f502";
+}
+/* ACTION TYPE ICONS */
+.activity_icon_status:before,
+.activity_icon_comment_activity_action:before{
+	content:"\f075";
+}
+.activity_icon_post:before,
+.activity_icon_post_self:before{
+	content:"\f075";
+}
+.activity_icon_profile_photo_update:before,
+.activity_icon_cover_photo_update:before{
+	content:"\f03e";
+}
+.activity_icon_friends:before{
+	content:"\f234";
+	font-weight:900 !important;
+}
+.activity_icon_login:before, .activity_icon_logout:before, .activity_icon_signup:before{
+	content:"\f007";
+}
+body .activity_icon_tagged:before{
+	content:"\f02b";
+	font-weight:900;
+}
+/* ITEM TYPE ICONS */
+.item_icon_user:before{
+	content:"\f007";
+	font-family:'Font Awesome 6 Free';
+}
+/* NOTIFICATION TYPE ICONS */
+.notification_type_friend_request:before,
+.notification_type_friend_accepted:before{
+	content:"\f234";
+	font-weight:900 !important;
+}
+.notification_type_post_user:before{
+	content:"\f075";
+}
+.notification_type_friend_follow:before{
+	content:"\f234";
+	font-weight:900 !important;
+}
+.notification_type_friend_follow_request:before{
+	content:"\f234";
+	font-weight:900 !important;
+}
+.notification_type_friend_follow_accepted:before{
+	content:"\f234";
+	font-weight:900 !important;
+}
+.notification_type_tagged:before{
+	content:"\f02b";
+}
+.notification_type_user_verirequestto_superadmin:before{
+	content:"\f058";
+}
+/*Feed*/
+.feed_attachment_user{
+	display:block;
+}
+.feed_attachment_user > div{
+	border-radius:var(--theme-item-radius);
+	border-width:1px;
+  overflow:hidden;
+	padding:1.25rem;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	gap:0.9375rem
+}
+.feed_attachment_user > div > a{
+	height:12.5rem;
+	margin:0 auto;
+	width:12.5rem;
+	border-radius:50%;
+	overflow:hidden;
+	border-width:1px
+}
+.feed_attachment_user > div > a img{
+	object-fit:cover;
+	height:100%;
+	width:100%;
+}
+.feed_attachment_user .feed_item_link_title a{
+	color: var(--theme-font-color);
+	font-weight: var(--theme-font-weight-bold);
+	font-size: calc(var(--theme-title-size) * 1.1);
+	font-size: bold;
+}
+/*
+SIGN IN OR JOIN WIDGET
+Used to style the mini login form, usually
+diplayed on the main portal page.
+*/
+.layout_user_login_or_signup{
+	margin-bottom:0.9375rem;
+}
+.layout_user_login_or_signup .form-elements{
+	overflow:hidden;
+}
+.layout_user_login_or_signup div.form-element input[type=text],
+.layout_user_login_or_signup div.form-element input[type=email],
+.layout_user_login_or_signup div.form-element input[type=password]{
+	width:100%;
+}
+.layout_user_login_or_signup #user_form_login #submit-wrapper{
+	margin-top:0.625rem;
+	float:none;
+}
+.layout_user_login_or_signup #user_form_login #submit-wrapper button,
+.layout_user_login_or_signup .user_signup_link{
+	padding:0 0.9375rem;
+	height:2.5rem;
+	line-height:2.5rem;
+	width:48% !important;
+	text-align:center !important;
+	text-transform:uppercase;
+}
+.layout_user_login_or_signup .user_signup_link{
+	font-size:100%;
+  color:var(--theme-font-color);
+	border-radius:0.25rem;
+	border:0.0625rem solid;
+	display:inline-block;
+	margin-top:-2.5rem;
+}
+.layout_user_login_or_signup .user_signup_link:hover{
+  background:var(--theme-button-background-color);
+  color:var(--theme-button-font-color);
+	opacity:.8;
+}
+.layout_user_login_or_signup #fieldset-buttons{
+	margin-top:0.5rem;
+	overflow:hidden;
+}
+.layout_user_login_or_signup #submit-wrapper{
+	overflow:hidden;
+}
+.layout_user_login_or_signup #remember-wrapper{
+	float:left;
+	overflow:hidden;
+}
+[dir="rtl"] .layout_user_login_or_signup #remember-wrapper{
+	float:right;
+}
+.layout_user_login_or_signup #remember-wrapper input{
+	display:block;
+	float:left;
+	margin-top:0.25rem;
+	margin-left:0.1875rem;
+}
+[dir="rtl"] .layout_user_login_or_signup #remember-wrapper input{
+	float:right;
+	margin-left:0;
+	margin-right:0.25rem;
+}
+.layout_user_login_or_signup #remember-wrapper label{
+	display:block;
+	float:left;
+}
+[dir="rtl"] .layout_user_login_or_signup #remember-wrapper label{
+	float:right;
+}
+.layout_user_login_or_signup #submit-label,
+.layout_user_login_or_signup #remember{
+	display:none;
+}
+.layout_user_login_or_signup .form-description{
+	display:none;
+}
+.forgot-element,
+#forgot-label{
+	margin-bottom:0;
+}
+.no_form #facebook-label,
+.no_form #twitter-label,
+.no_form #google-label,
+.no_form #linkedin-label{
+	display:none;
+}
+.layout_user_login_or_signup_popup{
+	display:none;
+}
+/*
+QUICK LINKS WIDGET
+Small widget, used to show convenient, static links
+to a signed-in member such as 'view my profile',
+'edit my profile', 'search for people', etc. Often
+visible on plugin browse pages to prompt members
+to create new content.
+*/
+.layout_user_home_links{
+	margin-bottom:0.9375rem;
+	overflow:hidden;
+}
+.quicklinks{
+	overflow:hidden;
+}
+.quicklinks li{
+	padding:0.375rem;
+}
+.quicklinks li + li{
+	border-top-width:0.0625rem;
+	padding-top:0.375rem;
+}
+.quicklinks li a{
+	display:block;
+}
+.quicklinks li a:before{
+	color:var(--theme-font-color-light);
+}
+form + .quicklinks{
+	margin-top:0.9375rem;
+}
+/*
+WHOS ONLINE WIDGET
+Small widget that lists members that are
+currently online, usually displayed on the
+main portal or member home pages.
+*/
+.layout_user_list_online{
+	margin-bottom:0.9375rem;
+	overflow:hidden;
+	clear:both;
+}
+.layout_user_list_online > h3:nth-child(2){
+	display:none;
+}
+.layout_user_list_online > div{
+ border-radius:var(--theme-item-radius);
+	padding:0.4375rem;
+	overflow:hidden;
+}
+.layout_user_list_online .whosonline_thumb{
+	float:left;
+	line-height:0;
+	font-size:0;
+	margin:0.25rem;
+}
+html[dir="rtl"] .layout_user_list_online .whosonline_thumb{
+	float:right;
+}
+.layout_user_list_online .whosonline_thumb img{
+	display:block;
+}
+.layout_user_list_online .online_guests{
+	clear:both;
+	padding:0.25rem 0 0.1875rem 0.25rem;
+}
+/*USER NAME*/
+.member_name a{
+	display:flex;
+	align-items:center;
+}
+.member_name a .user_name{
+	display:block;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.member_name .verified_icon{
+	margin-top:0.125rem;
+}
+
+/*
+MUTUAL FRIENDS WIDGET
+Lists the friends common to the subject and viewer.
+*/
+.layout_user_profile_friends_common > ul{
+	overflow:hidden;
+}
+.layout_user_profile_friends_common > ul > li{
+	float:left;
+	overflow:hidden;
+	margin:0.25rem 0.25rem 0 0;
+}
+[dir="rtl"] .layout_user_profile_friends_common > ul > li{
+	float:right;
+}
+/* VIEW PROFILE */
+#profile_post{
+	width:31.25rem;
+	padding:0.625rem;
+	margin-bottom:0.625rem;
+}
+#profile_status{
+	clear:both;
+	overflow:hidden;
+	margin-bottom:0.4375rem;
+}
+#profile_status > h2{
+	display:inline;
+	margin:0;
+}
+#profile_status > span{
+	display:inline;
+	padding:0;
+}
+.profile_status_field{
+	padding:0.3125rem;
+  font-size:var(--theme-font-size-small);
+	width:96%;
+	height:1.0625rem;
+}
+.profile_status_text{
+	display:inline-block;
+	margin-top:-0.5em;
+}
+.profile_status_clear{
+	display:inline-block;
+	margin-top:-0.0625rem;
+  font-size:var(--theme-font-size-small);
+	color:var(--theme-button-background-color);
+}
+.profile_fields{
+	margin-top:0.625rem;
+	overflow:hidden;
+}
+.profile_fields > h4{
+	margin-bottom:1.25rem;
+  font-size:var(--theme-font-size);
+}
+.profile_fields > ul > li{
+	overflow:hidden;
+}
+.profile_fields > ul > li + li{
+	margin-top:0.5rem;
+}
+.profile_fields > ul > li > span{
+	display:block;
+	float:left;
+	overflow:hidden;
+	width:10.9375rem;
+	margin-right:0.9375rem;
+}
+html[dir="rtl"] .profile_fields > ul > li > span{
+	float:right;
+	margin-right:0;
+	margin-left:0.9375rem;
+}
+.profile_fields > ul > li > span > i{
+	color:var(--theme-font-color-light);
+	margin-right:0.25rem;
+	width:1.125rem;
+}
+.profile_fields > ul > li > span + span{
+	min-width:0;
+	display:block;
+	float:none;
+	overflow:hidden;
+	width:auto;
+}
+.profile_fields li > .tip > span{
+	margin-top:0.3125rem;
+	margin-bottom:0.3125rem;
+}
+.profile_info_category{
+	margin-bottom:0.1875rem;
+}
+.profile_info_row{
+	clear:both;
+	overflow:hidden;
+	margin:0.25rem 0 0.375rem 0rem;
+}
+.profile_info_left{
+	width:6.25rem;
+	float:left;
+	vertical-align:top;
+}
+.profile_info_right{
+	vertical-align:top;
+	overflow:hidden;
+}
+#profile_photo img,
+#profile_photo span{
+  width:100%;
+	height:100%;
+}
+#profile_photo span{
+  padding-top:100%;
+}
+/* PROFILE STATS WIDGET */
+.layout_user_profile_info {
+	overflow:hidden;
+}
+.layout_user_profile_info > ul > li + li{
+	margin-top:0.3125rem;
+}
+.layout_user_profile_info > h3{
+  font-size:var(--theme-font-size-small);
+	font-weight:bold;
+	letter-spacing:normal;
+}
+/*LINKS TAB*/
+ul.profile_links > li{
+	overflow:hidden;
+	border-radius:var(--theme-item-radius);
+	border-width:0.0625rem;
+	padding:var(--theme-item-spacing);
+	display:flex;
+	flex-wrap:wrap;
+	gap:0.9375rem;
+}
+ul.profile_links > li + li{
+	margin-top:var(--theme-widget-spacing);
+}
+ul.profile_links .profile_links_photo{
+	float:left;
+	overflow:hidden;
+}
+ul.profile_links .profile_links_photo img{
+	border-radius:0.3125rem;
+	width:7.5rem;
+}
+ul.profile_links .profile_links_info{
+	flex:1;
+}
+ul.profile_links .profile_links_info > div{
+	margin-bottom:0.125rem;
+}
+ul.profile_links .profile_links_title{
+	font-weight:var(--theme-font-weight-bold);
+	font-size:var(--theme-title-size);
+}
+ul.profile_links .profile_links_author{
+	margin-top:0.125rem;
+}
+ul.profile_links > li br{
+	display:none;
+}
+.profile_links_delete a{
+	border-radius:50%;
+	padding:0;
+	height:1.875rem;
+	width:1.875rem;
+	align-items:center;
+	display:flex;
+	justify-content:center;
+}
+.profile_links_delete a:before{
+	margin:0 !important;
+}
+
+/*
+EDIT PROFILE
+*/
+.profile_layouts{
+	overflow:hidden;
+}
+.profile_layouts_item{
+	float:left;
+	margin:0 0.9375rem 0.9375rem 0rem;
+}
+.profile_layouts_item td{
+	vertical-align:middle;
+	height:8.75rem;
+}
+.profile_layouts_wrapper{
+	padding:0.8125rem;
+  border-width:0.0625rem;
+	margin-right:0.3125rem;
+	float:left;
+}
+[dir="rtl"] .profile_layouts_wrapper{
+	margin-right:0;
+	margin-left:0.3125rem;
+	float:right;
+}
+.profile_layouts_thumb{
+	border-width:0.0625rem;
+	float:left;
+}
+[dir="rtl"] .profile_layouts_thumb{
+	float:right;
+}
+.profile_layouts img{
+	float:left;
+}
+[dir="rtl"] .profile_layouts img{
+	float:right;
+}
+.profile_layouts_item_title{
+	clear:both;
+	padding-top:0.1875rem;
+	text-align:center;
+}
+div.field-privacy-selector{
+	display:inline-block;
+	position:relative;
+	overflow:visible;
+	margin-left:0.625rem;
+	height:1.0625rem;
+	padding:0.1875rem;
+  background-color:var(--theme-list-background-color);
+	cursor:pointer;
+}
+[dir="rtl"] div.field-privacy-selector{
+	margin-left:0;
+	margin-right:0.625rem;
+}
+div.field-privacy-selector > span.icon{
+	display:inline-block;
+	background-repeat:no-repeat;
+	width:0.8125rem;
+	height:0.75rem;
+	opacity:.8;
+}
+div.field-privacy-selector > span:before, div.field-privacy-selector li > span.icon{
+	font-family:'Font Awesome 6 Free';
+}
+div.field-privacy-selector li > span.icon{
+	display:inline-block;
+	background-repeat:no-repeat;
+	width:0.8125rem;
+	height:0.75rem;
+	margin-right:0.375rem;
+}
+[dir="rtl"] div.field-privacy-selector li > span.icon{
+	margin-right:0;
+	margin-left:0.375rem;
+}
+[dir="rtl"] div.field-privacy-selector li > span.text{
+	display:inline-block;
+	position:relative;
+	top:-0.0625rem;
+}
+div.field-privacy-selector[data-privacy="everyone"] > span.icon:before,
+div.field-privacy-selector li[data-value="everyone"] > span.icon:before{
+	content:"\f0ac";
+	font-weight:900;
+}
+div.field-privacy-selector[data-privacy="registered"] > span.icon:before, 
+div.field-privacy-selector li[data-value="registered"] > span.icon:before{
+	content:"\f007";
+}
+div.field-privacy-selector[data-privacy="friends"] > span.icon:before,
+div.field-privacy-selector li[data-value="friends"] > span.icon:before{
+	content:"\f004";
+}
+div.field-privacy-selector[data-privacy="self"] > span.icon:before,
+div.field-privacy-selector li[data-value="self"] > span.icon:before{
+	content:"\f023";
+	font-weight:900 !important;
+}
+div.field-privacy-selector > span.caret:before{
+	display:inline-block;
+	content:"\f0d7";
+	margin-left:0.125rem;
+	margin-top:0.125rem;
+	font-weight:900;
+}
+[dir="rtl"] div.field-privacy-selector > span.caret:before{
+	margin-left:0;
+	margin-right:0.125rem;
+}
+div.field-privacy-selector ul{
+	display:none;
+	position:absolute;
+	right:0;
+	top:1.875rem;
+  background-color:var(--theme-list-background-color);
+	border-radius:0.25rem 0.25rem 0.25rem 0.25rem;
+	border-style:solid;
+	border-width:0.0625rem;
+	box-shadow:0 0.0625rem 0 rgba(255, 255, 255, 0.2) inset, 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.05);
+	cursor:pointer;
+}
+[dir="rtl"] div.field-privacy-selector ul{
+	left:0;
+	right:auto;
+}
+div.field-privacy-selector.active ul{
+	display:block;
+	padding:0.1875rem 0;
+}
+div.field-privacy-selector.active ul, div.field-privacy-selector.active ul li{
+	z-index:2000;
+}
+div.field-privacy-selector ul li{
+	display:none;
+	font-size:8pt;
+	padding:0.25rem 0.625rem;
+	text-align:left;
+	white-space:nowrap;
+}
+[dir="rtl"] div.field-privacy-selector ul li{
+	text-align:right;
+}
+div.field-privacy-selector.active ul li{
+	display:block;
+}
+html body div.form-wrapper.field-selector-active{
+	overflow:visible;
+}
+div.field-privacy-selector.active ul li.active{
+	font-weight:bold;
+}
+#global_page_user-edit-profile .global_form div.form-wrapper-heading{
+	clear:both;
+}
+#global_page_user-edit-profile #global_content{
+	overflow:visible;
+}
+/*
+EDIT PROFILE PHOTO
+Some extra styles to override the global
+form styles for the profile photo upload
+form.
+*/
+#EditPhoto .form-label, #EditPhoto .form-element{
+	float:none;
+	clear:both;
+	text-align:left;
+}
+[dir="rtl"] #EditPhoto .form-label,
+[dir="rtl"] #EditPhoto .form-element{
+	text-align:right;
+}
+#EditPhoto .form-label{
+	margin-bottom:0.25rem;
+}
+#lassoImg,
+#lassoMask{
+  border-width:0.0625rem;
+	display:block;
+}
+/* Avoid changing these as they are needed for cropping tool */
+#EditPhoto #done-wrapper div{
+	margin:0;
+	padding:0;
+}
+div.preview-thumbnail{
+  border-width:0.0625rem;
+	margin-right:0.3125rem;
+	overflow:hidden;
+	display:block;
+	position:relative;
+	width:3rem;
+	height:3rem;
+	font-size:0;
+	line-height:0;
+	visibility:visible;
+	opacity:1;
+	float:left;
+	border-radius:0.3125rem;
+	overflow:hidden;
+}
+[dir="rtl"] div.preview-thumbnail{
+	float:right;
+	margin-right:0;
+	margin-left:0.3125rem;
+}
+img.loading_icon{
+	float:left;
+	margin-right:0.3125rem;
+	border:none;
+}
+[dir="rtl"] img.loading_icon{
+	float:right;
+	margin-right:0;
+	margin-left:0.3125rem;
+}
+#thumbnail-controller{
+	float:left;
+	line-height:3rem;
+}
+[dir="rtl"] #thumbnail-controller{
+	float:right;
+}
+/*
+EDIT PROFILE STYLE
+Used to style the edit profile style form.
+*/
+#style-wrapper .form-label{
+	text-align:left;
+	float:none;
+	clear:both;
+	display:none;
+}
+[dir="rtl"] #style-wrapper .form-label{
+	text-align:right;
+}
+#style-wrapper .form-element{
+	float:none;
+	clear:both;
+}
+#done-wrapper .form-label{
+	display:none;
+}
+@media(max-width:767px){
+	#lassoImg{
+		width:100%;
+	}
+}
+/*
+PROFILE (FRIENDS TAB)
+Used for listing a member's friends within
+the friends profile tab
+*/
+.user_profile_friends{
+	--bs-gutter-x:0.9375rem;
+}
+.user_profile_friends_item{
+	padding-bottom:var(--bs-gutter-x);
+}
+.layout_left + .layout_right + .layout_middle .user_profile_friends_item{
+	width:100%;
+}
+.user_profile_friends_inner{
+	background-color:var(--theme-list-background-color);
+	border-radius:var(--theme-item-radius);
+	align-items:center;
+	border-width:0.0625rem;
+	display:flex;
+	justify-content:flex-start; 
+	padding:var(--theme-item-spacing);
+	height:100%;
+}
+.user_profile_friends_left{
+	align-items:flex-start;
+	display:flex;
+	flex:1;
+	justify-content:flex-start;
+  overflow:hidden;
+}
+.user_profile_friends_img{
+	border-radius:0.3125rem;
+	height:3.75rem;
+	overflow:hidden;
+	width:3.75rem;
+}
+.user_profile_friends_img span{
+	border-radius:0.3125rem;
+	height:100%;
+	width:100%;
+}
+.user_profile_friends_img span::before{
+	font-size:1.375rem; 
+}
+.profile_friends_content{
+	flex:1;
+	margin:0 0.625rem;
+	overflow:hidden;
+}
+.profile_friends_content ._title{
+	margin-bottom:0.125rem;
+	line-height:normal;
+}
+.profile_friends_content ._title a{
+	color:var(--theme-font-color);
+	font-size:var(--theme-title-size);
+	font-weight:var(--theme-font-weight-bold);
+}
+.profile_friends_content ._title a:hover{
+	color:var(--theme-link-color-hover);
+}
+.profile_friends_content ._username{
+	font-size:0.92em;
+}
+.user_profile_friends_inner .member_status_text{
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:100%;
+	font-size:0.85em;
+	line-height:normal;
+	margin-top:0.25rem;
+}
+.user_profile_friends_right > a{
+	border-radius:0.3125rem;
+  border:0.0625rem solid var(--theme-secondary-button-border-color);
+  background-color:var(--theme-secondary-button-background-color);
+  color:var(--theme-secondary-button-font-color);
+	overflow:hidden;
+	padding:0.3125rem 0.9375rem;
+	position:relative;
+}
+.user_profile_friends_right > a:hover{
+  border-color:var(--theme-secondary-button-border-color-hover);
+  background-color:var(--theme-secondary-button-background-color-hover);
+  color:var(--theme-secondary-button-font-color-hover);
+  text-decoration:none;
+}
+/* .user_profile_friends_right > a.user_followers{
+	background-color:var(--theme-button-background-color);
+	border-color:var(--theme-button-background-color);
+	color:var(--theme-button-font-color) !important;
+} */
+.user_profile_friends_right > a > i{
+	display:none;
+	margin-right:0.3125rem;
+}
+[dir="rtl"] .user_profile_friends_right > a > i{
+	margin-right:0;
+	margin-left:0.3125rem;
+}
+/*
+BROWSE MEMBERS
+Used to style the browse members page.
+*/
+.browse_mambers{
+	--bs-gutter-x:0.9375rem;
+}
+.browse_mambers_list_item{
+	padding-bottom:var(--bs-gutter-x);
+}
+.browse_mambers_list_item article{
+	background-color:var(--theme-list-background-color);
+	border-radius:var(--theme-item-radius);
+	height:100%;
+	transition:var(--theme-item-transition);
+	box-shadow:var(--theme-item-shadow);
+	display:flex;
+	flex-direction:column;
+}
+.browse_mambers_list_item_thumb{
+	border-radius:var(--theme-item-radius);
+	overflow:hidden;
+}
+.browse_mambers_list_item_thumb a > span{
+	padding-top:100%;
+}
+.browse_mambers_list_item_info{
+	padding:var(--theme-item-spacing);
+	display:flex;
+	flex:1;
+	flex-direction:column;
+}
+.browse_mambers_list_item_info *{
+	text-align:center !important;
+}
+.browse_mambers_list_item_name{
+	font-weight:var(--theme-font-weight-bold);
+	font-size:var(--theme-title-size);
+}
+.browse_mambers_list_item_links{
+	margin-top:0.9375rem;
+	flex:1;
+	display:flex;
+	justify-content:center;
+	gap:0.625rem;
+}
+.browse_mambers_list_item_links a{
+  border-color:var(--theme-secondary-button-border-color) !important;
+  background-color:var(--theme-secondary-button-background-color) !important;
+  color:var(--theme-secondary-button-font-color) !important;
+	display:flex;
+	border-radius:0.3125rem;
+  padding:0.4375rem;
+}
+.browse_mambers_list_item_links a:hover{
+  border-color:var(--theme-secondary-button-border-color-hover) !important;
+  background-color:var(--theme-secondary-button-background-color-hover) !important;
+  color:var(--theme-secondary-button-font-color-hover) !important;
+  text-decoration:none;
+}
+.browse_mambers_list_item_links a i{
+	margin:0 !important;
+  height:1.25rem;
+  width:1.25rem;
+  display:flex;
+  align-content:center;
+  justify-content:center;
+}
+
+/*
+DELETE ACCOUNT
+Used to style the delete account form
+in the member settings area.
+*/
+html .user_setting_menu ul > li > a.user_settings_delete,
+html .user_setting_menu ul > li > a.user_settings_delete:focus-visible,
+html .user_setting_menu ul > li.user_settings_delete.active > a{
+	color:#dc3545 !important;
+	position:relative;
+	border-width:0;
+}
+.user_setting_menu ul > li > a.user_settings_delete:hover,
+.user_setting_menu ul > li > a.user_settings_delete i{
+	color:#dc3545 !important;
+	border-color:#dc3545 !important;
+}
+.user_setting_menu ul > li > a.user_settings_delete::after{
+	content:'';
+	background-color:#f00;
+	opacity:0.06;
+	height:100%;
+	width:100%;
+  position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	border-radius:0;
+}
+#user_form_settings_delete #submit-label,
+#user_form_settings_delete #cancel-label{
+	display:none;
+}
+#user_form_settings_delete #submit-wrapper,
+#user_form_settings_delete #cancel-wrapper{
+	padding:0;
+	margin:0;
+	float:left;
+}
+[dir="rtl"] #user_form_settings_delete #submit-wrapper,
+[dir="rtl"] #user_form_settings_delete #cancel-wrapper{
+	float:right;
+}
+.user_delete_page #user_form_settings_delete button[type=submit] {
+	background-color:#dc3545;
+	border-color:#dc3545;
+}
+/*Delete Your Profile Photos*/
+.profile_photo_wrapper{
+	width:auto;
+}
+.profile_photo_wrapper .paginator_pages{
+	margin-bottom:0.625rem;
+}
+.profile_photos_table{
+	background-color:var(--theme-list-background-color);
+	border-width:0.0625rem;
+}
+table.profile_photos_table thead tr th{
+	border-bottom-width:0.0625rem;
+	padding:0.625rem;
+	font-weight:bold;
+}
+table.profile_photos_table thead tr th a{
+	font-weight:bold;
+}
+tbody.profile_photos{
+	overflow:hidden;
+	border-width:0.0625rem;
+	max-height:18.75rem;
+	overflow-y:auto;
+}
+table.profile_photos_table tbody tr:nth-child(even){
+	background-color:var(--theme-list-background-color-alt);
+}
+table.profile_photos_table tbody tr td{
+  font-size:var(--theme-font-size-small);
+	padding:0.625rem;
+	border-bottom-width:0.0625rem;
+	vertical-align:top;
+	white-space:normal;
+}
+tbody.profile_photos .admin_file_name{
+	background-image:url(~/application/modules/Core/externals/images/admin/file_type_image.png);
+	overflow:hidden;
+	display:inline-block;
+	padding-left:1.375rem;
+	background-repeat:no-repeat;
+	word-break:break-all;
+}
+[dir="rtl"] tbody.profile_photos .admin_file_name{
+	padding-left:0;
+	padding-right:1.375rem;
+	background-position:top right;
+}
+tbody.profile_photos .admin_file_preview{
+	background:#555;
+	box-shadow:0 0rem 0.3125rem #aaa;
+	display:none;
+	position:absolute;
+	padding:0.3125rem;
+	margin-top:0.3125rem;
+	top:0;
+	left:7.5rem;
+}
+[dir="rtl"] tbody.profile_photos .admin_file_preview{
+	left:auto;
+	right:7.5rem;	
+}
+tbody.profile_photos .admin_file_preview img{
+	display:block;
+	max-width:11.25rem;
+	max-height:11.25rem;
+}
+.profile_photos_table .icon_photos_delete:before{
+	font-weight:900 !important;
+	content:"\f056";
+	font-family:'Font Awesome 6 Free';
+}
+@media(max-width:767px){
+	table.profile_photos_table tbody tr td{
+		padding:0.3125rem;
+	}
+	tbody.profile_photos .admin_file_preview img{
+		max-width:100%;
+	}
+}
+/* Mini-menu user profile photo */
+.core_mini_profile > .bg_item_photo{
+	width:1.3125rem;
+	height:1.3125rem;
+	margin-right:0.125rem;
+	vertical-align:middle;
+	border-radius:0.125rem;
+}
+[dir="rtl"] .core_mini_profile > .bg_item_photo{
+	margin-right:0;
+	margin-left:0.125rem;
+}
+.core_mini_profile span:not(.bg_item_photo){
+	vertical-align:middle;
+	margin-left:0.125rem;
+}
+[dir="rtl"] .core_mini_profile span:not(.bg_item_photo){
+	margin-left:0;
+	margin-right:0.125rem;
+}
+
+/* USER PROFILE ICONS */
+.user_home_updates:before{
+	content:"\f0f3";
+}
+.user_home_view:before{
+	content:"\f2bb";
+}
+.user_home_friends:before{
+	content:"\f002";
+	font-weight:900 !important;
+}
+.user_home_invite:before{
+	content:"\f0e0";
+}
+
+/* EMAIL SETTINGS */
+.layout_page_user_settings_emails #disable_email-label,
+.layout_page_user_settings_emails #disable_adminemail-label,
+#global_page_user-auth-reset .global_form #buttons-label{
+	display:none;
+}
+.layout_page_user_settings_emails .form-elements{
+	margin-top:0;
+	padding-top:0;
+}
+/* EDIT EMAIL */
+#global_page_user-settings-general #email-wrapper{
+	position:relative;
+}
+#global_page_user-settings-general .global_form #email-element input[type=text]{
+	padding-right:3.25rem;
+}
+[dir="rtl"] #global_page_user-settings-general .global_form #email-element input[type=text]{
+	padding-right:0.9375rem;
+	padding-left:3.25rem;
+}
+.edit_email_setting{
+  background:var(--theme-button-background-color);
+	border-radius:0.3125rem;
+	height:2.5rem;
+	width:2.5rem;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	position:absolute;
+	right:0.3125rem;
+	bottom:0.3125rem;
+}
+[dir="rtl"] .edit_email_setting{
+	right:auto;
+	left:0.3125rem;
+}
+.edit_email_setting i{
+	color:var(--theme-button-font-color) !important;
+}
+.edit_email_popup .form-description{
+	margin-bottom:0.625rem;
+}
+.edit_email_popup{
+	width:25rem;
+}
+#user_form_settings_delete #send{
+	margin:0 0 0.625rem;
+}
+html .coverphoto_navigation ul > li > a > span:before {
+  border-top:0.5rem solid var(--theme-list-background-color);
+}
+#global_page_user-settings-emails form .form-options-wrapper > li{
+	display:flex;
+}
+/*Edit Photo*/
+#global_page_user-edit-profile .global_form,
+#global_page_user-edit-profile .global_form div.form-wrapper,
+#global_page_user-edit-profile .global_form > div > div,
+#global_page_user-edit-profile .global_form > div{
+	overflow:visible;
+}
+.layout_user_profile_photo #profile_photo{
+	text-align:center;
+}
+.home-links-user{
+	min-height:4.375rem;
+	position:relative;
+	margin-bottom:0.3125rem;
+}
+.home-links-user .user{
+	padding-left:3.75rem;
+	font-weight:600;
+	padding-top:1.5625rem;
+}
+.home-links-user .image{
+	position:absolute;
+	top:0.625rem;
+	left:0;
+}
+.home-links-user .image img.thumb_profile{
+	max-width:3rem;
+	max-height:3rem;
+}
+/*Required Password*/
+#global_page_user-settings-password #global_content_simple{
+	display:block;
+}
+.require_password{
+	max-width:31.25rem;
+	margin:3.125rem auto;
+}
+.require_password .layout_core_menu_logo{
+	text-align:center;
+	margin-bottom:1.25rem;
+	width:100%;
+	padding:0;
+}
+.require_password .global_form{
+	border-width:0.0625rem;
+}
+.require_password .global_form > div > div{
+	padding:1.25rem;
+}
+.require_password .global_form .form-label{
+	width:100%;
+	text-align:left;
+}
+[dir="rtl"] .require_password .global_form .form-label{
+	text-align:right;
+}
+.require_password .global_form .form-element{
+	width:100%;
+}
+.require_password .global_form .form-element input{
+	width:100%;
+	max-width:100%;
+}
+/* USER PROFILE INFO */
+.user_profile_info > ul > li{
+	position:relative;
+	display:flex;
+	flex-wrap:wrap;
+	border-bottom-width:0.0625rem;
+	margin:0 -0.9375rem;
+	padding:0.625rem 0.9375rem;
+}
+.user_profile_info > ul > li:first-child{
+	padding-top:0;
+}
+.user_profile_info > ul > li:last-child{
+	border-bottom-width:0;
+	padding-bottom:0;
+}
+.user_profile_info > ul > li:before{
+	font-family:'Font Awesome 6 Free';
+	margin-right:0.5rem;
+	display:inline-block;
+	font-size:1rem;
+	text-align:center;
+	width:1rem;
+	font-weight:900;
+}
+[dir="rtl"] .user_profile_info > ul > li:before{
+	margin-right:0;
+	margin-left:0.5rem;
+	text-align:center;
+}
+.user_profile_info .profile_type:before{
+	content:"\f47f";
+	color:#f7b70f;
+}
+.user_profile_info .profile_networks:before{
+	content:"\f0c0";
+	font-weight:900;
+	color:#4CAF50;
+}
+.user_profile_info .profile_views:before{
+	content:"\f21d";
+	color:#0076ff;
+}
+.user_profile_info .profile_friends:before{
+	content:"\f2bd";
+	color:#dd0505;
+}
+.user_profile_info .profile_updates:before{
+	content:"\f2f1";
+	color:#09db93;
+}
+.user_profile_info .profile_joined:before{
+	content:"\f4fd";
+	color:#ff2fca;
+}
+.user_profile_info .profile_login:before{
+	content:"\f274";
+	font-weight:900;
+	color:#775cff;
+}
+.user_profile_info .profile_level:before{
+	content:"\f5a2";
+	font-weight:900;
+	color:#ffa300;
+}
+.user_profile_info .profile_invite:before{
+	content:"\f0e0";
+	color:#ff00b8;
+}
+.user_profile_info .profile_enabled:before{
+	content:"\f058";
+	color:#c000ff;
+}
+.user_profile_info .profile_followers:before{
+	content:"\f0c0";
+	color:#4100ff;
+}
+.user_profile_info .profile_following:before{
+	content:"\f234";
+	color:#c1009f;
+}
+.user_profile_info .profile_location:before{
+	content:"\f3c5";
+	color:#0768d6;
+}
+.user_profile_info > ul > li > div{
+	flex:1;
+	overflow:hidden;
+	font-size:0.875rem;
+}
+/* LOGIN PAGE*/
+.layout_page_user_auth_login .layout_core_content{
+  padding:0 !important;
+}
+html .layout_user_login_page{
+	padding:0 !important;
+	border-radius:0 !important;
+	margin-top:1.875rem;
+	margin-bottom:3.125rem !important;
+}
+.user_login_page{
+	display:flex;
+}
+.user_login_page .user_login_bg{
+	min-width:60%;
+	width:100%;
+	background-position:center center;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.user_login_page .user_login_form{
+	padding:3.125rem;
+	min-width:40%;
+	width:100%;
+	text-align:center;
+	box-sizing:border-box;
+  background:var(--theme-list-background-color);
+}
+.user_login_page .user_login_form > h3{
+	font-size:1.5625rem;
+	text-transform:uppercase;
+	font-weight:300;
+	margin:0 0 1.25rem;
+	padding:0;
+}
+.user_login_page .user_login_form form{
+  padding:0;
+  box-sizing:border-box;
+}
+.user_login_page form > div{
+	float:none !important;
+}
+.user_login_page  form div > div > h3,
+.user_login_page  form div > div .form-description{
+  display:none;
+}
+.user_login_page .user_login_form form ul.form-errors > li{
+	margin:0 0 0.3125rem;
+}
+.user_login_page form .form-elements{
+	width:100%;
+	min-width:100%;
+	max-width:100%;
+	padding:0;
+  position:relative;
+  margin:0 !important;
+}
+.user_login_page .user_login_form div.form-wrapper{
+  margin-bottom:0.875rem;
+}
+.user_login_page .user_login_form div.form-label{
+  margin-bottom:0.625rem;
+}
+.user_login_page .user_login_form div.form-element{
+  margin:0;
+  min-width:inherit;
+  width:100%;
+  max-width:100%;
+}
+.user_login_page .user_login_form input[type=email],
+.user_login_page .user_login_form input[type=text], 
+.user_login_page .user_login_form input[type=password],
+.user_login_page .user_login_form select{
+	font-size:var(--theme-font-size);
+	padding:0.9375rem;
+	border-radius:0.3125rem;
+	line-height:1;
+	height:auto;
+}
+.user_login_page #user_form_login .user_showhidepassword > i{
+	margin-top:-3.125rem;
+}
+.user_login_page #user_form_login #submit-wrapper{
+  float:none;
+  text-align:center;
+	margin-bottom:0;
+}
+.user_login_page #submit-element{
+	float:none;
+  text-align:center;
+}
+.user_login_page #submit-element button{
+	border-radius:1.875rem;
+  padding:0.75rem;
+  text-align:center !important;
+  width:100%;
+	margin-bottom:0 !important;
+}
+.user_login_page #forgot-wrapper{
+	margin-bottom:0;
+}
+.user_login_page #user_form_login #forgot-element{
+	margin:0.625rem 0;
+	text-align:center !important;
+}
+.user_login_page #user_form_login #forgot-element span{
+	margin-top:0.625rem;
+	display:block;
+}
+.user_login_page #user_form_login #fieldset-sociallinks{
+	margin-top:0;
+}
+.user_login_page #otp-label,
+.user_login_page #forgot-label,
+.user_login_page #submit-label,
+.user_login_page #buttons-label{
+	display:none;
+}
+.user_login_page .signup_link{
+	border-top-width:0.0625rem;
+	border-top-style:dashed;
+	padding-top:0.9375rem;
+}
+.user_login_page .user_login_form form button{
+	margin:0;
+	width:100%;
+}
+.user_login_page .form-errors{
+	margin:0.5rem 0;
+}
+/*Otp Form*/
+#user_form_login #otp-wrapper{
+	margin:0;
+}
+#user_form_login #otp-element{
+	text-align:right;
+	margin:0;
+}
+[dir="rtl"] #user_form_login #otp-element{
+	text-align:right;
+}
+.otpsms_form_back{
+	margin-bottom:0.625rem;
+}
+.otpsms_form_back a i{
+	margin-right:0.3125rem;
+}
+[dir="rtl"] .otpsms_form_back a i{
+	margin-right:0;
+	margin-left:0.3125rem;
+	transform:rotate(180deg);
+}
+#otpsms_login_verify #code-element .otp_timer{
+	margin-top:0.3125rem;
+}
+#otpsms_login_verify #code-element #otp_timer .otpsms_timer_class{
+	color:var(--theme-button-background-color);
+}
+#otpsms_login_verify #buttons-element{
+	display:flex;
+	justify-content:center;
+	margin:0 -2%;
+	width:auto;
+	float:none;
+	max-width:inherit;
+}
+#otpsms_login_verify #buttons-element button{
+	width:46%;
+	margin:0 2%;
+}
+/*Recent Login*/
+.user_login_form .recent_login{
+	border-top-width:0.0625rem;
+	margin-top:1.25rem;
+	padding-top:1.25rem;
+}
+.recent_login_head{
+	margin-bottom:0.3125rem;
+	font-weight:bold !important;
+}
+.recent_login_list{
+	position:relative;
+	margin:0 -0.3125rem;
+}
+.recent_login_list_item{
+	position:relative;
+	margin:0.3125rem;
+	width:11.25rem;
+	display:flex;
+}
+.recent_login_list_item_link{
+	border-radius:0.3125rem;
+	background-color:var(--theme-list-background-color-alt);
+	display:flex;
+	align-items:center;
+	text-decoration:none !important;
+	padding:0.3125rem;
+	width:100%;
+}
+.recent_login_list_item_link ._img{
+	border-radius:0.3125rem;
+	margin-right:0.625rem;
+	overflow:hidden;
+	height:2.5rem;
+	width:2.5rem;
+}
+[dir="rtl"] .recent_login_list_item_link ._img{
+	margin-left:0.625rem;
+	margin-right:0;
+}
+.recent_login_list_item_link ._img .bg_item_photo{
+	border-radius:0;
+	height:100%;
+	width:100%;
+}
+.recent_login_list_item_link ._cont{
+	flex:1;
+}
+.recent_login_list_item_link ._cont p{
+	margin:0;
+	line-height:1.5;
+}
+.recent_login_list_item_link ._cont p._name,
+.recent_login_list_item_link ._cont p._name .user_name{
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	max-width:7.5rem;
+}
+.recent_login_list_item_link ._cont p._name .user_name{
+	max-width:5.3125rem;
+	display:inline-block;
+	vertical-align:middle;
+}
+.recent_login_list_item_link ._cont ._notification:before{
+  content:"";
+  background-color:#f00;
+  border-radius:50%;
+  margin-right:0.3125rem;
+  display:inline-block;
+  height:0.5rem;
+  width:0.5rem;
+}
+[dir="rtl"] .recent_login_list_item_link ._cont ._notification:before{
+  margin-right:0;
+  margin-left:0.3125rem;
+}
+.recent_login_list_item ._close{
+	background-color:#000;
+	border-radius:50%;
+	position:absolute;
+	height:1.25rem;
+	width:1.25rem;
+	top:-0.3125rem;
+	right:-0.3125rem;
+	color:#fff;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-decoration:none !important;
+}
+.recent_login_list .owl-stage-outer{
+	overflow:hidden;
+}
+.recent_login_list .owl-stage{
+	display:flex;
+}
+.recent_login_list .owl-nav > div{
+	border-radius:50%;
+	background-color:var(--theme-list-background-color);
+	cursor:pointer;
+	height:1.5rem;
+	width:1.5rem;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	box-shadow:0 0 0.3125rem rgba(0, 0, 0, .2);
+	position:absolute;
+	top:50%;
+	transform:translateY(-50%);
+	z-index:1;
+}
+.recent_login_list .owl-nav > div.owl-prev{
+	left:-0.3125rem;
+}
+[dir="rtl"] .recent_login_list .owl-nav > div.owl-prev{
+	left:auto;
+	right:-0.3125rem;
+} 
+.recent_login_list .owl-nav > div.owl-next{
+	right:-0.3125rem;
+}
+[dir="rtl"] .recent_login_list .owl-nav > div.owl-next{
+	right:auto;
+	left:-0.3125rem;
+}
+[dir="rtl"] .recent_login_list .owl-nav > div i{
+	transform:rotate(180deg);
+}
+.recent_login_list .owl-dots.disabled,
+.recent_login_list .owl-nav > div.disabled{
+	display:none;
+}
+.user_password_popup_main{
+	width:21.875rem;
+}
+.user_password_popup{
+	padding:0.9375rem;
+}
+.user_password_popup_thumb{
+	border-radius:50%;
+	margin:1.25rem auto;
+	height:12.5rem;
+	overflow:hidden;
+	width:12.5rem;
+}
+.user_password_popup_thumb span{
+	border-width:0;
+}
+.user_password_popup_name{
+	font-size:1.0625rem;
+}
+.user_password_popup_field input{
+	padding:0.625rem 0.5rem !important;
+	width:100% !important;
+}
+.user_password_popup_field .user_showhidepassword{
+	max-width:inherit;
+	position:absolute;
+	right:0;
+	top:0;
+}
+[dir="rtl"] .user_password_popup_field .user_showhidepassword{
+	left:0;
+	right:auto;
+}
+.user_password_popup_field .user_showhidepassword > i{
+	margin:0.625rem !important;
+}
+.user_password_popup_btn button{
+	width:100%;
+}
+/*User Home Links*/
+html .home-links-user .user{
+	word-break:break-word;	
+}
+html .home-links-user .user a{
+	justify-content:center;
+	color:var(--theme-font-color);
+}
+@media(min-width:768px) and (max-width:1024px){
+	.user_login_page .user_login_bg{
+    min-width:40%;
+	}
+	.user_login_page .user_login_form{
+    padding:1.25rem;
+	}
+}
+@media(max-width:767px){
+	html .layout_user_login_page{
+    margin:1.25rem auto !important;
+  }
+	.user_login_page{
+		display:block !important;
+	}
+	.user_login_page .user_login_form{
+    padding:1.25rem !important;
+	}
+}
+/* User Home Links*/
+html .home-links-user .user{
+	word-break:break-word;	
+}
+html .home-links-user .user a{
+	justify-content:center;
+}
+/* ICONS ON PROFILE QUESTIONS */
+#passwordroutine-label{
+	display:none;
+}
+.user_profile_edit form label i{
+	margin-right:0.3125rem;
+}
+[dir="rtl"] .user_profile_edit form label i{
+	margin-left:0.3125rem;
+	margin-right:0;
+}
+.password_checker{
+	margin-top:0.625rem;
+	width:100%;
+}
+.password_checker #passwordroutine_length{
+	background-color:var(--theme-list-background-color-alt);
+  border-radius:1.25rem;
+  height:0.5rem;
+  margin-bottom:0.625rem;
+	position:relative;
+	overflow:hidden !important;
+}
+#pswd_info > ul > li > span:before{
+	content:"\f058";
+	font-family:'Font Awesome 6 Free';
+	display:block;
+	font-size:1.25rem;
+	margin-bottom:0.3125rem;
+	opacity:.7;
+}
+.password_checker #passwordroutine_length:before{
+	content:"";
+  border-radius:1.25rem;
+	width:0;
+	position:absolute;
+	height:100%;
+	transition:.8s ease-in-out;
+}
+.password_checker #passwordroutine_length.weak:before{
+	background:#dc3545;
+	width:33%;
+}
+.password_checker #passwordroutine_length.good:before{
+	background:#f7c32e;
+	width:66%;
+}
+.password_checker #passwordroutine_length.strong:before{
+	background:#0cbc87;
+	width:100%;
+}
+/* Social buttons */
+.social_login_btn{
+	padding:0 0.625rem;
+	border-radius:0.25rem;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.social_login_btn:hover{
+	opacity:.9;
+	text-decoration:none;
+}
+.facebook_login_btn{
+	background-color:#3b5998;
+}
+.twitter_login_btn{
+	background-color:#000;
+}
+.google_login_btn{
+	background-color:#4385f5;
+}
+.linkedin_login_btn{
+	background-color:#0076b0;
+}
+.social_login_btn > i{
+	margin-right:0.625rem;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	height:2rem;
+	width:2rem;
+}
+[dir="rtl"] .social_login_btn > i{
+	margin-left:0.625rem;
+	margin-right:0;
+}
+.social_login_btn > i svg{
+	height:1.125rem;
+	width:1.125rem;
+}
+.google_login_btn > i{
+	background-color:#fff;
+	border-radius:50%;
+}
+.social_login_btn > span{
+	color:#fff !important;
+	font-weight:bold;
+	padding:0.625rem 0;
+}
+#user_form_login #fieldset-sociallinks,
+#signup_account_form #fieldset-sociallinks{
+	margin-top:1.25rem;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:1rem;
+}
+#user_form_login #fieldset-sociallinks .form-wrapper,
+#signup_account_form #fieldset-sociallinks .form-wrapper{
+	width:auto;
+	margin:0;
+}
+#user_form_login #fieldset-sociallinks .form-label,
+#signup_account_form #fieldset-sociallinks .form-label{
+	display:none;
+}
+#user_form_login #fieldset-sociallinks .form-element,
+#signup_account_form #fieldset-sociallinks .form-element{
+	min-width:inherit !important;
+	max-width:inherit !important;
+	width:auto !important;
+}
+#user_form_login #fieldset-sociallinks .social_login_btn,
+#signup_account_form #fieldset-sociallinks .social_login_btn{
+	border-radius:50%;
+	height:2rem;
+	padding:0;
+	width:2rem;
+}
+#user_form_login #fieldset-sociallinks .social_login_btn.google_login_btn,
+#signup_account_form #fieldset-sociallinks .social_login_btn.google_login_btn{
+	background-color:transparent;
+}
+#user_form_login #fieldset-sociallinks .social_login_btn i,
+#signup_account_form #fieldset-sociallinks .social_login_btn i{
+	margin:0;
+}
+#user_form_login #fieldset-sociallinks .social_login_btn.google_login_btn i,
+#signup_account_form #fieldset-sociallinks .social_login_btn.google_login_btn i{
+	border-width:0.0625rem;
+}
+#user_form_login #fieldset-sociallinks .social_login_btn span,
+#signup_account_form #fieldset-sociallinks .social_login_btn span{
+	display:none;
+}
+#user_form_login #fieldset-sociallinks #telegram-wrapper,
+#signup_account_form #fieldset-sociallinks #telegram-wrapper{
+	display:flex;
+	justify-content:center;
+	width:100%;
+}
+#global_page_user-auth-reset #resetalldevice-label,
+#global_page_user-settings-password #resetalldevice-wrapper #resetalldevice-label,
+.layout_page_user_settings_password #submit-label{
+	display:none;
+}
+.user_setting_global_form .social_login_btn{
+	max-width:25rem;
+}
+/* EDIT EMAIL */
+#global_page_user-settings-general #email-wrapper{
+	position:relative;
+}
+#global_page_user-settings-general .global_form #email-element input[type=text]{
+	padding-right:3.25rem;
+}
+[dir="rtl"] #global_page_user-settings-general .global_form #email-element input[type=text]{
+	padding-right:0.9375rem;
+	padding-left:3.25rem;
+}
+.edit_email_setting{
+  background:var(--theme-button-background-color);
+	border-radius:0.3125rem;
+	height:2.5rem;
+	width:2.5rem;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	position:absolute;
+	right:0.3125rem;
+	bottom:0.3125rem;
+}
+[dir="rtl"] .edit_email_setting{
+	right:auto;
+	left:0.3125rem;
+}
+.edit_email_setting i{
+	color:var(--theme-button-font-color) !important;
+}
+.edit_email_popup .form-description{
+	margin-bottom:0.625rem;
+}
+.edit_email_popup{
+	width:25rem;
+}
+#user_form_settings_delete #send{
+	margin:0 0 0.625rem;
+}
+html .coverphoto_navigation ul > li > a > span:before {
+  border-top:0.5rem solid var(--theme-list-background-color);
+}
+#global_page_user-settings-emails form .form-options-wrapper > li{
+	display:flex;
+}
+#form_photo_cover #Filedata-element input#Filedata{
+	display:inline-block;
+	max-width:13.75rem;
+}
+/* SHOW HIDE PASSWORD */
+.user_login_page .user_login_form input[type="password"],
+#global_page_core-error-requireuser input[type="password"],
+#global_page_user-signup-index input[type="password"],
+#global_page_user-settings-password input[type="password"]{
+	padding-right:2.5rem;
+}
+[dir="rtl"] .user_login_page .user_login_form input[type="password"],
+[dir="rtl"] #global_page_core-error-requireuser input[type="password"],
+[dir="rtl"] #global_page_user-signup-index input[type="password"],
+[dir="rtl"] #global_page_user-settings-password input[type="password"]{
+	padding-right:0.9375rem;
+	padding-left:2.5rem;
+}
+.user_showhidepassword{
+	max-width:37.5rem;
+}
+.user_showhidepassword > i{
+	float:right;
+	margin-right:0.625rem;
+	margin-top:-2.5rem;
+	cursor:pointer;
+	font-style:normal;
+	font-family:'Font Awesome 6 Free';
+}
+[dir="rtl"] .user_showhidepassword > i{
+	float:left;
+	margin-right:0;
+	margin-left:0.625rem;
+}
+.user_showhidepassword > i:before{
+	content:"\f070";
+	font-weight:900;
+}
+.user_showhidepassword > i.showpassword:before{
+	content:"\f06e";
+}
+#global_page_user-settings-password #oldpassword_settings_group-wrapper,
+#global_page_user-settings-password #password_confirm_settings_group-wrapper,
+#global_page_user-settings-password #password_settings_group-wrapper{
+	position:relative;
+}
+[dir="rtl"] #global_page_user-settings-password .user_showhidepassword{
+	left:0;
+	right:auto;
+}
+#global_page_user-settings-password #resetalldevice-element{
+	display:flex;
+}
+#global_page_user-settings-password .user_setting_global_form input[type=checkbox]{
+	margin-top:0;
+}
+/* FOR MS EDGE */
+input::-ms-reveal, input::-ms-clear{
+ display:none;
+}
+@media(max-width:767px){
+	#global_page_user-settings-password #password_settings_group-wrapper .user_showhidepassword{
+		top:28%;
+	}
+}
+/* TWO STEP AUTH PAGE */
+.twostep_auth_form #description-label{
+	display:none;
+}
+.twostep_verify_message{
+	background:#dff0d8;
+	border:0.0625rem solid #d6e9c6;
+	color:#3c763d;
+	border-radius:0.25rem;
+	margin-bottom:1.25rem;
+	padding:0.9375rem;
+	max-width:50%;
+	box-sizing:border-box;
+	width:100%;
+}
+.twostep_verify_message ._head{
+	font-size:120%;
+	margin-bottom:0.3125rem;
+}
+.twostep_verify_message p > i{
+	margin-right:0.3125rem;
+}
+@media(max-width:767px){
+	.twostep_verify_message{
+		max-width:100%;
+	}
+	.profile_fields > ul > .field_about_me > span{
+		display:block;
+		float:none;
+		width:100%;
+		margin-right:0;
+		margin-bottom:0.625rem;
+	}
+}
+.user_profile_edit{
+	position:relative;
+}
+.user_edit_profiletype_link{
+	position:absolute;
+	right:0;
+}
+[dir="rtl"] .user_edit_profiletype_link{
+	right:inherit;
+	left:0;
+}
+.user_edit_profiletype_link a{
+	border-radius:0.3125rem;
+	border:0.0625rem solid var(--theme-button-background-color);
+	color:var(--theme-button-background-color);
+	display:inline-flex;
+	align-items:center;
+	padding:0.625rem 1.25rem;
+	transition:all .2s ease-in-out;
+}
+.user_edit_profiletype_link a:hover{
+	background-color:var(--theme-button-background-color);
+	color:var(--theme-button-font-color);
+}
+.user_edit_profiletype_link a i{
+	margin-right:0.3125rem;
+}
+[dir="rtl"] .user_edit_profiletype_link a i{
+	margin-left:0.3125rem;
+	margin-right:0;
+}
+@media(max-width:540px){
+	.user_edit_profiletype_link{
+		position:inherit;
+		margin-bottom:0.625rem;
+	}
+}
+.user_profile_edit .form-element .description{
+	width:100%;
+}
+/*Sign-in Required Page & Popup*/
+#global_page_core-error-requireuser #global_content .layout_core_content{
+	background-color:var(--theme-list-background-color);
+	border-width:0.0625rem;
+	border-radius:0.625rem;
+	margin:1.25rem auto;
+	max-width:31.25rem;
+	padding:1.25rem;
+}
+.required_login_form .global_form{
+	max-width:100%;
+	min-width:100%;
+	width:100%;
+}
+.required_login_form .global_form > div,
+.required_login_form .global_form > div > div{
+	float:none;
+}
+.required_login_form .global_form > div > div > h3{
+	text-align:center !important;
+	font-weight:bold;
+	font-size:1.25rem;
+}
+.required_login_form .global_form > div > div > h3 + p{
+	text-align:center !important;
+	margin:0;
+	padding:0;
+}
+.required_login_form .global_form ul.form-errors{
+	margin:1.25rem 0;
+	padding:0;
+}
+.required_login_form .global_form ul.form-errors > li{
+	margin:0;
+}
+.required_login_form .global_form .form-elements{
+	max-width:100%;
+	min-width:100%;
+	width:100%;
+}
+.required_login_form .global_form div.form-wrapper{
+	margin:0;
+	padding:0;
+}
+.required_login_form .global_form div.form-label,
+.required_login_form .global_form div.form-element{
+	padding:0;
+	margin:0 0 0.9375rem;
+	min-width:inherit;
+	max-width:100%;
+	width:100%;
+}
+.required_login_form .global_form div.form-label{
+	margin-bottom:0.3125rem;
+}
+.required_login_form .global_form div.form-element input[type=text],
+.required_login_form .global_form div.form-element input[type=email],
+.required_login_form .global_form div.form-element input[type=password]{
+	border-radius:0.3125rem;
+	line-height:2.5rem;
+	margin:0;
+	padding:0 0.9375rem;
+	height:inherit;
+}
+.required_login_form .global_form .user_showhidepassword > i{
+	margin-top:-2.625rem;
+}
+.layout_core_content .required_login_form  #user_form_login #forgot-wrapper{
+	display:block;
+	width:100%;
+}
+.layout_core_content .required_login_form #user_form_login #forgot-element{
+	margin:0;
+	width:100%;
+	text-align:center !important;
+}
+.required_login_form .global_form #forgot-label{
+	display:none;
+}
+.required_login_form #user_form_login #forgot-element{
+	margin-bottom:0.625rem !important;
+}
+.required_login_form .global_form #submit-wrapper{
+	margin:0 0 0.9375rem;
+	width:100%;
+}
+.required_login_form .global_form #submit-wrapper button{
+	border-radius:1.25rem;
+	padding:0 0.9375rem;
+	line-height:2.5rem;
+	font-weight:bold;
+	text-align:center !important;
+	width:100%;
+}
+/*User Setting Page*/
+.user_settings_page .layout_left{
+	display:block !important;
+}
+.layout_user_settings_menu{
+	padding:0.5rem 0.625rem !important;
+	background:var(--theme-list-background-color);
+}
+.user_setting_menu .user_menu_heading{
+	background-color:var(--theme-list-background-color-alt);
+	display:block;
+	font-weight:400;
+	letter-spacing:0.025rem;
+	margin:0.4375rem -0.625rem;
+	padding:0.625rem 1.25rem;
+}
+.user_setting_menu ul > li > a{
+	border-left:0.125rem solid transparent !important;
+	color:var(--theme-font-color);
+	margin:0 -0.625rem;
+	padding:0.625rem 1.25rem;
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+	transition:0.5s;
+	margin-bottom:0.5rem;
+	font-weight:500;
+	line-height:1.4;
+}
+.user_setting_menu ul > li.active > a,
+.user_setting_menu ul > li > a:hover,
+.user_setting_menu ul > li > a:focus-visible{
+	background-color:var(--theme-list-background-color-alt);
+	color:var(--theme-font-color) !important;
+	border-left:0.125rem solid var(--theme-button-background-color) !important;
+} 
+.user_setting_menu ul > li > a > i{
+	color:var(--theme-font-color-light);
+	margin-right:0.3125rem;
+}
+[dir="rtl"] .user_setting_menu ul > li > a > i{
+	margin-left:0.3125rem;
+	margin-right:0;
+}
+.user_setting_global_form .global_form{
+	width:100%;
+}
+#global_page_user-edit-profile .user_setting_global_form .global_form .form-elements,
+#global_page_user-settings-general .user_setting_global_form > .global_form .form-elements,
+#global_page_user-settings-password .user_setting_global_form .global_form .form-elements,
+#global_page_user-settings-delete .user_setting_global_form .global_form .form-elements{
+	width:76%;
+}
+.user_setting_global_form .global_form h3,
+.user_setting_global_form > h3{
+  background-color:transparent !important;
+  border-radius:0;
+	border-width:0 !important;
+	margin:0;
+	padding:0 0 0.75rem;
+	font-weight:600;
+	color:var(--theme-font-color);
+	border-bottom-width:0.0625rem;
+}
+.user_setting_global_form .global_form div.form-wrapper-heading{
+	height:1.5em;
+	border:0;
+}
+.user_setting_global_form .global_form div.form-wrapper-heading > span{
+	padding:0;
+}
+.user_setting_global_form .global_form .form-wrapper{
+	margin-bottom:0.9375rem;
+}
+.user_setting_global_form .global_form > div{
+	float:none !important;
+	padding:0;
+}
+.user_setting_global_form .global_form div{
+	overflow:visible !important;
+}
+.user_setting_global_form .global_form div.form-element{
+	float:none !important;
+	margin-bottom:0;
+	min-width:100%;
+	max-width:100%;
+}
+.user_setting_global_form .global_form div.form-label{
+	margin-bottom:0.5rem;
+	float:none;
+}
+.user_setting_global_form .global_form p.description{
+	margin-bottom:0.5rem;
+	max-width:100%;
+}
+.user_setting_global_form .global_form .selectize-control .selectize-input{
+	display:flex;
+	align-items:center;
+}
+.user_setting_global_form .global_form .selectize-input.input-active{
+	display:flex !important;
+}
+.user_setting_global_form .global_form .preview-thumbnail .bg_item_photo.bg_thumb_icon{
+	border-radius:0.3125rem;
+	border-width:0;
+}
+/*Edit My Photo*/
+.user_setting_global_form #current-label label{
+	margin:0 0 0.75rem;
+}
+/*Edit Profile*/
+.user_profile_edit .global_form .selectize-control{
+	width:100%;
+}
+/*Mobile Number*/
+.user_setting_global_form .global_form #phone_number-element #phone_number{
+  flex:1;
+  min-width:50%;
+}
+.user_setting_global_form .global_form #phone_number-element > p{
+	padding-bottom:0;
+	width:100%;
+}
+.user_setting_global_form .global_form #phone_number-element .verify_email,
+.user_setting_global_form .global_form #phone_number-element #verifed_text{
+  position:absolute;
+  top:0.9375rem;
+  right:0.625rem;
+}
+[dir="rtl"] .user_setting_global_form .global_form #phone_number-element .verify_email,
+[dir="rtl"] .user_setting_global_form .global_form #phone_number-element #verifed_text{
+  right:auto;
+	left:0.625rem;
+}
+.user_setting_global_form .global_form #phone_number-element #verifed_text{
+	color:#008000;
+}
+.user_setting_global_form .global_form input + label{
+	float:none !important;
+	margin:0 !important;
+	display:inline-block;
+	overflow:visible;
+}
+.user_setting_global_form input[type=radio],
+.user_setting_global_form input[type=checkbox]{
+	margin-top:0.25rem;
+}
+.user_setting_global_form .global_form input[type=text],
+.user_setting_global_form .global_form input[type=email],
+.user_setting_global_form .global_form input[type=password],
+.user_setting_global_form .global_form select,
+.user_setting_global_form .global_form .selectize-input{
+	border-radius:0.625rem;
+	padding:0.625rem 0.9375rem;
+	font-size:0.9375em;
+	height:3.125rem;
+}
+.user_setting_global_form .global_form textarea{
+	border-radius:0.625rem;
+	padding:0.625rem 0.9375rem;
+	font-size:0.9375em;
+}
+.user_setting_global_form .global_form .form-wrapper div#submit-label,
+.user_setting_global_form .global_form #search-wrapper #search-label,
+.user_setting_global_form .global_form #execute-wrapper #execute-label,
+.user_setting_global_form .global_form #enable_verification-label,
+.user_setting_global_form .global_form #resetalldevice-label{
+	display:none;
+}
+.user_setting_global_form .user_showhidepassword{
+	max-width:100%;
+}
+.user_setting_global_form .user_showhidepassword i{
+	position:absolute;
+	top:3rem;
+	right:0.9375rem;
+	float:none !important;
+	margin:0 !important;
+	z-index:1;
+}
+[dir="rtl"] .user_setting_global_form .user_showhidepassword i{
+	right:auto;
+	left:0.9375rem;
+}
+/*user settings emails*/
+.user_setting_global_form .global_form #disable_adminemail-label,
+.user_setting_global_form .global_form #disable_email-label{
+	display:none;
+}
+#global_page_user-settings-password .user_setting_global_form .global_form .form-wrapper .form-wrapper{
+	margin:0;
+}
+/*Verifaction Page*/
+.global_form.verification_form_settings #buttons-wrapper button{
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	margin:0 0.125rem 0.375rem;
+	vertical-align:middle;
+}
+.global_form.verification_form_settings #buttons-wrapper button img{
+	width:1.25rem;
+	height:1.25rem;
+	vertical-align:middle;
+	display:inline-block;
+	margin-right:0.3125rem;
+}
+[dir="rtl"] .global_form.verification_form_settings #buttons-wrapper button img{
+	margin-right:0;
+	margin-left:0.3125rem;
+}
+/*User Delete Page*/
+.user_delete_page .global_form > div > div > h3 + p{
+	padding-bottom:0;
+	margin-bottom:0.75rem;
+}
+.user_delete_page .tip > span{
+	float:none;
+}
+/*Edit Profile Page*/
+.global_form .form-elements .birthday_wrapper .form-element{
+	display:inline-flex;
+	flex-wrap:nowrap;
+	overflow:visible;
+}
+.global_form .form-elements .birthday_wrapper .form-element select{
+	min-width:33% !important;
+	max-width:33% !important;
+	width:33% !important;
+	display:inline-block;
+	margin:0;
+}
+.user_profile_edit .global_form div.form-element{
+	width:92%;
+	min-width:92% !important;
+	max-width:92% !important;
+	vertical-align:top;
+	display:inline-flex;
+	flex-wrap:wrap;
+}
+.user_profile_edit .global_form div#personalheading-label{
+	display:none;
+}
+#global_page_user-edit-profile .global_form div#personalheading-element{
+	display:block;
+}
+.user_setting_global_form button[type=submit]{
+	padding:0.625rem 1.25rem;
+	border-radius:0.625rem;
+	font-weight:600;
+}
+#EditPhoto #current-element .user_edit_photo_main .bg_item_photo{
+	border-radius:1.25rem;
+	height:100%;
+	width:100%;
+	padding-bottom:100%;
+}
+#EditPhoto #current-element .user_edit_photo_main{
+	width:20rem;
+	max-width:100%;;
+	margin-bottom:0.9375rem;
+}
+#EditPhoto #current-element .user_edit_photo_main img.thumb_profile{
+	max-width:100%;
+	max-height:40rem;
+	border-radius:1.25rem;
+	overflow:hidden;
+}
+#EditPhoto #preview-thumbnail img{
+	margin-right:0.3125rem;
+	font-size:0;
+	line-height:0;
+	border-radius:0.3125rem;
+}
+[dir="rtl"] #EditPhoto #preview-thumbnail img{
+	margin-right:0;
+	margin-left:0.3125rem;
+}
+#EditPhoto #preview-thumbnail img{
+	position:relative;
+	display:block;
+	visibility:visible;
+	opacity:1;
+	float:left;
+	overflow:hidden;
+	border-radius:0.3125rem;
+	width:100% !important;
+	height:100% !important;
+	margin:0 !important;
+}
+[dir="rtl"] #EditPhoto #preview-thumbnail img{
+	float:right;
+}
+.user_setting_global_form #style-wrapper .form-label{
+	display:none;
+}
+.user_setting_global_form #EditPhoto #avatar-label{
+	display:none;
+}
+.user_setting_global_form #EditPhoto .editavatar_element{
+	min-width:15.625rem;
+	display:inline-block;
+}
+.user_setting_global_form #EditPhoto .editavatar_element p._sep{
+	text-align:center !important;
+	font-size:1.25rem;
+	font-weight:bold;
+}
+.user_setting_global_form #EditPhoto .editavatar_element p.editavatar_link a{
+	background-color:var(--theme-list-background-color-alt);
+	padding:0.625rem;
+	display:flex;
+	justify-content:center;
+	border-radius:0.3125rem;
+}
+.user_setting_global_form #EditPhoto .editavatar_element p.editavatar_link i{
+	margin-right:0.5rem;
+	display:flex;
+	align-items:center;
+}
+[dir="rtl"] .user_setting_global_form #EditPhoto .editavatar_element p.editavatar_link i{
+	margin-right:0.5rem	;
+}
+.user_avatar_popup{
+	width:50rem;
+}
+.user_avatar_popup #avatar-label{
+	display:none;
+}
+.user_avatar_popup #avatar-element .form-options-wrapper{
+	display:flex;
+	flex-wrap:wrap;
+	max-height:70vh;
+	overflow:auto;
+	margin:0 -0.3125rem;
+}
+.user_avatar_popup #avatar-element .form-options-wrapper li{
+	width:20%;
+	position:relative;
+	padding:0.3125rem;
+}
+.user_avatar_popup #avatar-element .form-options-wrapper li input{
+	position:absolute;
+	visibility:hidden;
+	opacity:0;
+}
+.user_avatar_popup #avatar-element .form-options-wrapper li label{
+	border-width:0.0625rem;
+	border-radius:0.3125rem;
+}
+.user_avatar_popup #avatar-element .form-options-wrapper li label img{
+	aspect-ratio:1/1;
+	object-fit:cover;
+	width:100%;
+}
+.user_avatar_popup #avatar-element .form-options-wrapper li input:checked + label:after{
+	content:"\f00c";
+	font-family:'Font Awesome 5 Free';
+	font-weight:700;
+	border-radius:50%;
+	background-color:var(--theme-button-background-color);
+	color:var(--theme-button-font-color);
+	box-shadow:0 0 0.625rem rgba(0, 0, 0, .2);
+	font-size:0.9375rem;
+	line-height:1;
+	position:absolute;
+	right:0.9375rem;
+	top:0.9375rem;
+	height:1.625rem;
+	width:1.625rem;
+	z-index:1;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+[dir="rtl"] .user_avatar_popup #avatar-element .form-options-wrapper li input:checked + label:after{
+	left:0.9375rem;
+	right:auto;
+}
+.user_avatar_popup #buttons-wrapper{
+	margin-top:0.625rem;
+}
+@media (max-width:767px){
+	.user_avatar_popup{
+		width:100%;
+	}
+	.user_avatar_popup #avatar-element .form-options-wrapper li{
+		width:33.33%;
+	}
+}
+@media (max-width:600px){
+	.global_form .form-elements #dob-element{
+		flex-wrap:wrap;
+	}
+	.global_form .form-elements #dob-element select{
+		min-width:100% !important;
+		max-width:100% !important;
+		width:100% !important;
+	}
+}
+@media (max-width:540px){
+	.user_avatar_popup #avatar-element .form-options-wrapper li{
+		width:50%;
+	}
+}
+/*User Cover Photo*/
+.user_setting_main_page_main .layout_left > div,
+.user_setting_main_page_main .layout_middle > div,
+.user_setting_main_page_main .layout_right > div,
+.layout_user_user_setting_cover_photo{
+	padding:0 !important;
+	background:var(--theme-list-background-color);
+	margin-bottom:1.25rem;
+	border-radius:var(--theme-widget-radius);
+	overflow:hidden;
+}
+.user_setting_main_middle{
+	overflow:hidden !important;
+}
+.user_setting_main_page_main .layout_middle > div{
+	padding:0.9375rem !important;
+	margin-bottom:0;
+}
+.user_setting_cover_img{
+	position:relative;
+	height:7.5rem;
+	background-repeat:repeat-x;
+	background-position:center;
+	overflow:hidden;
+}
+.user_setting_cover_img:after{
+	background-color:var(--theme-button-background-color);
+	background:var(--theme-button-background-color);
+	background:linear-gradient(103deg, rgba(196, 227, 252, 1) 0%, var(--theme-button-background-color) 46%);
+	content:'';
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	opacity:.70;
+	z-index:1;
+}
+.user_setting_cover_content{
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-between;
+	padding:0.9375rem;
+	position:relative;
+	z-index:1;
+}
+.user_setting_cover_info_photo{
+	display:block;
+	margin-top:-3.125rem;
+	height:7.5rem;
+	width:7.5rem;
+}
+.user_setting_cover_info_photo span{
+	border:0.25rem solid var(--theme-list-background-color) !important;
+	border-radius:50%;
+}
+.user_setting_cover_info_photo .bg_thumb_profile:before{
+	font-size:1.875rem;
+}
+.user_setting_cover_info{
+	flex:1;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding-left:0.9375rem;
+}
+[dir="rtl"] .user_setting_cover_info{
+	padding-left:0;
+	padding-right:0.9375rem;
+}
+.user_setting_cover_member_info{
+	width:30%;
+}
+.user_setting_cover_info h3{
+	padding:0;
+	font-weight:600;
+	margin-bottom:0.25rem;
+}
+.user_setting_cover_member_info h3{
+	margin-bottom:0 !important;
+}
+.user_setting_cover_plan_info ._title{
+	font-weight:bold;
+}
+.user_setting_cover_plan_info ._details > span + span:before{
+	content:"|";
+	margin:0 0.3125rem;
+}
+.user_setting_cover_member_btn{
+	flex:1;
+	justify-content:flex-end;
+	display:flex;
+}
+/*notification page*/
+.user_setting_notification_form .form-elements .form-element > input[type=checkbox]{
+	display:none;
+}
+.user_setting_notification_form .form-elements .form-element > label{
+	position:relative;
+	padding-right:3.125rem;
+	width:100%;
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-element > label{
+	padding-right:0;
+	padding-left:3.125rem;
+}
+.user_setting_notification_form .form-elements .form-element > label::before{
+	content:'';
+	width:2.5rem;
+	height:1.375rem;
+	border:0.0625rem solid var(--theme-font-color);
+	position:absolute;
+	border-radius:3.125rem;
+	border-style:solid;
+	background-color:var(--theme-list-background-color-alt);
+	-webkit-transition:.4s;
+	transition:.4s;
+	right:0.125rem;
+	top:0;
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-element > label::before{
+  left:0.125rem;
+	right:auto;
+ }
+.user_setting_notification_form .form-elements  .form-element > input[type=checkbox]:checked + label::before{
+	background-color:var(--theme-button-background-color);
+	border-color:var(--theme-button-background-color);
+}
+.user_setting_notification_form .form-elements .form-element > label::after{
+	content:'';
+	width:1rem;
+	height:1rem;
+	position:absolute;
+	right:1.375rem;
+	top:0;
+	transform:translate(0rem, 0.1875rem);
+	display:inline-block;
+	vertical-align:middle;
+	border-radius:3.125rem;
+  background-color:var(--theme-font-color);
+	-webkit-transition:.4s;
+	transition:.4s;
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-element > label::after{
+	left:1.375rem;
+	right:auto;
+}
+.user_setting_notification_form .form-elements .form-element > input:checked + label::after{
+	transform:translate(1rem, 0.1875rem);
+	background-color:var(--theme-button-font-color);
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-element > input:checked + label::after{
+	transform:translate(-1rem, 0.1875rem);
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li{
+	margin-bottom:0.9375rem;
+	border-bottom-width:0.0625rem;
+	padding-bottom:0.625rem;
+	padding-right:3.125rem;
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-options-wrapper li{
+	padding-right:0;
+	padding-left:3.125rem;
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li input[type=checkbox]{
+	display:none; 
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li label{
+	position:relative;
+	width:100%;
+	overflow:visible;
+	font-weight:400 !important;
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li label::before{
+	content:'';
+	width:2.5rem;
+	height:1.375rem;
+	border:0.0625rem solid var(--theme-font-color);
+	position:absolute;
+	border-radius:3.125rem;
+	border-style:solid;
+	background-color:var(--theme-list-background-color-alt);
+	-webkit-transition:.4s;
+	transition:.4s;
+	right:-3.125rem;
+	top:0;
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-options-wrapper li label::before{
+  left:-3.125rem;
+	right:auto;
+ }
+.user_setting_notification_form .form-elements .form-options-wrapper li input[type=checkbox]:checked + label::before{
+	background-color:var(--theme-button-background-color);
+	border-color:var(--theme-button-background-color);
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li label::after{
+	content:'';
+	width:1rem;
+	height:1rem;
+	position:absolute;
+	right:-1.875rem;
+	top:0;
+	transform:translate(0rem, 0.1875rem);
+	display:inline-block;
+	vertical-align:middle;
+	border-radius:3.125rem;
+  background-color:var(--theme-font-color);
+	-webkit-transition:.4s;
+	transition:.4s;
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-options-wrapper li label::after{
+	right:auto;
+	left:-1.875rem;
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li input:checked + label::after{
+	transform:translate(1.0625rem, 0.1875rem);
+	background-color:var(--theme-button-font-color);
+}
+[dir="rtl"] .user_setting_notification_form .form-elements .form-options-wrapper li input:checked + label::after{
+	transform:translate(-1.0625rem, 0.1875rem);
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li input[type=checkbox][disabled] + label::after{
+	background-color:var(--theme-border-color);
+}
+.user_setting_notification_form .form-elements .form-options-wrapper li input[type=checkbox][disabled] + label::before{
+	background-color:var(--theme-list-background-color-alt);
+	border-color:var(--theme-border-color);
+}
+/*User privacy page*/
+#global_page_user-settings-privacy .form-elements .form-element{
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-between;
+	overflow:visible;
+}
+#global_page_user-settings-privacy .form-elements .form-element .description{
+	flex:1;
+	margin-right:0.9375rem;
+}
+[dir="rtl"] #global_page_user-settings-privacy .form-elements .form-element .description {
+	margin-right:0rem;
+	margin-left:0.9375rem;
+}
+#global_page_user-settings-privacy .form-elements div.form-label{
+	width:70%;
+}
+#global_page_user-settings-privacy .form-elements .form-element select,
+#global_page_user-settings-privacy .form-elements .form-element .selectize-control{
+	width:30%;
+	position:relative;
+	margin-top:-1.875rem;
+}
+#global_page_user-settings-privacy .form-elements #publishTypes-element{
+ display:block;
+}
+#global_page_user-settings-privacy .form-elements #publishTypes-element .description{
+	margin:0 0 1.125rem !important;
+	flex:inherit;
+}
+.profile_photo_wrapper .buttons{
+	margin-top:0.9375rem;
+}
+#global_page_user-settings-privacy .form-elements #blockList-element{
+	display:block;
+}
+.blocklist{
+	border-width:0.0625rem;
+	padding:0.625rem;
+	border-radius:0.3125rem;
+	max-height:18.75rem;
+	overflow:auto;
+}
+.blocklist li{
+	display:flex;
+	align-items:center;
+}
+.blocklist li + li{
+	border-top-width:0.0625rem;
+	margin-top:0.625rem;
+	padding-top:0.625rem;
+}
+.blocklist li .bg_item_photo{
+	height:2rem;
+	width:2rem;
+}
+.blocklist li ._name{
+	margin:0 0.625rem;
+	flex:1;
+}
+.blocklist li .btn{
+	font-size:var(--theme-font-size-small);
+}
+/*Profile Cover Photo*/
+.layout_user_home_photo,
+.layout_user_profile_photo{
+	overflow:hidden;
+	padding:0 !important;
+}
+.user_sidebar_photo_cover{
+	background-color:var(--theme-button-background-color);
+	height:3.75rem;
+	overflow:hidden;
+}
+.user_sidebar_photo_cover img{
+	height:100%;
+	width:100%;
+	object-fit:cover;
+}
+.user_sidebar_photo_content{
+	display:flex;
+	flex-direction:column;
+	gap:0.625rem;
+	padding:0.625rem;
+}
+.user_sidebar_photo_main{
+	display:flex;
+	z-index:1;
+	position:relative;
+	flex-wrap:wrap;
+	gap:0.625rem;
+}
+.user_sidebar_photo_main .profile_photo{
+	width:4.5rem;
+	height:4.5rem;
+	border-radius:50%;
+	overflow:hidden;
+	border-width:0.125rem;
+	border-color:var(--theme-list-background-color);
+	margin-top:-30px;
+}
+.user_sidebar_photo_main .profile_photo span{
+	border-width:0;
+}
+.user_sidebar_photo_main .profile_photo span::before{
+	font-size:1.75rem;
+}
+.profile_photo_full{
+	width:100%;
+}
+.profile_photo_full .bg_item_photo{
+	border-radius:0.3125rem;
+	aspect-ratio:1/1;
+	width:100%;
+}
+.user_sidebar_photo_main .user_sidebar_photo_info{
+	flex:1;
+	overflow:hidden;
+}
+.user_sidebar_photo_main .user_sidebar_photo_info h4{
+	padding:0;
+	margin:0 0 0.125rem;
+	border:0;
+	font-size:1.25em;
+	font-weight:600;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.user_sidebar_photo_main .user_sidebar_photo_info h4 > a{
+	color:var(--theme-font-color);
+	text-transform:capitalize;
+	display:flex;
+	align-items:center;
+}
+.user_sidebar_photo_main .user_sidebar_photo_info h4 > a img{
+	margin-top:0.0625rem !important;
+}
+.user_sidebar_photo_main .user_sidebar_photo_info span{
+	display:block;
+	font-size:1em;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.profile_photo_full + .user_sidebar_photo_info h4 > a{
+	justify-content:center;
+	text-align:center !important;
+}
+.profile_photo_full + .user_sidebar_photo_info span{
+	text-align:center !important;
+}
+.user_sidebar_photo_friends{
+	text-align:center !important;
+	display:block;
+	width:100%;
+}
+.user_sidebar_photo_friends h6{
+	text-align:center !important;
+	font-weight:var(--theme-font-weight-bold);
+	font-size:1em;
+	margin:0;
+}
+.user_sidebar_photo_friends ul > li{
+	padding-top:0.5rem;
+	display:inline-block;
+	text-align:center;
+	position:relative;
+	z-index:1;
+}
+.user_sidebar_photo_friends ul > li + li{
+	margin-left:-1.125rem;
+}
+[dir="rtl"] .user_sidebar_photo_friends ul > li + li{
+	margin-right:-1.125rem;
+	margin-left:0;
+}
+.user_sidebar_photo_friends ul > li span{
+	width:2.625rem;
+	height:2.625rem;
+	border-radius:3.125rem;
+	overflow:hidden;
+	object-fit:cover;
+	border-width:0.125rem;
+	border-color:var(--theme-button-font-color);
+}
+
+/*Member Subscription*/
+#global_page_payment-settings-index .user_setting_main_page_main h3{
+	padding:0;
+}
+@media (max-width:991px){
+	.user_profile_edit .global_form div.form-element{
+		width:88%;
+		min-width:88% !important;
+		max-width:88% !important;
+	}
+	#global_page_user-edit-profile .user_setting_global_form .global_form .form-elements,
+	#global_page_user-settings-general .user_setting_global_form > .global_form .form-elements,
+	#global_page_user-settings-password .user_setting_global_form .global_form .form-elements,
+	#global_page_user-settings-delete .user_setting_global_form .global_form .form-elements{
+		width:100%;
+	}
+}
+@media (max-width:767px){
+	.user_setting_cover_content{
+		flex-direction:column;
+	}
+	.user_setting_cover_info_photo{
+		margin:-3.125rem auto 0;
+	}
+	.user_setting_cover_info{
+		flex-direction:column;
+		width:100%;
+	}
+	.user_setting_cover_member_info{
+		text-align:center !important;
+		width:100%;
+	}
+	.user_setting_cover_plan_info,
+	.user_setting_cover_member_btn{
+		margin-top:0.9375rem;
+	}
+	.user_setting_cover_plan_info *{
+		text-align:center !important;
+	}
+	.user_settings_page .layout_left{
+		margin:0 !important;
+	}
+	.user_setting_menu ul{
+		display:flex;
+		white-space:nowrap;
+		overflow-x:auto;
+	}
+	.user_setting_menu ul > li{
+		margin:0 0.3125rem;
+	}
+	.user_setting_menu ul > li > a{
+		border-radius:0.3125rem;
+		border-width:0 !important;
+		margin-right:0.3125rem;
+		padding:0.125rem 0.625rem;
+		height:2.5rem;
+		justify-content:center;
+		align-items:center;
+		margin-bottom:0;
+	}
+	[dir="rtl"] .user_setting_menu ul > li > a{
+		margin-left:0.3125rem;
+		margin-right:auto;
+	}
+	.user_setting_menu .user_menu_heading{
+		display:none;
+	}
+	.user_setting_global_form h3,
+	.user_setting_global_form #current-label label{
+		margin-bottom:0.5rem;
+	}
+	.user_setting_global_form .global_form input[type=text],
+	.user_setting_global_form .global_form input[type=email],
+	.user_setting_global_form .global_form input[type=password],
+	.user_setting_global_form .global_form select,
+	.user_setting_global_form .global_form .selectize-input{
+		height:2.75rem;
+	}
+	.user_setting_global_form .user_showhidepassword i{
+	   top:2.75rem;
+	}
+	.edit_email_setting {
+		width:2.75rem;
+		height:2.75rem;
+	}
+}
+@media (max-width:600px){
+	.user_profile_edit .global_form div.form-element{
+		width:80% !important;
+		min-width:80% !important;
+		max-width:80% !important;
+	}
+	#global_page_user-edit-profile .form-wrapper:not(.birthday_wrapper) .form-element select{
+		max-width:100% !important;
+		min-width:100% !important;
+		margin-bottom:0;
+		display:block;
+	}
+	#global_page_user-settings-privacy .form-elements div.form-label{
+		width:100%;
+	}
+	#global_page_user-settings-privacy .form-elements .form-element{
+		display:block;
+	}
+	#global_page_user-settings-privacy .form-elements .form-element select,
+	#global_page_user-settings-privacy .form-elements .form-element .selectize-control{
+		width:100%;
+		margin-top:0;
+	}
+	#global_page_user-settings-password .user_setting_global_form .global_form input + label{
+   font-size:0.75rem;
+	}
+}
+@media (max-width:380px){
+	.user_profile_edit .global_form div.form-element{
+		width:78% !important;
+		min-width:78% !important;
+		max-width:78% !important;
+	}
+}
+
+/*User Support Page*/
+.user_support_view_head{
+	padding:0.9375rem 0;
+}
+.user_support_view_head > a{
+	margin-right:0.625rem;
+  height:1.875rem;
+  width:1.25rem;
+}
+[dir="rtl"] .user_support_view_head > a{
+	margin-left:0.625rem;
+	margin-right:0.625rem;
+}
+.user_support_view_head h3{
+	background-color:transparent;
+	margin:0 0 0.3125rem;
+	padding:0;
+}
+.user_support_view_head > div p span + span:before{
+	content:"-";
+	margin:0 0.3125rem;
+}
+.user_support_message_item{
+	border-width:0.0625rem;
+	border-radius:0.625rem;
+	margin-bottom:0.9375rem;
+}
+.user_support_message_item_top{
+	background-color:var(--theme-list-background-color-alt);
+	border-radius:0.625rem 0.625rem 0 0;
+	border-bottom-width:0.0625rem;
+	padding:0.625rem 0.9375rem;
+}
+.user_support_message_item_top .m_label{
+  background-color:#5bc0de;
+  border-radius:0.25rem;
+  color:#fff !important;
+  padding:0.05rem 0.35rem;
+  display:inline-block;
+  font-size:var(--theme-font-size-small);
+	margin-left:0.625rem;
+}
+.user_support_message_item_top .level_admin{
+  background-color:#5cb85c;
+}
+[dir="rtl"] .user_support_message_item_top .m_label{
+	margin-left:0;
+	margin-right:0.625rem;
+}
+.user_support_message_info{
+	padding:0.625rem 0.9375rem;
+}
+.user_support_message_info form{
+	background-color:transparent !important;
+}
+.user_support_message_item_reply{
+  background-color:var(--theme-list-background-color-alt);
+	position:relative;
+}
+.user_support_message_info .ticket_reply .form-wrapper{
+	margin-bottom:0.9375rem;
+}
+.user_support_message_info .ticket_reply .form-label{
+	font-weight:bold;
+}
+.user_support_message_info .ticket_reply textarea{
+	border-radius:0.625rem;
+	width:100%;
+}
+
+/*Friends Lists*/
+.profile_friends_lists .add_list_btn{
+	padding:0.25rem 0.5rem;
+	font-size:0.75em;
+	margin-top:0.3125rem;
+	border-width:0.0625rem;
+}
+.user_profile_friends_right .icon_friend_remove::before{
+	display:none;
+}
+.profile_friends_lists .pulldown_contents_wrapper{
+	margin-top:0;
+	width:15.625rem;
+}
+.profile_friends_lists .pulldown_contents_wrapper input{
+	width:100%;
+	padding:0.5rem 0.625rem;
+}
+.profile_friends_lists li.friend_list_joined, 
+.profile_friends_lists li.friend_list_unjoined{
+  display:flex;
+  align-items:center;
+	justify-content:space-between;
+	padding-left:1.5625rem;
+}
+[dir="rtl"] .profile_friends_lists li.friend_list_joined,
+[dir="rtl"] .profile_friends_lists li.friend_list_unjoined{
+ padding-right:1.5625rem;
+ padding-left:0.9375rem;
+}
+.profile_friends_lists li > span{
+  order:2;
+}
+.profile_friends_lists li > div{
+  order:1;
+  margin-right:0.3125rem;
+	flex:1;
+}
+[dir="rtl"] .profile_friends_lists li > div{
+	margin-left:0.3125rem;
+	margin-right:0;
+}
+.profile_friends_lists .overTxtLabel{
+  top:3.625rem !important;
+}
+.profile_friends_lists li.friend_list_joined:before, 
+.profile_friends_lists li.friend_list_unjoined:before{
+	content:"\f111";
+	position:absolute;
+	left:0.5rem;
+	font-family:"Font Awesome 6 Free";
+	font-size:0.75rem;
+  color:var(--theme-font-color);
+}
+[dir="rtl"] .profile_friends_lists li.friend_list_joined:before,
+[dir="rtl"] .profile_friends_lists li.friend_list_unjoined:before{
+  left:auto;
+	right:0.5rem;
+}
+.profile_friends_lists li.friend_list_joined:before{
+	color:#4CAF50;
+	font-weight:700;
+}
+/*SIGNUP PAGE*/
+#global_wrapper:not(.signup_subscriptions_plans) .layout_page_user_signup_index .layout_core_content{
+	border-width:0.0625rem;
+	background-color:var(--theme-list-background-color) !important;
+	border-radius:1.25rem !important;
+	max-width:40.625rem;
+	margin:1.25rem auto !important;
+	padding:1.875rem 3.125rem !important;
+}
+.signup_form .global_form,
+.signup_form .global_form > div,
+.signup_form .global_form > div > div{
+	background-color:transparent !important;
+	float:none !important;
+	width:100%;
+	overflow:visible;
+}
+.signup_form .global_form > div{
+	padding:0;
+}
+.signup_form .global_form div.form-label{
+	width:100%;
+}
+.signup_form .global_form div.form-label label i{
+	margin-right:0.3125rem;
+}
+[dir="rtl"] .signup_form .global_form div.form-label label i{
+	margin-right:0;
+	margin-left:0.3125rem;
+}
+.signup_form .global_form > div .form-elements{
+	margin-top:1.25rem;
+	overflow:visible;
+}
+.signup_form .global_form > div > div h3{
+	font-size:1.5625rem;
+  font-weight:bold;
+	margin:0 !important;
+	padding:0 !important;
+	border-width:0;
+}
+.signup_form .global_form #profile_type-wrapper{
+	margin-bottom:0 !important;
+}
+.signup_form .global_form #profile_type-element ul{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+}
+.signup_form .global_form #profile_type-element ul li{
+	position:relative;
+	margin-bottom:0.9375rem;
+	width:49%;
+}
+.signup_form .global_form #profile_type-element ul li input{
+	position:absolute;
+	left:-3.125rem;
+	visibility:hidden;
+}
+.signup_form .global_form #profile_type-element ul li label{
+	border-radius:0.3125rem;
+	border-width:0.0625rem;
+	border-left:0.125rem solid var(--theme-button-background-color);
+	padding:0.625rem 0.9375rem;
+	display:block;
+	float:none;
+}
+.signup_form .global_form #profile_type-element ul li input:checked + label{
+	background-color:var(--theme-button-background-color);
+	color:var(--theme-butto-font-color);
+}
+.signup_form .global_form ul.form-errors > li{
+	margin:0 0 0.3125rem;
+}
+.signup_form .global_form div.form-elements > fieldset,
+.signup_form .global_form div.form-elements > .form-wrapper{
+	margin-bottom:0.9375rem;
+	overflow:visible;
+}
+.signup_form .global_form div.form-element{
+	max-width:100% !important;
+	min-width:100% !important;
+	width:100% !important;
+	margin-bottom:0;
+	display:flex;
+	flex-wrap:wrap;
+	position:relative;
+	float:none !important;
+}
+.signup_form .global_form div.form-element .hint{
+	margin-bottom:0;
+	padding-bottom:0;
+	width:100%;
+	word-break:break-word;
+}
+.signup_form .global_form div.form-element input[type="text"],
+.signup_form .global_form div.form-element input[type="email"],
+.signup_form .global_form div.form-element input[type="password"],
+.signup_form .global_form div.form-element select,
+.signup_form .global_form .selectize-control .selectize-input{
+	font-size:var(--theme-font-size);
+	padding:0.9375rem;
+  border-radius:0.3125rem;
+  line-height:1;
+  height:auto;
+}
+.signup_form #submit-wrapper,
+.signup_form #submit_signup-wrapper{
+	margin-bottom:0 !important;
+}
+.signup_form #submit-wrapper button{
+  border-radius:1.875rem;
+  padding:0.75rem;
+  text-align:center !important;
+	width:100%;
+}
+.signup_form .global_form #fieldset-fullname,
+.signup_form .global_form #fieldset-otptype{
+	display:flex;
+	justify-content:space-between;
+}
+.signup_form .global_form #fieldset-fullname .form-wrapper{
+	width:49%;
+}
+.signup_form .global_form #email-element p.hint{
+	width:100%;
+}
+.signup_form .verify_email_icon,
+.signup_form #verifed_text{
+	position:absolute;
+	top:0.9375rem;
+  right:0.625rem;
+}
+[dir="rtl"] .signup_form .verify_email_icon,
+[dir="rtl"] .signup_form #verifed_text{
+  right:auto;
+	left:0.625rem;
+}
+.signup_form #verifed_text{
+	color:#008000;
+}
+.signup_form #fieldset-password_settings_group,
+.signup_form #fieldset-password_confirm_settings_group{
+	position:relative;
+}
+.signup_form .user_showhidepassword{
+	max-width:inherit;
+  position:absolute;
+  top:2.8125rem;
+  right:0.3125rem;
+}
+[dir="rtl"] .signup_form .user_showhidepassword{
+	left:0.3125rem;
+	right:auto;
+}
+.signup_form .user_showhidepassword > i{
+	margin-top:0;
+}
+.signup_form #terms-label,
+.signup_form #submit-label{
+	display:none;
+}
+.signup_form .global_form #terms-element{
+	align-items:flex-start;
+}
+.signup_form .global_form #terms-element label{
+	flex:1;
+}
+.otp_verification_modal_content .input_field label{
+	font-weight:bold;
+}
+.otp_verification_modal_content #otp_timer span,
+div#timer .otpsms_timer_class{
+	color:var(--theme-button-background-color);
+}
+.signup_form .global_form div.form-elements > #captcha-wrapper .form-label{
+	display:block !important;
+}
+.signup_form_photo_upload div#current-element{
+	display:block;
+}
+.signup_form_photo_upload div#current-element br{
+	display:none;
+}
+.signup_form_photo_upload div#current-element > div:nth-last-child(2):not(.thumbnail-controller){
+  clear:both;
+  padding-top:0.625rem;
+}
+.signup_form_photo_upload .user_edit_photo_main{
+	width:18.75rem;
+}
+.signup_form_photo_upload .user_edit_photo_main .bg_item_photo{
+	aspect-ratio:1/1;
+}
+.signup_form_photo_upload .user_edit_photo_main > img{
+	max-height:100%;
+	max-width:100%;
+}
+.signup_form_photo_upload div.preview-thumbnail,
+.signup_form_photo_upload div.thumbnail-controller{
+	border-width:0;
+	margin-top:0.9375rem;
+}
+/*captcha*/
+.global_form div#captcha-element .description{
+	display:block;
+	width:100%;
+	margin-bottom:0.625rem;
+}
+.global_form div#captcha-element img{
+	margin-bottom:0.625rem;
+}
+@media (max-width:767px){
+	.layout_page_user_signup_index .layout_core_content{
+		padding:0.9375rem !important;
+		margin:0 !important;
+	}
+	.signup_form .global_form > div > div h3{
+		font-size:1.2rem;
+	}
+	#global_wrapper:not(.signup_subscriptions_plans) .layout_page_user_signup_index .layout_core_content{
+		max-width:100%;
+		padding:1.25rem 0.9375rem !important;
+	}
+}
+@media (max-width:600px){
+	.signup_form .global_form #profile_type-element ul li{
+	 width:100%;
+	 margin-bottom:0.625rem;	
+	}
+
+}
+/*Auth Pages*/
+.authpage #global_content .layout_core_content{
+	max-width:31.25rem;
+	margin:1.25rem auto;
+	padding:1.875rem !important;
+}
+.authpage #global_content .layout_core_content .global_form,
+.authpage #global_content .layout_core_content .global_form > div,
+.authpage #global_content .layout_core_content .global_form > div > div{
+	float:none !important;
+	background-color:transparent !important;
+	border-width:0;
+  padding:0 !important;
+  margin:0 !important;
+	width:100%;
+	max-width:100%;
+}
+.authpage #global_content .layout_core_content .global_form .form-wrapper,
+.authpage #global_content .layout_core_content .global_form .form-element{
+	max-width:100%;
+	min-width:100%;
+	width:100%;
+}
+.authpage #global_content .layout_core_content .global_form .form-wrapper .form-label{
+	width:100%;
+	float:none;
+}
+.authpage #global_content .layout_core_content .global_form h3{
+	text-align:center;
+	margin:0 auto 0.625rem !important;
+	padding:0 !important;
+}
+.authpage #global_content .layout_core_content .global_form div > p{
+  text-align:center !important;
+  margin:0 0 0.9375rem!important;
+	padding:0 !important;
+	max-width:100% !important;
+	line-height:1.375rem;
+}
+.authpage #global_content .layout_core_content .global_form div > .form-elements{
+	margin:0 !important;
+}
+#user_form_auth_forgot #email-wrapper #email-element{
+	position:relative;
+  display:flex;
+  flex-wrap:wrap;
+	margin-bottom:1.25rem;
+}
+#user_form_auth_forgot #buttons-label,
+#user_form_auth_forgot #submit_signup-wrapper,
+#global_page_user-auth-verify #buttons-label{
+	display:none;
+}
+#global_page_user-auth-verify p .otpsms_timer_class{
+	color:var(--theme-button-background-color);
+}
+.authpage #global_content .layout_core_content .global_form button{
+	display:block;
+	width:100%;
+	margin:0 !important;
+	padding:0.625rem 0.3125rem;
+	float:none !important;
+}
+.authpage .authpage_or{
+	display:block;
+	text-align:center !important;
+	margin:0.9375rem 0;
+	position:relative;
+	text-transform:uppercase;
+} 
+.authpage .authpage_or::after,
+.authpage .authpage_or::before{
+	content:'';
+	position:absolute;
+	width:45%;
+	height:0.0625rem;
+	left:0;
+	top:50%;
+	transform:translate(0,-50%);
+	background-color:var(--theme-border-color);
+}
+.authpage .authpage_or::before{
+  right:0;
+	left:auto;
+}
+.authpage #global_content .layout_core_content .global_form #buttons-element{
+	text-align:center;
+}
+.authpage .back_login_button{
+	text-align:center;
+	display:inline-block;
+	position:relative;
+	color:var(--theme-button-background-color);
+}
+.authpage .back_login_button::before{
+	content:"\f053";
+	font-family:"Font Awesome 5 Free";
+	font-weight:600;
+	margin-right:0.3125rem;
+}
+.auth_page_icon{
+	text-align:center !important;
+	margin-bottom:0.9375rem;
+}
+.auth_page_icon svg{
+	fill:var(--theme-button-background-color);
+	width:5rem;
+	height:5rem;
+}
+.auth_forgot_success_tip .auth_page_icon svg *{
+	fill:#008000;
+}
+.auth_forgot_success_tip > p{
+	border-bottom-width:0.0625rem;
+}
+.authpage .btn{
+	display:block;
+	padding:0.75rem 0.3125rem;
+}
+/*Sign Complete*/
+.authpage #global_content .layout_core_content h3{
+  border-width:0;
+}
+.authpage #global_content .layout_core_content h4{
+	border-width:0;
+	padding:0;
+	margin:0;
+}
+.authpage #global_content .layout_core_content h4 a{
+	color:var(--theme-button-background-color);
+}
+/*Verify Page*/
+#global_page_user-auth-verify .authpage #global_content .layout_core_content .global_form .form-element{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	flex-wrap:wrap;
+}
+#global_page_user-auth-verify .authpage #global_content .layout_core_content .global_form .form-element input{
+	margin-bottom:0.625rem;
+}
+#global_page_user-auth-verify .authpage #global_content .layout_core_content .global_form .form-element button{
+	margin:0.3125rem 0 0 !important;
+}
+@media (max-width:600px) {
+	.authpage #global_content .layout_core_content{
+		max-width:100%;
+		padding:0.9375rem !important;
+	}
+	.auth_page_icon svg{
+		width:3.75rem;
+		height:3.75rem;
+	}
+
+}
+/*Reset Password Page*/
+#global_page_user-auth-reset .global_form div.form-element input[type="password"],
+#global_page_user-auth-reset .global_form div.form-element input[type="text"]{
+	font-size:0.9375rem;
+	padding:0.9375rem;
+	border-radius:0.3125rem;
+	line-height:1;
+	height:auto;
+}
+#global_page_user-auth-reset #fieldset-password_settings_group,
+#global_page_user-auth-reset #password_confirm_settings_group-wrapper{
+	position:relative;
+}
+#global_page_user-auth-reset .user_showhidepassword{
+	max-width:inherit;
+  position:absolute;
+  top:2.8125rem;
+  right:0.3125rem;
+}
+[dir="rtl"] #global_page_user-auth-reset .user_showhidepassword{
+	left:0.3125rem;
+	right:auto;
+}
+#global_page_user-auth-reset .user_showhidepassword > i{
+	margin-top:0;
+}
+.core_reset_signin_link .tip{
+	text-align:center !important;
+}
+.core_reset_signin_link .tip > span{
+	margin:0.625rem auto 0;
+	float:none !important;
+}
+.core_reset_signin_link .auth_page_icon svg circle{
+	fill:var(--theme-button-background-color);
+}
+.core_reset_signin_link .auth_page_icon svg path{
+	fill:var(--theme-button-font-color);
+}
+/*Country Code Page*/
+.country_code_main,
+.country_code_main div.form-element{
+	overflow:visible !important;
+}
+.country_code_main div.form-element{
+  float:none !important;
+	position:relative;
+}
+.country_code_main #country_code_element > .selectize-control{
+	position:inherit;
+}
+.country_code_main #country_code_element .selectize-control > .items{
+	align-items:center;
+	background:transparent !important;
+	box-shadow:none !important;
+	border-width:0 !important;
+	cursor:pointer;
+	display:flex;
+	height:100%;
+	justify-content:flex-start;
+	overflow:hidden;
+	padding:0 1.375rem 0 0.9375rem;
+	position:absolute;
+	left:0;
+	top:50%;
+	transform:translate(0, -50%);
+	min-width:inherit !important;
+	max-width:inherit !important;
+	width:6.25rem !important;
+	z-index:1;
+}
+[dir="rtl"] .country_code_main #country_code_element .selectize-control > .items{
+	padding:0 0.9375rem 0 1.375rem;	
+	left:auto;
+	right:0;
+}
+.country_code_main #country_code_element .selectize-control > .items > .item{
+	display:block;
+	overflow:hidden !important;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.country_code_main #country_code_element .selectize-control > .items #country_code-selectized{
+	display:none;
+}
+.country_code_main #country_code_element .selectize-control > .items > .item img{
+	margin-right:0.3125rem;
+	vertical-align:middle;
+}
+[dir="rtl"] .country_code_main #country_code_element .selectize-control > .items > .item img{
+	margin-left:0.3125rem;
+	margin-right:0;
+}
+.country_code_main #country_code_element > .selectize-control .selectize-dropdown.single{
+	width:100% !important;
+	top:3.25rem !important;
+	left:0 !important;
+	right:0 !important; 
+	border-radius:0.625rem;
+	overflow:hidden;
+	border-width:0 !important;
+}
+.country_code_main #country_code_element > .selectize-control .selectize-dropdown.single .selectize-dropdown-content{
+	border-width:0.0625rem;
+	border-radius:0.5rem;
+	overflow-y:auto !important;
+}
+body#global_page_user-auth-forgot .country_code_main #country_code_element > .selectize-control .selectize-dropdown.single .selectize-dropdown-content{
+	max-height:8.75rem;
+}
+.country_code_main .form-element > input[type="text"]{
+	padding-left:6.5625rem !important;
+}
+[dir="rtl"] .country_code_main .form-element > input[type="text"]{
+	padding-left:0.9375rem !important;
+	padding-right:6.5625rem !important;
+}
+html .country_code_main .selectize-input.dropdown-active::before{
+  display:none !important;
+}
+html .country_code_main .selectize-control.single .selectize-input:after{
+	border-color:var(--theme-font-color) transparent transparent;
+	right:0.3125rem !important;
+}
+html .country_code_main .selectize-control.single .selectize-input.dropdown-active:after{
+  border-color:transparent transparent var(--theme-font-color);
+}
+html[dir="rtl"] .country_code_main .selectize-control.single .selectize-input:after{
+	left:0.3125rem !important;
+	right:auto !important;
+}
+.country_code_main .selectize-dropdown-content > div > img{
+	margin-right:0.3125rem;
+	vertical-align:middle;
+}
+[dir="rtl"] .country_code_main .selectize-dropdown-content > div > img{
+	margin-right:0;
+	margin-left:0.3125rem;
+}
+.user_settings_page .country_code_main #country_code_element .selectize-control > .items{
+	top:0 !important;
+	transform:inherit !important;
+	height:auto;
+	padding-top:0.9375rem;
+	padding-bottom:0.9375rem;
+}
+@media (max-width:767px){
+	.user_settings_page .country_code_main #country_code_element .selectize-control > .items{
+		padding-top:0.3125rem;
+		padding-bottom:0.3125rem;
+		height:2.75rem;
+	}	
+}
+
+/*User Setting Modal*/
+.user_setting_modal .form-control{
+	box-shadow:none;
+	border-radius:0.3125rem;
+	font-size:90%;
+	min-height:2.75rem;
+}
+.user_setting_modal .input_field .dropdown-toggle{
+	background-color:var(--theme-input-background-color);
+	color:var(--theme-font-color);
+	border-radius:0.3125rem;
+	border-width:0.0625rem;
+	display:flex;
+	align-items:center;
+	gap:0.625rem;
+	font-size:90%;
+	justify-content:flex-start;
+	min-height:2.75rem;
+	padding:0 0.625rem;
+}
+.user_setting_modal .input_field .dropdown-toggle .icon_modal{
+	align-items:center;
+	display:inline-flex;
+	justify-content:center;
+}
+.user_setting_modal .input_field .dropdown-toggle{
+	flex:1;
+	width:100%;
+}
+.user_setting_modal .input_field .dropdown-toggle::after{
+	margin:0;
+	position:absolute;
+	right:0.5rem;
+	top:50%;
+	transform:translate(0, -50%);
+}
+[dir="rtl"]  .user_setting_modal .input_field .dropdown-toggle::after{
+	left:0.5rem; 
+	right:auto;
+}
+.user_setting_modal_content .input_field .dropdown-menu{
+	max-height:11.25rem;
+	overflow-x:auto;
+	transform:inherit !important;
+	width:100%;
+	bottom:auto !important;
+}
+.user_setting_modal_content .input_field .dropdown-item{
+	gap:0.625rem;
+}
+.user_setting_modal .dropdown_icon{
+	align-items:center;
+	display:inline-flex;
+	justify-content:center; 
+}
+.user_setting_modal .input_field .icon_modal > img,
+.user_setting_modal .dropdown_icon > img{
+	border-radius:3.125rem;
+	width:1.125rem;
+	height:1.125rem;
+}

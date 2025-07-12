@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <!-- $Id: maintenance.html 7539 2010-10-04 04:41:38Z john $ -->
+  <head>
+    <title>We're down for maintenance.</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      *{
+        font-family: roboto, arial, sans-serif;
+        margin: 0px;
+        padding: 0px;
+      }
+      .maintenance_page_main {
+        background-image:url(%_BASE_URL_%/application/modules/Core/externals/images/error/maintenance-bg.jpg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        padding: 0 20px;
+      }
+      #content{
+        margin: auto;
+        padding:40px 0;
+         width: 1200px;
+      }
+      .maintenance_page_img{
+        text-align:center;
+      }
+      .maintenance_page_img img {
+        max-width: 100%;
+        margin-bottom: 50px;
+        -webkit-animation: mover 2s infinite  alternate;
+        animation: mover 2s infinite  alternate;
+      }
+      @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-15px); }
+      }
+      @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-15px); }
+      }
+
+     .maintenance_page_main h3 {
+        font-size: 40px;
+        text-align: center;
+        font-weight: bold;
+        color: #1D3666;
+        margin-bottom: 15px;
+      }   
+      .maintenance_page_main .caption{
+        display: block;
+        font-size: 26px;
+        color: #232323;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+      .maintenance_page_main  #code{  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .maintenance_page_main  #code .codebox{
+        padding: 10px 15px;
+        height: 50px;
+        font-size: 16px;
+        color: #A5A5A5;
+        border-color: #D9D9D9;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px 0 0 5px;
+        width: 350px;
+      }
+      .maintenance_page_main #code .submit{
+        padding: 5px 15px;
+        height: 50px;
+        color: #fff;
+        background-color: #1D3666;
+        font-size: 18px;
+        font-weight: 600;
+        border: 0;
+        border-radius: 0px 5px 5px 0px;
+        margin-left: -4px;
+      }
+      .maintenance_page_main  #code .submit:hover{
+        cursor: pointer;
+      }
+      @media (max-width:1400px){
+        .maintenance_page_img img{
+          max-width:400px;
+        }
+        .maintenance_page_main h3{
+          font-size:30px;
+        }
+        .maintenance_page_main .caption{
+          font-size:22px;
+        }
+      }
+      @media (max-width:1199px){
+        #content{
+          width: 100%;
+        }
+        .maintenance_page_main {
+          padding: 20px 15px;
+        }
+      }
+      @media (max-width:767px){
+        .maintenance_page_img img{
+          max-width:100%;
+          margin-bottom:15px;
+        }
+        .maintenance_page_main h3{
+          font-size: 25px;
+          margin-bottom: 10px;
+        }
+        .maintenance_page_main #code .codebox{
+          width: 100%;
+        }
+        .maintenance_page_main .caption{
+          margin-bottom: 15px;
+          font-size: 20px;
+        }
+        .maintenance_page_main #code .codebox{
+          font-size: 14px;
+          height: 45px;
+          padding: 5px 10px;;
+        }
+        .maintenance_page_main #code .submit{
+          font-size: 15px;
+          padding: 5px 15px;
+          height: 45px;
+          flex: 1;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="maintenance_page_main">
+      <div id="content">
+        <div class="maintenance_page_img">
+          <img src="%_BASE_URL_%/application/modules/Core/externals/images/error/maintenance-img.png" alt="Maintenance">
+        </div>
+        <h3>Sorry! We're down for maintenance.</h3>
+        <span class="caption">Please check back soon.</span>
+        <form id="code" method="get">
+          <input type="password" placeholder="Access Code:" class="codebox" name="en4_maint_code" value="">
+          <input type="submit" class="submit" value="Log In">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+{
+  "type": "external",
+  "name": "html5media",
+  "version": "7.3.0",
+  "revision": "10270",
+  "path": "externals\/html5media",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+  "title": "Html5 Media",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+    "title": "Html5 Media",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/html5media": {
+      "type": "directory",
+      "path": "externals\/html5media",
+      "structure": [
+        {
+          "path": "LICENSE",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 35146,
+          "sha1": "1de7bacb4fbbd7b6d391a69abfe174c2509ec303"
+        },
+        {
+          "path": "flowplayer.audio.swf",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3972,
+          "sha1": "a91c64d0b0ce5379cf7ddbcada5ff3b1fad4e465"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 380,
+          "sha1": "d7846cedbdebaeef94f7905077383611517ac14d"
+        },
+        {
+          "path": "flowplayer.controls.swf",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 36843,
+          "sha1": "d4f28df7c434e6e4640e351e73bbc5241bfb705f"
+        },
+        {
+          "path": "html5media.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 35829,
+          "sha1": "dbf18b814be8e373b28f20d26bc93684e7bc41d9"
+        },
+        {
+          "path": "html5media.min.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 20566,
+          "sha1": "de5efbdd11874e816d9760b7fc02e0216f0e39d6"
+        },
+        {
+          "path": "flowplayer.swf",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 120221,
+          "sha1": "3442512bc3bd6cfea42120f0f918a8a899813e2d"
+        },
+        {
+          "path": "expressInstall.swf",
+          "dir": false,
+          "file": true,
+          "perms": "0755",
+          "size": 727,
+          "sha1": "1c12004633e89d6de3bbe4a190093a537bdecebe"
+        }
+      ]
+    }
+  }
+}

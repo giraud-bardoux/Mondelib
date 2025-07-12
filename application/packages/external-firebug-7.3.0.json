@@ -1,0 +1,86 @@
+{
+  "type": "external",
+  "name": "firebug",
+  "version": "7.3.0",
+  "revision": "9747",
+  "path": "externals\/bootstrap",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+  "title": "Bootstrap JS",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:12 +0000",
+    "title": "Bootstrap JS",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/bootstrap": {
+      "type": "directory",
+      "path": "externals\/bootstrap",
+      "structure": [
+        {
+          "path": "js",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "js\/bootstrap.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 78126,
+          "sha1": "1fc17f37c91a900dc70c4e7a54e875b4f3e5fde2"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 432,
+          "sha1": "7dc33e86b3683de0f68c22ab48b7ac67316da2b8"
+        },
+        {
+          "path": "css",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "css\/bootstrap.css",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 163548,
+          "sha1": "7266e7851b7ae786e468b19b6c32dc612a583f03"
+        }
+      ]
+    }
+  }
+}

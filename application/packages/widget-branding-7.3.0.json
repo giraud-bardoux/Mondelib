@@ -1,0 +1,70 @@
+{
+  "type": "widget",
+  "name": "branding",
+  "version": "7.3.0",
+  "revision": "9747",
+  "path": "application\/widgets\/branding",
+  "repository": null,
+  "sku": null,
+  "date": "Tue, 15 Apr 2025 09:09:20 +0000",
+  "title": "SocialEngine Branding",
+  "description": "Displays a \"powered by SocialEngine\" link.",
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Tue, 15 Apr 2025 09:09:20 +0000",
+    "title": "SocialEngine Branding",
+    "description": "Displays a \"powered by SocialEngine\" link.",
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "application\/widgets\/branding": {
+      "type": "directory",
+      "path": "application\/widgets\/branding",
+      "structure": [
+        {
+          "path": "index.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 523,
+          "sha1": "725fc250cf635fac57805bc198609b242e2d6168"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1333,
+          "sha1": "99a1615d95d0db0b16fc06debc720f091e0cac8d"
+        },
+        {
+          "path": "Controller.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 996,
+          "sha1": "69ed60c77a95c7890235b15eb8a230d43ba51c62"
+        }
+      ]
+    }
+  }
+}
