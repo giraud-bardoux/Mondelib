@@ -2816,9 +2816,6 @@ input::-ms-reveal, input::-ms-clear{
 	border:0;
 	font-size:1.25em;
 	font-weight:600;
-	white-space:nowrap;
-	overflow:hidden;
-	text-overflow:ellipsis;
 }
 .user_sidebar_photo_main .user_sidebar_photo_info h4 > a{
 	color:var(--theme-font-color);

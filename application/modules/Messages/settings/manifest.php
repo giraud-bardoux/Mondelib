@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'messages',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10267 $',
     'path' => 'application/modules/Messages',
     'repository' => 'socialengine.com',

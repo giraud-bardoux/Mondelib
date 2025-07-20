@@ -2,7 +2,7 @@
   'package' => array(
     'type' => 'external',
     'name' => 'font-awesome',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10270 $',
     'path' => 'externals/font-awesome',
     'repository' => 'socialengine.com',

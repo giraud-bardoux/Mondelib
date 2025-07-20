@@ -430,7 +430,7 @@ class User_Form_Signup_Account extends Engine_Form_Email
       }
     }
 
-    if( empty($_SESSION['facebook_signup']) || empty($_SESSION['twitter_signup'])  || empty($_SESSION['google_signup']) || empty($_SESSION['linkedin_signup']) || empty($_SESSION['telegram_signup'])) {
+    if( empty($_SESSION['facebook_signup']) && empty($_SESSION['twitter_signup'])  && empty($_SESSION['google_signup']) && empty($_SESSION['linkedin_signup']) && empty($_SESSION['telegram_signup'])) {
       if(($settings->telegram_enable == 1 && $settings->telegram_username && $settings->telegram_token) || ($settings->core_facebook_enable == 'login' && $settings->core_facebook_appid && $settings->core_facebook_secret) || ($settings->core_twitter_enable == 'login' && $settings->core_twitter_key && $settings->core_twitter_secret) || ($settings->core_google_enable == 'login' && $settings->core_google_clientid && $settings->core_google_clientsecret) || ($settings->core_linkedin_enable == 'login' && $settings->core_linkedin_access && $settings->core_linkedin_secret)) {
         $this->addDisplayGroup(array('facebook', 'twitter', 'google', 'linkedin', 'telegram'), 'sociallinks');
       }

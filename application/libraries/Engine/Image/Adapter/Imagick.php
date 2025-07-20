@@ -162,8 +162,14 @@ class Engine_Image_Adapter_Imagick extends Engine_Image
       $this->_resource->setImageFormat($type);
     }
     // Set quality
-    if( null !== $this->_quality ) {
-      $this->_resource->setImageCompressionQuality($this->_quality);
+
+    if(Engine_Api::_()->getApi('settings', 'core')->getSetting('core.convertwebp', 0)) {
+      $quality = Engine_Api::_()->getApi('settings', 'core')->getSetting('core_compression_quality', 75);
+      $this->_resource->setImageCompressionQuality($quality);
+    } else {
+      if( null !== $this->_quality ) {
+        $this->_resource->setImageCompressionQuality($this->_quality);
+      }
     }
 
       $orientation = $this->_resource->getImageOrientation();

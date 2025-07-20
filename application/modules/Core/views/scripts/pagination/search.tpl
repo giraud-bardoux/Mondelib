@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: search.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -70,15 +70,14 @@
             'QUERY' => $query . ( $this->pageAsQuery ? '&page=' . $this->next : '' ),
           )), $this->translate('Next &#187;')) ?>
         </li>
-        <!-- <li>
-          <?php // echo $this->htmlLink(array_merge($params, array(
-          //   'reset' => false,
-          //   'page' => ( $this->pageAsQuery ? null : $this->last ),
-          //   'QUERY' => $query . ( $this->pageAsQuery ? '&page=' . $this->last : '' ),
-          // )), $this->translate('Last &#187;')) ?>
-        </li> -->
+        <li>
+          <?php echo $this->htmlLink(array_merge($params, array(
+            'reset' => false,
+            'page' => ( $this->pageAsQuery ? null : $this->last ),
+            'QUERY' => $query . ( $this->pageAsQuery ? '&page=' . $this->last : '' ),
+          )), $this->translate('Last &#187;')) ?>
+        </li>
       <?php endif; ?>
     </ul>
   </div>
 <?php endif; ?>
-

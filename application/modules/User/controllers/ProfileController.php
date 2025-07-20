@@ -47,7 +47,7 @@ class User_ProfileController extends Core_Controller_Action_Standard
       ->setAuthParams($subject, $viewer, 'view')
       ->isValid();
   }
-  
+
   public function indexAction()
   {
     $subject = Engine_Api::_()->core()->getSubject();
@@ -75,7 +75,7 @@ class User_ProfileController extends Core_Controller_Action_Standard
       $subject->save();
     }
 
-    
+
     // Check to see if profile styles is allowed
     $style_perm = Engine_Api::_()->getDbtable('permissions', 'authorization')->getAllowed('user', $subject->level_id, 'style');
     if($style_perm){
@@ -94,7 +94,8 @@ class User_ProfileController extends Core_Controller_Action_Standard
     }
 
     // Render
-    if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('userprofilelock') && !empty(Engine_Api::_()->getApi('settings', 'core')->getSetting('userprofilelock.enable', 1)) && !$viewer->isSuperAdmin() && $viewer->getIdentity() != $subject->getIdentity() && $subject->profilelock) {
+    $row = $subject->membership()->getRow($viewer);
+    if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('userprofilelock') && !empty(Engine_Api::_()->getApi('settings', 'core')->getSetting('userprofilelock.enable', 1)) && !$viewer->isSuperAdmin() && $viewer->getIdentity() != $subject->getIdentity() && $subject->profilelock && !$row && !$row->active) {
 
     } else {
     $this->_helper->content

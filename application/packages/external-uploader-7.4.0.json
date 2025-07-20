@@ -1,0 +1,118 @@
+{
+  "type": "external",
+  "name": "uploader",
+  "version": "7.4.0",
+  "revision": "9747",
+  "path": "externals\/uploader",
+  "repository": null,
+  "sku": null,
+  "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+  "title": "Uploader",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+    "title": "Uploader",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/uploader": {
+      "type": "directory",
+      "path": "externals\/uploader",
+      "structure": [
+        {
+          "path": "uploader.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7545,
+          "sha1": "f5796946b34cd987ad8adaf59c7a4163c8864cb5"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 370,
+          "sha1": "f49e10efe3d9f00182273853cb46c490e61e9335"
+        },
+        {
+          "path": "uploader.css",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1396,
+          "sha1": "a3cb6dc5a287e44134694e7ce1d75e2869c336bd"
+        },
+        {
+          "path": "images",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "images\/progress-bar",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "images\/progress-bar\/progress.gif",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1113,
+          "sha1": "bdcfcacf43527493946496d7887bfefe13eb4dcc"
+        },
+        {
+          "path": "images\/progress-bar\/bar.gif",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 163,
+          "sha1": "ae1931c8c1ef50618b987bda63d73eb28fa33f39"
+        },
+        {
+          "path": "images\/error.png",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 666,
+          "sha1": "3855754e8fc9331c67dd2d0789d9f2d6e7daae8b"
+        },
+        {
+          "path": "images\/finished.png",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 516,
+          "sha1": "d7d5903cca7649f70e98e5d8ed27df5ae1095883"
+        }
+      ]
+    }
+  }
+}

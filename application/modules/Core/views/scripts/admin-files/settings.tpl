@@ -23,3 +23,16 @@
     <?php echo $this->form->render($this); ?>
   </div>
 </div>
+<script type="text/javascript">
+  en4.core.runonce.add(function () {
+    hideShow('<?php echo Engine_Api::_()->getApi('settings', 'core')->getSetting('core.convertwebp', 1); ?>');
+  });
+
+  function hideShow(value) {
+    if(value == 1) {
+      scriptJquery('#core_compression_quality-wrapper').show();
+    } else {
+      scriptJquery('#core_compression_quality-wrapper').hide();
+    }
+  }
+</script>

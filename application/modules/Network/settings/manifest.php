@@ -13,7 +13,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'network',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10271 $',
     'path' => 'application/modules/Network',
     'repository' => 'socialengine.com',

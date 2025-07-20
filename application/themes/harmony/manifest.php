@@ -22,7 +22,7 @@
   array (
     'type' => 'theme',
     'name' => 'harmony',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10113 $',
     'path' => 'application/themes/harmony',
     'repository' => 'socialengine.com',

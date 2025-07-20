@@ -1,0 +1,62 @@
+{
+  "type": "external",
+  "name": "tagger",
+  "version": "7.4.0",
+  "revision": "9747",
+  "path": "externals\/tagger",
+  "repository": null,
+  "sku": null,
+  "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+  "title": "Tagger",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+    "title": "Tagger",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/tagger": {
+      "type": "directory",
+      "path": "externals\/tagger",
+      "structure": [
+        {
+          "path": "tagger.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 14811,
+          "sha1": "9d20ec7dfc7cfd5dad2adc20f7fcb27f19b33bf0"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 362,
+          "sha1": "0a1f9b5d8e24643f60f2b158f59c923457ba84de"
+        }
+      ]
+    }
+  }
+}

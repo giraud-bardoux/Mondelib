@@ -112,32 +112,41 @@ class Core_Api_Sitemap extends Core_Api_Abstract {
 
     $filePath = APPLICATION_PATH . DIRECTORY_SEPARATOR . 'public'. DIRECTORY_SEPARATOR .'sitemap';
 
-    $allContentXMLArray = array();
+    $dom = new DOMDocument('1.0', 'UTF-8');
+    $dom->formatOutput = true;
 
-    foreach($results as $result) {
-        //Check file is exist or not.
-        $file_path = $filePath .DIRECTORY_SEPARATOR . 'sitemap_'.$result->resource_type.'.xml.gz';
-        $siteFileName = $view->absoluteUrl($view->baseUrl('public/sitemap/sitemap_'.$result->resource_type.'.xml.gz'));
-        if(file_exists($file_path)) {
-            $allContentXMLArray[] = array(
-                'uri' => $siteFileName,
-                'lastmod'   => $result->modified_date,
-            );
+    $sitemapindex = $dom->createElement('sitemapindex');
+    $sitemapindex->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+
+    foreach ($results as $result) {
+        $filename = 'sitemap_' . $result->resource_type . '.xml.gz';
+        $file_path = $filePath . DIRECTORY_SEPARATOR . $filename;
+
+        if (file_exists($file_path)) {
+            $sitemap = $dom->createElement('sitemap');
+
+            $loc = $dom->createElement('loc', htmlspecialchars($view->absoluteUrl($view->baseUrl('public/sitemap/' . $filename))));
+            $sitemap->appendChild($loc);
+
+            $sitemapindex->appendChild($sitemap);
         }
     }
-    $container = new Zend_Navigation($allContentXMLArray);
-    $sitemap = $view->sitemap($container)->render();
-    $params['data'] = $view->sitemap($container)->render();
 
-    //Check file is exist or not.
-    $filepath = APPLICATION_PATH . DIRECTORY_SEPARATOR . 'public'. DIRECTORY_SEPARATOR .'sitemap';
+    $dom->appendChild($sitemapindex);
+
+    // Create target directory if needed
+    $filepath = APPLICATION_PATH . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'sitemap';
     if (!file_exists($filepath)) {
-        @mkdir($filepath);
-        @chmod($filepath, 0777);
+        if (!mkdir($filepath, 0777, true)) {
+            throw new Exception("Failed to create sitemap directory: $filepath");
+        }
     }
-    $siteFileName = $filepath .DIRECTORY_SEPARATOR.'sitemap'.'.xml';
-    file_put_contents($siteFileName, $sitemap);
-    @chmod($siteFileName, 0777);
+
+    // Save final sitemap index file
+    $siteFileName = $filepath . DIRECTORY_SEPARATOR . 'sitemap.xml';
+    $dom->save($siteFileName);
+    chmod($siteFileName, 0777);
+
     $this->makeCompressCommonFile($params);
   }
 

@@ -68,7 +68,7 @@ en4.core = {
 en4.core.runonce = {
 
   executing : false,
-  
+
   fns : [],
 
   add : function(fn){
@@ -80,14 +80,14 @@ en4.core.runonce = {
     this.executing = true;
     var fn;
     while( (fn = this.fns.shift()) ){
-      try { 
-        fn(); 
+      try {
+        fn();
       }catch(err){}
     }
     this.fns = [];
     this.executing = false;
   }
-  
+
 };
 
 
@@ -97,7 +97,7 @@ en4.core.runonce = {
 en4.core.shutdown = {
 
   executing : false,
-  
+
   fns : [],
 
   add : function(fn){
@@ -114,7 +114,7 @@ en4.core.shutdown = {
     this.fns = [];
     this.executing = false;
   }
-  
+
 };
 
 window.addEventListener('load', function(){
@@ -146,11 +146,11 @@ en4.core.dloader = {
   frame : false,
 
   enabled : false,
-  
+
   previous : false,
-  
+
   hash : false,
-  
+
   registered : false,
 
   setEnabled : function(flag) {
@@ -180,7 +180,7 @@ en4.core.dloader = {
           //load : this.handleLoad.bind(this)
         }
       }, options);
-      
+
       if( $type(options.url) ) {
         options.src = options.url;
         delete options.url;
@@ -205,7 +205,7 @@ en4.core.dloader = {
       }, options);
       this.xhr = scriptJquery.ajax(options);
     }
-    
+
     return this;
   },
 
@@ -236,17 +236,17 @@ en4.core.dloader = {
       } else if( element.hasEvents() ) {
         return;
       }
-      
+
       element.addEventListener('click', function(event) {
         if( !this.shouldAttach(element) ) {
           return;
         }
-        
+
         var events = element.getEvents('click');
         if( events && events.length > 1 ) {
           return;
         }
-        
+
 
         // Remove host + basePath
         var basePath = window.location.protocol + '//' + window.location.hostname + en4.core.baseUrl;
@@ -257,17 +257,17 @@ en4.core.dloader = {
             event.stopPropagation();
             event.preventDefault();
           }
-          
+
           // Start request
           newPath = element.href.substring(basePath.length);
-          
+
           // Update url
           if( this.hasPushState() ) {
             this.push(element.href);
           } else {
             this.push(newPath);
           }
-          
+
           // Make request
           this.startRequest(newPath);
         }
@@ -277,7 +277,7 @@ en4.core.dloader = {
     // Monitor location
     //window.addEventListener('unload', this.monitorAddress.bind(this));
     this.currentHref = window.location.href;
-    
+
     if( !this.registered ) {
       this.registered = true;
       if( this.hasPushState() ) {
@@ -289,7 +289,7 @@ en4.core.dloader = {
       }
     }
   },
-  
+
   shouldAttach : function(element) {
     return (
       element.get('tag') == 'a' &&
@@ -298,14 +298,14 @@ en4.core.dloader = {
       !element.href.match(/^(javascript|[#])/) &&
       !element.hasClass('no-dloader') &&
       !element.hasClass('smoothbox')
-    );  
+    );
   },
 
   handleLoad : function(response1, response2, response3, response4) {
     var response;
-    
+
     if( this.frame ) {
-      try { 
+      try {
         response = (function() {
           return response1;
         }, function(){
@@ -328,21 +328,21 @@ en4.core.dloader = {
       // Execute runonce
       en4.core.runonce.trigger();
     }
-    
+
     this.cancel();
     this.activeHref = false;
   },
-  
+
   handleRedirect : function(url) {
     this.push(url);
     this.startRequest(url);
   },
 
   startRequest : function(url) {
-    
+
     var fullUrl = window.location.protocol + '//' + window.location.hostname + en4.core.baseUrl + url;
     //console.log(url, fullUrl);
-    
+
     // Cancel current request if active
     if( this.activeHref ) {
       // Ignore if equal
@@ -354,25 +354,25 @@ en4.core.dloader = {
     }
 
     //$('global_content').innerHTML = '<h1>Loading...</h1>';
-      
+
     this.start({
       url : fullUrl,
       conntype : 'frame'
     });
-    
+
   },
-  
-  
-  
+
+
+
   // functions for history
   hasPushState : function() {
     //return false;
     return ('pushState' in window.history);
   },
-  
+
   push : function(url, title, state) {
     if( this.previous == url ) return;
-    
+
     if( this.hasPushState() ) {
       window.history.pushState(state || null, title || null, url);
       this.previous = url;
@@ -380,7 +380,7 @@ en4.core.dloader = {
       window.location.hash = url;
     }
   },
-  
+
   replace : function(url, title, state) {
     if( this.hasPushState() ) {
       window.history.replaceState(state || null, title || null, url);
@@ -389,7 +389,7 @@ en4.core.dloader = {
       this.push(url);
     }
   },
-  
+
   pop : function(event) {
     if( this.hasPushState() ) {
       if( window.location.pathname.indexOf(en4.core.baseUrl) === 0 ) {
@@ -402,24 +402,24 @@ en4.core.dloader = {
       if( this.hash == hash ) {
         return;
       }
-      
+
       this.hash = hash;
       this.onChange(hash.substr(1));
     }
   },
-  
+
   onChange : function(url) {
     this.startRequest(url);
   },
-  
+
   back : function() {
     window.history.back();
   },
-  
+
   forward : function() {
     window.history.forward();
   },
-  
+
   monitor : function() {
     if( this.hash != window.location.hash ) {
       this.pop();
@@ -442,7 +442,7 @@ en4.core.request = {
   send : function(req, options){
     options = options || {};
     if( !$type(options.force) ) options.force = false;
-    
+
 
     // If there are currently active requests, ignore
     if(this.activeRequests.length > 0 && !options.force ){
@@ -533,7 +533,7 @@ en4.core.request = {
     });
     return this;
   },
-  
+
   evalScripts : function(e) {
     element = scriptJquery(this);
     if( !element ) return this;
@@ -783,7 +783,7 @@ en4.core.languageAbstract = function(){
       } else {
         message = messageId;
       }
-      
+
       // Get correct message from plural
       if(typeof message == 'object') {
         var rule = this.getPlural(locale, number);
@@ -800,7 +800,7 @@ en4.core.languageAbstract = function(){
       return message.vsprintf(options);
     // } catch( e ) {
     //   alert(e);
-    // } 
+    // }
   }
   function setData(data) {
     if(typeof data != 'object' && typeof data != 'hash' ) {
@@ -988,7 +988,7 @@ function seTootip(){
   })
 }
 en4.core.runonce.add(function() {
-  seTootip();  
+  seTootip();
 });
 scriptJquery(document).ajaxComplete(function() {
   seTootip();
@@ -1000,8 +1000,8 @@ function setCoreCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+d.toGMTString();
-  document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/"; 
-} 
+  document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/";
+}
 
 function getCoreCookie(cname) {
   var name = cname + "=";
@@ -1027,7 +1027,7 @@ function openSmoothBoxInUrl(url){
 }
 
 en4.core.runonce.add(function() {
-  
+
   if(scriptJquery('#togglePassword'))
     scriptJquery('#togglePassword').hide();
   if(scriptJquery('#confirmtogglePassword'))
@@ -1036,13 +1036,13 @@ en4.core.runonce.add(function() {
     scriptJquery('#newtogglePassword').hide();
   if(scriptJquery('#oldtogglePassword'))
     scriptJquery('#oldtogglePassword').hide();
-  
+
   AttachEventListerSE('keyup', '#signup_password, #password', function(e) {
     var password = scriptJquery(this).val();
-    
+
     if(password && scriptJquery('#togglePassword'))
       scriptJquery('#togglePassword').show();
-    
+
     var strength = 0;
 
     // Length check
@@ -1068,17 +1068,17 @@ en4.core.runonce.add(function() {
       scriptJquery('#passwordroutine_length').removeClass().addClass('strong');
       scriptJquery('#passwordroutine_text').html(en4.core.language.translate('Strong'));
     }
-    
+
     if(password == '') {
       scriptJquery('#passwordroutine_length').removeClass();
       scriptJquery('#passwordroutine_text').html(en4.core.language.translate('Enter your password.'));
       scriptJquery('#togglePassword').hide();
     }
   });
-  
+
   AttachEventListerSE('keyup', '#passconf', function(e) {
     var passwordconf = scriptJquery(this).val();
-    
+
     if(passwordconf && scriptJquery('#confirmtogglePassword'))
       scriptJquery('#confirmtogglePassword').show();
     if(passwordconf == '')
@@ -1102,11 +1102,11 @@ en4.core.runonce.add(function() {
   });
 });
 function showSuccessTooltip(contents, className) {
-  
+
   if(typeof className == 'undefined') {
     className = 'core_success_notification';
   }
-  
+
   if(scriptJquery('.core_notification').length > 0)
     scriptJquery('.core_notification').hide();
     scriptJquery('<div class="'+className+'">' + contents + '</div>').css( {
@@ -1136,9 +1136,9 @@ AttachEventListerSE('submit', '.form_submit_ajax', function(e) {
 
   var formObj = scriptJquery(this);
   var formURL  = formObj.attr('action') ? formObj.attr('action') : window.location.href;
-  
+
   if(submitAjaxRequestSend) return;
-  if(scriptJquery('body').hasClass('admin')) 
+  if(scriptJquery('body').hasClass('admin'))
     return true;
   if(scriptJquery('html').attr('id') == 'smoothbox_window') return;
   if(formURL.indexOf("add-location") == -1 && formURL.indexOf("edit-location") == -1 && formURL.indexOf("delete-location") == -1) {
@@ -1164,7 +1164,7 @@ AttachEventListerSE('submit', '.form_submit_ajax', function(e) {
 
 
   e.preventDefault();
-  
+
   // Check if all required fields are filled out
   var formData = new FormData(this);
   formData.append('isFormAjaxPost', true);
@@ -1191,7 +1191,7 @@ AttachEventListerSE('submit', '.form_submit_ajax', function(e) {
       }
       let data = scriptJquery("#script-default-data");
       let url = data.find("#script-page-url").html()
-      window.history.pushState({state:'new', url: url.replace('?getContentOnly=1', '')},'', url.replace('?getContentOnly=1', '')); 
+      window.history.pushState({state:'new', url: url.replace('?getContentOnly=1', '')},'', url.replace('?getContentOnly=1', ''));
       updateMetaTags();
       en4.core.runonce.trigger();
       formObj.find('button[type=submit]').removeAttr("disabled");
@@ -1306,12 +1306,12 @@ function showSubCategory(category_id,selectedId) {
   var selected;
   if(selectedId != '')
     selected = selectedId;
-  
+
   if(typeof type != 'undefined')
     type = type;
-  else 
+  else
     type = modulename;
-  
+
   if(modulename == 'music') {
     var URL = en4.core.baseUrl + modulename + '/subcategory/category_id/' + category_id;
   } else {
@@ -1353,12 +1353,12 @@ function showSubSubCategory(category_id, selectedId) {
     }
     return false;
   }
-  
+
   if(typeof type != 'undefined')
     type = type;
-  else 
+  else
     type = modulename;
-  
+
   var selected;
   if(selectedId != '')
     selected = selectedId;
@@ -1440,11 +1440,11 @@ function set_rating() {
   for(var x=1; x<=parseInt(rating); x++) {
     scriptJquery('#rate_'+x).attr('class', 'rating_star_big_generic rating_star_big ' + ratingIcon);
   }
-  
+
   for(var x=parseInt(rating)+1; x<=5; x++) {
     scriptJquery('#rate_'+x).attr('class', 'rating_star_big_generic rating_star_big_disabled ' + ratingIcon);
   }
-  
+
   var remainder = Math.round(rating)-rating;
   if (remainder <= 0.5 && remainder !=0){
     var last = parseInt(rating)+1;
@@ -1461,7 +1461,7 @@ function rate(rating) {
   total_votes = total_votes+1;
   pre_rate = (pre_rate+rating)/total_votes;
   set_rating();
-  
+
   (scriptJquery.ajax({
     format: 'json',
     url : en4.core.baseUrl + 'core/rating/rate',
@@ -1496,7 +1496,7 @@ function isAllowed(url) {
     } else {
         return false;
     }
-    
+
 }
 
 function setProxyLocation() {
@@ -1541,19 +1541,19 @@ setProxyLocation();
 
 //Content Favourite
 AttachEventListerSE('click', '.content_favourite', function () {
-  
+
   var element = scriptJquery(this);
   if (!scriptJquery (element).attr('data-id'))
     return;
 
   if (!scriptJquery (element).attr('data-type'))
     return;
-  
+
   if(scriptJquery(element).hasClass('button_active')) {
       scriptJquery(element).removeClass('button_active');
   } else
       scriptJquery(element).addClass('button_active');
-  
+
   var id = scriptJquery(element).attr('data-id');
   var type = scriptJquery(element).attr('data-type');
 
@@ -1573,11 +1573,11 @@ AttachEventListerSE('click', '.content_favourite', function () {
       } else {
         scriptJquery(favouriteElement).find('span').html(response.count);
         scriptJquery(element).find('span').html(response.count);
-        
+
         if(response.condition == 'reduced') {
           scriptJquery(element).removeClass('button_active');
           showSuccessTooltip('<i class="fa fa-heart"></i><span>'+(response.message)+'</span>','core_reject_notification');
-        } else { 
+        } else {
           scriptJquery(element).addClass('button_active');
           showSuccessTooltip('<i class="fa fa-heart"></i><span>'+(response.message)+'</span>');
         }
@@ -1602,7 +1602,7 @@ AttachEventListerSE('keyup', '.global_search_field', function(event) {
   // Check if the key pressed is any key (you can specify a specific key by event.which)
   if (event.which) {
     if(item.parent().parent().find('.recent_search_data')) {
-      if(global_search_field) { 
+      if(global_search_field) {
         item.parent().parent().find('.recent_search_data').hide();
       } else {
         item.parent().parent().find('.recent_search_data').show();
@@ -1638,7 +1638,7 @@ AttachEventListerSE('click', '.header_search_recent_list_item', function(){
 });
 
 AttachEventListerSE('click', '.user_recent_search_remove', function () {
-  
+
   var element = scriptJquery(this);
   var query = scriptJquery(element).attr('data-query');
   var dataId = scriptJquery(element).attr('data-id');
@@ -1655,7 +1655,7 @@ AttachEventListerSE('click', '.user_recent_search_remove', function () {
   if(data.find('.user_search_query_all').find('div').length == 0) {
     data.find('.header_search_recent_head_recent').hide();
   }
-  
+
   (scriptJquery.ajax({
     method: 'post',
     'url':  en4.core.baseUrl + 'core/search/remove',
@@ -1676,12 +1676,12 @@ AttachEventListerSE('click', '.user_recent_search_remove', function () {
 
 
 function refreshCaptcha(obj) {
-  scriptJquery.ajax({ 
-    url: en4.core.baseUrl + '/core/index/refresh-captcha', 
-    dataType:'json', 
-    success: function(data) { 
-        scriptJquery(obj).parent().find('img').attr('src', data.src); 
-        scriptJquery(obj).parent().find('#captcha-id').attr('value', data.id); 
+  scriptJquery.ajax({
+    url: en4.core.baseUrl + 'core/index/refresh-captcha',
+    dataType:'json',
+    success: function(data) {
+        scriptJquery(obj).parent().find('img').attr('src', data.src);
+        scriptJquery(obj).parent().parent().find('#captcha-id').attr('value', data.id);
     }
-  }); 
+  });
 }

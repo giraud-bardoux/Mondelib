@@ -207,6 +207,18 @@ Currency
       'category' => 'specific',
       'helper' => 'fieldAim',
     ),
+    'whatsapp' => array(
+      'base' => 'text',
+      'label' => 'WhatsApp Personal',
+      'category' => 'specific',
+      'helper' => 'fieldWhatsapp',
+    ),
+    'whatsappbusiness' => array(
+      'base' => 'text',
+      'label' => 'WhatsApp Business',
+      'category' => 'specific',
+      'helper' => 'fieldWhatsappbusiness',
+    ),
     'instagram' => array(
       'base' => 'text',
       'label' => 'Instagram',

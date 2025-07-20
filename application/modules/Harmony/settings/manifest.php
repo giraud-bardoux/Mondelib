@@ -22,7 +22,7 @@ return array (
   array(
     'type' => 'module',
     'name' => 'harmony',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'dependencies' => array(
       array(
         'type' => 'module',

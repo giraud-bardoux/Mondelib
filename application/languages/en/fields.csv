@@ -118,6 +118,8 @@
 "Specific";"Specific"
 "FIELD_SINGLE_CHECKBOX_UNCHECKED";"No"
 "FIELD_SINGLE_CHECKBOX_CHECKED";"Yes"
+"WhatsApp Personal";"WhatsApp Personal"
+"WhatsApp Business";"WhatsApp Business"
 
 "This field is hidden and only visible to you and admins:";"This field is hidden and only visible to you and admins:"
 "ACTIVITY_CATEGORY_TYPE_FIELDS";"General"

@@ -2,7 +2,7 @@
   'package' => array(
     'type' => 'language',
     'name' => 'english',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision$',
     'path' => 'application/languages/en',
     'repository' => 'socialengine.com',

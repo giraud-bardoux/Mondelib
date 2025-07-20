@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'announcement',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10150 $',
     'path' => 'application/modules/Announcement',
     'repository' => 'socialengine.com',

@@ -12,7 +12,7 @@ return array(
   'package' => array(
     'type' => 'widget',
     'name' => 'clock',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 9747 $',
     'path' => 'application/widgets/clock',
     'repository' => 'socialengine.com',
@@ -27,7 +27,7 @@ return array(
   // Backwards compatibility
   'type' => 'widget',
   'name' => 'clock',
-  'version' => '7.3.0',
+  'version' => '7.4.0',
   'revision' => '$Revision: 9747 $',
   'title' => 'Clock',
   'description' => 'Displays a clock.',

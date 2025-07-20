@@ -1,0 +1,15 @@
+<?php defined('_ENGINE') or die('Access Denied'); return array (
+  0 => 'Activity',
+  1 => 'Announcement',
+  2 => 'Authorization',
+  3 => 'Comment',
+  4 => 'Core',
+  5 => 'Fields',
+  6 => 'Harmony',
+  7 => 'Invite',
+  8 => 'Messages',
+  9 => 'Network',
+  10 => 'Payment',
+  11 => 'Storage',
+  12 => 'User',
+); ?>

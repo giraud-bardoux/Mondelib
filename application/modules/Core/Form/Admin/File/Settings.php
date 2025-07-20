@@ -36,8 +36,22 @@ class Core_Form_Admin_File_Settings extends Engine_Form {
         0 => 'No'
       ),
       'value' => Engine_Api::_()->getApi('settings', 'core')->getSetting('core.convertwebp', 1),
+      'onchange' => "hideShow(this.value);",
     ));
 	$this->core_convertwebp->addDecorator('Description', array('placement' => Zend_Form_Decorator_Abstract::PREPEND, 'escape' => false));
+
+    $this->addElement('Text', 'core_compression_quality', array(
+        'label' => 'Image Compression Quality',
+        'description' => 'This setting allows you to define the image compression quality (1–99, where 99 means lowest quality and highest compression) for newly uploaded images. Changes to this setting will only affect images uploaded after the change. Previously uploaded images will remain unaffected.',
+        'allowEmpty' => false,
+        'required' => true,
+        'value' => Engine_Api::_()->getApi('settings', 'core')->getSetting('core_compression_quality', 75),
+        'validators' => array(
+            array('Int', true),
+            array('Between', true, array(1, 99)), // Ensures the value is between 1 and 99
+        ),
+    ));
+
 
     // Add submit button
     $this->addElement('Button', 'submit', array(

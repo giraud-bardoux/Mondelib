@@ -2,7 +2,7 @@
   'package' => array(
     'type' => 'library',
     'name' => 'zend',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10150 $',
     'path' => 'application/libraries/Zend',
     'repository' => 'socialengine.com',

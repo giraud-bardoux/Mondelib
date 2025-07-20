@@ -1,0 +1,805 @@
+{
+  "type": "module",
+  "name": "storage",
+  "version": "7.4.0",
+  "revision": "10267",
+  "path": "application\/modules\/Storage",
+  "repository": null,
+  "sku": null,
+  "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+  "title": "Storage",
+  "description": "Storage",
+  "thumb": "application\/modules\/Core\/externals\/images\/thumb.png",
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+    "title": "Storage",
+    "description": "Storage",
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    "install",
+    "upgrade",
+    "refresh"
+  ],
+  "callback": {
+    "path": "application\/modules\/Storage\/settings\/install.php",
+    "class": "Storage_Installer",
+    "priority": 5000
+  },
+  "dependencies": {
+    "module-core": {
+      "type": "module",
+      "name": "core",
+      "guid": "module-core",
+      "minVersion": "5.0.0",
+      "maxVersion": null,
+      "excludeExcept": null
+    }
+  },
+  "tests": [
+    {
+      "type": "PhpExtension",
+      "name": "FTP",
+      "extension": "ftp",
+      "defaultErrorType": 1,
+      "messages": {
+        "noExtension": "The FTP extension is recommend for CDNs that use FTP. An emulation layer will be used in the absence of this extension."
+      }
+    },
+    {
+      "type": "PhpExtension",
+      "name": "SSH2",
+      "extension": "ssh2",
+      "defaultErrorType": 1,
+      "messages": {
+        "noExtension": "The SSH2 extension is required for CDNs that use SSH or SCP."
+      }
+    },
+    {
+      "type": "Multi",
+      "name": "Hash",
+      "allForOne": true,
+      "defaultErrorType": 1,
+      "messages": {
+        "allTestsFailed": "HMAC Encryption Support for Amazon S3 requires either the hash or mhash PHP extension."
+      },
+      "tests": [
+        {
+          "type": "PhpExtension",
+          "extension": "hash"
+        },
+        {
+          "type": "PhpExtension",
+          "extension": "mhash"
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "application\/modules\/Storage": {
+      "type": "directory",
+      "path": "application\/modules\/Storage",
+      "structure": [
+        {
+          "path": "views",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts\/admin-services",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts\/admin-services\/index.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6261,
+          "sha1": "c512dd4f20d1018cdef3e27d0ba64612b0685101"
+        },
+        {
+          "path": "views\/scripts\/admin-services\/create.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 792,
+          "sha1": "ea132b12cd950fced67794963696b64170775e06"
+        },
+        {
+          "path": "views\/scripts\/admin-services\/delete.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 795,
+          "sha1": "5fb1d7709d6dd46ab7502d66afe80dbb7620d515"
+        },
+        {
+          "path": "views\/scripts\/admin-services\/transfer.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 484,
+          "sha1": "26d798ada0b9253e993c37d3fab620cdcb69268f"
+        },
+        {
+          "path": "views\/scripts\/admin-services\/edit.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 791,
+          "sha1": "8e9546b06f4089271b2dc79a948ebc7df879c46c"
+        },
+        {
+          "path": "views\/scripts\/upload",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts\/upload\/upload.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10040,
+          "sha1": "3dde228ce49198d2cbbf4f34bf86d80c6be0f3da"
+        },
+        {
+          "path": "views\/scripts\/admin-manage",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "views\/scripts\/admin-manage\/index.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4596,
+          "sha1": "9135c27383ceb2317a11ce2c007e8cefbb3b9698"
+        },
+        {
+          "path": "views\/scripts\/admin-manage\/view.tpl",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 424,
+          "sha1": "00ef69b16b2402edf474b48b4fbd5aea00e4c15d"
+        },
+        {
+          "path": "Service",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Service\/Interface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2638,
+          "sha1": "ae585c92c7ed6732ea784e0164a8b62442a0df99"
+        },
+        {
+          "path": "Service\/RoundRobin.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6074,
+          "sha1": "a2f5a1a37626fdfbfe0f6ae66e8af65188bc99bf"
+        },
+        {
+          "path": "Service\/Digitalocean.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7117,
+          "sha1": "7e9c12d5c50d735205157fa7ed721563810fe451"
+        },
+        {
+          "path": "Service\/Vfs.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3891,
+          "sha1": "87adc7af21c0cdf8497429fb693509328626f9b9"
+        },
+        {
+          "path": "Service\/Local.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3324,
+          "sha1": "5c20c3beeb7b842d277830002d1bc6f3575be117"
+        },
+        {
+          "path": "Service\/AmazonS3.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8232,
+          "sha1": "e1da268161ab5dd87e19697e90b8259fcc738102"
+        },
+        {
+          "path": "Service\/Abstract.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8736,
+          "sha1": "759f514b27df40ad459244582e31ba9a68844958"
+        },
+        {
+          "path": "Service\/Scheme",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Service\/Scheme\/Interface.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 567,
+          "sha1": "e6ff1b67f32d605fea8d1e713712ea938aa33e3b"
+        },
+        {
+          "path": "Service\/Scheme\/Extended.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1578,
+          "sha1": "c00980646a30d6f907962f4321ba8e31eaac4bb2"
+        },
+        {
+          "path": "Service\/Scheme\/Standard.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1461,
+          "sha1": "0f12249a822310f783313d3592da96fb9a78d2ea"
+        },
+        {
+          "path": "Service\/Scheme\/Dynamic.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1415,
+          "sha1": "095e999a8d16d42e91b829c768a4b6b2230414a4"
+        },
+        {
+          "path": "Service\/Mirrored.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7578,
+          "sha1": "5010b1b0c1ac655bc5ff03e8ca1c08296cbe7816"
+        },
+        {
+          "path": "Service\/Wasabi.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7332,
+          "sha1": "5442be4b8192000866c545f9c708ffa7605f2355"
+        },
+        {
+          "path": "Service\/Db.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6149,
+          "sha1": "908425aeebe83dde21444c0c74cc43b979e38c03"
+        },
+        {
+          "path": "Service\/S3.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7679,
+          "sha1": "dc54fa9a8416ab425dcfb6143424531a21d31304"
+        },
+        {
+          "path": "Service\/Exception.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 537,
+          "sha1": "4f9e56aa5d688f3b3cec31629b16f2c70f3009b4"
+        },
+        {
+          "path": "Form",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Upload.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2202,
+          "sha1": "ecb996c071b0ed6d15940194e38490771c085680"
+        },
+        {
+          "path": "Form\/Admin",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Admin\/Service",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Admin\/Service\/Create.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2209,
+          "sha1": "ac19fb5e83adb706c1004062d7814359ec90f572"
+        },
+        {
+          "path": "Form\/Admin\/Service\/RoundRobin.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1974,
+          "sha1": "e2043a351a9500fd64f2e3d06ceca40cf334c60f"
+        },
+        {
+          "path": "Form\/Admin\/Service\/Digitalocean.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3595,
+          "sha1": "6834c615084d7cc205954e6e1ec73d170678cee1"
+        },
+        {
+          "path": "Form\/Admin\/Service\/Vfs.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2941,
+          "sha1": "8e0ebdca7352ca8bf0e3e5df69424bcd5b760d81"
+        },
+        {
+          "path": "Form\/Admin\/Service\/Local.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1185,
+          "sha1": "e6502bfd74b4e6a34976ca4e136628fc59f6f2e7"
+        },
+        {
+          "path": "Form\/Admin\/Service\/AmazonS3.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4659,
+          "sha1": "991588adfef5174a197907beb28ce84acb24d6e5"
+        },
+        {
+          "path": "Form\/Admin\/Service\/Generic.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1744,
+          "sha1": "e8ce3c3f29461c74099b0ffdc7b9c5151d38b712"
+        },
+        {
+          "path": "Form\/Admin\/Service\/Mirrored.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2346,
+          "sha1": "bc2ab0a3511261b6749acd7392e36e70fb9017cb"
+        },
+        {
+          "path": "Form\/Admin\/Service\/Wasabi.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4498,
+          "sha1": "6a7861fd07176f3445cef324cbd0eb2613d8ba02"
+        },
+        {
+          "path": "Form\/Admin\/Service\/Db.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2698,
+          "sha1": "8ea2f1bdeb62a6d3ff07355961d629c2930da41e"
+        },
+        {
+          "path": "Form\/Admin\/Service\/S3.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4936,
+          "sha1": "7718130362eb2c48a3ce7626d6eb8629b1e84c97"
+        },
+        {
+          "path": "Form\/Admin\/Manage",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Form\/Admin\/Manage\/Filter.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 5007,
+          "sha1": "9471736b7c70d44c53ecf3776255f78da2c28a92"
+        },
+        {
+          "path": "Model",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Model\/DbTable",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Model\/DbTable\/Mirrors.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 540,
+          "sha1": "c4b54037203a747ebbcb9acd2a862896b3bf5a93"
+        },
+        {
+          "path": "Model\/DbTable\/Chunks.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 540,
+          "sha1": "bb462fb52c09b46ca0edfb7adfd3dcdcff214c04"
+        },
+        {
+          "path": "Model\/DbTable\/Services.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3356,
+          "sha1": "ca781d65184215512433f4c762dadc861ae7185f"
+        },
+        {
+          "path": "Model\/DbTable\/Files.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 6887,
+          "sha1": "5b50f5ff8794da4adc1837f5800325e099a8d8fc"
+        },
+        {
+          "path": "Model\/DbTable\/ServiceTypes.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 550,
+          "sha1": "d787c51be774eb438c09242939679f141c9afe98"
+        },
+        {
+          "path": "Model\/File.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8024,
+          "sha1": "f126d0d4ac405048276055c5e6c4ac06386be105"
+        },
+        {
+          "path": "Model\/Exception.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 535,
+          "sha1": "fe26883f50a2dcde66eec56c361579ae44227435"
+        },
+        {
+          "path": "externals",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "externals\/images",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "externals\/images\/admin",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "externals\/images\/admin\/add.png",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 940,
+          "sha1": "f758695229b2edd273e3692a10fda583feeced63"
+        },
+        {
+          "path": "externals\/.htaccess",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1042,
+          "sha1": "6c835f103d253edf70bfd5ba2430ebe3fa8cacdd"
+        },
+        {
+          "path": "Bootstrap.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 532,
+          "sha1": "81907163829afe773ce0777815ea444386b8f773"
+        },
+        {
+          "path": "controllers",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "controllers\/AdminManageController.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 4082,
+          "sha1": "7fcabb018db40ecf999bd58db7dd1a5229980d56"
+        },
+        {
+          "path": "controllers\/UploadController.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2481,
+          "sha1": "3fa1a71a2220b40f5d74b508f8be64ad06fac385"
+        },
+        {
+          "path": "controllers\/IndexController.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1555,
+          "sha1": "0f1655f69899485be05dd7db3580e6c5c1811fda"
+        },
+        {
+          "path": "controllers\/AdminServicesController.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 10289,
+          "sha1": "e1f440615aa32e5f3c848d57581b82bf7ed8e635"
+        },
+        {
+          "path": "Plugin",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Plugin\/Core.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1329,
+          "sha1": "c4cea15fcfda1512894f218c056db672f8b9f226"
+        },
+        {
+          "path": "Plugin\/Job",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Plugin\/Job\/Cleanup.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3627,
+          "sha1": "e82ccd4958ad0df31c91663391d801c01dbb9380"
+        },
+        {
+          "path": "Plugin\/Job\/Transfer.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2662,
+          "sha1": "2884e28ea03417ac534b65a6e64815b1c2c215e6"
+        },
+        {
+          "path": "Api",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "Api\/Storage.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1329,
+          "sha1": "bc2804218513770568409c1878d9e6796f33e7bc"
+        },
+        {
+          "path": "Api\/Core.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2110,
+          "sha1": "23d03df797ad1732bbd8c88a86586455a2a4044c"
+        },
+        {
+          "path": "settings",
+          "dir": true,
+          "file": false,
+          "perms": "0755",
+          "size": 4096,
+          "sha1": null
+        },
+        {
+          "path": "settings\/my-upgrade-6.7.0-7.0.0.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 151,
+          "sha1": "3e730894944e4718f13cacb624e5bb1e1a542a60"
+        },
+        {
+          "path": "settings\/manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 3280,
+          "sha1": "9a72b2a1b37bc2f5db54ccb4cb35be4745ee7fb5"
+        },
+        {
+          "path": "settings\/my-upgrade-4.10.5-5.0.0b1.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 987,
+          "sha1": "ddab3c7f222785655b15b9cb18d5678982965538"
+        },
+        {
+          "path": "settings\/my-upgrade-4.1.1-4.1.2.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 1780,
+          "sha1": "be676eec3ec40ce6ce09a0c411f0e967e3f88b69"
+        },
+        {
+          "path": "settings\/install.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2124,
+          "sha1": "2f4b9f1983bf8bc0b7460bf4caf8d4659fefd111"
+        },
+        {
+          "path": "settings\/my-upgrade-6.4.4-6.5.0.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 133,
+          "sha1": "c0124df1d442f49dde919cc5906e14068c184daa"
+        },
+        {
+          "path": "settings\/my-upgrade-6.5.0-6.5.1.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 126,
+          "sha1": "f8c2c9607dfdc4755cc613608a62a0d26d5266ca"
+        },
+        {
+          "path": "settings\/my-upgrade-6.1.1-6.2.0.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 398,
+          "sha1": "a274a60f8dc75ded57434fc9cbcd9c39c003ab80"
+        },
+        {
+          "path": "settings\/my-upgrade-4.1.0-4.1.1.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 2486,
+          "sha1": "095ec100df85229b0831167b5552f1c9637ba8c7"
+        },
+        {
+          "path": "settings\/my.sql",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 7792,
+          "sha1": "0103c7c9c9907dc6ce6558ca2f235d4c78b93901"
+        }
+      ]
+    },
+    "application\/languages\/en\/storage.csv": {
+      "type": "file",
+      "path": "application\/languages\/en\/storage.csv",
+      "structure": {
+        "path": "storage.csv",
+        "dir": false,
+        "file": true,
+        "perms": "0755",
+        "size": 1367,
+        "sha1": "9601ecc15033138c28bde5730796101ad53d587a"
+      }
+    }
+  }
+}

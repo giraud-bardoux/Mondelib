@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'core',
     'name' => 'install',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10271 $',
     'path' => '/',
     'repository' => 'socialengine.com',

@@ -33,20 +33,28 @@
         <?php foreach($this->comments as $item) { ?>
           <?php $poster = Engine_Api::_()->getItem($item->poster_type, $item->poster_id); ?>
           <?php $resource = Engine_Api::_()->getItem($item->resource_type, $item->resource_id); ?>
-          <tr>
-            <td>
-              <div class="admin_table_img">
-                <figure>
-                  <a href="<?php echo $poster->getHref(); ?>"><?php echo $this->itemBackgroundPhoto($poster, 'thumb.icon'); ?></a>
-                </figure>
-                <div class="admin_table_right">
-                    <span><a href="<?php echo $poster->getHref(); ?>"><?php echo $poster->getTitle(); ?></a></span>
-                    <span><?php echo $this->timestamp($item->creation_date) ?></span>
+          <?php if ($resource !== null) { ?>
+            <tr>
+              <td>
+                <div class="admin_table_img">
+                  <figure>
+                    <a href="<?php echo $poster->getHref(); ?>"><?php echo $this->itemBackgroundPhoto($poster, 'thumb.icon'); ?></a>
+                  </figure>
+                  <div class="admin_table_right">
+                      <span><a href="<?php echo $poster->getHref(); ?>"><?php echo $poster->getTitle(); ?></a></span>
+                      <span><?php echo $this->timestamp($item->creation_date) ?></span>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td><?php echo $this->partial('_activitycommentcontent.tpl', 'comment', array('comment' => $item)); ?><?php //echo $this->string()->truncate($item->body, 20); ?> <b class="_message"> <?php echo $this->translate("in %s", ucfirst($resource->getShortType())); ?>  </b>  </td> 
-          </tr>
+              </td>
+              <td>
+                <?php
+                  echo $this->partial('_activitycommentcontent.tpl', 'comment', array('comment' => $item));
+                  // You can safely call methods on $resource now
+                  echo '<b class="_message">' . $this->translate("in %s", ucfirst($resource->getShortType())) . '</b>';
+                ?>
+              </td>
+            </tr>
+          <?php } ?>
         <?php } ?>
       </tbody>
     <?php } else { ?>

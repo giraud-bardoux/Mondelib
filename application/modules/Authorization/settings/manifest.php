@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'authorization',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10111 $',
     'path' => 'application/modules/Authorization',
     'repository' => 'socialengine.com',

@@ -2,7 +2,7 @@
   'package' => array(
     'type' => 'external',
     'name' => 'desktop-notify',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10105 $',
     'path' => 'externals/desktop-notify',
     'repository' => 'socialengine.com',

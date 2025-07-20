@@ -117,7 +117,7 @@ class Core_Plugin_Core
       foreach( $stylesTable->fetchAll($stylesSelect) as $styles ) {
         $styles->delete();
       }
-      
+
       // Delete reports
       //
       // Admins can now dismiss reports from the Abuse reports page
@@ -145,7 +145,7 @@ class Core_Plugin_Core
       foreach( $favouriteTable->fetchAll($favouriteSelect) as $favourite ) {
         $favourite->delete();
       }
-      
+
       // Delete location by resource
       $locationsTable = Engine_Api::_()->getDbTable('locations', 'core');
       $locationSelect = $locationsTable->select()
@@ -170,15 +170,15 @@ class Core_Plugin_Core
       }
     }
   }
-  
+
   public function onRenderLayoutDefault($event, $mode = null)
   {
     $view = $event->getPayload();
     if( !($view instanceof Zend_View_Interface) ) {
       return;
     }
-    
-    $request = Zend_Controller_Front::getInstance()->getRequest(); 
+
+    $request = Zend_Controller_Front::getInstance()->getRequest();
     $moduleName = $request->getModuleName();
     $controllerName = $request->getControllerName();
     $actionName = $request->getActionName();
@@ -189,7 +189,7 @@ class Core_Plugin_Core
 
     $mobile = $request->getParam("mobile");
     $session = new Zend_Session_Namespace('mobile');
-    
+
     $viewer = Engine_Api::_()->user()->getViewer();
 
     if($mobile == "1") {
@@ -214,12 +214,12 @@ class Core_Plugin_Core
     }
 
     $settings = Engine_Api::_()->getDbtable('settings', 'core');
-    
+
     // Generic
     if( ($script = $settings->core_site_script) ) {
       $view->headScript()->appendScript($script);
     }
-    
+
     // Google analytics
     if( ($code = $settings->core_analytics_code) ) {
        $code = $view->string()->escapeJavascript($code);
@@ -229,7 +229,7 @@ $analytics_code = <<<EOF
     ga.src = ('https:' == document.location.protocol ? 'https://www' : 'http://www') + '.googletagmanager.com/gtag/js?id=$code';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-  
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -242,9 +242,8 @@ $view->headScript()->appendScript($analytics_code);
     //Get post max size
     $script .="var profilelock = false;";
     $script .="var post_max_size = ".Engine_Api::_()->core()->convertPHPSizeToBytes(ini_get('upload_max_filesize')).";";
-    $script .="var max_photo_upload_limit = ".Engine_Api::_()->authorization()->getPermission($viewer, 'user', 'maxphotolimit').";";
     $script .="var photo_upload_text = '".$view->translate('Max upload of %s allowed.', Engine_Api::_()->authorization()->getPermission($viewer, 'user', 'maxphotolimit'))."';";
-    
+
     //hide email from email setting tab
 		if($viewer->getIdentity()) {
 			if($viewer->level_id != 1) {
@@ -259,7 +258,7 @@ $view->headScript()->appendScript($analytics_code);
 		$script .= "en4.core.runonce.add(function(){
       scriptJquery('.core_main_".$moduleName."').parent().addClass('active');
     });";
-	
+
     $script .= 'tinyMCE.baseURL = "'.$view->baseUrl().'/externals/tinymce";';
     $view->headScript()->appendScript($script);
 
@@ -267,19 +266,19 @@ $view->headScript()->appendScript($analytics_code);
     $view->headLink()
       ->prependStylesheet($cssBaseUrl . 'externals/font-awesome/css/all.min.css');
   }
-  
+
   public function onRenderLayoutDefaultSimple($event)
   {
     // Forward
     return $this->onRenderLayoutDefault($event, 'simple');
   }
-  
+
   public function onRenderLayoutMobileDefault($event)
   {
     // Forward
     return $this->onRenderLayoutDefault($event);
   }
-  
+
   public function onRenderLayoutMobileDefaultSimple($event)
   {
     // Forward

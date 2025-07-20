@@ -40,8 +40,8 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
           Engine_Api::_()->getDbtable('actions', 'activity')->delete(array('type =?' => 'cover_photo_update', "subject_id =?" => $user->getIdentity(), "object_type =? " => $user->getType(), "object_id = ?" => $user->getIdentity()));
         }
       }
-      
-      if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('album')) {
+
+      if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('album') || Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sesalbum')) {
         $album = $this->getSpecialAlbum($user, $type);
 
         $photoTable = Engine_Api::_()->getItemTable('photo');
@@ -125,11 +125,11 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
       return;
 
     if (isset($user->coverphoto) && $user->coverphoto > 0) {
-      
+
       if (!empty(Engine_Api::_()->getDbTable('modules', 'core')->isModuleEnabled('album'))) {
         Engine_Api::_()->getDbtable('photos', 'album')->delete(array('owner_id =?' => $user->getIdentity(), "file_id =?" => $user->coverphoto));
       }
-      
+
       $this->whenRemove($user, "coverphoto");
 
       //Delete feed
@@ -333,7 +333,7 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
                 )
               );
             $attachment = $event->getResponse();
-          } else if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('ealbum')) {
+          } else if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sesalbum')) {
             $event = Engine_Hooks_Dispatcher::_()
               ->callEvent(
                 'onUserProfilePhotoUpload',
@@ -431,7 +431,7 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
       echo json_encode(array('status' => "error"));
       die;
     }
-    if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('ealbum')) {
+    if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sesalbum')) {
       $photo = Engine_Api::_()->getItem('album_photo', $id);
     } else {
       $photo = Engine_Api::_()->getItem('photo', $id);
@@ -456,10 +456,10 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
       }
 
       // if it is from your own profile album do not make copies of the image
-      if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('ealbum')) {
+      if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sesalbum')) {
 
-        $albumModel = 'Ealbum_Model_Album';
-        $photoModel = 'Ealbum_Model_Photo';
+        $albumModel = 'Sesalbum_Model_Album';
+        $photoModel = 'Sesalbum_Model_Photo';
       } else {
         $albumModel = 'Album_Model_Album';
         $photoModel = 'Album_Model_Photo';
@@ -540,7 +540,7 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
             '{item:$subject} changed their profile photo.'
           );
         if ($action) {
-          // We have to attach the user himself w/o ealbum plugin
+          // We have to attach the user himself w/o sesalbum plugin
           Engine_Api::_()->getDbtable('actions', 'activity')
             ->attachActivity($action, $photo);
         }
@@ -572,7 +572,7 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
                 'file' => $newStorageFile,
               )
             );
-        } else if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('ealbum')) {
+        } else if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sesalbum')) {
           $event = Engine_Hooks_Dispatcher::_()
             ->callEvent(
               'onUserProfilePhotoUpload',
@@ -725,7 +725,10 @@ class User_CoverphotoController extends Core_Controller_Action_Standard
       $album->type = $type;
       $album->search = 1;
       //approve setting work
-      $album->approved = Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('album', $user, 'approve');
+      if(isset($album->approved)) {
+        $album->approved = Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('album', $user, 'approve');
+      }
+     
       $album->save();
       // Authorizations
       $auth = Engine_Api::_()->authorization()->context;

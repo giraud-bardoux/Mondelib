@@ -71,42 +71,44 @@ function selectAll(obj){
           <?php if( engine_count($this->paginator) ): ?>
             <?php foreach( $this->paginator as $item ): ?>
               <?php $resource = Engine_Api::_()->getItem($item->resource_type, $item->resource_id); ?>
-              <tr>
-                <td><input name='modify_<?php echo $item->getIdentity();?>' value='<?php echo $item->getIdentity();?>' type='checkbox' class='checkbox'></td>
-                <td data-label="<?php echo $this->translate("Id") ?>"><?php echo $item->getIdentity() ?></td>
-                <td data-label="<?php echo $this->translate("Comment") ?>">
-                  <?php echo $this->partial('_activitycommentcontent.tpl', 'comment', array('comment' => $item)); ?>
-                  <?php //echo $this->string()->truncate(Engine_Text_Emoji::decode($item->body), 45, '...') ?>
-                </td>
-                <td data-label="<?php echo $this->translate("Content Type") ?>"><?php echo ucfirst($resource->getShortType()); ?></td>
-                <td data-label="<?php echo $this->translate("Content Item") ?>">
-                  <div class="admin_table_comments">
-                    <?php echo $this->itemBackgroundPhoto($resource, 'thumb.icon'); ?>
-                    <a href="<?php echo $resource->getHref(); ?>"><?php echo $resource->getTitle() ? $resource->getTitle() : $this->translate("Untitled"); ?></a>
-                  </div>
-                </td>
-                <td data-label="<?php echo $this->translate("Commented By") ?>">
-                  <div class="admin_table_comments">
-                    <?php $poster = Engine_Api::_()->getItem($item->poster_type, $item->poster_id); ?>
-                    <?php echo $this->itemBackgroundPhoto($poster, 'thumb.icon'); ?>
-                    <a href="<?php echo $poster->getHref(); ?>"><?php echo $poster->getTitle(); ?></a>
-                  </div>
-                </td>
-                <td data-label="<?php echo $this->translate("Comment Date") ?>"><?php echo $this->timestamp($item->creation_date) ?></td>
-                <td class='admin_table_options _comment_options'>
-                  <a class="smoothbox" href='<?php echo $this->url(array('action' => 'read-comment', 'id' => $item->getIdentity(), 'resource_type' => 'core_comment')) ?>'>
-                    <?php echo $this->translate("Read Comment") ?>
-                  </a>
-                  |
-									<a target='_blank' href='<?php echo $resource->getHref();?>'>
-                    <?php echo $this->translate("View Content") ?>
-                  </a>
-                  |
-                  <a class='smoothbox' href='<?php echo $this->url(array('action' => 'delete', 'id' => $item->getIdentity()));?>'>
-                    <?php echo $this->translate("Delete") ?>
-                  </a>
-                </td>
-              </tr>
+              <?php if ($resource !== null) { ?>
+                <tr>
+                  <td><input name='modify_<?php echo $item->getIdentity();?>' value='<?php echo $item->getIdentity();?>' type='checkbox' class='checkbox'></td>
+                  <td data-label="<?php echo $this->translate("Id") ?>"><?php echo $item->getIdentity() ?></td>
+                  <td data-label="<?php echo $this->translate("Comment") ?>">
+                    <?php echo $this->partial('_activitycommentcontent.tpl', 'comment', array('comment' => $item)); ?>
+                    <?php //echo $this->string()->truncate(Engine_Text_Emoji::decode($item->body), 45, '...') ?>
+                  </td>
+                  <td data-label="<?php echo $this->translate("Content Type") ?>"><?php echo ucfirst($resource->getShortType()); ?></td>
+                  <td data-label="<?php echo $this->translate("Content Item") ?>">
+                    <div class="admin_table_comments">
+                      <?php echo $this->itemBackgroundPhoto($resource, 'thumb.icon'); ?>
+                      <a href="<?php echo $resource->getHref(); ?>"><?php echo $resource->getTitle() ? $resource->getTitle() : $this->translate("Untitled"); ?></a>
+                    </div>
+                  </td>
+                  <td data-label="<?php echo $this->translate("Commented By") ?>">
+                    <div class="admin_table_comments">
+                      <?php $poster = Engine_Api::_()->getItem($item->poster_type, $item->poster_id); ?>
+                      <?php echo $this->itemBackgroundPhoto($poster, 'thumb.icon'); ?>
+                      <a href="<?php echo $poster->getHref(); ?>"><?php echo $poster->getTitle(); ?></a>
+                    </div>
+                  </td>
+                  <td data-label="<?php echo $this->translate("Comment Date") ?>"><?php echo $this->timestamp($item->creation_date) ?></td>
+                  <td class='admin_table_options _comment_options'>
+                    <a class="smoothbox" href='<?php echo $this->url(array('action' => 'read-comment', 'id' => $item->getIdentity(), 'resource_type' => 'core_comment')) ?>'>
+                      <?php echo $this->translate("Read Comment") ?>
+                    </a>
+                    |
+                    <a target='_blank' href='<?php echo $resource->getHref();?>'>
+                      <?php echo $this->translate("View Content") ?>
+                    </a>
+                    |
+                    <a class='smoothbox' href='<?php echo $this->url(array('action' => 'delete', 'id' => $item->getIdentity()));?>'>
+                      <?php echo $this->translate("Delete") ?>
+                    </a>
+                  </td>
+                </tr>
+              <?php } ?>
             <?php endforeach; ?>
           <?php endif; ?>
         </tbody>

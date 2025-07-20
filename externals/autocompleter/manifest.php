@@ -2,7 +2,7 @@
   'package' => array(
     'type' => 'external',
     'name' => 'autocompleter',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10111 $',
     'path' => 'externals/autocompleter',
     'repository' => 'socialengine.com',

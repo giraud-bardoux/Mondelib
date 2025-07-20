@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_Image
- * @copyright  Copyright 2006-2020 Webligo Developments 
+ * @copyright  Copyright 2006-2020 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Image_Adapter_Gd extends Engine_Image
@@ -109,7 +109,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Open an image
-   * 
+   *
    * @param string $file
    * @return Engine_Image_Adapter_Gd
    * @throws Engine_Image_Adapter_Exception If unable to open
@@ -189,7 +189,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Write current image to a file
-   * 
+   *
    * @param string $file (OPTIONAL) The file to write to. Default: original file
    * @param string $type (OPTIONAL) The output image type. Default: jpeg
    * @return Engine_Image_Adapter_Gd
@@ -227,14 +227,19 @@ class Engine_Image_Adapter_Gd extends Engine_Image
     //Convert all images to webp
     if(Engine_Api::_()->getApi('settings', 'core')->getSetting('core.convertwebp', 0) && engine_in_array($function, array('imagejpeg', 'imagepng'))) {
       $function = 'imagewebp';
-    }
 
-    if( $function == 'imagejpeg' && null !== $quality ) {
+      $quality = Engine_Api::_()->getApi('settings', 'core')->getSetting('core_compression_quality', 75);
+
       $result = $function($this->_resource, $file, $quality);
-    } elseif( $function == 'imagepng' && null !== $quality ) {
-      $result = $function($this->_resource, $file, round(abs(($quality - 100) / 11.111111)));
     } else {
-      $result = $function($this->_resource, $file);
+
+      if( $function == 'imagejpeg' && null !== $quality ) {
+        $result = $function($this->_resource, $file, $quality);
+      } elseif( $function == 'imagepng' && null !== $quality ) {
+        $result = $function($this->_resource, $file, round(abs(($quality - 100) / 11.111111)));
+      } else {
+        $result = $function($this->_resource, $file);
+      }
     }
 
     // Check result
@@ -289,7 +294,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Output an image to buffer or return as string
-   * 
+   *
    * @param string $type Image format
    * @param boolean $buffer Output or return?
    * @return mixed
@@ -346,7 +351,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
   /**
    * Resizes current image to $width and $height. If aspect is set, will fit
    * within boundaries while keeping aspect
-   * 
+   *
    * @param integer $width
    * @param integer $height
    * @param boolean $aspect (OPTIONAL) Default - true
@@ -455,7 +460,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Resample. Just crop+resize
-   * 
+   *
    * @param integer $srcX
    * @param integer $srcY
    * @param integer $srcW
@@ -783,7 +788,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Check if it is safe to open an image (memory-wise)
-   * 
+   *
    * @param integer $width Width in pixels
    * @param integer $height Height in pixels
    * @param integer $bpp Bytes per pixel
@@ -826,7 +831,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Get supported format info
-   * 
+   *
    * @return stdClass
    */
   protected static function getSupport()
@@ -854,7 +859,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Check if a specific image type is supported
-   * 
+   *
    * @param string $type
    * @param boolean $throw
    * @return boolean
@@ -873,7 +878,7 @@ class Engine_Image_Adapter_Gd extends Engine_Image
 
   /**
    * Convert short-hand bytes to integer
-   * 
+   *
    * @param string $value
    * @return integer
    */

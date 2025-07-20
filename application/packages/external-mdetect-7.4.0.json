@@ -1,0 +1,70 @@
+{
+  "type": "external",
+  "name": "mdetect",
+  "version": "7.4.0",
+  "revision": "7593",
+  "path": "externals\/mdetect",
+  "repository": null,
+  "sku": null,
+  "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+  "title": "mDetect",
+  "description": null,
+  "thumb": null,
+  "developer": null,
+  "authors": [
+    "SocialEngine Core"
+  ],
+  "meta": {
+    "date": "Wed, 16 Jul 2025 13:19:55 +0000",
+    "title": "mDetect",
+    "description": null,
+    "developer": null,
+    "authors": [
+      "SocialEngine Core"
+    ],
+    "changeLog": null
+  },
+  "actions": [
+    
+  ],
+  "callback": null,
+  "dependencies": null,
+  "tests": [
+    
+  ],
+  "permissions": [
+    
+  ],
+  "structure": {
+    "externals\/mdetect": {
+      "type": "directory",
+      "path": "externals\/mdetect",
+      "structure": [
+        {
+          "path": "mdetect.min.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 8398,
+          "sha1": "66b7f979d5cb442a4d4b95d99790285a4ccdcd04"
+        },
+        {
+          "path": "mdetect.js",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 19989,
+          "sha1": "902c9cea0bc111965516f93503531458e3c7e04b"
+        },
+        {
+          "path": "manifest.php",
+          "dir": false,
+          "file": true,
+          "perms": "0644",
+          "size": 366,
+          "sha1": "7407329432be800fded13712e35991cf771ae5ec"
+        }
+      ]
+    }
+  }
+}

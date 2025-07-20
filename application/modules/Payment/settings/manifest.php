@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'payment',
-    'version' => '7.3.0',
+    'version' => '7.4.0',
     'revision' => '$Revision: 10171 $',
     'path' => 'application/modules/Payment',
     'repository' => 'socialengine.com',
