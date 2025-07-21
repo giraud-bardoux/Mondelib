@@ -1,0 +1,91 @@
+===============================================================================
+                    PLUGIN EVENTFIX pour SocialEngine 7.4
+                    Extension de la plage d'années - Formulaires Event
+===============================================================================
+
+📦 CONTENU DE L'ARCHIVE
+-----------------------
+EventFix-v1.0.0.zip / EventFix-v1.0.0.tar.gz contient le module complet EventFix
+
+🎯 OBJECTIF
+-----------
+Étend la plage d'années sélectionnable dans le champ "Date de début" des 
+formulaires Event (Event_Form_Create et Event_Form_Edit) pour permettre 
+la sélection de dates jusqu'à 5 ans en arrière.
+
+⚡ INSTALLATION RAPIDE
+----------------------
+
+1. EXTRAIRE L'ARCHIVE
+   Extrayez EventFix-v1.0.0.zip dans le répertoire de votre SocialEngine :
+   
+   Option A (ZIP) :
+   unzip EventFix-v1.0.0.zip -d /chemin/vers/socialengine/application/modules/
+   
+   Option B (TAR.GZ) :
+   tar -xzf EventFix-v1.0.0.tar.gz -C /chemin/vers/socialengine/application/modules/
+
+2. PERMISSIONS
+   chmod -R 755 /chemin/vers/socialengine/application/modules/EventFix/
+   chown -R www-data:www-data /chemin/vers/socialengine/application/modules/EventFix/
+
+3. INSTALLATION VIA ADMIN
+   - Connectez-vous à l'administration SocialEngine
+   - Allez dans Admin Panel > Plugins (ou Modules)
+   - Trouvez "Event Date Range Fix"
+   - Cliquez sur "Install"
+   - Cliquez sur "Enable"
+
+4. VÉRIFICATION
+   - Allez sur une page de création d'événement
+   - Vérifiez que le sélecteur d'année permet 5 ans en arrière
+   - Console navigateur (F12) : vérifiez les messages "EventFix: Étendu..."
+
+🔧 INSTALLATION AUTOMATIQUE (OPTIONNEL)
+----------------------------------------
+Vous pouvez aussi utiliser le script d'installation automatique :
+
+1. Extraire l'archive
+2. cd EventFix/
+3. chmod +x install.sh
+4. ./install.sh /chemin/vers/socialengine
+
+📋 STRUCTURE INSTALLÉE
+----------------------
+application/modules/EventFix/
+├── Bootstrap.php                 # Initialisation du module
+├── Plugin/Core.php              # Plugin principal
+├── settings/manifest.php        # Configuration
+├── settings/install.php         # Installation
+└── Documentation (README.md, etc.)
+
+✅ FONCTIONNALITÉS
+------------------
+- ✅ Étend automatiquement les formulaires Event_Form_Create et Event_Form_Edit
+- ✅ Ajoute 5 années supplémentaires en arrière (configurable)
+- ✅ Compatible SocialEngine 7.x self-hosted
+- ✅ Ne modifie PAS le code du module Event
+- ✅ Compatible avec les mises à jour officielles
+- ✅ Support des formulaires AJAX
+- ✅ Détection intelligente multi-pattern
+
+🐛 DÉPANNAGE
+------------
+Problème : Le module n'apparaît pas
+Solution : Vérifiez permissions et videz le cache SocialEngine
+
+Problème : Ne modifie pas les formulaires
+Solution : Vérifiez que JavaScript est activé et consultez la console (F12)
+
+Problème : Erreur d'installation
+Solution : Vérifiez que tous les fichiers sont présents et les permissions
+
+📞 SUPPORT
+----------
+Documentation complète : README.md dans le module
+Guide détaillé : INSTALLATION.md
+Résumé technique : RESUME_PLUGIN.md
+
+===============================================================================
+Plugin EventFix v1.0.0 - Extension intelligente pour SocialEngine 7.4
+===============================================================================
