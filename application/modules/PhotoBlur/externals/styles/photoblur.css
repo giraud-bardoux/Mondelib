@@ -1,0 +1,159 @@
+/**
+ * PhotoBlur Module - Styles CSS
+ * 
+ * Styles pour flouter les photos et empêcher les captures d'écran
+ */
+
+/* Effet de floutage pour les photos */
+.photoblur-blurred {
+  filter: blur(10px) !important;
+  -webkit-filter: blur(10px) !important;
+  -moz-filter: blur(10px) !important;
+  -o-filter: blur(10px) !important;
+  -ms-filter: blur(10px) !important;
+  transition: filter 0.3s ease !important;
+}
+
+/* Conteneur avec tooltip */
+.photoblur-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Tooltip au survol */
+.photoblur-container:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInTooltip 0.3s ease forwards;
+}
+
+@keyframes fadeInTooltip {
+  to { opacity: 1; }
+}
+
+/* Protection contre la sélection et les clics droits */
+.photoblur-protected {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  pointer-events: auto !important;
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+}
+
+/* Protection contre les captures d'écran sur certains navigateurs mobiles */
+.photoblur-protected {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Protection additionnelle sur mobile */
+@media (max-width: 768px) {
+  .photoblur-protected {
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  /* Masquer le menu contextuel sur mobile */
+  .photoblur-protected::-webkit-media-controls {
+    display: none !important;
+  }
+  
+  .photoblur-protected::-webkit-media-controls-panel {
+    display: none !important;
+  }
+}
+
+/* Protection supplémentaire avec overlay invisible */
+.photoblur-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: auto;
+  background: transparent;
+}
+
+/* Styles pour les différents types d'images */
+.photoblur-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Animation d'apparition du flou */
+.photoblur-blurred {
+  animation: blurAppear 0.5s ease-in-out;
+}
+
+@keyframes blurAppear {
+  from { filter: blur(0px); }
+  to { filter: blur(10px); }
+}
+
+/* Styles spécifiques pour les photos de profil */
+.profile_photo .photoblur-blurred,
+.user_sidebar_photo .photoblur-blurred {
+  border-radius: 50%;
+}
+
+/* Styles pour les albums et galeries */
+.album_photo .photoblur-blurred,
+.photo_gallery .photoblur-blurred {
+  border-radius: 8px;
+}
+
+/* Protection contre l'impression */
+@media print {
+  .photoblur-protected {
+    display: none !important;
+  }
+}
+
+/* Protection contre les outils de développement (effort supplémentaire) */
+.photoblur-protected::selection {
+  background: transparent;
+}
+
+.photoblur-protected::-moz-selection {
+  background: transparent;
+}
+
+/* Masquer les images pendant le chargement pour éviter le flash */
+.photoblur-loading {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photoblur-loaded {
+  opacity: 1;
+}
