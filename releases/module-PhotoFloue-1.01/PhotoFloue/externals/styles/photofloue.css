@@ -1,0 +1,231 @@
+/**
+ * PhotoFloue Module for SocialEngine 7.4 - Styles CSS
+ * 
+ * Styles pour flouter les photos et empêcher les captures d'écran
+ */
+
+/* === FLOUTAGE DES PHOTOS POUR VISITEURS NON CONNECTÉS === */
+
+/* Effet de floutage principal */
+body.photofloue-user-not-logged-in .photofloue-blurred {
+  filter: blur(10px) !important;
+  -webkit-filter: blur(10px) !important;
+  -moz-filter: blur(10px) !important;
+  -o-filter: blur(10px) !important;
+  -ms-filter: blur(10px) !important;
+  transition: filter 0.3s ease !important;
+}
+
+/* Floutage spécifique pour les images de fond des albums */
+body.photofloue-user-not-logged-in .bg_item_photo_album_photo.photofloue-blurred,
+body.photofloue-user-not-logged-in .bg_item_photo.photofloue-blurred {
+  filter: blur(10px) !important;
+  -webkit-filter: blur(10px) !important;
+  transition: filter 0.3s ease !important;
+}
+
+/* Floutage pour les images traditionnelles */
+body.photofloue-user-not-logged-in img.photofloue-blurred {
+  filter: blur(10px) !important;
+  -webkit-filter: blur(10px) !important;
+  transition: filter 0.3s ease !important;
+}
+
+/* === CONTENEUR ET TOOLTIP === */
+
+/* Conteneur avec tooltip */
+.photofloue-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Overlay pour intercepter les interactions */
+.photofloue-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Tooltip au survol */
+.photofloue-container:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInTooltip 0.3s ease forwards;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInTooltip {
+  from { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(0.8); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+}
+
+/* === PROTECTION CONTRE LA SÉLECTION === */
+
+/* Protection de base contre la sélection */
+.photofloue-protected {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  pointer-events: auto !important;
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+}
+
+/* Protection spécifique pour les éléments avec fond d'image */
+.photofloue-protected.photofloue-background-photo {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* === PROTECTION MOBILE === */
+
+@media (max-width: 768px) {
+  /* Tooltip mobile plus compact */
+  .photofloue-container:hover::after {
+    content: 'Connectez-vous pour voir';
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  /* Protection tactile renforcée */
+  .photofloue-protected {
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  /* Masquer les contrôles media sur mobile */
+  .photofloue-protected::-webkit-media-controls {
+    display: none !important;
+  }
+  
+  .photofloue-protected::-webkit-media-controls-panel {
+    display: none !important;
+  }
+}
+
+/* === ANIMATIONS === */
+
+/* Animation d'apparition du flou */
+.photofloue-blurred {
+  animation: blurAppear 0.5s ease-in-out;
+}
+
+@keyframes blurAppear {
+  from { filter: blur(0px); }
+  to { filter: blur(10px); }
+}
+
+/* === STYLES SPÉCIFIQUES PAR TYPE === */
+
+/* Photos de profil (généralement rondes) */
+.profile_photo .photofloue-blurred,
+.user_sidebar_photo .photofloue-blurred {
+  border-radius: inherit;
+}
+
+/* Photos d'albums */
+.thumbs_photo .photofloue-blurred,
+.album_photo .photofloue-blurred {
+  border-radius: inherit;
+}
+
+/* === PROTECTION CONTRE L'IMPRESSION === */
+
+@media print {
+  .photofloue-protected {
+    display: none !important;
+  }
+  
+  .photofloue-blurred {
+    visibility: hidden !important;
+  }
+}
+
+/* === PROTECTION CONTRE LES OUTILS DE DÉVELOPPEMENT === */
+
+/* Intensification du flou si outils détectés */
+.photofloue-devtools-detected .photofloue-blurred {
+  filter: blur(20px) !important;
+  -webkit-filter: blur(20px) !important;
+}
+
+/* === PROTECTION CONTRE LA SÉLECTION AVANCÉE === */
+
+.photofloue-protected::selection {
+  background: transparent;
+}
+
+.photofloue-protected::-moz-selection {
+  background: transparent;
+}
+
+/* === STYLES DE CHARGEMENT === */
+
+/* Masquer pendant le chargement pour éviter le flash */
+.photofloue-loading {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photofloue-loaded {
+  opacity: 1;
+}
+
+/* === COMPATIBILITÉ ET FALLBACKS === */
+
+/* Fallback pour navigateurs anciens sans support filter */
+.no-css-filters .photofloue-blurred {
+  opacity: 0.3;
+  transform: scale(1.1);
+}
+
+/* Support pour les différents préfixes vendeur */
+@supports (-webkit-filter: blur(1px)) {
+  .photofloue-blurred {
+    -webkit-filter: blur(10px) !important;
+  }
+}
+
+@supports (filter: blur(1px)) {
+  .photofloue-blurred {
+    filter: blur(10px) !important;
+  }
+}
