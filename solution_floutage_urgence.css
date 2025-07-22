@@ -1,0 +1,161 @@
+/**
+ * SOLUTION D'URGENCE - Floutage des photos sans module
+ * 
+ * À ajouter dans application/themes/[votre-theme]/theme.css
+ * ou directement dans l'admin panel dans la section CSS personnalisé
+ */
+
+/* === FLOUTAGE POUR VISITEURS NON CONNECTÉS === */
+
+/* Photos d'albums - classe principale identifiée */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* Photos d'albums - autres sélecteurs */
+body:not(.logged-in):not(.logged_in) .bg_item_photo {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* Photos dans les galeries */
+body:not(.logged-in):not(.logged_in) .thumbs_photo .bg_item_photo {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* Photos de profil utilisateurs */
+body:not(.logged-in):not(.logged_in) .profile_photo img {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* Photos sidebar utilisateurs */
+body:not(.logged-in):not(.logged_in) .user_sidebar_photo img {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* Avatars */
+body:not(.logged-in):not(.logged_in) .avatar img {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* === PROTECTION ANTI-CLIC DROIT === */
+
+/* Protection des photos floutées */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo,
+body:not(.logged-in):not(.logged_in) .profile_photo,
+body:not(.logged-in):not(.logged_in) .thumbs_photo {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* === OVERLAY AVEC MESSAGE === */
+
+/* Overlay pour intercepter les interactions */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Message au survol */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo::after {
+    content: 'Connectez-vous pour voir les photos nettes';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Afficher le message au survol */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo:hover::after {
+    opacity: 1;
+}
+
+/* === RESPONSIVE MOBILE === */
+
+@media (max-width: 768px) {
+    /* Message plus court sur mobile */
+    body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo::after {
+        content: 'Connectez-vous';
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    
+    /* Protection tactile renforcée */
+    body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo,
+    body:not(.logged-in):not(.logged_in) .profile_photo img {
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        -khtml-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
+}
+
+/* === FALLBACK POUR NAVIGATEURS ANCIENS === */
+
+/* Si le filtre blur n'est pas supporté */
+.no-css-filters body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo,
+.no-css-filters body:not(.logged-in):not(.logged_in) .profile_photo img {
+    opacity: 0.3;
+    transform: scale(1.05);
+}
+
+/* === PROTECTION CONTRE L'IMPRESSION === */
+
+@media print {
+    body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo,
+    body:not(.logged-in):not(.logged_in) .profile_photo img {
+        display: none !important;
+    }
+}
+
+/* === STYLES ADDITIONNELS === */
+
+/* S'assurer que la position relative est définie pour les overlays */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo {
+    position: relative;
+}
+
+/* Animation d'apparition du flou */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo,
+body:not(.logged-in):not(.logged_in) .profile_photo img {
+    animation: blurAppear 0.5s ease-in-out;
+}
+
+@keyframes blurAppear {
+    from { filter: blur(0px); }
+    to { filter: blur(10px); }
+}
