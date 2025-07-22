@@ -1,8 +1,8 @@
-# PhotoBlur Module for SocialEngine 7.4
+# PhotoFloue Module for SocialEngine 7.4
 
 ## 📖 Description
 
-Le module **PhotoBlur** est conçu pour SocialEngine 7.4 afin de flouter automatiquement les photos des utilisateurs et des albums pour les visiteurs non connectés. L'objectif est d'encourager l'inscription en montrant un aperçu flouté du contenu premium.
+Le module **PhotoFloue** est conçu pour SocialEngine 7.4 afin de flouter automatiquement les photos des utilisateurs et des albums pour les visiteurs non connectés. L'objectif est d'encourager l'inscription en montrant un aperçu flouté du contenu premium.
 
 ## ✨ Fonctionnalités
 
@@ -35,13 +35,13 @@ Le module **PhotoBlur** est conçu pour SocialEngine 7.4 afin de flouter automat
 1. **Télécharger le module**
    ```bash
    # Copier les fichiers du module dans le répertoire SocialEngine
-   cp -r PhotoBlur/ /path/to/socialengine/application/modules/
+   cp -r PhotoFloue/ /path/to/socialengine/application/modules/
    ```
 
 2. **Installer via l'admin**
    - Connectez-vous en tant qu'administrateur
    - Allez dans `Admin Panel > Plugins > Browse Plugins`
-   - Trouvez "PhotoBlur Module" et cliquez "Install"
+   - Trouvez "PhotoFloue Module" et cliquez "Install"
    - Activez le module après installation
 
 3. **Vérification**
@@ -55,12 +55,12 @@ Le module **PhotoBlur** est conçu pour SocialEngine 7.4 afin de flouter automat
 
 | Paramètre | Description | Valeur par défaut |
 |-----------|-------------|-------------------|
-| `photoblur.enabled` | Activer/désactiver le module | `1` (activé) |
-| `photoblur.blur_intensity` | Intensité du flou (1-20px) | `10` |
-| `photoblur.apply_to_users` | Flouter les photos utilisateurs | `1` (oui) |
-| `photoblur.apply_to_albums` | Flouter les photos d'albums | `1` (oui) |
-| `photoblur.mobile_protection` | Protection mobile renforcée | `1` (activé) |
-| `photoblur.login_message` | Message d'incitation | "Connectez-vous pour voir les photos nettes" |
+| `photofloue.enabled` | Activer/désactiver le module | `1` (activé) |
+| `photofloue.blur_intensity` | Intensité du flou (1-20px) | `10` |
+| `photofloue.apply_to_users` | Flouter les photos utilisateurs | `1` (oui) |
+| `photofloue.apply_to_albums` | Flouter les photos d'albums | `1` (oui) |
+| `photofloue.mobile_protection` | Protection mobile renforcée | `1` (activé) |
+| `photofloue.login_message` | Message d'incitation | "Connectez-vous pour voir les photos nettes" |
 
 ### Modification via base de données
 
@@ -68,12 +68,12 @@ Le module **PhotoBlur** est conçu pour SocialEngine 7.4 afin de flouter automat
 -- Changer l'intensité du flou à 15px
 UPDATE engine4_core_settings 
 SET value = '15' 
-WHERE name = 'photoblur.blur_intensity';
+WHERE name = 'photofloue.blur_intensity';
 
 -- Désactiver la protection mobile
 UPDATE engine4_core_settings 
 SET value = '0' 
-WHERE name = 'photoblur.mobile_protection';
+WHERE name = 'photofloue.mobile_protection';
 ```
 
 ## 🔧 Architecture Technique
@@ -81,7 +81,7 @@ WHERE name = 'photoblur.mobile_protection';
 ### Structure des fichiers
 
 ```
-PhotoBlur/
+PhotoFloue/
 ├── Bootstrap.php                    # Initialisation du module
 ├── Plugin/
 │   └── Core.php                    # Logique principale et hooks
@@ -90,9 +90,9 @@ PhotoBlur/
 │       └── ItemBackgroundPhoto.php # Surcharge helper photos
 ├── externals/
 │   ├── scripts/
-│   │   └── photoblur.js           # Protection JavaScript
+│   │   └── photofloue.js           # Protection JavaScript
 │   └── styles/
-│       └── photoblur.css          # Styles de floutage
+│       └── photofloue.css          # Styles de floutage
 ├── settings/
 │   ├── manifest.php               # Configuration du module
 │   └── install.php                # Script d'installation
@@ -119,8 +119,8 @@ PhotoBlur/
 .avatar img
 
 /* Protection générale */
-.photoblur-protected
-.photoblur-blurred
+.photofloue-protected
+.photofloue-blurred
 ```
 
 ## 🛡️ Sécurité et Limitations
@@ -145,12 +145,12 @@ PhotoBlur/
 
 1. **Vérifier le statut du module**
    ```sql
-   SELECT * FROM engine4_core_modules WHERE name = 'photoblur';
+   SELECT * FROM engine4_core_modules WHERE name = 'photofloue';
    ```
 
 2. **Vérifier les paramètres**
    ```sql
-   SELECT * FROM engine4_core_settings WHERE name LIKE 'photoblur.%';
+   SELECT * FROM engine4_core_settings WHERE name LIKE 'photofloue.%';
    ```
 
 3. **Vider le cache**
@@ -161,14 +161,14 @@ PhotoBlur/
 
 1. **Vérifier les fichiers**
    ```bash
-   ls -la application/modules/PhotoBlur/externals/scripts/
-   ls -la application/modules/PhotoBlur/externals/styles/
+   ls -la application/modules/PhotoFloue/externals/scripts/
+   ls -la application/modules/PhotoFloue/externals/styles/
    ```
 
 2. **Permissions des fichiers**
    ```bash
-   chmod 644 application/modules/PhotoBlur/externals/scripts/photoblur.js
-   chmod 644 application/modules/PhotoBlur/externals/styles/photoblur.css
+   chmod 644 application/modules/PhotoFloue/externals/scripts/photofloue.js
+   chmod 644 application/modules/PhotoFloue/externals/styles/photofloue.css
    ```
 
 ### Erreurs d'installation
@@ -224,4 +224,4 @@ Les logs du module sont visibles dans :
 
 ---
 
-**Développé pour SocialEngine 7.4** | **Version 1.0.0** | **© 2024**
+**Développé pour SocialEngine 7.4** | **Version 1.0.0** | **© 2024** | **Module PhotoFloue**

@@ -1,5 +1,5 @@
-IMAGE THUMBNAIL POUR LE MODULE PHOTOBLUR
-=======================================
+IMAGE THUMBNAIL POUR LE MODULE PHOTOFLOUE
+========================================
 
 Ce fichier sera remplacé par une vraie image PNG (64x64 pixels).
 
@@ -13,4 +13,4 @@ Format requis : PNG, 64x64 pixels
 Nom : thumb.png
 
 Cette image apparaîtra dans l'interface d'administration de SocialEngine
-pour identifier visuellement le module PhotoBlur.
+pour identifier visuellement le module PhotoFloue.

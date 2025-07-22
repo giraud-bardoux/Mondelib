@@ -1,19 +1,19 @@
 <?php
 /**
- * PhotoBlur Module for SocialEngine 7.4 - Installer
+ * PhotoFloue Module for SocialEngine 7.4 - Installer
  *
  * @category   Application_Extensions
- * @package    PhotoBlur
+ * @package    PhotoFloue
  * @copyright  Copyright 2024
  * @license    Custom License
  */
 
-class PhotoBlur_Installer extends Engine_Package_Installer_Module
+class PhotoFloue_Installer extends Engine_Package_Installer_Module
 {
   protected $_hasSettings = true;
   
   /**
-   * Installation du module PhotoBlur
+   * Installation du module PhotoFloue
    */
   public function onInstall()
   {
@@ -82,43 +82,43 @@ class PhotoBlur_Installer extends Engine_Package_Installer_Module
     
     // Paramètres par défaut du module
     $settings = array(
-      'photoblur.enabled' => array(
+      'photofloue.enabled' => array(
         'value' => 1,
         'description' => 'Activer le module de floutage des photos'
       ),
-      'photoblur.blur_intensity' => array(
+      'photofloue.blur_intensity' => array(
         'value' => 10,
         'description' => 'Intensité du flou en pixels (1-20)'
       ),
-      'photoblur.protection_level' => array(
+      'photofloue.protection_level' => array(
         'value' => 'high',
         'description' => 'Niveau de protection (low, medium, high)'
       ),
-      'photoblur.apply_to_users' => array(
+      'photofloue.apply_to_users' => array(
         'value' => 1,
         'description' => 'Appliquer le flou aux photos des utilisateurs'
       ),
-      'photoblur.apply_to_albums' => array(
+      'photofloue.apply_to_albums' => array(
         'value' => 1,
         'description' => 'Appliquer le flou aux photos d\'albums'
       ),
-      'photoblur.mobile_protection' => array(
+      'photofloue.mobile_protection' => array(
         'value' => 1,
         'description' => 'Activer la protection mobile renforcée'
       ),
-      'photoblur.login_message' => array(
+      'photofloue.login_message' => array(
         'value' => 'Connectez-vous pour voir les photos nettes',
         'description' => 'Message affiché au survol des photos floues'
       ),
-      'photoblur.show_tooltips' => array(
+      'photofloue.show_tooltips' => array(
         'value' => 1,
         'description' => 'Afficher les tooltips explicatifs'
       ),
-      'photoblur.devtools_detection' => array(
+      'photofloue.devtools_detection' => array(
         'value' => 1,
         'description' => 'Détecter l\'ouverture des outils de développement'
       ),
-      'photoblur.print_protection' => array(
+      'photofloue.print_protection' => array(
         'value' => 1,
         'description' => 'Empêcher l\'impression des photos protégées'
       )
@@ -153,7 +153,7 @@ class PhotoBlur_Installer extends Engine_Package_Installer_Module
     
     // Supprimer tous les paramètres du module
     $db->delete('engine4_core_settings', array(
-      'name LIKE ?' => 'photoblur.%'
+      'name LIKE ?' => 'photofloue.%'
     ));
   }
   
@@ -167,7 +167,7 @@ class PhotoBlur_Installer extends Engine_Package_Installer_Module
     foreach ($requiredModules as $moduleName) {
       if (!Engine_Api::_()->hasModuleBootstrap($moduleName)) {
         throw new Engine_Exception(sprintf(
-          'Le module PhotoBlur nécessite le module "%s" qui n\'est pas disponible.',
+          'Le module PhotoFloue nécessite le module "%s" qui n\'est pas disponible.',
           $moduleName
         ));
       }
@@ -193,7 +193,7 @@ class PhotoBlur_Installer extends Engine_Package_Installer_Module
       
       if ($enabled === null) {
         throw new Engine_Exception(sprintf(
-          'Le module "%s" n\'est pas installé. PhotoBlur nécessite ce module.',
+          'Le module "%s" n\'est pas installé. PhotoFloue nécessite ce module.',
           $moduleName
         ));
       }
@@ -202,7 +202,7 @@ class PhotoBlur_Installer extends Engine_Package_Installer_Module
         // Logger un avertissement
         Engine_Api::_()->getApi('response', 'core')->setRedirect(null, array(
           'messages' => array(sprintf(
-            'Attention : Le module "%s" est désactivé. PhotoBlur peut ne pas fonctionner correctement.',
+            'Attention : Le module "%s" est désactivé. PhotoFloue peut ne pas fonctionner correctement.',
             $moduleName
           ))
         ));
@@ -217,8 +217,8 @@ class PhotoBlur_Installer extends Engine_Package_Installer_Module
   {
     // Vérifier que les répertoires nécessaires existent
     $directories = array(
-      APPLICATION_PATH . '/modules/PhotoBlur/externals/styles',
-      APPLICATION_PATH . '/modules/PhotoBlur/externals/scripts',
+      APPLICATION_PATH . '/modules/PhotoFloue/externals/styles',
+      APPLICATION_PATH . '/modules/PhotoFloue/externals/scripts',
     );
     
     foreach ($directories as $dir) {
@@ -232,8 +232,8 @@ class PhotoBlur_Installer extends Engine_Package_Installer_Module
     
     // Vérifier que les fichiers CSS et JS existent
     $files = array(
-      APPLICATION_PATH . '/modules/PhotoBlur/externals/styles/photoblur.css',
-      APPLICATION_PATH . '/modules/PhotoBlur/externals/scripts/photoblur.js',
+      APPLICATION_PATH . '/modules/PhotoFloue/externals/styles/photofloue.css',
+      APPLICATION_PATH . '/modules/PhotoFloue/externals/scripts/photofloue.js',
     );
     
     foreach ($files as $file) {

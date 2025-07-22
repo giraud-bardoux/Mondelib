@@ -1,14 +1,14 @@
 <?php
 /**
- * PhotoBlur Module for SocialEngine 7.4 - ItemBackgroundPhoto Helper
+ * PhotoFloue Module for SocialEngine 7.4 - ItemBackgroundPhoto Helper
  *
  * @category   Application_Extensions
- * @package    PhotoBlur
+ * @package    PhotoFloue
  * @copyright  Copyright 2024
  * @license    Custom License
  */
 
-class PhotoBlur_View_Helper_ItemBackgroundPhoto extends Engine_View_Helper_ItemBackgroundPhoto
+class PhotoFloue_View_Helper_ItemBackgroundPhoto extends Engine_View_Helper_ItemBackgroundPhoto
 {
   /**
    * Surcharge de la méthode itemBackgroundPhoto pour appliquer le floutage
@@ -25,7 +25,7 @@ class PhotoBlur_View_Helper_ItemBackgroundPhoto extends Engine_View_Helper_ItemB
     // Si l'utilisateur n'est pas connecté et que c'est un item à flouter
     if (!$isLoggedIn && $this->_shouldBlurItem($item)) {
       // Appliquer le floutage via le plugin
-      $originalHtml = PhotoBlur_Plugin_Core::applyBlurToPhoto($originalHtml, 'photoblur-background-photo');
+      $originalHtml = PhotoFloue_Plugin_Core::applyBlurToPhoto($originalHtml, 'photofloue-background-photo');
     }
     
     return $originalHtml;

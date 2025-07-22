@@ -1,14 +1,14 @@
 <?php
 /**
- * PhotoBlur Module for SocialEngine 7.4 - Core Plugin
+ * PhotoFloue Module for SocialEngine 7.4 - Core Plugin
  *
  * @category   Application_Extensions
- * @package    PhotoBlur
+ * @package    PhotoFloue
  * @copyright  Copyright 2024
  * @license    Custom License
  */
 
-class PhotoBlur_Plugin_Core extends Zend_Controller_Plugin_Abstract
+class PhotoFloue_Plugin_Core extends Zend_Controller_Plugin_Abstract
 {
   /**
    * Hook appelé lors du rendu du layout par défaut
@@ -29,7 +29,7 @@ class PhotoBlur_Plugin_Core extends Zend_Controller_Plugin_Abstract
     // Ajouter les variables JavaScript globales
     $script = "
     <script type='text/javascript'>
-      window.PHOTOBLUR_CONFIG = {
+      window.PHOTOFLOUE_CONFIG = {
         userLoggedIn: " . ($isLoggedIn ? 'true' : 'false') . ",
         isHomepage: " . ($isHomepage ? 'true' : 'false') . ",
         loginMessage: '" . $view->translate("Connectez-vous pour voir les photos nettes") . "',
@@ -77,7 +77,7 @@ class PhotoBlur_Plugin_Core extends Zend_Controller_Plugin_Abstract
     }
     
     // Ajouter les classes de floutage
-    $blurClasses = 'photoblur-blurred photoblur-protected ' . $additionalClasses;
+    $blurClasses = 'photofloue-blurred photofloue-protected ' . $additionalClasses;
     
     // Modifier le HTML pour ajouter les classes
     if (preg_match('/<([^>]*?)class=[\'"](.*?)[\'"](.*?)>/i', $imageHtml, $matches)) {
@@ -99,10 +99,10 @@ class PhotoBlur_Plugin_Core extends Zend_Controller_Plugin_Abstract
     }
     
     // Envelopper dans un conteneur avec tooltip si nécessaire
-    if (strpos($imageHtml, 'photoblur-container') === false) {
+    if (strpos($imageHtml, 'photofloue-container') === false) {
       $view = Zend_Registry::get('Zend_View');
       $tooltipMessage = $view->translate("Connectez-vous pour voir les photos nettes");
-      $wrappedHtml = '<div class="photoblur-container" title="' . htmlspecialchars($tooltipMessage) . '">' . $newImageHtml . '</div>';
+      $wrappedHtml = '<div class="photofloue-container" title="' . htmlspecialchars($tooltipMessage) . '">' . $newImageHtml . '</div>';
       return $wrappedHtml;
     }
     
@@ -150,15 +150,15 @@ class PhotoBlur_Plugin_Core extends Zend_Controller_Plugin_Abstract
     if ($viewer && $viewer->getIdentity()) {
       $view->headScript()->appendScript("
         document.addEventListener('DOMContentLoaded', function() {
-          document.body.classList.add('photoblur-user-logged-in');
-          document.body.classList.remove('photoblur-user-not-logged-in');
+          document.body.classList.add('photofloue-user-logged-in');
+          document.body.classList.remove('photofloue-user-not-logged-in');
         });
       ");
     } else {
       $view->headScript()->appendScript("
         document.addEventListener('DOMContentLoaded', function() {
-          document.body.classList.add('photoblur-user-not-logged-in');
-          document.body.classList.remove('photoblur-user-logged-in');
+          document.body.classList.add('photofloue-user-not-logged-in');
+          document.body.classList.remove('photofloue-user-logged-in');
         });
       ");
     }

@@ -1,5 +1,5 @@
 /**
- * PhotoBlur Module for SocialEngine 7.4 - Styles CSS
+ * PhotoFloue Module for SocialEngine 7.4 - Styles CSS
  * 
  * Styles pour flouter les photos et empêcher les captures d'écran
  */
@@ -7,7 +7,7 @@
 /* === FLOUTAGE DES PHOTOS POUR VISITEURS NON CONNECTÉS === */
 
 /* Effet de floutage principal */
-body.photoblur-user-not-logged-in .photoblur-blurred {
+body.photofloue-user-not-logged-in .photofloue-blurred {
   filter: blur(10px) !important;
   -webkit-filter: blur(10px) !important;
   -moz-filter: blur(10px) !important;
@@ -17,15 +17,15 @@ body.photoblur-user-not-logged-in .photoblur-blurred {
 }
 
 /* Floutage spécifique pour les images de fond des albums */
-body.photoblur-user-not-logged-in .bg_item_photo_album_photo.photoblur-blurred,
-body.photoblur-user-not-logged-in .bg_item_photo.photoblur-blurred {
+body.photofloue-user-not-logged-in .bg_item_photo_album_photo.photofloue-blurred,
+body.photofloue-user-not-logged-in .bg_item_photo.photofloue-blurred {
   filter: blur(10px) !important;
   -webkit-filter: blur(10px) !important;
   transition: filter 0.3s ease !important;
 }
 
 /* Floutage pour les images traditionnelles */
-body.photoblur-user-not-logged-in img.photoblur-blurred {
+body.photofloue-user-not-logged-in img.photofloue-blurred {
   filter: blur(10px) !important;
   -webkit-filter: blur(10px) !important;
   transition: filter 0.3s ease !important;
@@ -34,14 +34,14 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 /* === CONTENEUR ET TOOLTIP === */
 
 /* Conteneur avec tooltip */
-.photoblur-container {
+.photofloue-container {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
 /* Overlay pour intercepter les interactions */
-.photoblur-container::before {
+.photofloue-container::before {
   content: '';
   position: absolute;
   top: 0;
@@ -54,7 +54,7 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 }
 
 /* Tooltip au survol */
-.photoblur-container:hover::after {
+.photofloue-container:hover::after {
   content: attr(title);
   position: absolute;
   top: 50%;
@@ -87,7 +87,7 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 /* === PROTECTION CONTRE LA SÉLECTION === */
 
 /* Protection de base contre la sélection */
-.photoblur-protected {
+.photofloue-protected {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
   -ms-user-select: none !important;
@@ -103,7 +103,7 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 }
 
 /* Protection spécifique pour les éléments avec fond d'image */
-.photoblur-protected.photoblur-background-photo {
+.photofloue-protected.photofloue-background-photo {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -113,14 +113,14 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 
 @media (max-width: 768px) {
   /* Tooltip mobile plus compact */
-  .photoblur-container:hover::after {
+  .photofloue-container:hover::after {
     content: 'Connectez-vous pour voir';
     font-size: 12px;
     padding: 8px 12px;
   }
   
   /* Protection tactile renforcée */
-  .photoblur-protected {
+  .photofloue-protected {
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
     -khtml-user-select: none !important;
@@ -132,11 +132,11 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
   }
   
   /* Masquer les contrôles media sur mobile */
-  .photoblur-protected::-webkit-media-controls {
+  .photofloue-protected::-webkit-media-controls {
     display: none !important;
   }
   
-  .photoblur-protected::-webkit-media-controls-panel {
+  .photofloue-protected::-webkit-media-controls-panel {
     display: none !important;
   }
 }
@@ -144,7 +144,7 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 /* === ANIMATIONS === */
 
 /* Animation d'apparition du flou */
-.photoblur-blurred {
+.photofloue-blurred {
   animation: blurAppear 0.5s ease-in-out;
 }
 
@@ -156,25 +156,25 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 /* === STYLES SPÉCIFIQUES PAR TYPE === */
 
 /* Photos de profil (généralement rondes) */
-.profile_photo .photoblur-blurred,
-.user_sidebar_photo .photoblur-blurred {
+.profile_photo .photofloue-blurred,
+.user_sidebar_photo .photofloue-blurred {
   border-radius: inherit;
 }
 
 /* Photos d'albums */
-.thumbs_photo .photoblur-blurred,
-.album_photo .photoblur-blurred {
+.thumbs_photo .photofloue-blurred,
+.album_photo .photofloue-blurred {
   border-radius: inherit;
 }
 
 /* === PROTECTION CONTRE L'IMPRESSION === */
 
 @media print {
-  .photoblur-protected {
+  .photofloue-protected {
     display: none !important;
   }
   
-  .photoblur-blurred {
+  .photofloue-blurred {
     visibility: hidden !important;
   }
 }
@@ -182,50 +182,50 @@ body.photoblur-user-not-logged-in img.photoblur-blurred {
 /* === PROTECTION CONTRE LES OUTILS DE DÉVELOPPEMENT === */
 
 /* Intensification du flou si outils détectés */
-.photoblur-devtools-detected .photoblur-blurred {
+.photofloue-devtools-detected .photofloue-blurred {
   filter: blur(20px) !important;
   -webkit-filter: blur(20px) !important;
 }
 
 /* === PROTECTION CONTRE LA SÉLECTION AVANCÉE === */
 
-.photoblur-protected::selection {
+.photofloue-protected::selection {
   background: transparent;
 }
 
-.photoblur-protected::-moz-selection {
+.photofloue-protected::-moz-selection {
   background: transparent;
 }
 
 /* === STYLES DE CHARGEMENT === */
 
 /* Masquer pendant le chargement pour éviter le flash */
-.photoblur-loading {
+.photofloue-loading {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.photoblur-loaded {
+.photofloue-loaded {
   opacity: 1;
 }
 
 /* === COMPATIBILITÉ ET FALLBACKS === */
 
 /* Fallback pour navigateurs anciens sans support filter */
-.no-css-filters .photoblur-blurred {
+.no-css-filters .photofloue-blurred {
   opacity: 0.3;
   transform: scale(1.1);
 }
 
 /* Support pour les différents préfixes vendeur */
 @supports (-webkit-filter: blur(1px)) {
-  .photoblur-blurred {
+  .photofloue-blurred {
     -webkit-filter: blur(10px) !important;
   }
 }
 
 @supports (filter: blur(1px)) {
-  .photoblur-blurred {
+  .photofloue-blurred {
     filter: blur(10px) !important;
   }
 }

@@ -14,15 +14,15 @@ return array(
   // Package -------------------------------------------------------------------
   'package' => array(
     'type' => 'module',
-    'name' => 'photoblur',
+    'name' => 'photofloue',
     'version' => '1.0.0',
     'revision' => '$Revision: 1 $',
-    'path' => 'application/modules/PhotoBlur',
+    'path' => 'application/modules/PhotoFloue',
     'repository' => 'custom',
-    'title' => 'Photo Blur Module',
+    'title' => 'Photo Floue Module',
     'description' => 'Floute les photos des albums et utilisateurs pour les visiteurs non-membres afin d\'encourager l\'inscription',
     'author' => 'Custom Development',
-    'thumb' => 'application/modules/PhotoBlur/externals/images/thumb.png',
+    'thumb' => 'application/modules/PhotoFloue/externals/images/thumb.png',
     'dependencies' => array(
       array(
         'type' => 'module',
@@ -48,25 +48,25 @@ return array(
       'disable',
     ),
     'callback' => array(
-      'path' => 'application/modules/PhotoBlur/settings/install.php',
-      'class' => 'PhotoBlur_Installer',
+      'path' => 'application/modules/PhotoFloue/settings/install.php',
+      'class' => 'PhotoFloue_Installer',
     ),
     'directories' => array(
-      'application/modules/PhotoBlur',
+      'application/modules/PhotoFloue',
     ),
     'files' => array(
-      'application/languages/en/photoblur.csv',
-      'application/languages/fr/photoblur.csv',
+      'application/languages/en/photofloue.csv',
+      'application/languages/fr/photofloue.csv',
     ),
   ),
   
   // Load default CSS and JS files
   'loadDefault' => array(
     'js' => array(
-      'application/modules/PhotoBlur/externals/scripts/photoblur.js',
+      'application/modules/PhotoFloue/externals/scripts/photofloue.js',
     ),
     'css' => array(
-      'application/modules/PhotoBlur/externals/styles/photoblur.css',
+      'application/modules/PhotoFloue/externals/styles/photofloue.css',
     )
   ),
   
@@ -74,15 +74,15 @@ return array(
   'hooks' => array(
     array(
       'event' => 'onRenderLayoutDefault',
-      'resource' => 'PhotoBlur_Plugin_Core',
+      'resource' => 'PhotoFloue_Plugin_Core',
     ),
     array(
       'event' => 'onUserPhotoUpload',
-      'resource' => 'PhotoBlur_Plugin_Core',
+      'resource' => 'PhotoFloue_Plugin_Core',
     ),
     array(
       'event' => 'onItemCreateAfter',
-      'resource' => 'PhotoBlur_Plugin_Core',
+      'resource' => 'PhotoFloue_Plugin_Core',
     ),
   ),
   

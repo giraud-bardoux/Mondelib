@@ -1,9 +1,9 @@
 <?php
 /**
- * PhotoBlur Module for SocialEngine 7.4 - Test Script
+ * PhotoFloue Module for SocialEngine 7.4 - Test Script
  *
  * @category   Application_Extensions
- * @package    PhotoBlur
+ * @package    PhotoFloue
  * @copyright  Copyright 2024
  * @license    Custom License
  */
@@ -14,16 +14,16 @@ if (!defined('APPLICATION_PATH')) {
 }
 
 /**
- * Script de test pour le module PhotoBlur
+ * Script de test pour le module PhotoFloue
  */
-class PhotoBlur_TestModule
+class PhotoFloue_TestModule
 {
     protected $_db;
     protected $_results = array();
     
     public function __construct()
     {
-        echo "<h1>🧪 Test du Module PhotoBlur pour SocialEngine 7.4</h1>\n";
+        echo "<h1>🧪 Test du Module PhotoFloue pour SocialEngine 7.4</h1>\n";
         echo "<style>
             body { font-family: Arial, sans-serif; margin: 20px; }
             .test-ok { color: green; font-weight: bold; }
@@ -76,7 +76,7 @@ class PhotoBlur_TestModule
             'README.md'
         );
         
-        $modulePath = APPLICATION_PATH . '/modules/PhotoBlur/';
+        $modulePath = APPLICATION_PATH . '/modules/PhotoFloue/';
         $allFilesExist = true;
         
         foreach ($requiredFiles as $file) {
@@ -116,13 +116,13 @@ class PhotoBlur_TestModule
             
             $this->logTest("✅ Configuration base de données détectée", 'ok');
             
-            // Vérifier la présence des paramètres PhotoBlur (simulation)
+            // Vérifier la présence des paramètres PhotoFloue (simulation)
             $expectedSettings = array(
-                'photoblur.enabled',
-                'photoblur.blur_intensity',
-                'photoblur.apply_to_users',
-                'photoblur.apply_to_albums',
-                'photoblur.login_message'
+                'photofloue.enabled',
+                'photofloue.blur_intensity',
+                'photofloue.apply_to_users',
+                'photofloue.apply_to_albums',
+                'photofloue.login_message'
             );
             
             $this->logTest("📝 Paramètres attendus: " . count($expectedSettings), 'info');
@@ -141,7 +141,7 @@ class PhotoBlur_TestModule
     {
         echo "<h3>🔧 Test du statut du module</h3>\n";
         
-        $manifestPath = APPLICATION_PATH . '/modules/PhotoBlur/settings/manifest.php';
+        $manifestPath = APPLICATION_PATH . '/modules/PhotoFloue/settings/manifest.php';
         
         if (file_exists($manifestPath)) {
             $manifest = include $manifestPath;
@@ -196,11 +196,11 @@ class PhotoBlur_TestModule
         echo "<h3>🔐 Test des permissions des fichiers</h3>\n";
         
         $filesToCheck = array(
-            'externals/styles/photoblur.css',
-            'externals/scripts/photoblur.js'
+            'externals/styles/photofloue.css',
+            'externals/scripts/photofloue.js'
         );
         
-        $modulePath = APPLICATION_PATH . '/modules/PhotoBlur/';
+        $modulePath = APPLICATION_PATH . '/modules/PhotoFloue/';
         $allPermissionsOk = true;
         
         foreach ($filesToCheck as $file) {
@@ -226,16 +226,16 @@ class PhotoBlur_TestModule
     {
         echo "<h3>🎨 Test du fichier CSS</h3>\n";
         
-        $cssPath = APPLICATION_PATH . '/modules/PhotoBlur/externals/styles/photoblur.css';
+        $cssPath = APPLICATION_PATH . '/modules/PhotoFloue/externals/styles/photofloue.css';
         
         if (file_exists($cssPath)) {
             $cssContent = file_get_contents($cssPath);
             
             // Vérifier les classes importantes
             $requiredClasses = array(
-                '.photoblur-blurred',
-                '.photoblur-protected',
-                '.photoblur-container',
+                '.photofloue-blurred',
+                '.photofloue-protected',
+                '.photofloue-container',
                 'filter: blur('
             );
             
@@ -265,17 +265,17 @@ class PhotoBlur_TestModule
     {
         echo "<h3>⚡ Test du fichier JavaScript</h3>\n";
         
-        $jsPath = APPLICATION_PATH . '/modules/PhotoBlur/externals/scripts/photoblur.js';
+        $jsPath = APPLICATION_PATH . '/modules/PhotoFloue/externals/scripts/photofloue.js';
         
         if (file_exists($jsPath)) {
             $jsContent = file_get_contents($jsPath);
             
             // Vérifier les fonctions importantes
             $requiredFunctions = array(
-                'initPhotoBlur',
+                'initPhotoFloue',
                 'applyProtections',
                 'preventKeyboardShortcuts',
-                'PHOTOBLUR_CONFIG'
+                'PHOTOFLOUE_CONFIG'
             );
             
             $allFunctionsFound = true;
@@ -308,7 +308,7 @@ class PhotoBlur_TestModule
         $allTranslationsOk = true;
         
         foreach ($languages as $lang) {
-            $langPath = APPLICATION_PATH . "/languages/{$lang}/photoblur.csv";
+            $langPath = APPLICATION_PATH . "/languages/{$lang}/photofloue.csv";
             
             if (file_exists($langPath)) {
                 $content = file_get_contents($langPath);
@@ -420,7 +420,7 @@ class PhotoBlur_TestModule
 
 // Exécution des tests si le script est appelé directement
 if (basename($_SERVER['PHP_SELF']) == 'test_module.php') {
-    $tester = new PhotoBlur_TestModule();
+    $tester = new PhotoFloue_TestModule();
     $tester->runAllTests();
     
     echo "<hr>\n";
