@@ -11,3 +11,4 @@ install/
 *.zip
 *.tar.gz
 *.sql
+temporary/
