@@ -1,0 +1,75 @@
+/* === FLOUTAGE ALBUMS POUR VISITEURS NON CONNECTÉS === */
+
+/* Détection automatique du statut utilisateur */
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* Floutage des autres images de profil */
+body:not(.logged-in):not(.logged_in) .profile_photo img,
+body:not(.logged-in):not(.logged_in) .user_sidebar_photo img {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* Message au survol des albums */
+body:not(.logged-in):not(.logged_in) .thumbs_photo {
+    position: relative;
+}
+
+body:not(.logged-in):not(.logged_in) .thumbs_photo::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 5;
+    background: transparent;
+    cursor: pointer;
+}
+
+body:not(.logged-in):not(.logged_in) .thumbs_photo:hover::after {
+    content: 'Connectez-vous pour voir les photos nettes';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Protection contre la sélection */
+body:not(.logged-in):not(.logged_in) .thumbs_photo,
+body:not(.logged-in):not(.logged_in) .bg_item_photo_album_photo {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    body:not(.logged-in):not(.logged_in) .thumbs_photo:hover::after {
+        content: 'Connectez-vous pour voir';
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    /* Protection tactile mobile */
+    body:not(.logged-in):not(.logged_in) .thumbs_photo {
+        -webkit-touch-callout: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+}
