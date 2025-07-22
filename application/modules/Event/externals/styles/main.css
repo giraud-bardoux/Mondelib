@@ -1,0 +1,339 @@
+
+
+
+/* DEFAULT PHOTO THUMB */
+.bg_item_nophoto.bg_item_photo_event:before{
+  content:"\f133";
+}
+.bg_item_nophoto.bg_item_photo_event_topic:before,
+.bg_item_nophoto.bg_item_photo_event_post:before{
+  content:"\f075";
+}
+/* ITEM TYPE ICONS */
+.item_icon_event:before,
+.activity_icon_post_event:before{
+	content:"\f073";
+}
+.item_icon_event_topic:before,
+.item_icon_event_post:before{
+	content:"\f075";
+}
+.item_icon_event_album:before,
+.item_icon_event_photo:before{
+	content:"\f03e";
+}
+/* NOTIFICATION TYPE ICONS */
+.notification_type_event_discussion_response:before,
+.notification_type_event_discussion_reply:before{
+	content:"\f075";
+}
+.notification_type_event_invite:before,
+.notification_type_event_accepted:before{
+	content:"\f073";
+}
+
+/* ICONS */
+.icon_event_edit:before{
+	content: "\f044";
+	font-weight: 400;
+}
+.icon_event_new:before{
+	content:"\f067";
+}
+.icon_event_join:before{
+	content:"\f067";
+}
+.icon_event_delete:before{
+	content:"\f272";
+}
+.icon_event_leave:before{
+	content:"\f00d";
+	font-weight:700 !important;
+}
+.icon_event_accept:before{
+	content:"\f274";
+}
+.icon_event_reject:before{
+	content:"\f273";
+}
+.icon_event_cancel:before{
+	content:"\f235";
+	font-weight:900 !important;
+}
+.activity_icon_event_join:before{
+	content:"\f234";
+	font-weight:900 !important;
+}
+
+/*EVENT LISTING*/
+.upcoming_events .grid_listing_item_stat span.event_end_date{
+	display: none;
+}
+.past_events .grid_listing_item_stat span.event_start_date{
+	display: none;
+}
+/*
+VIEW EVENT
+These styles are used on the view event page, i.e.
+the event's profile page
+*/
+#event_photo img,
+#event_photo span{
+  width:100%;
+	height: 100%;
+}
+#event_photo span{
+  padding-top: 100%;
+}
+div.event_info > h4{
+	margin-bottom:1.1em;
+}
+div.event_info > ul{
+	margin-bottom:10px;
+	overflow:hidden;
+}
+div.event_info > ul > li{
+	overflow:hidden;
+	clear:both;
+	margin-bottom:5px;
+}
+div.event_info > ul > li > div{
+	float:left;
+	clear:left;
+	width:120px;
+}
+div.event_info > ul > li > div + div{
+	float:none;
+	clear:none;
+	overflow:hidden;
+	width:auto;
+}
+#event_stats{
+	margin-top:10px;
+	overflow:hidden;
+}
+#event_stats > ul{
+	margin-bottom:15px;
+}
+#event_stats > ul > li{
+	overflow:hidden;
+}
+#event_stats > ul > li:first-child{
+	margin-bottom:10px;
+	font-size:var(--theme-font-size-small);
+	line-height:170%;
+}
+#event_stats > ul > li + li{
+	margin-top:10px;
+}
+#event_stats .label{
+	color: var(--theme-font-color-light);
+	margin-bottom:0.1875rem;
+}
+#event_stats .event_stats_content{
+	font-weight:var(--theme-font-weight-bold);
+}
+.event_stats_content a{
+	color:var(--theme-font-color);
+}
+#event_stats > ul > li p{
+	margin:0;
+}
+#event_stats > ul > li p + p{
+	margin-top:5px;
+}
+#event_stats .event_stats_info span{
+	font-weight:normal;
+}
+.event_rsvp_form{
+ border-radius: var(--theme-item-radius);
+}
+.events_rsvp > div{
+	clear:both;
+}
+.events_rsvp > div + div{
+	margin-top:5px;
+	clear:both;
+}
+.events_rsvp .event_radio_loading:before{
+	content:"\f110";
+	-webkit-animation:spinning 2s infinite linear;
+	animation:spinning 2s infinite linear;
+	overflow:hidden;
+	font-weight:900 !important;
+	font-family:'Font Awesome 6 Free';
+}
+.events_rsvp .event_radio_loading input{
+	display:none;
+}
+/* photos tab */
+div.event_photos > ul{
+	clear:both;
+	overflow:hidden;
+	margin:20px 0px 20px 0px;
+}
+div.event_photos > ul > li{
+	float:left;
+	display:table-cell;
+	vertical-align:middle;
+	overflow:hidden;
+	margin-right:20px;
+	height:170px;
+}
+div.event_photos > ul > li > div{
+	float:left;
+	overflow:hidden;
+	padding:3px;
+  border-width:1px;
+}
+div.event_photos > ul > li > div img{
+	display:block;
+}
+
+@media(max-width:767px){
+	html div.event_photo_view #media_photo{
+		max-width:100%;
+	}
+	html div.event_photo_view{
+		max-width:100%;
+		min-width:100%;
+	}
+}
+
+/*
+EVENT CREATE FORM
+Some minor changes to the create new event form.
+*/
+#event_create_form .calendar_output_span{
+	display:none;
+}
+#event_create_form #starttime-wrapper select + select,
+#event_create_form #endtime-wrapper select + select{
+	margin-left:5px;
+}
+html[dir="rtl"] #event_create_form #starttime-wrapper select + select,
+html[dir="rtl"] #event_create_form #endtime-wrapper select + select{
+	margin-left:0px;
+	margin-right:5px;
+}
+
+/*
+VIEW EVENT PHOTO
+These styles are used on the view photo page within
+an album.
+*/
+#global_page_event-photo-view #global_content,
+#global_page_event-photo-view #global_content .layout_middle{
+  overflow:visible;
+}
+div.event_photo_view{
+	margin:25px auto 0px auto;
+	max-width:750px;
+	min-width:400px;
+	overflow:visible;
+}
+div.event_photo_view #media_photo{
+  border-width:1px;
+	margin:auto;
+	display:block;
+	max-width:720px;
+}
+div.event_photo_view .event_photo_nav{
+	clear:both;
+	overflow:visible;
+	margin-bottom:4px;
+}
+div.event_photo_view .event_photo_nav > div{
+	float:left;
+	overflow:visible;
+}
+div.event_photo_view .event_photo_nav > div + div{
+	float:none;
+	text-align:right;
+}
+div.event_photo_view .event_photo_nav > div + div > a + a{
+	margin-left:20px;
+}
+div.event_photo_info{
+	border-radius: var(--theme-item-radius);
+	border:5px solid var(--theme-border-color);
+	text-align:center;
+	padding:10px;
+}
+div.event_photo_info p{
+	text-align:left;
+}
+div.event_photo_container{
+	position:relative;
+	display:inline-block;
+}
+div.event_photo_container a:link{
+	text-decoration:none;
+}
+div.event_photo_view > span + div > a{
+	display:block;
+	margin-bottom:5px;
+	text-align:center;
+}
+div.event_photo_view > span + div > a:link{
+	display:block;
+	margin-bottom:5px;
+	text-align:center;
+}
+div.event_photo_info .event_photo_title{
+	margin-top:5px;
+	font-weight:var(--theme-font-weight-bold);
+}
+div.event_photo_info .event_photo_description{
+ font-size:var(--theme-font-size-small);
+	margin-top:3px;
+}
+div.event_photo_info .event_photo_owner{
+ font-size:var(--theme-font-size-small);
+	margin-top:3px;
+}
+div.event_photo_info .event_photo_title + .event_photo_tags,
+div.event_photo_info .event_photo_description + .event_photo_tags{
+	margin-top:15px;
+}
+div.event_photo_info .event_photo_tags{
+ font-size:var(--theme-font-size-small);
+	margin-top:5px;
+}
+div.event_photo_info .event_photo_date{
+ font-size:var(--theme-font-size-small);
+	margin-top:5px;
+}
+div.event_photo_view > div.comments{
+	margin-top:15px;
+}
+
+
+/*INVITE FORM*/
+#event_form_invite #users-label{
+	display:none;
+}
+#event_form_invite #users-element{
+ border:1px solid var(--theme-border-color);
+	padding:7px 10px 7px 10px;
+	max-height:200px;
+	overflow-y:auto;
+	margin:10px 0px 10px 0px;
+}
+/*
+TAG FOR SENDING MESSAGES
+*/
+.tag.tag_event:before{
+	content:"\f073";
+	font-family:'Font Awesome 6 Free';
+	margin-right:8px;
+}
+
+
+/* ---------- Responsive CSS -------------*/
+#global_page_event-member-join .form-description{
+	margin-bottom:-15px;
+}
+form#event_form_invite #all-label{
+	display:none;
+}

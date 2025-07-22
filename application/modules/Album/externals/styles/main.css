@@ -1,0 +1,235 @@
+
+/* ICONS */
+.bg_item_nophoto.bg_item_photo_album:before{
+  content:"\f03e";
+}
+.item_icon_album:before,
+.item_icon_album_photo:before{
+   content:"\f03e";
+   font-family:'Font Awesome 6 Free';
+   font-weight: 400;
+}
+.activity_icon_comment_album:before,
+.activity_icon_comment_album_photo:before{
+  content:"\f075";
+  font-family:'Font Awesome 6 Free';
+}
+.icon_photos_flip_horizontal:before{
+  content:"\f01e";
+	font-weight:900 !important;
+}
+.icon_photos_flip_vertical:before{
+  content:"\f01e";
+  -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform:rotate(90deg);
+  -ms-transform:rotate(90deg);
+  transform:rotate(90deg);
+	font-weight:900 !important;
+}
+.icon_photos_rotate_ccw:before{
+  content:"\f0e2";
+  -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform:rotate(-180deg);
+  -ms-transform:rotate(-180deg);
+  transform:rotate(-180deg);
+	font-weight:900 !important;
+}
+.icon_photos_rotate_cw:before{
+  content:"\f01e";
+  -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  transform:rotate(180deg);
+	font-weight:900 !important;
+}
+
+
+/*
+BROWSE ALBUMS, VIEW ALBUM
+Styles for the browse and view album pages.
+*/
+.album_breadcrumb > p,
+.photo_breadcrumb > p {
+  margin-bottom:0;
+}
+.thumbs_nocaptions .thumbs_photo:before{
+	display:none;
+}
+#global_page_album-photo-view #global_content,
+.layout_page_album_photo_view .layout_middle{
+  overflow:visible;
+}
+.album_options{
+  overflow:hidden;
+}
+.album_options a{
+  margin-right:15px;
+	margin-top:5px;
+}
+html[dir="rtl"] .album_options a{
+  margin-right:0px;
+  margin-left:15px;
+}
+.album_options select{
+	width:auto;
+  float:right;
+	padding:8px 10px;
+  min-height:inherit;
+}
+html[dir="rtl"] .album_options select{
+	float:left;
+}
+.layout_album_browse_search,
+.layout_album_browse_menu_quick
+{
+  margin-bottom:15px;
+}
+.layout_page_album_album_view .layout_core_comments h3,
+.layout_page_album_photo_view .layout_core_comments h3{
+  display:none;
+}
+.layout_page_album_album_view .layout_core_content,
+.layout_page_album_photo_view .layout_core_content{
+  margin-bottom:15px;
+}
+.album_options .rating {
+  margin: 2px 0 3px;
+}
+/*
+ACTIVITY FEED COMPOSER PHOTO
+These styles are used for the attachment composer above the
+main feed.
+*/
+#compose-photo-activator:before,
+#compose-photo-menu span:before{
+  content:"\f03e";
+  font-family:'Font Awesome 6 Free';
+  margin-right:6px;
+  color:#4CAF50;
+}
+[dir="rtl"] #compose-photo-activator:before,
+[dir="rtl"] #compose-photo-menu span:before{
+  margin-right:0px;
+  margin-left:6px;
+}
+#compose-photo-preview-image{
+  max-width:160px;
+}
+#compose-photo-form-fancy-file {
+  width:140px;
+  height:106px;
+  float:left;
+  display:inline-block;
+  text-align:center;
+  border:1px dashed;
+  box-sizing:border-box;
+  vertical-align:middle;
+  margin:5px;
+}
+#compose-photo-form-fancy-file a {
+  padding:25% 0 0 0;
+  width:100%;
+  cursor:pointer;
+  outline:none;
+  text-decoration:none;
+  box-sizing:border-box;
+  font-size:var(--theme-font-size-small) !important;
+  height:98px;
+}
+#compose-photo-form-fancy-file a:before{
+  font-family:'Font Awesome 6 Free';
+  content:"\f067";
+	font-weight:900;
+  display:list-item;
+  list-style-type:none;
+  font-size:20px;
+  font-style:normal;
+  margin-right:0;
+}
+span.albums_tag_listcontainer > a{
+  font-weight:bold;
+}
+/* COMPOSER PHOTOS */
+.compose-photos-fancy-list {
+  display :none;
+  float:left;
+}
+.compose-photo-preview {
+  margin:5px;
+  position:relative;
+  display:inline-block;
+}
+.compose-photo-preview .compose-photo-preview-image{
+  display:block;
+	width:142px;
+	height:106px;
+	background-size:cover;
+	background-position:center 10%;
+	background-repeat:no-repeat;
+	background-image:url(~/application/modules/Core/externals/images/large-loading.gif);
+}
+.compose-photo-preview .compose-photo-preview-loading {
+  background-size:auto;
+}
+.compose-photo-preview .file-size, .compose-photo-preview .file-name {
+  display:none;
+}
+.compose-photo-preview .compose-photo-preview-overlay {
+  position:absolute;
+  z-index:1;
+  display:none;
+  left:0;
+  top:0;
+  bottom:0;
+  right:0;
+  text-align:right;
+  padding:5px;
+  background-color:rgba(0, 0, 0, 0.5);
+}
+#compose-photo-body .scrollbars {
+  width:100% !important;
+}
+.compose-photo-preview .file-remove {
+  color:#fff;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.compose-photo-preview:hover .compose-photo-preview-overlay {
+   display:block;
+}
+.album_view_count {
+  display:none;
+}
+/* PHOTO SLIDESHOW */
+.thumbs_photo.slideshow-container > .slideshow-item:not(:first-child) {
+  display:none;
+}
+/* GRID VIEW */
+.grid_wrapper .photo_count{
+  background:rgba(0, 0, 0, 0.5);
+  border-bottom-right-radius:4px;
+  color:#fff;
+  text-align:center;
+  height:40px;
+  width:40px;
+  position:absolute;
+  top:1px;
+  left:1px;
+  display:table;
+}
+[dir="rtl"] .grid_wrapper .photo_count{
+  left:auto;
+  right:1px;
+  border-bottom-right-radius:0px;
+  border-bottom-left-radius:4px;
+}
+.grid_wrapper .photo_count > span{
+  display:table-cell;
+  vertical-align:middle;
+	font-size:20px;
+}
+/*Feed*/
+.feed_attachment_album_photo > div > a + div{
+  margin-top: 0.625rem;
+}

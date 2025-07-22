@@ -1,1 +1,29 @@
-/* ADD YOUR CUSTOM CSS HERE */
+/* === FLOUTAGE ALBUMS SAUF PAGE D'ACCUEIL === */
+
+/* === body:not(.logged-in):not(.logged_in):not(.homepage):not(.home-page) .bg_item_photo_album_photo,
+body:not(.logged-in):not(.logged_in):not(.homepage):not(.home-page) .profile_photo img,
+body:not(.logged-in):not(.logged_in):not(.homepage):not(.home-page) .user_sidebar_photo img {
+    filter: blur(10px) !important;
+    -webkit-filter: blur(10px) !important;
+    transition: filter 0.3s ease !important;
+}
+
+body:not(.logged-in):not(.logged_in):not(.homepage):not(.home-page) .thumbs_photo:hover::after {
+    content: 'Connectez-vous pour voir les photos nettes';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}=== */

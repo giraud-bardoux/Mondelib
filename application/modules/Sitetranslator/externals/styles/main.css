@@ -1,0 +1,23 @@
+#google_translate_element img {display:none} 
+#google_translate_element {padding: 0px 20px;float: left;}
+#google_translate_element select.goog-te-combo { height:30px;}
+.goog-te-banner-frame {display:none;} body{top:0 !important}
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important; 
+    box-shadow: none !important;
+}
+.layout_sitemenu_menu_footer form select, .layout_core_menu_footer form select {
+    width: 150px;
+}
+/*.layout_sitemenu_menu_footer select#language,.layout_core_menu_footer select#language {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}*/
