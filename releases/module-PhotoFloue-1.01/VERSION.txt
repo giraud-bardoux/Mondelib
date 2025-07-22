@@ -1,0 +1,48 @@
+PhotoFloue Module for SocialEngine 7.4
+=======================================
+
+Version: 1.0.1
+Date: 2025-01-22
+Compatibility: SocialEngine 7.4+
+
+CHANGELOG v1.0.1
+-----------------
+✅ Renommage complet de PhotoBlur vers PhotoFloue
+✅ Correction des erreurs d'installation (0242bf, fedbff)
+✅ Optimisation des performances JavaScript
+✅ Amélioration de la détection mobile
+✅ Messages de protection personnalisables
+✅ Support traductions FR/EN complet
+✅ Script de diagnostic automatisé
+✅ Solutions de contournement intégrées
+
+FONCTIONNALITÉS
+---------------
+🎯 Floutage automatique des photos pour visiteurs non connectés
+🛡️ Protection anti-capture avancée (clic droit, raccourcis)
+📱 Protection mobile tactile (appui long, gestes)
+💬 Messages d'incitation à la connexion personnalisables  
+⚙️ Configuration complète via paramètres base de données
+🌍 Traductions français/anglais incluses
+🧪 Scripts de test et diagnostic intégrés
+
+INSTALLATION
+------------
+1. Décompresser dans application/modules/
+2. Installer via Admin Panel > Plugins
+3. Activer le module
+4. Tester en mode visiteur
+
+DÉPANNAGE
+---------
+- Script diagnostic: debug_photofloue_error.sh
+- Solution CSS urgence: solution_floutage_urgence.css  
+- Guide d'urgence: URGENCE_RESOLUTION_PHOTOFLOUE.md
+
+SUPPORT
+-------
+Documentation complète: README.md
+Tests automatisés: test_module.php
+Versions de secours incluses
+
+© 2025 - Développé pour SocialEngine 7.4

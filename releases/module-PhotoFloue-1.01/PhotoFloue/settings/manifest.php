@@ -15,7 +15,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'photofloue',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'revision' => '$Revision: 1 $',
     'path' => 'application/modules/PhotoFloue',
     'repository' => 'custom',
