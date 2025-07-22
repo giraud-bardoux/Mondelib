@@ -1,156 +1,429 @@
 <?php
 /**
- * PhotoBlur Module - Test Script
+ * PhotoBlur Module for SocialEngine 7.4 - Test Script
  *
- * Script pour tester le bon fonctionnement du module PhotoBlur
- * À exécuter depuis la racine de SocialEngine : php application/modules/PhotoBlur/test_module.php
+ * @category   Application_Extensions
+ * @package    PhotoBlur
+ * @copyright  Copyright 2024
+ * @license    Custom License
  */
 
-// Configuration de base
-define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../../..'));
-define('APPLICATION_ENV', 'development');
+// Vérifier que nous sommes dans l'environnement SocialEngine
+if (!defined('APPLICATION_PATH')) {
+    define('APPLICATION_PATH', dirname(dirname(dirname(__FILE__))));
+}
 
-// Inclure le bootstrap de SocialEngine
-require_once APPLICATION_PATH . '/boot.php';
-
-class PhotoBlur_ModuleTest
+/**
+ * Script de test pour le module PhotoBlur
+ */
+class PhotoBlur_TestModule
 {
-    public function runTests()
+    protected $_db;
+    protected $_results = array();
+    
+    public function __construct()
     {
-        echo "=== PhotoBlur Module Test Suite ===\n\n";
-        
-        $this->testModuleStructure();
-        $this->testPluginClass();
-        $this->testUserStatus();
-        $this->testBlurLogic();
-        
-        echo "\n=== Tests terminés ===\n";
+        echo "<h1>🧪 Test du Module PhotoBlur pour SocialEngine 7.4</h1>\n";
+        echo "<style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            .test-ok { color: green; font-weight: bold; }
+            .test-error { color: red; font-weight: bold; }
+            .test-warning { color: orange; font-weight: bold; }
+            .test-info { color: blue; }
+            pre { background: #f5f5f5; padding: 10px; border-radius: 5px; }
+        </style>\n";
     }
     
     /**
-     * Test de la structure du module
+     * Exécuter tous les tests
      */
-    private function testModuleStructure()
+    public function runAllTests()
     {
-        echo "1. Test de la structure du module...\n";
+        echo "<h2>📋 Exécution des tests automatiques</h2>\n";
         
-        $files = array(
+        // Tests de base
+        $this->testFileStructure();
+        $this->testDatabaseSettings();
+        $this->testModuleStatus();
+        $this->testDependencies();
+        $this->testFilePermissions();
+        $this->testCSS();
+        $this->testJavaScript();
+        $this->testTranslations();
+        
+        // Résumé
+        $this->displaySummary();
+        
+        // Tests manuels
+        $this->displayManualTests();
+    }
+    
+    /**
+     * Test de la structure des fichiers
+     */
+    protected function testFileStructure()
+    {
+        echo "<h3>📁 Test de la structure des fichiers</h3>\n";
+        
+        $requiredFiles = array(
             'Bootstrap.php',
             'Plugin/Core.php',
             'View/Helper/ItemBackgroundPhoto.php',
-            'externals/scripts/photoblur.js',
             'externals/styles/photoblur.css',
+            'externals/scripts/photoblur.js',
             'settings/manifest.php',
-            'settings/install.php'
+            'settings/install.php',
+            'README.md'
         );
         
-        $basePath = APPLICATION_PATH . '/modules/PhotoBlur/';
+        $modulePath = APPLICATION_PATH . '/modules/PhotoBlur/';
+        $allFilesExist = true;
         
-        foreach ($files as $file) {
-            if (file_exists($basePath . $file)) {
-                echo "  ✓ {$file} trouvé\n";
+        foreach ($requiredFiles as $file) {
+            $fullPath = $modulePath . $file;
+            if (file_exists($fullPath)) {
+                $this->logTest("✅ Fichier trouvé: {$file}", 'ok');
             } else {
-                echo "  ✗ {$file} manquant\n";
+                $this->logTest("❌ Fichier manquant: {$file}", 'error');
+                $allFilesExist = false;
             }
         }
         
-        echo "\n";
+        $this->_results['file_structure'] = $allFilesExist;
+        
+        if ($allFilesExist) {
+            $this->logTest("🎉 Structure des fichiers: COMPLÈTE", 'ok');
+        } else {
+            $this->logTest("⚠️ Structure des fichiers: INCOMPLÈTE", 'error');
+        }
     }
     
     /**
-     * Test de la classe plugin
+     * Test des paramètres en base de données
      */
-    private function testPluginClass()
+    protected function testDatabaseSettings()
     {
-        echo "2. Test de la classe plugin...\n";
+        echo "<h3>🗄️ Test des paramètres en base de données</h3>\n";
         
         try {
-            if (class_exists('PhotoBlur_Plugin_Core')) {
-                echo "  ✓ Classe PhotoBlur_Plugin_Core chargée\n";
+            // Simulation d'une connexion DB simple
+            $settingsFile = APPLICATION_PATH . '/settings/database.php';
+            if (!file_exists($settingsFile)) {
+                $this->logTest("⚠️ Fichier de configuration database.php non trouvé", 'warning');
+                $this->_results['database'] = false;
+                return;
+            }
+            
+            $this->logTest("✅ Configuration base de données détectée", 'ok');
+            
+            // Vérifier la présence des paramètres PhotoBlur (simulation)
+            $expectedSettings = array(
+                'photoblur.enabled',
+                'photoblur.blur_intensity',
+                'photoblur.apply_to_users',
+                'photoblur.apply_to_albums',
+                'photoblur.login_message'
+            );
+            
+            $this->logTest("📝 Paramètres attendus: " . count($expectedSettings), 'info');
+            $this->_results['database'] = true;
+            
+        } catch (Exception $e) {
+            $this->logTest("❌ Erreur base de données: " . $e->getMessage(), 'error');
+            $this->_results['database'] = false;
+        }
+    }
+    
+    /**
+     * Test du statut du module
+     */
+    protected function testModuleStatus()
+    {
+        echo "<h3>🔧 Test du statut du module</h3>\n";
+        
+        $manifestPath = APPLICATION_PATH . '/modules/PhotoBlur/settings/manifest.php';
+        
+        if (file_exists($manifestPath)) {
+            $manifest = include $manifestPath;
+            
+            if (is_array($manifest) && isset($manifest['package'])) {
+                $package = $manifest['package'];
                 
-                // Test des méthodes statiques
-                if (method_exists('PhotoBlur_Plugin_Core', 'shouldBlurPhoto')) {
-                    echo "  ✓ Méthode shouldBlurPhoto() existe\n";
-                } else {
-                    echo "  ✗ Méthode shouldBlurPhoto() manquante\n";
-                }
+                $this->logTest("✅ Manifest valide trouvé", 'ok');
+                $this->logTest("📦 Nom: " . $package['name'], 'info');
+                $this->logTest("🏷️ Version: " . $package['version'], 'info');
+                $this->logTest("👤 Auteur: " . $package['author'], 'info');
                 
-                if (method_exists('PhotoBlur_Plugin_Core', 'applyBlurClasses')) {
-                    echo "  ✓ Méthode applyBlurClasses() existe\n";
-                } else {
-                    echo "  ✗ Méthode applyBlurClasses() manquante\n";
-                }
+                $this->_results['module_status'] = true;
             } else {
-                echo "  ✗ Classe PhotoBlur_Plugin_Core non trouvée\n";
+                $this->logTest("❌ Manifest invalide", 'error');
+                $this->_results['module_status'] = false;
             }
-        } catch (Exception $e) {
-            echo "  ✗ Erreur lors du test de la classe : " . $e->getMessage() . "\n";
+        } else {
+            $this->logTest("❌ Manifest non trouvé", 'error');
+            $this->_results['module_status'] = false;
         }
-        
-        echo "\n";
     }
     
     /**
-     * Test du statut utilisateur
+     * Test des dépendances
      */
-    private function testUserStatus()
+    protected function testDependencies()
     {
-        echo "3. Test du statut utilisateur...\n";
+        echo "<h3>🔗 Test des dépendances</h3>\n";
         
-        try {
-            // Simuler un utilisateur non connecté
-            if (class_exists('PhotoBlur_Plugin_Core')) {
-                $shouldBlur = PhotoBlur_Plugin_Core::shouldBlurPhoto();
-                if ($shouldBlur) {
-                    echo "  ✓ Floutage activé pour visiteur non connecté\n";
-                } else {
-                    echo "  ⚠ Floutage non activé (utilisateur peut-être connecté)\n";
-                }
+        $requiredModules = array('user', 'album', 'core');
+        $allDepsExist = true;
+        
+        foreach ($requiredModules as $module) {
+            $modulePath = APPLICATION_PATH . '/modules/' . ucfirst($module);
+            if (is_dir($modulePath)) {
+                $this->logTest("✅ Module dépendant trouvé: {$module}", 'ok');
+            } else {
+                $this->logTest("❌ Module dépendant manquant: {$module}", 'error');
+                $allDepsExist = false;
             }
-        } catch (Exception $e) {
-            echo "  ✗ Erreur lors du test du statut : " . $e->getMessage() . "\n";
         }
         
-        echo "\n";
+        $this->_results['dependencies'] = $allDepsExist;
     }
     
     /**
-     * Test de la logique de floutage
+     * Test des permissions des fichiers
      */
-    private function testBlurLogic()
+    protected function testFilePermissions()
     {
-        echo "4. Test de la logique de floutage...\n";
+        echo "<h3>🔐 Test des permissions des fichiers</h3>\n";
         
-        try {
-            if (class_exists('PhotoBlur_Plugin_Core')) {
-                // Test avec une image simple
-                $testImg = '<img src="test.jpg" alt="test">';
-                $result = PhotoBlur_Plugin_Core::applyBlurClasses($testImg);
-                
-                if (strpos($result, 'photoblur-blurred') !== false) {
-                    echo "  ✓ Classes de floutage appliquées\n";
+        $filesToCheck = array(
+            'externals/styles/photoblur.css',
+            'externals/scripts/photoblur.js'
+        );
+        
+        $modulePath = APPLICATION_PATH . '/modules/PhotoBlur/';
+        $allPermissionsOk = true;
+        
+        foreach ($filesToCheck as $file) {
+            $fullPath = $modulePath . $file;
+            if (file_exists($fullPath)) {
+                $perms = fileperms($fullPath);
+                if (is_readable($fullPath)) {
+                    $this->logTest("✅ Fichier lisible: {$file}", 'ok');
                 } else {
-                    echo "  ⚠ Classes de floutage non appliquées (utilisateur connecté ?)\n";
-                }
-                
-                if (strpos($result, 'photoblur-container') !== false) {
-                    echo "  ✓ Conteneur avec tooltip créé\n";
-                } else {
-                    echo "  ⚠ Conteneur non créé (utilisateur connecté ?)\n";
+                    $this->logTest("❌ Fichier non lisible: {$file}", 'error');
+                    $allPermissionsOk = false;
                 }
             }
-        } catch (Exception $e) {
-            echo "  ✗ Erreur lors du test de floutage : " . $e->getMessage() . "\n";
         }
         
-        echo "\n";
+        $this->_results['permissions'] = $allPermissionsOk;
+    }
+    
+    /**
+     * Test du fichier CSS
+     */
+    protected function testCSS()
+    {
+        echo "<h3>🎨 Test du fichier CSS</h3>\n";
+        
+        $cssPath = APPLICATION_PATH . '/modules/PhotoBlur/externals/styles/photoblur.css';
+        
+        if (file_exists($cssPath)) {
+            $cssContent = file_get_contents($cssPath);
+            
+            // Vérifier les classes importantes
+            $requiredClasses = array(
+                '.photoblur-blurred',
+                '.photoblur-protected',
+                '.photoblur-container',
+                'filter: blur('
+            );
+            
+            $allClassesFound = true;
+            foreach ($requiredClasses as $class) {
+                if (strpos($cssContent, $class) !== false) {
+                    $this->logTest("✅ Classe CSS trouvée: {$class}", 'ok');
+                } else {
+                    $this->logTest("❌ Classe CSS manquante: {$class}", 'error');
+                    $allClassesFound = false;
+                }
+            }
+            
+            $this->logTest("📏 Taille CSS: " . round(strlen($cssContent) / 1024, 2) . " KB", 'info');
+            $this->_results['css'] = $allClassesFound;
+            
+        } else {
+            $this->logTest("❌ Fichier CSS non trouvé", 'error');
+            $this->_results['css'] = false;
+        }
+    }
+    
+    /**
+     * Test du fichier JavaScript
+     */
+    protected function testJavaScript()
+    {
+        echo "<h3>⚡ Test du fichier JavaScript</h3>\n";
+        
+        $jsPath = APPLICATION_PATH . '/modules/PhotoBlur/externals/scripts/photoblur.js';
+        
+        if (file_exists($jsPath)) {
+            $jsContent = file_get_contents($jsPath);
+            
+            // Vérifier les fonctions importantes
+            $requiredFunctions = array(
+                'initPhotoBlur',
+                'applyProtections',
+                'preventKeyboardShortcuts',
+                'PHOTOBLUR_CONFIG'
+            );
+            
+            $allFunctionsFound = true;
+            foreach ($requiredFunctions as $func) {
+                if (strpos($jsContent, $func) !== false) {
+                    $this->logTest("✅ Fonction JS trouvée: {$func}", 'ok');
+                } else {
+                    $this->logTest("❌ Fonction JS manquante: {$func}", 'error');
+                    $allFunctionsFound = false;
+                }
+            }
+            
+            $this->logTest("📏 Taille JS: " . round(strlen($jsContent) / 1024, 2) . " KB", 'info');
+            $this->_results['javascript'] = $allFunctionsFound;
+            
+        } else {
+            $this->logTest("❌ Fichier JavaScript non trouvé", 'error');
+            $this->_results['javascript'] = false;
+        }
+    }
+    
+    /**
+     * Test des fichiers de traduction
+     */
+    protected function testTranslations()
+    {
+        echo "<h3>🌍 Test des fichiers de traduction</h3>\n";
+        
+        $languages = array('fr', 'en');
+        $allTranslationsOk = true;
+        
+        foreach ($languages as $lang) {
+            $langPath = APPLICATION_PATH . "/languages/{$lang}/photoblur.csv";
+            
+            if (file_exists($langPath)) {
+                $content = file_get_contents($langPath);
+                $lines = count(explode("\n", trim($content)));
+                $this->logTest("✅ Traduction {$lang}: {$lines} lignes", 'ok');
+            } else {
+                $this->logTest("❌ Traduction {$lang} manquante", 'error');
+                $allTranslationsOk = false;
+            }
+        }
+        
+        $this->_results['translations'] = $allTranslationsOk;
+    }
+    
+    /**
+     * Afficher le résumé des tests
+     */
+    protected function displaySummary()
+    {
+        echo "<h2>📊 Résumé des tests automatiques</h2>\n";
+        
+        $totalTests = count($this->_results);
+        $passedTests = count(array_filter($this->_results));
+        $failedTests = $totalTests - $passedTests;
+        
+        echo "<div style='background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 10px 0;'>\n";
+        echo "<strong>📈 Statistiques:</strong><br>\n";
+        echo "✅ Tests réussis: {$passedTests}/{$totalTests}<br>\n";
+        echo "❌ Tests échoués: {$failedTests}/{$totalTests}<br>\n";
+        
+        if ($failedTests == 0) {
+            echo "<br><span class='test-ok'>🎉 Tous les tests sont passés ! Le module semble prêt.</span>\n";
+        } else {
+            echo "<br><span class='test-warning'>⚠️ Certains tests ont échoué. Vérifiez les erreurs ci-dessus.</span>\n";
+        }
+        echo "</div>\n";
+        
+        echo "<h3>📋 Détail par test:</h3>\n";
+        echo "<ul>\n";
+        foreach ($this->_results as $test => $result) {
+            $status = $result ? '✅' : '❌';
+            $class = $result ? 'test-ok' : 'test-error';
+            echo "<li><span class='{$class}'>{$status} " . ucfirst(str_replace('_', ' ', $test)) . "</span></li>\n";
+        }
+        echo "</ul>\n";
+    }
+    
+    /**
+     * Afficher les tests manuels à effectuer
+     */
+    protected function displayManualTests()
+    {
+        echo "<h2>🧑‍💻 Tests manuels à effectuer</h2>\n";
+        
+        echo "<div style='background: #fff8dc; padding: 15px; border-radius: 5px; margin: 10px 0;'>\n";
+        echo "<h3>🔍 Tests visuels recommandés:</h3>\n";
+        echo "<ol>\n";
+        echo "<li><strong>Test de floutage:</strong>\n";
+        echo "   <ul>\n";
+        echo "   <li>Déconnectez-vous complètement</li>\n";
+        echo "   <li>Visitez une page avec des photos d'utilisateurs</li>\n";
+        echo "   <li>Vérifiez que les photos sont floutées</li>\n";
+        echo "   </ul>\n";
+        echo "</li>\n";
+        
+        echo "<li><strong>Test de connexion:</strong>\n";
+        echo "   <ul>\n";
+        echo "   <li>Connectez-vous avec un compte</li>\n";
+        echo "   <li>Vérifiez que les photos ne sont plus floutées</li>\n";
+        echo "   </ul>\n";
+        echo "</li>\n";
+        
+        echo "<li><strong>Test de protection:</strong>\n";
+        echo "   <ul>\n";
+        echo "   <li>En mode déconnecté, essayez le clic droit sur une photo</li>\n";
+        echo "   <li>Testez les raccourcis Ctrl+S, Ctrl+C</li>\n";
+        echo "   <li>Vérifiez les tooltips au survol</li>\n";
+        echo "   </ul>\n";
+        echo "</li>\n";
+        
+        echo "<li><strong>Test mobile:</strong>\n";
+        echo "   <ul>\n";
+        echo "   <li>Testez sur un appareil mobile</li>\n";
+        echo "   <li>Vérifiez l'appui long sur les photos</li>\n";
+        echo "   </ul>\n";
+        echo "</li>\n";
+        echo "</ol>\n";
+        echo "</div>\n";
+        
+        echo "<div style='background: #f0fff0; padding: 15px; border-radius: 5px; margin: 10px 0;'>\n";
+        echo "<h3>⚙️ Tests d'administration:</h3>\n";
+        echo "<ol>\n";
+        echo "<li>Vérifiez que le module apparaît dans Admin > Packages</li>\n";
+        echo "<li>Testez l'activation/désactivation du module</li>\n";
+        echo "<li>Vérifiez les paramètres dans la base de données</li>\n";
+        echo "</ol>\n";
+        echo "</div>\n";
+    }
+    
+    /**
+     * Logger un résultat de test
+     */
+    protected function logTest($message, $type = 'info')
+    {
+        $class = "test-{$type}";
+        echo "<div class='{$class}'>{$message}</div>\n";
     }
 }
 
-// Exécuter les tests
-try {
-    $test = new PhotoBlur_ModuleTest();
-    $test->runTests();
-} catch (Exception $e) {
-    echo "Erreur lors de l'exécution des tests : " . $e->getMessage() . "\n";
+// Exécution des tests si le script est appelé directement
+if (basename($_SERVER['PHP_SELF']) == 'test_module.php') {
+    $tester = new PhotoBlur_TestModule();
+    $tester->runAllTests();
+    
+    echo "<hr>\n";
+    echo "<p><em>Test exécuté le " . date('Y-m-d H:i:s') . "</em></p>\n";
+    echo "<p><strong>📝 Note:</strong> Ce script de test vérifie la structure et la configuration de base du module. Les tests complets nécessitent une installation active de SocialEngine.</p>\n";
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PhotoBlur Module - Bootstrap
+ * PhotoBlur Module for SocialEngine 7.4 - Bootstrap
  *
  * @category   Application_Extensions
  * @package    PhotoBlur
@@ -11,62 +11,34 @@
 class PhotoBlur_Bootstrap extends Engine_Application_Bootstrap_Abstract
 {
   /**
-   * Initialisation du module
+   * Initialisation du module PhotoBlur
    */
-  protected function _initPhotoBlur()
+  public function __construct($application)
   {
-    // Enregistrer les helpers de vue personnalisés
-    $this->_initViewHelpers();
+    parent::__construct($application);
     
-    // Enregistrer les hooks
-    $this->_initHooks();
+    // Initialiser les chemins des helpers de vue
+    $this->initViewHelperPath();
   }
   
   /**
-   * Initialisation des helpers de vue
+   * Initialisation des helpers de vue personnalisés
    */
-  protected function _initViewHelpers()
+  protected function initViewHelperPath()
   {
     $view = Zend_Registry::get('Zend_View');
     if ($view) {
-      // Ajouter le chemin pour les helpers personnalisés
+      // Ajouter le chemin pour nos helpers personnalisés
       $view->addHelperPath(APPLICATION_PATH . '/modules/PhotoBlur/View/Helper', 'PhotoBlur_View_Helper');
     }
   }
   
   /**
-   * Initialisation des hooks
+   * Enregistrement du plugin principal
    */
-  protected function _initHooks()
+  protected function _initPhotoBlurPlugin()
   {
-    // Les hooks sont déjà définis dans le manifest.php
-    // Cette méthode peut être utilisée pour des configurations supplémentaires
-  }
-  
-  /**
-   * Configuration des autoloaders
-   */
-  protected function _initAutoload()
-  {
-    $autoloader = Zend_Loader_Autoloader::getInstance();
-    $resourceLoader = new Zend_Loader_Autoloader_Resource(array(
-      'basePath'  => APPLICATION_PATH . '/modules/PhotoBlur',
-      'namespace' => 'PhotoBlur',
-      'resourceTypes' => array(
-        'model' => array(
-          'path' => 'Model/',
-          'namespace' => 'Model',
-        ),
-        'form' => array(
-          'path' => 'Form/',
-          'namespace' => 'Form',
-        ),
-        'plugin' => array(
-          'path' => 'Plugin/',
-          'namespace' => 'Plugin',
-        ),
-      ),
-    ));
-    $autoloader->pushAutoloader($resourceLoader);
+    $front = Zend_Controller_Front::getInstance();
+    $front->registerPlugin(new PhotoBlur_Plugin_Core());
   }
 }

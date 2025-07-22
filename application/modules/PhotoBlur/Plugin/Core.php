@@ -1,6 +1,6 @@
 <?php
 /**
- * PhotoBlur Module - Core Plugin
+ * PhotoBlur Module for SocialEngine 7.4 - Core Plugin
  *
  * @category   Application_Extensions
  * @package    PhotoBlur
@@ -8,11 +8,11 @@
  * @license    Custom License
  */
 
-class PhotoBlur_Plugin_Core
+class PhotoBlur_Plugin_Core extends Zend_Controller_Plugin_Abstract
 {
   /**
    * Hook appelé lors du rendu du layout par défaut
-   * Injecte le CSS et JavaScript nécessaires
+   * Injecte les variables JavaScript nécessaires
    */
   public function onRenderLayoutDefault($event)
   {
@@ -22,31 +22,40 @@ class PhotoBlur_Plugin_Core
     // Vérifier si l'utilisateur est connecté
     $isLoggedIn = $viewer && $viewer->getIdentity();
     
-    // Ajouter une variable JavaScript globale pour indiquer le statut de connexion
+    // Déterminer si on est sur la page d'accueil
+    $request = Zend_Controller_Front::getInstance()->getRequest();
+    $isHomepage = $this->_isHomepage($request);
+    
+    // Ajouter les variables JavaScript globales
     $script = "
     <script type='text/javascript'>
-      window.PHOTOBLUR_USER_LOGGED_IN = " . ($isLoggedIn ? 'true' : 'false') . ";
-      window.PHOTOBLUR_LOGIN_MESSAGE = '" . $view->translate("Connectez-vous pour ne plus voir flou") . "';
+      window.PHOTOBLUR_CONFIG = {
+        userLoggedIn: " . ($isLoggedIn ? 'true' : 'false') . ",
+        isHomepage: " . ($isHomepage ? 'true' : 'false') . ",
+        loginMessage: '" . $view->translate("Connectez-vous pour voir les photos nettes") . "',
+        protectionMessage: '" . $view->translate("Connectez-vous pour accéder aux photos") . "'
+      };
     </script>";
     
     $view->headScript()->appendScript($script);
   }
   
   /**
-   * Hook personnalisé pour traiter le rendu des photos
-   * Ce hook sera appelé depuis les helpers de vue modifiés
+   * Hook appelé lors de l'upload d'une photo utilisateur
    */
-  public function onItemPhotoRender($event)
+  public function onUserPhotoUpload($event)
   {
-    $viewer = Engine_Api::_()->user()->getViewer();
-    $isLoggedIn = $viewer && $viewer->getIdentity();
-    
-    // Si l'utilisateur n'est pas connecté, marquer la photo pour floutage
-    if (!$isLoggedIn) {
-      $event->setParam('blur_photo', true);
-    }
-    
-    return $event;
+    // Pour l'instant, on laisse le comportement normal
+    // Pourrait être utilisé pour des fonctionnalités futures
+  }
+  
+  /**
+   * Hook appelé après la création d'un item
+   */
+  public function onItemCreateAfter($event)
+  {
+    // Pour l'instant, on laisse le comportement normal
+    // Pourrait être utilisé pour des fonctionnalités futures
   }
   
   /**
@@ -61,37 +70,97 @@ class PhotoBlur_Plugin_Core
   /**
    * Méthode pour appliquer les classes CSS de floutage à une image
    */
-  public static function applyBlurClasses($htmlImg, $additionalClasses = '')
+  public static function applyBlurToPhoto($imageHtml, $additionalClasses = '')
   {
-    if (self::shouldBlurPhoto()) {
-      // Ajouter les classes de floutage et de protection
-      $classes = 'photoblur-blurred photoblur-protected ' . $additionalClasses;
-      
-      // Modifier le HTML de l'image pour ajouter les classes
-      if (preg_match('/<img([^>]*?)class=[\'"](.*?)[\'"](.*?)>/i', $htmlImg, $matches)) {
-        $existingClasses = $matches[2];
-        $newHtml = str_replace(
-          'class="' . $existingClasses . '"',
-          'class="' . $existingClasses . ' ' . $classes . '"',
-          $htmlImg
-        );
-      } else if (preg_match('/<img([^>]*?)>/i', $htmlImg, $matches)) {
-        $newHtml = str_replace(
-          '<img' . $matches[1] . '>',
-          '<img' . $matches[1] . ' class="' . $classes . '">',
-          $htmlImg
-        );
-      } else {
-        $newHtml = $htmlImg;
-      }
-      
-      // Envelopper dans un conteneur avec tooltip
-      $tooltipMessage = Zend_Registry::get('Zend_View')->translate("Connectez-vous pour ne plus voir flou");
-      $wrappedHtml = '<div class="photoblur-container" title="' . $tooltipMessage . '">' . $newHtml . '</div>';
-      
+    if (!self::shouldBlurPhoto()) {
+      return $imageHtml; // Utilisateur connecté, pas de flou
+    }
+    
+    // Ajouter les classes de floutage
+    $blurClasses = 'photoblur-blurred photoblur-protected ' . $additionalClasses;
+    
+    // Modifier le HTML pour ajouter les classes
+    if (preg_match('/<([^>]*?)class=[\'"](.*?)[\'"](.*?)>/i', $imageHtml, $matches)) {
+      // L'élément a déjà une classe
+      $existingClasses = $matches[2];
+      $newImageHtml = str_replace(
+        'class="' . $existingClasses . '"',
+        'class="' . $existingClasses . ' ' . $blurClasses . '"',
+        $imageHtml
+      );
+    } else {
+      // L'élément n'a pas de classe, on l'ajoute
+      $newImageHtml = preg_replace(
+        '/(<[^>]*?)>/i',
+        '$1 class="' . $blurClasses . '">',
+        $imageHtml,
+        1
+      );
+    }
+    
+    // Envelopper dans un conteneur avec tooltip si nécessaire
+    if (strpos($imageHtml, 'photoblur-container') === false) {
+      $view = Zend_Registry::get('Zend_View');
+      $tooltipMessage = $view->translate("Connectez-vous pour voir les photos nettes");
+      $wrappedHtml = '<div class="photoblur-container" title="' . htmlspecialchars($tooltipMessage) . '">' . $newImageHtml . '</div>';
       return $wrappedHtml;
     }
     
-    return $htmlImg;
+    return $newImageHtml;
+  }
+  
+  /**
+   * Vérifier si on est sur la page d'accueil
+   */
+  protected function _isHomepage($request)
+  {
+    if (!$request) {
+      return false;
+    }
+    
+    $module = $request->getModuleName();
+    $controller = $request->getControllerName();
+    $action = $request->getActionName();
+    
+    // Page d'accueil typique
+    if (($module == 'core' || $module == 'default') && 
+        $controller == 'index' && 
+        $action == 'index') {
+      return true;
+    }
+    
+    // Autres cas de page d'accueil
+    $requestUri = $request->getRequestUri();
+    if ($requestUri == '/' || $requestUri == '/index' || $requestUri == '/home') {
+      return true;
+    }
+    
+    return false;
+  }
+  
+  /**
+   * Method called before dispatching
+   */
+  public function preDispatch(Zend_Controller_Request_Abstract $request)
+  {
+    // Ajouter des classes CSS au body pour identifier le statut
+    $view = Zend_Registry::get('Zend_View');
+    $viewer = Engine_Api::_()->user()->getViewer();
+    
+    if ($viewer && $viewer->getIdentity()) {
+      $view->headScript()->appendScript("
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('photoblur-user-logged-in');
+          document.body.classList.remove('photoblur-user-not-logged-in');
+        });
+      ");
+    } else {
+      $view->headScript()->appendScript("
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('photoblur-user-not-logged-in');
+          document.body.classList.remove('photoblur-user-logged-in');
+        });
+      ");
+    }
   }
 }

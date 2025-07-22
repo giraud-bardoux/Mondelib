@@ -1,0 +1,16 @@
+IMAGE THUMBNAIL POUR LE MODULE PHOTOBLUR
+=======================================
+
+Ce fichier sera remplacé par une vraie image PNG (64x64 pixels).
+
+L'image doit représenter :
+- Un œil barré ou flouté
+- Une photo avec effet de flou
+- Un symbole de protection/sécurité
+- Couleurs suggérées : bleu, gris, blanc
+
+Format requis : PNG, 64x64 pixels
+Nom : thumb.png
+
+Cette image apparaîtra dans l'interface d'administration de SocialEngine
+pour identifier visuellement le module PhotoBlur.

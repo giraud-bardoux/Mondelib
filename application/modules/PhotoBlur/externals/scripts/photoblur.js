@@ -1,22 +1,28 @@
 /**
- * PhotoBlur Module - JavaScript Protection
+ * PhotoBlur Module for SocialEngine 7.4 - JavaScript Protection
  * 
- * Script pour protéger les images contre la sauvegarde et les captures d'écran
+ * Script pour protéger les images et gérer les interactions
  */
 
 (function() {
     'use strict';
     
-    // Variables globales
-    let isUserLoggedIn = window.PHOTOBLUR_USER_LOGGED_IN || false;
-    let loginMessage = window.PHOTOBLUR_LOGIN_MESSAGE || 'Connectez-vous pour ne plus voir flou';
+    // Configuration globale du module
+    var config = window.PHOTOBLUR_CONFIG || {
+        userLoggedIn: false,
+        isHomepage: false,
+        loginMessage: 'Connectez-vous pour voir les photos nettes',
+        protectionMessage: 'Connectez-vous pour accéder aux photos'
+    };
     
     /**
      * Initialisation du module de protection
      */
     function initPhotoBlur() {
-        if (isUserLoggedIn) {
-            return; // Ne pas appliquer les protections si l'utilisateur est connecté
+        // Ne pas appliquer les protections si l'utilisateur est connecté
+        if (config.userLoggedIn) {
+            console.log('PhotoBlur: Utilisateur connecté - Protection désactivée');
+            return;
         }
         
         // Attendre que le DOM soit chargé
@@ -28,6 +34,8 @@
         
         // Observer les nouveaux éléments ajoutés dynamiquement
         observeNewImages();
+        
+        console.log('PhotoBlur: Protection activée pour visiteur non connecté');
     }
     
     /**
@@ -44,7 +52,7 @@
         preventRightClick();
         
         // Protection contre les outils de développement
-        preventDevTools();
+        detectDevTools();
         
         // Protection mobile spécifique
         if (isMobileDevice()) {
@@ -59,124 +67,83 @@
      * Protéger les images existantes
      */
     function protectExistingImages() {
-        const images = document.querySelectorAll('img');
-        images.forEach(function(img) {
-            protectImage(img);
-        });
+        // Sélecteurs pour tous les types d'images à protéger
+        var selectors = [
+            '.thumbs_photo',
+            '.profile_photo img',
+            '.user_sidebar_photo img',
+            '.bg_item_photo_album_photo',
+            '.bg_item_photo',
+            '.photoblur-protected'
+        ];
         
-        // Protéger aussi les images d'arrière-plan
-        const elementsWithBgImages = document.querySelectorAll('[style*="background-image"]');
-        elementsWithBgImages.forEach(function(el) {
-            protectBackgroundImage(el);
+        selectors.forEach(function(selector) {
+            var elements = document.querySelectorAll(selector);
+            elements.forEach(function(element) {
+                protectElement(element);
+            });
         });
     }
     
     /**
-     * Protéger une image spécifique
+     * Protéger un élément spécifique
      */
-    function protectImage(img) {
-        // Ajouter les classes de protection
-        img.classList.add('photoblur-protected');
+    function protectElement(element) {
+        if (!element) return;
         
-        // Si c'est une photo de membre ou d'album, ajouter le flou
-        if (isUserPhoto(img) || isAlbumPhoto(img)) {
-            img.classList.add('photoblur-blurred');
-            wrapImageWithContainer(img);
-        }
+        // Ajouter les classes de protection
+        element.classList.add('photoblur-protected');
         
         // Empêcher le glisser-déposer
-        img.addEventListener('dragstart', function(e) {
+        element.addEventListener('dragstart', function(e) {
             e.preventDefault();
+            showProtectionMessage(config.protectionMessage);
             return false;
         });
         
         // Empêcher la sélection
-        img.addEventListener('selectstart', function(e) {
+        element.addEventListener('selectstart', function(e) {
             e.preventDefault();
             return false;
         });
         
         // Empêcher les événements contextuels
-        img.addEventListener('contextmenu', function(e) {
+        element.addEventListener('contextmenu', function(e) {
             e.preventDefault();
-            showLoginMessage(e);
+            showProtectionMessage(config.protectionMessage);
             return false;
         });
         
-        // Empêcher les événements tactiles sur mobile
-        img.addEventListener('touchstart', function(e) {
-            if (e.touches.length > 1) { // Empêcher le pinch zoom
+        // Événements tactiles sur mobile
+        if (isMobileDevice()) {
+            addMobileProtectionToElement(element);
+        }
+    }
+    
+    /**
+     * Protection mobile pour un élément
+     */
+    function addMobileProtectionToElement(element) {
+        var touchTimer;
+        
+        element.addEventListener('touchstart', function(e) {
+            touchTimer = setTimeout(function() {
                 e.preventDefault();
+                showProtectionMessage(config.protectionMessage);
+            }, 500); // Appui long de 500ms
+        });
+        
+        element.addEventListener('touchend', function() {
+            if (touchTimer) {
+                clearTimeout(touchTimer);
             }
         });
         
-        img.addEventListener('touchmove', function(e) {
-            if (e.touches.length > 1) {
-                e.preventDefault();
+        element.addEventListener('touchmove', function() {
+            if (touchTimer) {
+                clearTimeout(touchTimer);
             }
         });
-    }
-    
-    /**
-     * Vérifier si c'est une photo d'utilisateur
-     */
-    function isUserPhoto(img) {
-        const src = img.src || '';
-        const parent = img.closest('.profile_photo, .user_sidebar_photo, .profile-photo, .avatar');
-        return parent !== null || src.includes('user') || src.includes('profile');
-    }
-    
-    /**
-     * Vérifier si c'est une photo d'album
-     */
-    function isAlbumPhoto(img) {
-        const parent = img.closest('.album_photo, .photo_gallery, .gallery-item, .photo-item');
-        const src = img.src || '';
-        return parent !== null || src.includes('album') || src.includes('gallery');
-    }
-    
-    /**
-     * Envelopper l'image dans un conteneur avec tooltip
-     */
-    function wrapImageWithContainer(img) {
-        if (img.closest('.photoblur-container')) {
-            return; // Déjà enveloppée
-        }
-        
-        const container = document.createElement('div');
-        container.className = 'photoblur-container';
-        container.title = loginMessage;
-        
-        img.parentNode.insertBefore(container, img);
-        container.appendChild(img);
-        
-        // Ajouter un gestionnaire de clic pour le message
-        container.addEventListener('click', function(e) {
-            e.preventDefault();
-            showLoginMessage(e);
-            return false;
-        });
-    }
-    
-    /**
-     * Protéger les images d'arrière-plan
-     */
-    function protectBackgroundImage(element) {
-        element.classList.add('photoblur-protected');
-        
-        // Ajouter un overlay pour empêcher l'interaction
-        const overlay = document.createElement('div');
-        overlay.style.cssText = 'position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; background: transparent;';
-        overlay.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            showLoginMessage(e);
-            return false;
-        });
-        
-        if (element.style.position === '' || element.style.position === 'static') {
-            element.style.position = 'relative';
-        }
-        element.appendChild(overlay);
     }
     
     /**
@@ -185,22 +152,29 @@
     function preventKeyboardShortcuts() {
         document.addEventListener('keydown', function(e) {
             // Empêcher Ctrl+S (Sauvegarder)
-            if (e.ctrlKey && e.key === 's') {
+            if (e.ctrlKey && e.key.toLowerCase() === 's') {
                 e.preventDefault();
-                showLoginMessage(e);
+                showProtectionMessage('Connectez-vous pour sauvegarder les images');
                 return false;
             }
             
-            // Empêcher Ctrl+A (Sélectionner tout)
-            if (e.ctrlKey && e.key === 'a') {
-                e.preventDefault();
-                return false;
+            // Empêcher Ctrl+A (Sélectionner tout) sur les zones protégées
+            if (e.ctrlKey && e.key.toLowerCase() === 'a') {
+                var target = e.target;
+                if (target.closest('.photoblur-protected') || target.classList.contains('photoblur-protected')) {
+                    e.preventDefault();
+                    return false;
+                }
             }
             
-            // Empêcher Ctrl+C et Ctrl+V
-            if (e.ctrlKey && (e.key === 'c' || e.key === 'v')) {
-                e.preventDefault();
-                return false;
+            // Empêcher Ctrl+C (Copier)
+            if (e.ctrlKey && e.key.toLowerCase() === 'c') {
+                var target = e.target;
+                if (target.closest('.photoblur-protected') || target.classList.contains('photoblur-protected')) {
+                    e.preventDefault();
+                    showProtectionMessage('Connectez-vous pour copier les images');
+                    return false;
+                }
             }
             
             // Empêcher F12 (Outils de développement)
@@ -210,13 +184,13 @@
             }
             
             // Empêcher Ctrl+Shift+I (Outils de développement)
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+            if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
                 e.preventDefault();
                 return false;
             }
             
             // Empêcher Ctrl+U (Voir le source)
-            if (e.ctrlKey && e.key === 'u') {
+            if (e.ctrlKey && e.key.toLowerCase() === 'u') {
                 e.preventDefault();
                 return false;
             }
@@ -224,7 +198,7 @@
             // Empêcher Print Screen
             if (e.key === 'PrintScreen') {
                 e.preventDefault();
-                showLoginMessage(e);
+                showProtectionMessage(config.loginMessage);
                 return false;
             }
         });
@@ -235,89 +209,92 @@
      */
     function preventRightClick() {
         document.addEventListener('contextmenu', function(e) {
-            const target = e.target;
-            if (target.tagName === 'IMG' || target.closest('.photoblur-protected')) {
+            var target = e.target;
+            
+            // Vérifier si c'est un élément protégé
+            if (target.closest('.photoblur-protected') || 
+                target.classList.contains('photoblur-protected') ||
+                target.closest('.thumbs_photo') ||
+                target.closest('.profile_photo') ||
+                target.classList.contains('bg_item_photo_album_photo')) {
+                
                 e.preventDefault();
-                showLoginMessage(e);
+                showProtectionMessage(config.protectionMessage);
                 return false;
             }
         });
     }
     
     /**
-     * Protection contre les outils de développement
+     * Détection des outils de développement
      */
-    function preventDevTools() {
-        // Détection basique de l'ouverture des outils de développement
-        let devtools = {open: false, orientation: null};
-        const threshold = 160;
+    function detectDevTools() {
+        var devtools = { open: false };
+        var threshold = 160;
         
-        setInterval(function() {
-            if (window.outerHeight - window.innerHeight > threshold || 
-                window.outerWidth - window.innerWidth > threshold) {
+        function checkDevTools() {
+            var heightDiff = window.outerHeight - window.innerHeight;
+            var widthDiff = window.outerWidth - window.innerWidth;
+            
+            if (heightDiff > threshold || widthDiff > threshold) {
                 if (!devtools.open) {
                     devtools.open = true;
-                    // Flouter davantage ou masquer les images
-                    document.querySelectorAll('.photoblur-protected').forEach(function(img) {
-                        img.style.filter = 'blur(20px)';
-                    });
+                    document.body.classList.add('photoblur-devtools-detected');
+                    showProtectionMessage('Outils de développement détectés - Protection renforcée');
                 }
             } else {
                 if (devtools.open) {
                     devtools.open = false;
-                    // Restaurer le flou normal
-                    document.querySelectorAll('.photoblur-protected').forEach(function(img) {
-                        img.style.filter = 'blur(10px)';
-                    });
+                    document.body.classList.remove('photoblur-devtools-detected');
                 }
             }
-        }, 500);
+        }
+        
+        // Vérifier toutes les secondes
+        setInterval(checkDevTools, 1000);
     }
     
     /**
      * Protections spécifiques au mobile
      */
     function applyMobileProtections() {
-        // Empêcher la sauvegarde d'image sur mobile
-        document.addEventListener('touchstart', function(e) {
-            if (e.target.tagName === 'IMG' && e.target.classList.contains('photoblur-protected')) {
-                let touchDuration = 0;
-                const startTime = Date.now();
-                
-                const touchEndHandler = function() {
-                    touchDuration = Date.now() - startTime;
-                    if (touchDuration > 500) { // Appui long détecté
-                        e.preventDefault();
-                        showLoginMessage(e);
-                    }
-                    document.removeEventListener('touchend', touchEndHandler);
-                };
-                
-                document.addEventListener('touchend', touchEndHandler);
-            }
-        });
-        
         // Empêcher le zoom sur les images protégées
         document.addEventListener('gesturestart', function(e) {
-            if (e.target.classList.contains('photoblur-protected')) {
+            var target = e.target;
+            if (target.closest('.photoblur-protected') || target.classList.contains('photoblur-protected')) {
                 e.preventDefault();
             }
         });
+        
+        // Empêcher le zoom via les événements touch
+        var lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            var now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                var target = event.target;
+                if (target.closest('.photoblur-protected') || target.classList.contains('photoblur-protected')) {
+                    event.preventDefault();
+                }
+            }
+            lastTouchEnd = now;
+        }, false);
     }
     
     /**
      * Empêcher l'impression
      */
     function preventPrinting() {
-        window.addEventListener('beforeprint', function(e) {
-            document.querySelectorAll('.photoblur-protected').forEach(function(img) {
-                img.style.display = 'none';
+        window.addEventListener('beforeprint', function() {
+            var protectedElements = document.querySelectorAll('.photoblur-protected');
+            protectedElements.forEach(function(element) {
+                element.style.display = 'none';
             });
         });
         
-        window.addEventListener('afterprint', function(e) {
-            document.querySelectorAll('.photoblur-protected').forEach(function(img) {
-                img.style.display = '';
+        window.addEventListener('afterprint', function() {
+            var protectedElements = document.querySelectorAll('.photoblur-protected');
+            protectedElements.forEach(function(element) {
+                element.style.display = '';
             });
         });
     }
@@ -326,15 +303,26 @@
      * Observer les nouvelles images ajoutées dynamiquement
      */
     function observeNewImages() {
-        const observer = new MutationObserver(function(mutations) {
+        if (!window.MutationObserver) {
+            return; // Pas de support pour MutationObserver
+        }
+        
+        var observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
                 mutation.addedNodes.forEach(function(node) {
                     if (node.nodeType === 1) { // Element node
-                        if (node.tagName === 'IMG') {
-                            protectImage(node);
-                        } else {
-                            const images = node.querySelectorAll('img');
-                            images.forEach(protectImage);
+                        // Vérifier si le nœud lui-même est protégeable
+                        if (isProtectableElement(node)) {
+                            protectElement(node);
+                        }
+                        
+                        // Chercher des éléments protégeables dans les enfants
+                        var protectableElements = node.querySelectorAll && node.querySelectorAll(
+                            '.thumbs_photo, .profile_photo img, .bg_item_photo_album_photo, .photoblur-protected'
+                        );
+                        
+                        if (protectableElements) {
+                            Array.prototype.forEach.call(protectableElements, protectElement);
                         }
                     }
                 });
@@ -348,44 +336,103 @@
     }
     
     /**
-     * Afficher le message de connexion
+     * Vérifier si un élément doit être protégé
      */
-    function showLoginMessage(event) {
-        // Créer un tooltip temporaire
-        const tooltip = document.createElement('div');
-        tooltip.textContent = loginMessage;
-        tooltip.style.cssText = `
-            position: fixed;
-            top: ${event.clientY}px;
-            left: ${event.clientX}px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 14px;
-            z-index: 10000;
-            pointer-events: none;
-            transform: translate(-50%, -100%);
-        `;
+    function isProtectableElement(element) {
+        return element.classList.contains('thumbs_photo') ||
+               element.classList.contains('bg_item_photo_album_photo') ||
+               element.classList.contains('photoblur-protected') ||
+               (element.tagName === 'IMG' && element.closest('.profile_photo'));
+    }
+    
+    /**
+     * Afficher un message de protection
+     */
+    function showProtectionMessage(message) {
+        // Éviter les doublons
+        if (document.querySelector('.photoblur-protection-message')) {
+            return;
+        }
         
-        document.body.appendChild(tooltip);
+        var messageDiv = document.createElement('div');
+        messageDiv.className = 'photoblur-protection-message';
+        messageDiv.textContent = message;
+        messageDiv.style.cssText = [
+            'position: fixed',
+            'top: 50%',
+            'left: 50%',
+            'transform: translate(-50%, -50%)',
+            'background: rgba(0, 0, 0, 0.9)',
+            'color: white',
+            'padding: 15px 25px',
+            'border-radius: 8px',
+            'font-size: 16px',
+            'z-index: 10000',
+            'box-shadow: 0 4px 20px rgba(0,0,0,0.3)',
+            'animation: fadeInMessage 0.3s ease',
+            'text-align: center',
+            'max-width: 300px'
+        ].join(';');
         
-        // Supprimer le tooltip après 2 secondes
+        document.body.appendChild(messageDiv);
+        
+        // Supprimer après 3 secondes
         setTimeout(function() {
-            if (tooltip.parentNode) {
-                tooltip.parentNode.removeChild(tooltip);
+            if (messageDiv.parentNode) {
+                messageDiv.style.animation = 'fadeOutMessage 0.3s ease forwards';
+                setTimeout(function() {
+                    if (messageDiv.parentNode) {
+                        messageDiv.remove();
+                    }
+                }, 300);
             }
-        }, 2000);
+        }, 3000);
     }
     
     /**
      * Détecter si c'est un appareil mobile
      */
     function isMobileDevice() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+               ('ontouchstart' in window) ||
+               (navigator.maxTouchPoints && navigator.maxTouchPoints > 1);
     }
     
-    // Initialiser le module quand le script est chargé
-    initPhotoBlur();
+    /**
+     * Ajouter les animations CSS si nécessaires
+     */
+    function addAnimations() {
+        if (document.getElementById('photoblur-animations')) {
+            return; // Déjà ajoutées
+        }
+        
+        var style = document.createElement('style');
+        style.id = 'photoblur-animations';
+        style.textContent = [
+            '@keyframes fadeInMessage {',
+            '  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }',
+            '  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }',
+            '}',
+            '@keyframes fadeOutMessage {',
+            '  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }',
+            '  to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }',
+            '}'
+        ].join('\n');
+        
+        document.head.appendChild(style);
+    }
+    
+    // Initialisation
+    function init() {
+        addAnimations();
+        initPhotoBlur();
+    }
+    
+    // Lancer l'initialisation
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
     
 })();

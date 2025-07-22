@@ -1,12 +1,12 @@
 <?php
 /**
- * PhotoBlur Module
+ * PhotoBlur Module for SocialEngine 7.4
  *
  * @category   Application_Extensions
  * @package    PhotoBlur
  * @copyright  Copyright 2024
  * @license    Custom License
- * @version    $Id: manifest.php 1.0.0 $
+ * @version    1.0.0
  * @author     Custom Development
  */
 
@@ -20,8 +20,9 @@ return array(
     'path' => 'application/modules/PhotoBlur',
     'repository' => 'custom',
     'title' => 'Photo Blur Module',
-    'description' => 'Module qui floute les photos pour les visiteurs non connectés et empêche la sauvegarde des images',
+    'description' => 'Floute les photos des albums et utilisateurs pour les visiteurs non-membres afin d\'encourager l\'inscription',
     'author' => 'Custom Development',
+    'thumb' => 'application/modules/PhotoBlur/externals/images/thumb.png',
     'dependencies' => array(
       array(
         'type' => 'module',
@@ -35,7 +36,7 @@ return array(
       ),
       array(
         'type' => 'module',
-        'name' => 'storage',
+        'name' => 'album',
         'minVersion' => '7.0.0',
       ),
     ),
@@ -76,16 +77,22 @@ return array(
       'resource' => 'PhotoBlur_Plugin_Core',
     ),
     array(
-      'event' => 'onItemPhotoRender',
+      'event' => 'onUserPhotoUpload',
+      'resource' => 'PhotoBlur_Plugin_Core',
+    ),
+    array(
+      'event' => 'onItemCreateAfter',
       'resource' => 'PhotoBlur_Plugin_Core',
     ),
   ),
   
-  // Routes --------------------------------------------------------------------
-  'routes' => array(
-    // Pas de routes spécifiques nécessaires pour ce module
+  // Items ---------------------------------------------------------------------
+  'items' => array(
+    // Pas d'items spécifiques pour ce module
   ),
   
-  // Layout --------------------------------------------------------------------
-  // Pas de layout spécifique requis
+  // Routes --------------------------------------------------------------------
+  'routes' => array(
+    // Pas de routes spécifiques pour ce module
+  ),
 );
