@@ -69,8 +69,8 @@ class PhotoFloue_TestModule
             'Bootstrap.php',
             'Plugin/Core.php',
             'View/Helper/ItemBackgroundPhoto.php',
-            'externals/styles/photoblur.css',
-            'externals/scripts/photoblur.js',
+            'externals/styles/photofloue.css',
+            'externals/scripts/photofloue.js',
             'settings/manifest.php',
             'settings/install.php',
             'README.md'
