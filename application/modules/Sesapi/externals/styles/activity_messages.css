@@ -1,0 +1,152 @@
+body{
+	padding:0;
+	margin:0;
+}
+/*Find Friends*/
+.sesact_find_frind_head{
+	border-bottom-width:1px;
+	font-weight:bold;
+	padding:10px 10px 5px;
+}
+.sesact_find_frind_cont{
+	padding:0 10px;
+}
+.sesact_find_frind_cont > i{
+	float:left;
+}
+.sesact_find_frind_cont .more_btn {
+	float:right;
+	margin-top:15px;
+}
+.sesact_find_frind_cont .more_btn a{
+	background:#f6f7f8;
+	background:-moz-linear-gradient(top, #ffffff 0%, #f6f7f8 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f6f7f8));
+	background:-webkit-linear-gradient(top, #ffffff 0%, #f6f7f8 100%);
+	background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f6f7f8));
+	background:linear-gradient(to bottom, #ffffff 0%, #f6f7f8 100%);
+	border-radius:3px;
+	border:1px solid #E1E2E3;
+	color:#4e5665 !important;
+	font-size:13px;
+	display:block;
+	padding:5px 10px;
+	overflow:hidden;
+	text-decoration:none;
+}
+.sesact_find_frind_cont span.des {
+	padding:12px 10px;
+	display:block;
+	overflow:hidden;
+	font-size:12px;
+}
+/*Wishbox*/
+.sesact_wishbox,
+.sesact_wishbox *{
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+.sesact_wishbox > div{
+	padding:5px 10px !important;
+	font-size:17px;
+	font-weight:bold;
+	position:relative;
+	height:60px;
+	display:-webkit-flex;
+	display:flex;
+	-webkit-justify-content:space-between;
+	justify-content:space-between;
+	-webkit-align-items:center;
+	align-items:center;
+}
+.sesact_wishbox .favicon{
+	display:none;
+}
+.sesact_wishbox > div span + span{
+	position:inherit !important;
+	top:0 !important;
+	right:0 !important;
+}
+.sesact_wishbox > div span + span img{
+	max-height:50px !important;
+}
+/*Birthday Wish*/
+.sesact_bdaywish{
+	padding:0 !important;
+}
+.sesact_bdaywish > div > span{
+	font-weight:bold;
+	margin-top:5px;
+	display:block;
+}
+/*Friends Birthday*/
+.sesact_sendwish > div:nth-child(1){
+	height:140px;
+	position:relative;
+}
+.sesact_sendwish > div:nth-child(1) img:not(.favicon){
+	height:100%;
+}
+.sesact_sendwish_btns{
+	border-top:1px solid #E1E2E3;
+	display:table;
+	padding:10px 0;
+	width:100%;
+}
+.sesact_sendwish_btns a {
+	font-weight:bold;
+	display:table-cell;
+	text-align:center;
+	width:50%;
+	text-decoration:none;
+	color:#365899;
+	font-size:12px;
+}
+.sesact_sendwish_btns a + a {
+	border-left:1px solid #E1E2E3;
+}
+.sesact_sendwish_btns a i{
+	display:none;
+}
+.sesact_sendwish_btns a,
+.sesact_sendwish_btns a:focus,
+.sesact_sendwish_btns a:active{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+/*Add Birthday*/
+.sesact_addbday{
+	padding:15px 0 0;
+	text-align:center;
+}
+.sesact_addbday_title{
+	font-size:20px;
+	font-weight:bold;
+}
+.sesact_addbday_des{
+	font-size:13px;
+	margin-top:5px;
+}
+.sesact_addbday_title,
+.sesact_addbday_des{
+	padding:0 20px;
+}
+.sesact_addbday span{
+	display:block;
+}
+.sesact_addbday_btn{
+	border-top:1px solid #E1E2E3;
+	margin-top:15px;
+}
+.sesact_addbday_btn a{
+	font-weight:bold;
+	border-width:1px;
+	display:block;
+	padding:8px 0;
+	text-decoration:none !important
+}
+.sesact_addbday_btn a,
+.sesact_addbday_btn a:focus,
+.sesact_addbday_btn a:active{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}

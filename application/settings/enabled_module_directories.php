@@ -14,4 +14,5 @@
   12 => 'Payment',
   13 => 'Storage',
   14 => 'User',
+  15 => 'Video',
 ); ?>

@@ -1,0 +1,13 @@
+#global_header,
+#global_footer{
+  display:none !important;
+}
+#global_wrapper{
+	margin:0;
+}
+#global_content{
+  padding:0 20px;
+}
+.estore_dashboard_main_nav{
+	display:none;
+}

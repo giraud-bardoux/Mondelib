@@ -1,0 +1,196 @@
+/* Help setting tab in admin panel */
+.sesapi_support_links{
+	display:flex;
+	flex-wrap:wrap;
+}
+.sesapi_support_links a{
+	padding:40px 10px;
+	width:30%;
+	margin:5px;
+	text-align:center;
+	text-decoration:none !important;
+	font-family:monospace;
+	transition:all .5s ease;
+}
+.sesapi_support_links a h4{
+	font-size:20px;
+	font-weight:bold;
+	color:#706e6e;
+}
+.sesapi_support_links a p{
+	font-size:15px;
+	padding:0 20px;
+	margin-top:10px;
+	color:#818181;
+}
+.sesapi_support_links a:nth-child(4n+1){
+	background:#e1f9ed;
+}
+.sesapi_support_links a:nth-child(4n+2){
+	background:#daf5ce;
+}
+.sesapi_support_links a:nth-child(4n+3){
+	background:#fbf9d6;
+}
+.sesapi_support_links a:nth-child(4n+4){
+	background:#ffe4ed;
+}
+.sesapi_support_links a:nth-child(4n+5){
+	background:#ebe0ff;
+}
+.sesapi_support_links a:nth-child(4n+6){
+	background:#e3e7ff;
+}
+.sesapi_support_links a:hover{
+	box-shadow:0 20px 20px -15px #cacaca;
+	transform:scale(1.01);
+	transition:all .5s ease;
+}
+.sesapi_support_links a i{
+	margin:0 auto;
+	display:block;
+	margin-bottom:10px;
+  font-size: 38px;
+	color: #706e6e;
+}
+.sesapi_support_links b{
+	font-weight:bold;
+}
+/*Loading Message*/
+.sesapi_waiting_msg_box{
+	height:100%;
+	left:0;
+	position:fixed;
+	top:0;
+	width:100%;
+}
+.sesapi_waiting_msg_box::after{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	width:100%;
+	height:100%;
+	background-color:var(--theme-box-background-color);
+	opacity:0.8;
+}
+.sesapi_waiting_msg_box_cont{
+	background-color:var(--theme-box-background-color);
+	border:5px solid var(--theme-base-color);
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.5);
+	font-size:20px;
+	font-weight:bold;
+	height:200px;
+	left:50%;
+	top:50%;
+	transform: translate(-50%);
+	padding:20px;
+	position:fixed;
+	text-align:center;
+	top:50%;
+	width:600px;
+	z-index:24;
+}
+.sesapi_waiting_msg_box_cont i{
+	background-image:url(~/application/modules/Sesapi/externals/images/admin/loading.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+	display:block;
+	height:30px;
+	margin-top:20px;
+	width:100%;
+}
+
+/*Tabs*/
+.sesapi-admin-navgation{
+	display:block;
+	margin:10px 0 0;
+	border-top:1px solid #ddd;
+	overflow:hidden;
+	padding:10px 0;
+}
+.sesapi-admin-navgation *{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+.sesapi-admin-navgation ul{
+	margin:0 -5px;
+}
+.sesapi-admin-navgation ul li{
+  float:left;
+	margin:5px;
+}
+.sesapi-admin-navgation ul li a{
+	color:var(--theme-button-background-color);
+	display:block;
+	font-weight:bold;
+	padding:10px 20px;
+	border-radius:20px;
+	border:1px solid var(--theme-button-background-color);
+}
+.sesapi-admin-navgation ul li a:hover,
+.sesapi-admin-navgation ul li.active a{
+	background-color:var(--theme-button-background-color);
+	text-decoration:none;
+	color:#fff;
+}
+/*Feature Request Button*/
+body#global_page_sesapi-admin-settings-index div#global_content{
+	position:relative;
+}
+.sesapi_admin_plugin_title h2{
+  overflow:hidden;
+}
+.sesapi_nav_btns{
+	position:absolute;
+	right:20px;
+	top:22px;
+}
+[dir="rtl"] .sesapi_nav_btns {
+	position: absolute;
+	left:20px;
+	right:auto;
+}
+.sesapi_admin_plugin_title .sesapi_nav_btns{
+  margin:0 0 0 20px;
+}
+.sesapi_nav_btns a{
+	background-color:#f36a33;
+	border-radius:3px;
+	background-position:10px center;
+	background-repeat:no-repeat;
+	color:#fff !important;
+	float:left;
+	font-weight:bold;
+	padding:7px 15px 7px 30px;
+	margin:0 8px;
+	position:relative;
+}
+.sesapi_nav_btns a:before{
+	font-family:"Font Awesome 5 Free";
+	left:10px;
+	position:absolute;
+	font-size:17px;
+	font-weight:900;
+	top:5px;
+}
+.sesapi_nav_btns a:hover{
+	text-decoration:none;
+	opacity:.8;
+}
+.sesapi_nav_btns a.help-btn{
+	background-image:url(~/application/modules/Sesapi/externals/images/admin/help.png);
+}
+/*Global Form*/
+div .sesapi_admin_form .form-description{
+	max-width:inherit;
+}
+div .sesapi_admin_form .form-element .description,
+div .sesapi_admin_form .form-element .hint{
+	max-width:650px;
+}
+div .sesapi_admin_form label.required:after{
+	content:" *";
+	color:#f00;
+}

@@ -1,0 +1,505 @@
+
+/*Icons*/
+.sesiosapp_search_result{
+	font-weight:bold;
+	margin-bottom:10px;
+}
+.sesiosapp_icon_add{
+	background-image:url(~/application/modules/Sesiosapp/externals/images/admin/add.png);
+}
+.sesiosapp_icon_back{
+	background-image:url(~/application/modules/Sesiosapp/externals/images/admin/back.png);
+}
+/*Color Scheme Form*/
+.sesiosapp_themes_form #custom_theme_color-wrapper{float:left;padding:0 0 20px;}
+.sesiosapp_themes_form .sesiosapp_styling_buttons{float:right;}
+.sesiosapp_themes_form .sesiosapp_styling_buttons a{
+	margin-left:5px;
+	text-decoration:none !important;
+	background-color:#005c99;
+	border-radius:3px;
+	padding:5px 10px;
+	display:inline-block;
+	color:#fff !important;
+	font-size:12px;
+	font-weight:600;
+}
+.sesiosapp_themes_form .sesiosapp_styling_buttons .sesiosapp_icon_delete{
+	background-color:#ff3232;
+}
+.sesiosapp_themes_form .form-label{
+	margin-bottom:5px;
+}
+.sesiosapp_themes_form .global_form .form-elements > div{
+	display:block;
+}
+.sesiosapp_themes_form #theme_color-label{
+	border-bottom-width:1px;
+	font-size:15px;
+	padding-bottom:15px;
+	text-align:center;
+	width:100%;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element ul.form-options-wrapper{
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element{
+	clear:both;
+	align-items:center;
+	display:flex;
+	max-width:100%;
+	width:100%;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element li{
+	box-sizing:border-box;
+	float:left;
+	padding:0 10px;
+	margin:10px 0 0 0;
+	padding-bottom:30px;
+	position:relative;
+	width:33.33%;
+	box-sizing:border-box;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element li input{
+	bottom:0;
+	float:none;
+	left:50%;
+	margin-bottom:10px;
+	position:absolute;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element li label{
+	cursor:pointer;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element li img{
+	width:100%;
+	border:2px solid #ddd;
+	box-sizing:border-box;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element li:last-child{
+	clear:both;
+	display:block;
+	float:none;
+	padding-top:20px;
+  margin-top:20px;
+	width:340px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element li:last-child:before{
+  content:"Make your own theme (make sure the site is in Development Mode, before you make any changes)";
+	font-size:15px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+.sesiosapp_themes_form #theme_color-wrapper .form-element li:last-child img{
+	margin-top:10px;
+	border-width:0;
+}
+.sesiosapp_themes_form #header_settings-wrapper,
+.sesiosapp_themes_form #footer_settings-wrapper,
+.sesiosapp_themes_form #body_settings-wrapper,
+.sesiosapp_themes_form #fontsize_settings-wrapper,
+.sesiosapp_themes_form #ipadfontsize_settings-wrapper,
+.sesiosapp_themes_form #gradient_settings-wrapper,
+.sesiosapp_themes_form #searchbar_settings-wrapper,
+.sesiosapp_themes_form #content_settings-wrapper,
+.sesiosapp_themes_form #menu_settings-wrapper,
+.sesiosapp_themes_form #tabs_settings-wrapper,
+.sesiosapp_themes_form #welcome_settings-wrapper{
+	border-bottom-width:1px;
+}
+.sesiosapp_themes_form #header_settings-wrapper .form-label,
+.sesiosapp_themes_form #footer_settings-wrapper .form-label,
+.sesiosapp_themes_form #body_settings-wrapper .form-label,
+.sesiosapp_themes_form #fontsize_settings-wrapper .form-label,
+.sesiosapp_themes_form #ipadfontsize_settings-wrapper .form-label,
+.sesiosapp_themes_form #gradient_settings-wrapper .form-label,
+.sesiosapp_themes_form #searchbar_settings-wrapper .form-label,
+.sesiosapp_themes_form #content_settings-wrapper .form-label,
+.sesiosapp_themes_form #menu_settings-wrapper .form-label,
+.sesiosapp_themes_form #tabs_settings-wrapper .form-label,
+.sesiosapp_themes_form #welcome_settings-wrapper .form-label{
+	font-size:15px;
+	width:auto;
+}
+.sesiosapp_themes_form .sesiosapp_bundle > fieldset > div{
+  margin-right:3%;
+	display:inline-block;
+	width:30%;
+}
+.sesiosapp_themes_form .global_form .form-elements fieldset > div{
+	display: inline-block;
+}
+.sesiosapp_themes_form .sesiosapp_bundle > fieldset > div > div{
+	width:100%;
+}
+.sesiosapp_themes_form .sesiosapp_bundle > fieldset > div > div input{
+  min-width: inherit !important;
+  width: 100% !important;
+}
+/*Loading Message*/
+.sesiosapp_waiting_msg_box{
+	height:100%;
+	left:0;
+	position:fixed;
+	top:0;
+	width:100%;
+}
+.sesiosapp_waiting_msg_box::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--theme-box-background-color);
+	opacity: 0.8;
+}
+.sesiosapp_waiting_msg_box_cont {
+	background-color: var(--theme-box-background-color);
+	border: 5px solid var(--theme-base-color);
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.5);
+	font-size:20px;
+	font-weight:bold;
+	height:180px;
+	left:50%;
+	margin:-50px 0 0 -300px;
+	padding:20px;
+	position:fixed;
+	text-align:center;
+	top:50%;
+	width:600px;
+	z-index:24;
+}
+.sesiosapp_waiting_msg_box_cont i{
+	background-image:url(~/application/modules/Sesiosapp/externals/images/admin/loading.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+	display:block;
+	height:30px;
+	margin-top:20px;
+	width:100%;
+}
+/*Tabs*/
+.sesiosapp-admin-navgation{
+	display: block;
+	margin: 10px 0 0;
+	border-top: 1px solid #ddd;
+	overflow: hidden;
+	padding: 10px 0;
+}
+.sesiosapp-admin-navgation *{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+.sesiosapp-admin-navgation ul{
+	margin:0 -5px;
+}
+.sesiosapp-admin-navgation ul li{
+  float:left;
+	margin:5px;
+}
+.sesiosapp-admin-navgation ul li a{
+	color: var(--theme-button-background-color);
+	display: block;
+	font-weight: bold;
+	padding: 10px 20px;
+	border-radius: 20px;
+	border: 1px solid var(--theme-button-background-color);
+}
+.sesiosapp-admin-navgation ul li a:hover,
+.sesiosapp-admin-navgation ul li.active a{
+	background-color:var(--theme-button-background-color);
+	text-decoration:none;
+	color:#fff;
+}
+.sesiosapp_nav_btns{
+	float:right;
+	margin-top:-40px;
+}
+.sesiosapp_nav_btns a{
+	background-color:#f36a33;
+	border-radius:3px;
+	background-position:10px center;
+	background-repeat:no-repeat;
+	color:#fff;
+	float:left;
+	font-weight:bold;
+	padding:7px 15px 7px 30px;
+	margin-left:10px;
+	position:relative;
+}
+.sesiosapp_nav_btns a:before{
+	font-family:"Font Awesome 5 Free";
+	left:10px;
+	position:absolute;
+	font-size:17px;
+	font-weight:900;
+	top:5px;
+}
+.sesiosapp_nav_btns a:hover{
+	text-decoration:none;
+	opacity:.8;
+}
+.sesiosapp_nav_btns a.help-btn{
+	background-image:url(~/application/modules/Sesiosapp/externals/images/admin/help.png);
+}
+/*Help setting tab in admin panel*/
+.sesiosapp_support_links{
+	display:flex;
+	flex-wrap:wrap;
+}
+.sesiosapp_support_links a{
+	padding:20px 10px 15px;
+	width:30%;
+	margin:5px;
+	text-decoration:none !important;
+	transition:all .5s ease;
+}
+.sesiosapp_support_links a h4{
+	font-size:17px;
+	font-weight:bold;
+	color:#706e6e;
+	margin-top:5px;
+}
+.sesiosapp_support_links a p{
+	clear:both;
+	font-size:13px;
+	margin-top:10px;
+	color:#818181;
+	text-align:justify;
+}
+.sesiosapp_support_links a p span._btn{
+	background-color:var(--theme-button-background-color);
+	color:#fff;
+	float:right;
+	padding:3px 10px;
+	margin-top:10px;
+	text-transform:uppercase;
+	font-size:90%;
+}
+.sesiosapp_support_links a:nth-child(1){
+	background:#e1f9ed;
+}
+.sesiosapp_support_links a:nth-child(2){
+	background:#daf5ce;
+}
+.sesiosapp_support_links a:nth-child(3){
+	background:#fbf9d6;
+}
+.sesiosapp_support_links a:nth-child(4){
+	background:#ffe4ed;
+}
+.sesiosapp_support_links a:nth-child(5){
+	background:#ebe0ff;
+}
+.sesiosapp_support_links a:nth-child(6){
+	background:#eeffd8;
+}
+.sesiosapp_support_links a:nth-child(7){
+	background:#e3fffa;
+}
+.sesiosapp_support_links a:nth-child(8){
+	background:#e3e7ff;
+}
+.sesiosapp_support_links a:nth-child(9){
+	background:#ffecee;
+}
+
+/*Manage Table*/
+.sesiosapp_manage_table{
+	width:100%;
+}
+.sesiosapp_manage_table *{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+.sesiosapp_manage_table_head{
+	background-color:var(--theme-box-background-alt-color);
+	border-bottom:1px solid var(--theme-border-color);
+	display:block;
+	overflow:hidden;
+}
+.sesiosapp_manage_table_head > div{
+	padding:10px;
+	float:left;
+	font-weight:bold;
+	padding-top:7px;
+	padding-bottom:7px;
+	white-space:nowrap;
+}
+.sesiosapp_manage_table_list{
+	margin-bottom:10px;
+	width:100% !important;
+}
+.sesiosapp_manage_table_list li{
+	border-bottom:1px solid var(--theme-border-color);
+	cursor:move;
+	clear:both;
+	overflow:hidden;
+}
+.sesiosapp_manage_table_list li:nth-child(odd){
+	background-color:var(--theme-box-background-color);;
+}
+.sesiosapp_manage_table_list li:nth-child(even){
+	background-color:var(--theme-box-background-alt-color);
+}
+.sesiosapp_manage_table_list li > div{
+	padding:10px;
+	font-size:.9em;
+	float:left;
+	padding-top:7px;
+	padding-bottom:7px;
+	vertical-align:top;
+	white-space:normal;
+}
+/*Global Form*/
+div .sesiosapp_admin_form form > div{
+	padding:15px;
+}
+div .sesiosapp_admin_form .form-description{
+	max-width:inherit;
+}
+div .sesiosapp_admin_form .form-element .description,
+div .sesiosapp_admin_form .form-element .hint{
+	max-width:650px;
+}
+div .sesiosapp_admin_form label.required:after{
+	content:" *";
+	color:#f00;
+}
+.sesiosapp_loading_cont_overlay{
+	background-color:rgba(255, 255, 255, .5);
+  background-image:url(~/application/modules/Sesiosapp/externals/images/admin/loading.gif);
+	background-repeat:no-repeat;
+	background-position:center center;
+  position:absolute;
+  bottom:0;
+	display:none;
+  top:0;
+  left:0;
+  right:0;
+	z-index:1;
+}
+/*Popup Form*/
+.sesiosapp_popup_form{
+	margin:15px 0 0 15px;
+}
+.sesiosapp_popup_form form > div > div{
+	width:600px;
+}
+.sesiosapp_popup_form form > div > div .form-element input[type="text"],
+.sesiosapp_popup_form form > div > div .form-element textarea{
+	min-width:0;
+	max-width:100%;
+	width:100%;
+	box-sizing:border-box;
+}
+
+/*View Ststics Popup*/
+.sesiosapp_view_stats_popup{
+	margin:10px 0 0 10px;
+	width:500px;
+}
+.sesiosapp_view_stats_popup h3{
+	margin-bottom:10px;
+}
+.sesiosapp_view_stats_popup > table{
+	width:100%;
+}
+.sesiosapp_view_stats_popup > table > tbody > tr:nth-child(2n){
+  background-color:#f8f8f8;
+}
+.sesiosapp_view_stats_popup > table > tbody > tr > td{
+	border-top:1px solid #ccc;
+	padding:5px;
+	font-weight:bold;
+	vertical-align:top;
+	width:30%;
+}
+.sesiosapp_view_stats_popup > table > tbody > tr > td + td{
+	font-weight:normal;
+	width:70%;
+}
+.sesiosapp_view_stats_popup > table > tbody > tr > td img{
+	max-width:60px;
+	max-height:60px;
+}
+/*Search Form*/
+div.sesiosapp_search_form form{
+	padding:10px;
+}
+div.sesiosapp_search_form form > div{
+	display:inline-block;
+	float:none;
+	margin:5px 10px 5px 0;
+}
+div.sesiosapp_search_form form > div label{
+	font-weight:normal;
+}
+div.sesiosapp_search_form form > div input[type="text"],
+div.sesiosapp_search_form form > div select{
+	min-width:100px;
+	padding:5px;
+	max-width:200px;
+}
+
+/*Autosuggest*/
+.sesiosapp-autosuggest{
+	position:absolute;
+	padding:0px;
+	width:300px;
+	list-style:none;
+	z-index:50;
+	border:1px solid #d0d1d5;
+	margin:0px;
+	list-style:none;
+	cursor:pointer;
+	white-space:nowrap;
+	background:#fff;
+}
+.sesiosapp-autosuggest > li{
+	padding:3px;
+	margin:0 !important;
+	overflow:hidden;
+}
+.sesiosapp-autosuggest > li + li{
+	border-top:1px solid #d0d1d5;
+}
+.sesiosapp-autosuggest > li img{
+	max-width:25px;
+	max-height:25px;
+	display:block;
+	float:left;
+	margin-right:5px;
+}
+.sesiosapp-autosuggest > li.autocompleter-selected{
+	background:#eee;
+	color:#555;
+}
+.sesiosapp-autosuggest > li.autocompleter-choices{
+	font-size:.8em;
+}
+.sesiosapp-autosuggest > li.autocompleter-choices .autocompleter-choice{
+	line-height:25px;
+}
+.sesiosapp-autosuggest > li:hover{
+	background:#eee;
+	color:#555;
+}
+.sesiosapp-autosuggest > li span.autocompleter-queried{
+	font-weight:bold;
+}
+ul.sesiosapp-autosuggest .search-working{
+	background-image:none;
+}
+.autocompleter-choice{
+	cursor:pointer;
+}
+.autocompleter-choice:hover{
+	color:#5ba1cd;
+}

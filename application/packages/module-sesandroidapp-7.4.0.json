@@ -1,0 +1,1191 @@
+{
+    "type": "module",
+    "name": "sesandroidapp",
+    "version": "7.4.0",
+    "revision": null,
+    "path": "application\/modules\/Sesandroidapp\/",
+    "repository": null,
+    "sku": null,
+    "date": "Wed, 16 Jul 2025 13:19:47 +0000",
+    "title": "Native Android Mobile App Plugin",
+    "description": "Native Android Mobile App Plugin",
+    "thumb": "application\/modules\/Sesandroidapp\/externals\/images\/thumb.png",
+    "developer": null,
+    "authors": [
+        "<a href=\"https:\/\/socialnetworking.solutions\" style=\"text-decoration:underline;\" target=\"_blank\">SocialNetworking.Solutions<\/a>"
+    ],
+    "meta": {
+        "date": "Wed, 16 Jul 2025 13:19:47 +0000",
+        "title": "Native Android Mobile App Plugin",
+        "description": "Native Android Mobile App Plugin",
+        "developer": null,
+        "authors": [
+            "<a href=\"https:\/\/socialnetworking.solutions\" style=\"text-decoration:underline;\" target=\"_blank\">SocialNetworking.Solutions<\/a>"
+        ],
+        "changeLog": null
+    },
+    "actions": [
+        "install",
+        "upgrade",
+        "refresh",
+        "enable",
+        "disable"
+    ],
+    "callback": {
+        "path": "application\/modules\/Sesandroidapp\/settings\/install.php",
+        "class": "Sesandroidapp_Installer",
+        "priority": 100
+    },
+    "dependencies": {
+        "module-core": {
+            "type": "module",
+            "name": "core",
+            "guid": "module-core",
+            "minVersion": "5.0.0",
+            "maxVersion": null,
+            "excludeExcept": null
+        }
+    },
+    "tests": [],
+    "permissions": [],
+    "structure": {
+        "application\/modules\/Sesandroidapp": {
+            "type": "directory",
+            "path": "application\/modules\/Sesandroidapp",
+            "structure": [
+                {
+                    "path": "views",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-theme",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-theme\/index.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 4866,
+                    "sha1": "c3520d51c02970211bf2141f4c25014842d0c6b3"
+                },
+                {
+                    "path": "views\/scripts\/admin-theme\/activated-custom-theme.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 645,
+                    "sha1": "d944204c6950d8e0664e8e5dd98b7ececf86bc82"
+                },
+                {
+                    "path": "views\/scripts\/admin-theme\/delete-custom-theme.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1084,
+                    "sha1": "3f9f31d3f57124e5861acee1e0f741955a25c4da"
+                },
+                {
+                    "path": "views\/scripts\/admin-theme\/add-custom-theme.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 519,
+                    "sha1": "9575380e3448049298d7414bfadd79e5f62d1488"
+                },
+                {
+                    "path": "views\/scripts\/admin-slideshow",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-slideshow\/index.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 7898,
+                    "sha1": "dca5a3376784ee8122ce55f53b5dd83b532aa946"
+                },
+                {
+                    "path": "views\/scripts\/admin-slideshow\/create-slide.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1481,
+                    "sha1": "e473c5d42a08ce91b69a80bdfd554d88b2b1b320"
+                },
+                {
+                    "path": "views\/scripts\/admin-slideshow\/delete-slide.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1220,
+                    "sha1": "4f1a8271723b27917f8e22dabb68a4c5f6247c09"
+                },
+                {
+                    "path": "views\/scripts\/index",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/index\/index.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 468,
+                    "sha1": "52f120386afd10ce94d69a094bcf9ad4bf5579d6"
+                },
+                {
+                    "path": "views\/scripts\/admin-menu",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-menu\/index.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 7759,
+                    "sha1": "558e7e34eaf570512ad2b857ff8483e2d113ab77"
+                },
+                {
+                    "path": "views\/scripts\/admin-menu\/info.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2503,
+                    "sha1": "ce2bd99362bb95b0bd1b0e00013fd5d96452e26b"
+                },
+                {
+                    "path": "views\/scripts\/admin-menu\/create.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1022,
+                    "sha1": "c4a91eb3e3ad5041c72493ea26ccf869b46506a9"
+                },
+                {
+                    "path": "views\/scripts\/admin-menu\/delete.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 513,
+                    "sha1": "e5514d5996666fcdf1bdde98912d724c5801e57d"
+                },
+                {
+                    "path": "views\/scripts\/admin-subscribers",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-subscribers\/index.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 5157,
+                    "sha1": "0710920c3d065cdc5fa675be9e04bba75b9c8df6"
+                },
+                {
+                    "path": "views\/scripts\/admin-subscribers\/revoked.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 553,
+                    "sha1": "0f4c25f1ac74ab6c425af57338c0df6ec786eb01"
+                },
+                {
+                    "path": "views\/scripts\/admin-subscribers\/delete.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 550,
+                    "sha1": "088b1fe7908284fdbded1528ae7148b8c15ba4f7"
+                },
+                {
+                    "path": "views\/scripts\/custom_themes.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1514,
+                    "sha1": "290ec08f372d04e70d379932a9c2c388e4fa226b"
+                },
+                {
+                    "path": "views\/scripts\/dismiss_message.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 567,
+                    "sha1": "ddf6ce937f2eac3c6cd4aa687f569db9dfe106d1"
+                },
+                {
+                    "path": "views\/scripts\/admin-graphic",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-graphic\/index.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 7873,
+                    "sha1": "a84f78564b7118201aa673ed51b835167449fdeb"
+                },
+                {
+                    "path": "views\/scripts\/admin-graphic\/create-graphic.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2162,
+                    "sha1": "ec7f470125fc6a595dbc0cbd0f1d584e7983189a"
+                },
+                {
+                    "path": "views\/scripts\/admin-graphic\/delete-graphic.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1226,
+                    "sha1": "bd5f9ecfa7e849b50c5265795c8f08b2182449af"
+                },
+                {
+                    "path": "views\/scripts\/admin-settings",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-settings\/index.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2171,
+                    "sha1": "bf91287759538f1d6e3901bb3f8d743737e5970e"
+                },
+                {
+                    "path": "views\/scripts\/admin-settings\/support.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2885,
+                    "sha1": "2adaa2e768ae8ed493e160ec99ba131ec0702df0"
+                },
+                {
+                    "path": "views\/scripts\/admin-settings\/background.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 957,
+                    "sha1": "e39ae256316bc8bc9951f094c17ce51d39e97f24"
+                },
+                {
+                    "path": "views\/scripts\/admin-pushnotification",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "views\/scripts\/admin-pushnotification\/create.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 8055,
+                    "sha1": "c8a28c5ff35fd6535cce8c69f888009d7d709140"
+                },
+                {
+                    "path": "views\/scripts\/admin-pushnotification\/manage.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 4098,
+                    "sha1": "c8162622b435731a0be3d406a53974b453eddfa2"
+                },
+                {
+                    "path": "views\/scripts\/admin-pushnotification\/resend.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 8298,
+                    "sha1": "bbc8c948ddf16b2884f7f2f59a0963b9f241b644"
+                },
+                {
+                    "path": "views\/scripts\/admin-pushnotification\/delete.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 550,
+                    "sha1": "088b1fe7908284fdbded1528ae7148b8c15ba4f7"
+                },
+                {
+                    "path": "views\/scripts\/admin-pushnotification\/settings.tpl",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1165,
+                    "sha1": "d2077accf5ab213af1605b5c3397f99799635d71"
+                },
+                {
+                    "path": "Form",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "Form\/.htempty",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 0,
+                    "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                },
+                {
+                    "path": "Form\/Admin",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "Form\/Admin\/Revoked.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1315,
+                    "sha1": "4fa00ff2c2f2c6737b640510c275ebe1fbeebbc4"
+                },
+                {
+                    "path": "Form\/Admin\/Global.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 11764,
+                    "sha1": "249fa58edfcd4f9a9ac4834be2872182c23ae7d6"
+                },
+                {
+                    "path": "Form\/Admin\/Creategraphic.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 3832,
+                    "sha1": "82070011cdb087847aa0d1302ef6dc5223d93b5e"
+                },
+                {
+                    "path": "Form\/Admin\/Styling.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 30959,
+                    "sha1": "5d899d462aa94546efe87ea6a4f09a84c8d4599f"
+                },
+                {
+                    "path": "Form\/Admin\/CustomTheme.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1889,
+                    "sha1": "5fac1031cc53ad17c1496ae4350ba739d0f747db"
+                },
+                {
+                    "path": "Form\/Admin\/Menu",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "Form\/Admin\/Menu\/Create.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 4480,
+                    "sha1": "48d91ab5fdfa08097bd100d51a0aad914cb2d744"
+                },
+                {
+                    "path": "Form\/Admin\/Createslide.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 3075,
+                    "sha1": "e4776fab04be0c7f653bdcc476c59ae436871ca0"
+                },
+                {
+                    "path": "Form\/Admin\/Background.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 5556,
+                    "sha1": "f129e9cd0298caf9ab6f3d66098616cb1c74edf0"
+                },
+                {
+                    "path": "Form\/Admin\/Notification.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 4177,
+                    "sha1": "2d3f247651499ecff2667acf3aa8749103f6b404"
+                },
+                {
+                    "path": "Form\/Admin\/Subscribersearch.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1619,
+                    "sha1": "8682316c0c2480cca50332a4b235db72cfe2af6e"
+                },
+                {
+                    "path": "Model",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "Model\/DbTable",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "Model\/DbTable\/Graphics.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 914,
+                    "sha1": "63f1ac9ffc1b997d694f5747212a8d264becb216"
+                },
+                {
+                    "path": "Model\/DbTable\/NotificationTypes.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 5094,
+                    "sha1": "49bc6664606f2ca5bbe751f572fe14df09c17619"
+                },
+                {
+                    "path": "Model\/DbTable\/Slides.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 945,
+                    "sha1": "1fd6e5753e885a1e779ddbeed179418c558bbfba"
+                },
+                {
+                    "path": "Model\/DbTable\/.htempty",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 0,
+                    "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                },
+                {
+                    "path": "Model\/DbTable\/Themes.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 693,
+                    "sha1": "2fcbc6e6021c0b83cbc02ba5cb05c73d13ac2a9e"
+                },
+                {
+                    "path": "Model\/DbTable\/NotificationSettings.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2437,
+                    "sha1": "d1f6d1eedfbbebee9571d0c744e17eee8bbd921d"
+                },
+                {
+                    "path": "Model\/DbTable\/Pushnotifications.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 706,
+                    "sha1": "99166601f18a18ea2da6b5d51921340eef69898b"
+                },
+                {
+                    "path": "Model\/DbTable\/Customthemes.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1090,
+                    "sha1": "02ad55b7a4e6dc2ce45390e1535690a1b6be5dfe"
+                },
+                {
+                    "path": "Model\/Graphic.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 667,
+                    "sha1": "cf8ced0a3d0f302d1794a574c95a1cec3a53c2f1"
+                },
+                {
+                    "path": "Model\/Slide.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 667,
+                    "sha1": "3d7dfd0d57226f095e40bc78d3b7251e559a8621"
+                },
+                {
+                    "path": "Model\/Customtheme.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 505,
+                    "sha1": "3cde04aaca0bd389defdcb3feeb6d451a78d4c50"
+                },
+                {
+                    "path": "externals",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/styles",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/styles\/admin",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/styles\/admin\/main.css",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 13296,
+                    "sha1": "e92b8f3f6fc4fde9568a83cb5834049d770ab7b1"
+                },
+                {
+                    "path": "externals\/styles\/main.css",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 0,
+                    "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                },
+                {
+                    "path": "externals\/scripts",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/scripts\/.htempty",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 0,
+                    "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                },
+                {
+                    "path": "externals\/images",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/images\/admin",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/images\/admin\/loading_admin.gif",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 720195,
+                    "sha1": "fbb5e734855cec24805fa870d42ee4c446069d64"
+                },
+                {
+                    "path": "externals\/images\/admin\/loading.gif",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1588,
+                    "sha1": "a6621b4c1ea148c727cc2b1a360261b9e1317c8b"
+                },
+                {
+                    "path": "externals\/images\/admin\/error.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 657,
+                    "sha1": "806447dc55dd593d2872166862bed582ca9544ae"
+                },
+                {
+                    "path": "externals\/images\/admin\/back.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 345,
+                    "sha1": "cc0eecde5d7e957071a9d72f751384ca974631fa"
+                },
+                {
+                    "path": "externals\/images\/admin\/star.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1966,
+                    "sha1": "d2e0d3780c5981f03afb15bfdce35224a056dd9c"
+                },
+                {
+                    "path": "externals\/images\/admin\/check.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 606,
+                    "sha1": "48faef65661c46a5679a1d77771c0a934dfa7105"
+                },
+                {
+                    "path": "externals\/images\/admin\/help.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 3096,
+                    "sha1": "3be4af20f65aeba0a42ab4057eef0f1e8bb1db01"
+                },
+                {
+                    "path": "externals\/images\/admin\/add.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 3211,
+                    "sha1": "7f29f4889c9f28c1afa2ee0776b4957353bea97e"
+                },
+                {
+                    "path": "externals\/images\/thumb.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2653,
+                    "sha1": "3f1ff64071c12be44bc7ac03ea3bcf45811d3886"
+                },
+                {
+                    "path": "externals\/images\/rateus.jpg",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 249854,
+                    "sha1": "612eb1dbc6313ad8c66889d660f695460e814bcc"
+                },
+                {
+                    "path": "externals\/images\/support",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/images\/support\/details.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1787,
+                    "sha1": "3e862b2a23ae616b19a002bd1e6339b2fe824e2c"
+                },
+                {
+                    "path": "externals\/images\/support\/review.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 4810,
+                    "sha1": "3ab020100f1217a4abc0a8ebd4a04aacf68a82c2"
+                },
+                {
+                    "path": "externals\/images\/support\/screenshots.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1438,
+                    "sha1": "559bd477cb51c659be94d956b725e511aefe9088"
+                },
+                {
+                    "path": "externals\/images\/support\/info.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2344,
+                    "sha1": "8852ff8fce830805d90f12363127c7458238a208"
+                },
+                {
+                    "path": "externals\/images\/support\/ses-icon.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1371,
+                    "sha1": "4fea27ed610afeaa6d1b2810abe13b327f240951"
+                },
+                {
+                    "path": "externals\/images\/support\/contact.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2713,
+                    "sha1": "ea570d98de610742542bbd7cfb6e6c2c45e3631f"
+                },
+                {
+                    "path": "externals\/images\/support\/custom.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 3033,
+                    "sha1": "c64385107bc2e391eafb4b72db2e69eb448668f7"
+                },
+                {
+                    "path": "externals\/images\/support\/faq.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1870,
+                    "sha1": "e8f5f2aa4d6f5826d0d6502634e49e525f7d5e56"
+                },
+                {
+                    "path": "externals\/images\/support\/support.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 3070,
+                    "sha1": "832821255726aa838adfee19d73448a66c79349e"
+                },
+                {
+                    "path": "externals\/images\/support\/help.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2579,
+                    "sha1": "f2ea7f7585da4ab77b8afb977c4d3aabeb94deda"
+                },
+                {
+                    "path": "externals\/images\/support\/update.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2435,
+                    "sha1": "5656e423948623824fd843b43be72609c4500604"
+                },
+                {
+                    "path": "externals\/images\/support\/se-icon.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2285,
+                    "sha1": "7761a920b50fe62f8d304f1a9508de31ce48e7ba"
+                },
+                {
+                    "path": "externals\/images\/color-scheme",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "externals\/images\/color-scheme\/custom.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 96201,
+                    "sha1": "55fc8ed497d98b58d659bbfcc6938a527b104145"
+                },
+                {
+                    "path": "externals\/images\/color-scheme\/4.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 98191,
+                    "sha1": "3fee6127fc46fa2393c5bbd1814b4cd15c4a2cf8"
+                },
+                {
+                    "path": "externals\/images\/color-scheme\/2.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 100111,
+                    "sha1": "90f458041fb444fd84a125d7ecb4d75226147b85"
+                },
+                {
+                    "path": "externals\/images\/color-scheme\/6.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 64958,
+                    "sha1": "c9af9a49b252c11fa5f520c9dbfdcaae82262587"
+                },
+                {
+                    "path": "externals\/images\/color-scheme\/1.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 103993,
+                    "sha1": "9bb122c0685436c98cab7bf458050e80f30254dc"
+                },
+                {
+                    "path": "externals\/images\/color-scheme\/3.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 99802,
+                    "sha1": "899651e05d87ab0003a8259bea93d0dcb4d34adf"
+                },
+                {
+                    "path": "externals\/images\/color-scheme\/5.png",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 100767,
+                    "sha1": "d16bb8cc6551d6d9b1ad63c52d7c17db664790d8"
+                },
+                {
+                    "path": "externals\/images\/forgot.jpeg",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 388161,
+                    "sha1": "9c38ebc13eb0af709360928af4a038124d3bc60d"
+                },
+                {
+                    "path": "externals\/images\/login.jpeg",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 382035,
+                    "sha1": "7b80fb4c03b843bc537fc53602a5b7cacdc11f40"
+                },
+                {
+                    "path": "externals\/images\/.htempty",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 0,
+                    "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                },
+                {
+                    "path": "externals\/images\/loader.gif",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1303151,
+                    "sha1": "63d207b8852e3f913b1f5585545f6a3d8ad99694"
+                },
+                {
+                    "path": "externals\/.htaccess",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 147,
+                    "sha1": "9f1638a8edbe1c5d28789e017fb35b2f2465f01e"
+                },
+                {
+                    "path": "Bootstrap.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 619,
+                    "sha1": "147f9a99abbed7a32c6027ba13d2eaad156d7533"
+                },
+                {
+                    "path": "controllers",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "controllers\/AdminThemeController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 6701,
+                    "sha1": "579bc8b79a46f79e2a2b51ff0cb69b71d2f7183e"
+                },
+                {
+                    "path": "controllers\/AdminGraphicController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 5245,
+                    "sha1": "eb0903b30d6150d6d220669286d2cb5e5e950efd"
+                },
+                {
+                    "path": "controllers\/defaultsettings.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 6047,
+                    "sha1": "ca74801b569b6e62fbe68080157f306a01ef06e9"
+                },
+                {
+                    "path": "controllers\/AdminSlideshowController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 5732,
+                    "sha1": "6736c865c266442da9ace0ffa50ba9259fa27a64"
+                },
+                {
+                    "path": "controllers\/License.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 8387,
+                    "sha1": "82e0811bb6638c1d00feb124edc4ad4be7b17733"
+                },
+                {
+                    "path": "controllers\/Checklicense.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 55,
+                    "sha1": "a91fce034f447200dff95ac5e6775a9536785edf"
+                },
+                {
+                    "path": "controllers\/IndexController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 554,
+                    "sha1": "bc1f65bb1e7342a0a7ee1bd6df2ed31ef6db7a2b"
+                },
+                {
+                    "path": "controllers\/AdminSettingsController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 5477,
+                    "sha1": "31c0f29cb7070826b2d432fc1b98de5ee67b0026"
+                },
+                {
+                    "path": "controllers\/AdminMenuController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 4620,
+                    "sha1": "a7c6cefc21e084fea572c534cd34599bd5a91b95"
+                },
+                {
+                    "path": "controllers\/AdminSubscribersController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 4289,
+                    "sha1": "b981c2ca2e601485d9ad5405fde68d000ab637bc"
+                },
+                {
+                    "path": "controllers\/AdminPushnotificationController.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 10408,
+                    "sha1": "05748c3664fc9c56ff2026067cd8abd12d0c70c2"
+                },
+                {
+                    "path": "Plugin",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "Plugin\/Core.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 6080,
+                    "sha1": "805c8fc27387bba2739a0c9bc158f52d2e39320a"
+                },
+                {
+                    "path": "Api",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "Api\/Core.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 6025,
+                    "sha1": "9c82d750c602b281b38a270584626b0970dba236"
+                },
+                {
+                    "path": "settings",
+                    "dir": true,
+                    "file": false,
+                    "perms": "0755",
+                    "size": 4096,
+                    "sha1": null
+                },
+                {
+                    "path": "settings\/my-upgrade-4.10.3p7-4.10.3p8.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 2536,
+                    "sha1": "776ca1a0a5b761f193dfbad91631550f5f081765"
+                },
+                {
+                    "path": "settings\/my-upgrade-5.2.1-5.2.1p1.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 676,
+                    "sha1": "50ab92ecd6ad9ac8d906c5adb4f68df3e74c1f37"
+                },
+                {
+                    "path": "settings\/my-upgrade-5.3.3-5.4.0.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 140,
+                    "sha1": "e427c40221f83b61d7d33075abb54e6afb2e24a1"
+                },
+                {
+                    "path": "settings\/my-upgrade-4.10.3p11-4.10.3p12.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 636,
+                    "sha1": "0693bbd6360bfdd247f50848c76ab0f28a2f57b4"
+                },
+                {
+                    "path": "settings\/manifest.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1875,
+                    "sha1": "754cde794814b9f90fb322eab057cf68fd4a351b"
+                },
+                {
+                    "path": "settings\/my-upgrade-4.9.4p2-4.10.3.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 593,
+                    "sha1": "163fd739f07f695adb603a51a6e29c62142fc5ab"
+                },
+                {
+                    "path": "settings\/install.php",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 525,
+                    "sha1": "be2a165bb674d893e75dc4e8cc0ae2600db0da45"
+                },
+                {
+                    "path": "settings\/my-upgrade-4.10.3p9-4.10.3p10.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 675,
+                    "sha1": "e0e107acde17407126fbd78a8e3ed567655926e9"
+                },
+                {
+                    "path": "settings\/my.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 920,
+                    "sha1": "507f9a3e16165831a4b3adaed1f37597f342096a"
+                },
+                {
+                    "path": "settings\/my-upgrade-4.10.3p5-4.10.3p6.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 1241,
+                    "sha1": "533d2e676821b3ae02bf21d2d78631e373786667"
+                },
+                {
+                    "path": "settings\/my-upgrade-4.10.3p13-4.10.3p14.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 667,
+                    "sha1": "0a3acf3eb1ceca5001da0e219fe881e1bb003c2b"
+                },
+                {
+                    "path": "settings\/my-upgrade-6.5.2-6.6.0.sql",
+                    "dir": false,
+                    "file": true,
+                    "perms": "0644",
+                    "size": 93,
+                    "sha1": "11978b0b91fe1476cb9ffb9fb7bde5a6163e9424"
+                }
+            ]
+        },
+        "application\/languages\/en\/sesandroidapp.csv": {
+            "type": "file",
+            "path": "application\/languages\/en\/sesandroidapp.csv",
+            "structure": {
+                "path": "sesandroidapp.csv",
+                "dir": false,
+                "file": true,
+                "perms": "0644",
+                "size": 0,
+                "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            }
+        }
+    }
+}

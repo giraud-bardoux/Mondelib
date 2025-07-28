@@ -1,0 +1,38 @@
+*{
+  -webkit-box-sizing:border-box;  
+}
+html,body{
+  overflow-x:hidden;
+  margin:0;
+  padding:0;
+}
+body{
+  font-size:16px;
+  overflow-x:hidden;
+  padding-left:10px;
+  padding-right:10px;
+  display:inline-block;
+}
+body p, body ul, body ol{
+	margin-bottom:10px;
+}
+body ul{
+	list-style:disc;
+}
+body ul, body ol{
+	padding-left:20px;
+}
+[dir="rtl"] body ul, [dir="rtl"]  body ol{
+	padding-left:0;
+	padding-right:20px;
+}
+body img{
+	max-width:100%;
+	height:auto;
+}
+p{
+    clear: both;
+}
+@media only screen and (max-width:768px){
+	body iframe{width:100% !important;}
+}

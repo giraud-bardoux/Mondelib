@@ -1,0 +1,126 @@
+/*
+=====================================================================
+===        THÈME PERSONNALISÉ "MondeLibertin - Chaleureux"         ===
+===    v5: CORRECTION - Rétablissement de la bordure latérale     ===
+=====================================================================
+*/
+
+/* --- 1. IMPORTATION DES POLICES --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap');
+
+/* --- 2. PALETTE DE COULEURS "CHALEUREUX" --- */
+:root {
+  --couleur-fond-page: #ffcc9a;
+  --couleur-blocs: #fef9dc;
+  --couleur-accent-rouge: #e13c53;
+  --couleur-accent-rouge-hover: #c9354a;
+  --couleur-texte-standard: #4a4a4a;
+  --couleur-texte-inverse: #ffffff;
+  --style-bordure-arrondie: 12px;
+  --style-bordure-epaisseur: 3px;
+}
+
+/* --- MAPPING DES VARIABLES --- */
+:root {
+  --theme-body-background-color: var(--couleur-fond-page);
+  --theme-list-background-color: var(--couleur-blocs);
+  --theme-list-background-color-alt: #fbf5d2;
+  --theme-list-background-color-hover: #fcf8e5;
+  --theme-header-background-color: var(--couleur-fond-page);
+  --theme-footer-background-color: var(--couleur-blocs);
+  --theme-font-family: 'Roboto', sans-serif;
+  --theme-heading-font-family: 'Montserrat', sans-serif;
+  --theme-font-color: var(--couleur-texte-standard);
+  --theme-font-color-light: #888888;
+  --theme-headline-color: var(--couleur-accent-rouge);
+  --theme-link-color: var(--couleur-accent-rouge);
+  --theme-link-color-hover: var(--couleur-accent-rouge-hover);
+  --theme-header-menu-link-color: var(--couleur-accent-rouge);
+  --theme-border-color: transparent;
+  --theme-widget-radius: var(--style-bordure-arrondie);
+  --theme-button-background-color: var(--couleur-accent-rouge);
+  --theme-button-background-color-hover: var(--couleur-accent-rouge-hover);
+  --theme-button-font-color: var(--couleur-texte-inverse);
+  --theme-button-font-color-hover: var(--couleur-texte-inverse);
+  --theme-input-background-color: #ffffff;
+  --theme-input-font-color: var(--couleur-texte-standard);
+  --theme-input-border-colors: #e0e0e0;
+}
+
+/* --- 3. STYLE GÉNÉRAL --- */
+
+.layout_middle .generic_layout_container,
+.layout_middle .layout_content {
+  border: var(--style-bordure-epaisseur) solid var(--couleur-accent-rouge);
+  box-shadow: none;
+}
+
+.layout_page_header {
+  border-bottom: var(--style-bordure-epaisseur) solid var(--couleur-accent-rouge);
+}
+
+/* --- 4. STYLE AMÉLIORÉ POUR LE MENU DU HAUT (HEADER) --- */
+
+.harmony_main_menu .harmony_main_menu_nav > li > a {
+    padding: 12px 18px;
+    margin-top: 5px;
+    border-radius: var(--style-bordure-arrondie) var(--style-bordure-arrondie) 0 0;
+    transition: all 0.2s ease-in-out;
+    border: 3px solid transparent;
+    border-bottom: none;
+}
+.harmony_main_menu .harmony_main_menu_nav > li.active > a {
+    background-color: var(--couleur-accent-rouge);
+    color: var(--couleur-texte-inverse);
+    border-color: var(--couleur-accent-rouge);
+}
+.harmony_main_menu .harmony_main_menu_nav > li.active > a i,
+.harmony_main_menu .harmony_main_menu_nav > li.active > a span {
+    color: var(--couleur-texte-inverse);
+}
+.harmony_main_menu .harmony_main_menu_nav > li:not(.active) > a:hover {
+    background-color: var(--couleur-blocs);
+    color: var(--couleur-accent-rouge);
+    border-color: var(--couleur-accent-rouge);
+}
+.harmony_main_menu .harmony_main_menu_nav > li > .menu_core_main::before {
+    display: none;
+}
+
+/*
+============================================================
+=== 5. STYLE CORRIGÉ POUR LES BLOCS LATÉRAUX (GAUCHE/DROITE) ===
+============================================================
+*/
+
+/* On applique la bordure rouge épaisse au conteneur principal du bloc */
+.layout_left .generic_layout_container,
+.layout_right .generic_layout_container {
+    border: var(--style-bordure-epaisseur) solid var(--couleur-accent-rouge);
+    background-color: var(--couleur-blocs);
+    padding: 0;
+    border-radius: var(--style-bordure-arrondie);
+    overflow: hidden;
+}
+
+/* L'en-tête (titre H3) vient se placer par-dessus la bordure haute */
+.layout_left .generic_layout_container > h3,
+.layout_right .generic_layout_container > h3 {
+    background-color: var(--couleur-accent-rouge) !important;
+    color: var(--couleur-texte-inverse);
+    font-size: 1.1em;
+    padding: 0.8rem 1rem;
+    margin: 0;
+    border-bottom: var(--style-bordure-epaisseur) solid var(--couleur-accent-rouge);
+}
+
+/* On ajoute un espacement intérieur pour le contenu des blocs */
+.layout_left .generic_layout_container > *:not(h3),
+.layout_right .generic_layout_container > *:not(h3) {
+    padding: 1rem;
+}
+.layout_left .generic_layout_container > ul,
+.layout_right .generic_layout_container > ul {
+    margin: 0;
+    padding: 1rem !important;
+}

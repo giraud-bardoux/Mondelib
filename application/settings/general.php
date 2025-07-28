@@ -13,5 +13,5 @@
   array (
     'enabled' => true,
   ),
-  'environment_mode' => 'development',
+  'environment_mode' => 'production',
 ); ?>
