@@ -27,3 +27,23 @@ body:not(.logged-in):not(.logged_in):not(.homepage):not(.home-page) .thumbs_phot
     from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
     to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }=== */
+
+/* === STYLES POUR LA MEMORISATION DE RECHERCHE DE MEMBRES === */
+.member-search-reset-btn {
+    margin-left: 10px !important;
+    background-color: #e74c3c !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 15px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.member-search-reset-btn:hover {
+    background-color: #c0392b !important;
+}
+
+.member-search-reset-btn i {
+    margin-right: 5px !important;
+}

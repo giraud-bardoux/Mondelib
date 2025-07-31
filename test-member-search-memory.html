@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Member Search Memory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .member-search-reset-btn {
+            background: #dc3545 !important;
+        }
+        .member-search-reset-btn:hover {
+            background: #c82333 !important;
+        }
+        .cookie-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 4px;
+        }
+        .cookie-info pre {
+            background: white;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test - Member Search Memory</h1>
+    
+    <div class="layout_user_browse_search">
+        <form class="test-form" id="searchForm">
+            <h2>Formulaire de recherche de membres (simulation)</h2>
+            
+            <div class="form-group">
+                <label for="displayname">Nom d'utilisateur</label>
+                <input type="text" id="displayname" name="displayname" placeholder="Rechercher par nom...">
+            </div>
+            
+            <div class="form-group">
+                <label for="gender">Genre</label>
+                <select id="gender" name="gender">
+                    <option value="">Tous</option>
+                    <option value="1">Homme</option>
+                    <option value="2">Femme</option>
+                    <option value="3">Autre</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="location">Localisation</label>
+                <input type="text" id="location" name="location" placeholder="Ville, région...">
+            </div>
+            
+            <div class="form-group">
+                <label for="age_min">Âge minimum</label>
+                <input type="number" id="age_min" name="age_min" min="18" max="100">
+            </div>
+            
+            <div class="form-group">
+                <label for="age_max">Âge maximum</label>
+                <input type="number" id="age_max" name="age_max" min="18" max="100">
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="online" value="1">
+                    En ligne uniquement
+                </label>
+            </div>
+            
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+    
+    <div class="cookie-info">
+        <h3>Informations sur le cookie</h3>
+        <p>Cookie name: <strong>member_search_params</strong></p>
+        <div id="cookieContent">
+            <p>Aucun cookie trouvé. Effectuez une recherche pour sauvegarder les paramètres.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Simuler les variables globales de SocialEngine
+        window.en4 = {
+            core: {
+                staticBaseUrl: '/',
+                runonce: {
+                    add: function(fn) { fn(); }
+                }
+            }
+        };
+        
+        // Fonction pour afficher le contenu du cookie
+        function displayCookieInfo() {
+            const cookieValue = getCookie('member_search_params');
+            const cookieDiv = document.getElementById('cookieContent');
+            
+            if (cookieValue) {
+                try {
+                    const params = JSON.parse(decodeURIComponent(cookieValue));
+                    cookieDiv.innerHTML = `
+                        <p>Cookie trouvé ! Contenu :</p>
+                        <pre>${JSON.stringify(params, null, 2)}</pre>
+                        <p>Rafraîchissez la page pour voir la restauration automatique.</p>
+                    `;
+                } catch (e) {
+                    cookieDiv.innerHTML = '<p>Erreur lors de la lecture du cookie.</p>';
+                }
+            } else {
+                cookieDiv.innerHTML = '<p>Aucun cookie trouvé. Effectuez une recherche pour sauvegarder les paramètres.</p>';
+            }
+        }
+        
+        // Fonction pour obtenir un cookie
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+        
+        // Simuler searchMembers
+        window.searchMembers = function() {
+            console.log('Recherche effectuée !');
+            alert('Recherche simulée ! Les paramètres ont été sauvegardés.');
+            setTimeout(displayCookieInfo, 100);
+        };
+        
+        // Empêcher la soumission réelle du formulaire
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (typeof searchMembers === 'function') {
+                searchMembers();
+            }
+        });
+        
+        // Afficher les infos du cookie au chargement
+        displayCookieInfo();
+    </script>
+    
+    <!-- Charger notre script de mémorisation -->
+    <script src="externals/scripts/member-search-memory.js"></script>
+</body>
+</html>
