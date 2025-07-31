@@ -11,9 +11,15 @@
  */
 ?>
 
+<!-- Chargement des styles pour la mémorisation de recherche -->
+<link rel="stylesheet" href="<?php echo $this->baseUrl() ?>/css/user-search-memory.css" type="text/css" />
+
 <div class='browsemembers_results container no-padding' id='browsemembers_results'>
   <?php echo $this->render('_browseUsers.tpl') ?>
 </div>
+
+<!-- Chargement du script de mémorisation de recherche -->
+<script type="text/javascript" src="<?php echo $this->baseUrl() ?>/js/user-search-memory.js"></script>
 
 <script type="text/javascript">
   en4.core.runonce.add(function() {
@@ -43,6 +49,11 @@
           requestTree.inject(browseContainer);
           requestActive = false;
           Smoothbox.bind();
+          
+          // Réinitialise le système de mémorisation après une recherche AJAX
+          if (window.UserSearchMemory) {
+            window.UserSearchMemory.init();
+          }
         }
       });
       request.send(param);
