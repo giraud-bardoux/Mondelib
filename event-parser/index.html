@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parseur d'Événements - Monde Libertin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-calendar-alt"></i> Parseur d'Événements</h1>
+            <p>Parsez et publiez des événements sur Monde Libertin</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Section de configuration -->
+            <section class="config-section">
+                <h2><i class="fas fa-cog"></i> Configuration</h2>
+                <div class="form-group">
+                    <label for="targetUrl">URL de la page à parser :</label>
+                    <input type="url" id="targetUrl" placeholder="https://exemple.com/soiree-123" required>
+                </div>
+                <div class="form-group">
+                    <label for="mondelibertinUrl">URL de publication :</label>
+                    <input type="url" id="mondelibertinUrl" value="https://mondelibertin.com/events/create" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apiKey">Clé API (optionnel) :</label>
+                    <input type="password" id="apiKey" placeholder="Votre clé API si nécessaire">
+                </div>
+            </section>
+
+            <!-- Section de parsing -->
+            <section class="parse-section">
+                <h2><i class="fas fa-search"></i> Parsing</h2>
+                <div class="form-group">
+                    <button id="parseBtn" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Parser la page
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <i class="fas fa-trash"></i> Effacer
+                    </button>
+                </div>
+                <div id="parseStatus" class="status-message"></div>
+            </section>
+
+            <!-- Section des résultats -->
+            <section class="results-section">
+                <h2><i class="fas fa-list"></i> Données parsées</h2>
+                <div id="parsedData" class="parsed-data">
+                    <div class="no-data">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Aucune donnée parsée pour le moment</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section de publication -->
+            <section class="publish-section">
+                <h2><i class="fas fa-upload"></i> Publication</h2>
+                <div class="form-group">
+                    <button id="publishBtn" class="btn btn-success" disabled>
+                        <i class="fas fa-paper-plane"></i> Publier sur Monde Libertin
+                    </button>
+                </div>
+                <div id="publishStatus" class="status-message"></div>
+            </section>
+
+            <!-- Section de logs -->
+            <section class="logs-section">
+                <h2><i class="fas fa-terminal"></i> Logs</h2>
+                <div id="logs" class="logs-container">
+                    <div class="log-entry info">
+                        <span class="timestamp">[<span id="currentTime"></span>]</span>
+                        <span class="message">Système initialisé et prêt</span>
+                    </div>
+                </div>
+                <button id="clearLogsBtn" class="btn btn-small">
+                    <i class="fas fa-broom"></i> Effacer les logs
+                </button>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Monde Libertin - Parseur d'événements autonome</p>
+        </footer>
+    </div>
+
+    <!-- Modal pour les détails -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Détails de l'événement</h3>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="parser.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Parseur d'Événements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Tests - Parseur d'Événements</h1>
+    
+    <div class="test-section">
+        <h2>Test de Configuration</h2>
+        <button onclick="testConfig()">Tester la Configuration</button>
+        <div id="config-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test du Parseur</h2>
+        <button onclick="testParser()">Tester le Parseur</button>
+        <div id="parser-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test de l'Application</h2>
+        <button onclick="testApp()">Tester l'Application</button>
+        <div id="app-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test de Parsing Simulé</h2>
+        <button onclick="testMockParsing()">Tester le Parsing Simulé</button>
+        <div id="mock-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Logs de Test</h2>
+        <div id="test-logs"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="parser.js"></script>
+    <script src="app.js"></script>
+    
+    <script>
+        function log(message, type = 'info') {
+            const logsDiv = document.getElementById('test-logs');
+            const logEntry = document.createElement('div');
+            logEntry.className = `test-result ${type}`;
+            logEntry.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logsDiv.appendChild(logEntry);
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        }
+
+        function testConfig() {
+            const resultDiv = document.getElementById('config-result');
+            try {
+                if (typeof CONFIG !== 'undefined') {
+                    resultDiv.innerHTML = `
+                        <div class="test-result success">
+                            ✅ Configuration chargée avec succès<br>
+                            Version: ${CONFIG.app.version}<br>
+                            Nom: ${CONFIG.app.name}
+                        </div>
+                        <pre>${JSON.stringify(CONFIG, null, 2)}</pre>
+                    `;
+                    log('Configuration testée avec succès', 'success');
+                } else {
+                    throw new Error('CONFIG non défini');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="test-result error">
+                        ❌ Erreur lors du test de configuration: ${error.message}
+                    </div>
+                `;
+                log(`Erreur configuration: ${error.message}`, 'error');
+            }
+        }
+
+        function testParser() {
+            const resultDiv = document.getElementById('parser-result');
+            try {
+                if (typeof EventParser !== 'undefined') {
+                    const parser = new EventParser();
+                    resultDiv.innerHTML = `
+                        <div class="test-result success">
+                            ✅ Parseur initialisé avec succès<br>
+                            Méthodes disponibles: ${Object.keys(parser.parsers).join(', ')}
+                        </div>
+                    `;
+                    log('Parseur testé avec succès', 'success');
+                } else {
+                    throw new Error('EventParser non défini');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="test-result error">
+                        ❌ Erreur lors du test du parseur: ${error.message}
+                    </div>
+                `;
+                log(`Erreur parseur: ${error.message}`, 'error');
+            }
+        }
+
+        function testApp() {
+            const resultDiv = document.getElementById('app-result');
+            try {
+                if (typeof app !== 'undefined' && app instanceof EventParserApp) {
+                    resultDiv.innerHTML = `
+                        <div class="test-result success">
+                            ✅ Application initialisée avec succès<br>
+                            Éléments trouvés: ${Object.keys(app).length}<br>
+                            Événements parsés: ${app.parsedEvents.length}
+                        </div>
+                    `;
+                    log('Application testée avec succès', 'success');
+                } else {
+                    throw new Error('Application non initialisée');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="test-result error">
+                        ❌ Erreur lors du test de l'application: ${error.message}
+                    </div>
+                `;
+                log(`Erreur application: ${error.message}`, 'error');
+            }
+        }
+
+        async function testMockParsing() {
+            const resultDiv = document.getElementById('mock-result');
+            try {
+                if (typeof app !== 'undefined') {
+                    resultDiv.innerHTML = `
+                        <div class="test-result info">
+                            🔄 Test de parsing simulé en cours...
+                        </div>
+                    `;
+                    
+                    // Simulation d'un parsing
+                    const mockUrl = 'https://exemple.com/soiree-test';
+                    const events = await app.parseEventsFromUrl(mockUrl);
+                    
+                    resultDiv.innerHTML = `
+                        <div class="test-result success">
+                            ✅ Parsing simulé réussi<br>
+                            Événements générés: ${events.length}
+                        </div>
+                        <pre>${JSON.stringify(events, null, 2)}</pre>
+                    `;
+                    log(`Parsing simulé: ${events.length} événements générés`, 'success');
+                } else {
+                    throw new Error('Application non disponible');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="test-result error">
+                        ❌ Erreur lors du test de parsing: ${error.message}
+                    </div>
+                `;
+                log(`Erreur parsing: ${error.message}`, 'error');
+            }
+        }
+
+        // Tests automatiques au chargement
+        window.addEventListener('load', () => {
+            log('Page de test chargée', 'info');
+            setTimeout(() => {
+                testConfig();
+                setTimeout(() => {
+                    testParser();
+                    setTimeout(() => {
+                        testApp();
+                        setTimeout(() => {
+                            testMockParsing();
+                        }, 500);
+                    }, 500);
+                }, 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
