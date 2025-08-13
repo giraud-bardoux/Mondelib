@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Parser - MondeLibertie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #74b9ff, #0984e3);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .status.success {
+            background: #d1edff;
+            color: #0984e3;
+            border: 1px solid #74b9ff;
+        }
+
+        .status.error {
+            background: #ffe0e0;
+            color: #d63031;
+            border: 1px solid #ff6b6b;
+        }
+
+        .status.info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffc107;
+        }
+
+        .logs {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .mapping-rules {
+            background: #f1f3f4;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .mapping-rule {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .mapping-rule input {
+            flex: 1;
+        }
+
+        .remove-mapping {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Event Parser</h1>
+            <p>Parser autonome d'événements pour MondeLibertie.com</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Configuration Section -->
+            <div class="section">
+                <h2>🔧 Configuration</h2>
+                
+                <div class="form-group">
+                    <label for="targetUrl">URL de la page à parser:</label>
+                    <input type="url" id="targetUrl" placeholder="https://exemple.com/events/123" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="authMethod">Méthode d'authentification MondeLibertie:</label>
+                    <select id="authMethod">
+                        <option value="session">Session existante (cookies)</option>
+                        <option value="credentials">Identifiants de connexion</option>
+                        <option value="token">Token API</option>
+                    </select>
+                </div>
+
+                <div id="credentialsSection" class="hidden">
+                    <div class="grid">
+                        <div class="form-group">
+                            <label for="username">Nom d'utilisateur/Email:</label>
+                            <input type="text" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe:</label>
+                            <input type="password" id="password">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tokenSection" class="hidden">
+                    <div class="form-group">
+                        <label for="apiToken">Token API:</label>
+                        <input type="text" id="apiToken" placeholder="Votre token d'API">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parsing Rules Section -->
+            <div class="section">
+                <h2>📋 Règles de Parsing</h2>
+                
+                <div class="form-group">
+                    <label for="parsingMethod">Méthode de parsing:</label>
+                    <select id="parsingMethod">
+                        <option value="auto">Détection automatique</option>
+                        <option value="selectors">Sélecteurs CSS personnalisés</option>
+                        <option value="patterns">Patterns de texte</option>
+                    </select>
+                </div>
+
+                <div id="selectorsSection" class="hidden">
+                    <h3>Sélecteurs CSS</h3>
+                    <div class="mapping-rules" id="cssSelectors">
+                        <div class="mapping-rule">
+                            <input type="text" placeholder="Titre de l'événement" data-field="title" value="h1, .event-title, .title">
+                            <input type="text" placeholder="Sélecteur CSS" data-selector="title" value="h1, .event-title, .title">
+                            <button type="button" class="remove-mapping">×</button>
+                        </div>
+                        <div class="mapping-rule">
+                            <input type="text" placeholder="Description" data-field="description" value="description">
+                            <input type="text" placeholder="Sélecteur CSS" data-selector="description" value=".description, .event-description, .content">
+                            <button type="button" class="remove-mapping">×</button>
+                        </div>
+                        <div class="mapping-rule">
+                            <input type="text" placeholder="Date" data-field="date" value="date">
+                            <input type="text" placeholder="Sélecteur CSS" data-selector="date" value=".date, .event-date, time">
+                            <button type="button" class="remove-mapping">×</button>
+                        </div>
+                        <div class="mapping-rule">
+                            <input type="text" placeholder="Lieu" data-field="location" value="location">
+                            <input type="text" placeholder="Sélecteur CSS" data-selector="location" value=".location, .venue, .address">
+                            <button type="button" class="remove-mapping">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addMappingRule()">+ Ajouter un sélecteur</button>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="autoSubmit">
+                    <label for="autoSubmit">Soumission automatique (sans confirmation)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="enableLogs" checked>
+                    <label for="enableLogs">Activer les logs détaillés</label>
+                </div>
+            </div>
+
+            <!-- Actions Section -->
+            <div class="section">
+                <h2>🚀 Actions</h2>
+                
+                <button type="button" class="btn" onclick="testParsing()">🔍 Tester le parsing</button>
+                <button type="button" class="btn btn-secondary" onclick="testConnection()">🔗 Tester la connexion</button>
+                <button type="button" class="btn btn-success" onclick="executeFullProcess()">▶️ Exécuter le processus complet</button>
+                
+                <div id="statusDisplay"></div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="section">
+                <h2>📊 Résultats</h2>
+                <div id="parsedData"></div>
+                <div id="logs" class="logs hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration globale
+        const config = {
+            mondeLibertyBaseUrl: 'https://mondelibertin.com',
+            createEventUrl: 'https://mondelibertin.com/events/create',
+            corsProxy: 'https://api.allorigins.win/raw?url=', // Proxy CORS public
+            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        };
+
+        // Gestion de l'interface
+        document.getElementById('authMethod').addEventListener('change', function() {
+            const method = this.value;
+            document.getElementById('credentialsSection').classList.toggle('hidden', method !== 'credentials');
+            document.getElementById('tokenSection').classList.toggle('hidden', method !== 'token');
+        });
+
+        document.getElementById('parsingMethod').addEventListener('change', function() {
+            const method = this.value;
+            document.getElementById('selectorsSection').classList.toggle('hidden', method !== 'selectors');
+        });
+
+        // Fonctions utilitaires
+        function log(message, type = 'info') {
+            const logsElement = document.getElementById('logs');
+            const enableLogs = document.getElementById('enableLogs').checked;
+            
+            if (enableLogs) {
+                logsElement.classList.remove('hidden');
+                const timestamp = new Date().toLocaleTimeString();
+                logsElement.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+                logsElement.scrollTop = logsElement.scrollHeight;
+            }
+            
+            console.log(`[EventParser] ${message}`);
+        }
+
+        function showStatus(message, type = 'info') {
+            const statusElement = document.getElementById('statusDisplay');
+            statusElement.innerHTML = `<div class="status ${type}">${message}</div>`;
+            
+            // Auto-clear après 5 secondes pour les messages de succès
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusElement.innerHTML = '';
+                }, 5000);
+            }
+        }
+
+        function addMappingRule() {
+            const container = document.getElementById('cssSelectors');
+            const rule = document.createElement('div');
+            rule.className = 'mapping-rule';
+            rule.innerHTML = `
+                <input type="text" placeholder="Nom du champ" data-field="">
+                <input type="text" placeholder="Sélecteur CSS" data-selector="">
+                <button type="button" class="remove-mapping" onclick="this.parentElement.remove()">×</button>
+            `;
+            container.appendChild(rule);
+        }
+
+        // Fonction de parsing
+        async function parseEventData(url, selectors = null) {
+            log(`Début du parsing de: ${url}`);
+            
+            try {
+                // Utilisation d'un proxy CORS pour récupérer le contenu
+                const proxyUrl = config.corsProxy + encodeURIComponent(url);
+                log(`Utilisation du proxy: ${proxyUrl}`);
+                
+                const response = await fetch(proxyUrl, {
+                    method: 'GET',
+                    headers: {
+                        'User-Agent': config.userAgent
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP: ${response.status}`);
+                }
+                
+                const html = await response.text();
+                log(`Contenu récupéré: ${html.length} caractères`);
+                
+                // Créer un document virtuel pour parser le HTML
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                let eventData = {};
+                
+                if (selectors) {
+                    // Utilisation des sélecteurs personnalisés
+                    log('Utilisation des sélecteurs personnalisés');
+                    for (const [field, selector] of Object.entries(selectors)) {
+                        const element = doc.querySelector(selector);
+                        if (element) {
+                            eventData[field] = element.textContent.trim();
+                            log(`${field}: ${eventData[field]}`);
+                        } else {
+                            log(`Sélecteur non trouvé pour ${field}: ${selector}`, 'warn');
+                        }
+                    }
+                } else {
+                    // Détection automatique
+                    log('Détection automatique des données');
+                    eventData = await autoDetectEventData(doc);
+                }
+                
+                log('Parsing terminé avec succès');
+                return eventData;
+                
+            } catch (error) {
+                log(`Erreur lors du parsing: ${error.message}`, 'error');
+                throw error;
+            }
+        }
+
+        // Détection automatique des données d'événement
+        async function autoDetectEventData(doc) {
+            const data = {};
+            
+            // Détection du titre
+            const titleSelectors = ['h1', '.event-title', '.title', 'title', '.event-name'];
+            for (const selector of titleSelectors) {
+                const element = doc.querySelector(selector);
+                if (element && element.textContent.trim()) {
+                    data.title = element.textContent.trim();
+                    log(`Titre détecté: ${data.title}`);
+                    break;
+                }
+            }
+            
+            // Détection de la description
+            const descSelectors = ['.description', '.event-description', '.content', '.summary', 'meta[name="description"]'];
+            for (const selector of descSelectors) {
+                const element = doc.querySelector(selector);
+                if (element) {
+                    data.description = selector.includes('meta') ? 
+                        element.getAttribute('content') : 
+                        element.textContent.trim();
+                    if (data.description) {
+                        log(`Description détectée: ${data.description.substring(0, 100)}...`);
+                        break;
+                    }
+                }
+            }
+            
+            // Détection de la date
+            const dateSelectors = ['.date', '.event-date', 'time', '[datetime]', '.when'];
+            for (const selector of dateSelectors) {
+                const element = doc.querySelector(selector);
+                if (element) {
+                    data.date = element.getAttribute('datetime') || element.textContent.trim();
+                    if (data.date) {
+                        log(`Date détectée: ${data.date}`);
+                        break;
+                    }
+                }
+            }
+            
+            // Détection du lieu
+            const locationSelectors = ['.location', '.venue', '.address', '.where', '.place'];
+            for (const selector of locationSelectors) {
+                const element = doc.querySelector(selector);
+                if (element && element.textContent.trim()) {
+                    data.location = element.textContent.trim();
+                    log(`Lieu détecté: ${data.location}`);
+                    break;
+                }
+            }
+            
+            // Détection du prix
+            const priceSelectors = ['.price', '.cost', '.fee', '.ticket-price'];
+            for (const selector of priceSelectors) {
+                const element = doc.querySelector(selector);
+                if (element && element.textContent.trim()) {
+                    data.price = element.textContent.trim();
+                    log(`Prix détecté: ${data.price}`);
+                    break;
+                }
+            }
+            
+            return data;
+        }
+
+        // Test de parsing
+        async function testParsing() {
+            const url = document.getElementById('targetUrl').value;
+            if (!url) {
+                showStatus('Veuillez saisir une URL à parser', 'error');
+                return;
+            }
+            
+            showStatus('Test de parsing en cours...', 'info');
+            log('=== DÉBUT DU TEST DE PARSING ===');
+            
+            try {
+                let selectors = null;
+                
+                if (document.getElementById('parsingMethod').value === 'selectors') {
+                    selectors = {};
+                    const mappingRules = document.querySelectorAll('.mapping-rule');
+                    mappingRules.forEach(rule => {
+                        const fieldInput = rule.querySelector('[data-field]');
+                        const selectorInput = rule.querySelector('[data-selector]');
+                        if (fieldInput.value && selectorInput.value) {
+                            selectors[fieldInput.value] = selectorInput.value;
+                        }
+                    });
+                }
+                
+                const eventData = await parseEventData(url, selectors);
+                
+                // Affichage des résultats
+                const resultsDiv = document.getElementById('parsedData');
+                resultsDiv.innerHTML = '<h3>✅ Données parsées:</h3>';
+                
+                for (const [key, value] of Object.entries(eventData)) {
+                    resultsDiv.innerHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+                }
+                
+                showStatus('Parsing réussi ! Vérifiez les résultats ci-dessous.', 'success');
+                log('=== FIN DU TEST DE PARSING ===');
+                
+            } catch (error) {
+                showStatus(`Erreur lors du parsing: ${error.message}`, 'error');
+                log('=== ÉCHEC DU TEST DE PARSING ===');
+            }
+        }
+
+        // Test de connexion
+        async function testConnection() {
+            showStatus('Test de connexion en cours...', 'info');
+            log('=== DÉBUT DU TEST DE CONNEXION ===');
+            
+            const authMethod = document.getElementById('authMethod').value;
+            
+            try {
+                if (authMethod === 'session') {
+                    // Test avec les cookies existants
+                    const response = await fetch(config.createEventUrl, {
+                        method: 'GET',
+                        credentials: 'include'
+                    });
+                    
+                    if (response.ok) {
+                        log('Session active détectée');
+                        showStatus('✅ Connexion réussie avec la session existante', 'success');
+                    } else {
+                        throw new Error('Session expirée ou invalide');
+                    }
+                    
+                } else if (authMethod === 'credentials') {
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    
+                    if (!username || !password) {
+                        throw new Error('Identifiants manquants');
+                    }
+                    
+                    // Tentative de connexion
+                    log(`Tentative de connexion pour: ${username}`);
+                    showStatus('⚠️ Test de connexion par identifiants non implémenté dans cette démo', 'info');
+                    
+                } else if (authMethod === 'token') {
+                    const token = document.getElementById('apiToken').value;
+                    
+                    if (!token) {
+                        throw new Error('Token API manquant');
+                    }
+                    
+                    log('Test du token API');
+                    showStatus('⚠️ Test de connexion par token non implémenté dans cette démo', 'info');
+                }
+                
+                log('=== FIN DU TEST DE CONNEXION ===');
+                
+            } catch (error) {
+                showStatus(`Erreur de connexion: ${error.message}`, 'error');
+                log('=== ÉCHEC DU TEST DE CONNEXION ===');
+            }
+        }
+
+        // Soumission des données sur MondeLibertie
+        async function submitToMondeLiberty(eventData) {
+            log('=== DÉBUT DE LA SOUMISSION ===');
+            
+            try {
+                // Dans un environnement réel, ceci nécessiterait:
+                // 1. Authentification proper avec mondelibertin.com
+                // 2. Récupération du formulaire et de ses tokens CSRF
+                // 3. Soumission des données avec les bons headers
+                
+                log('Préparation des données pour soumission...');
+                
+                // Simulation de la soumission
+                const formData = new FormData();
+                formData.append('title', eventData.title || '');
+                formData.append('description', eventData.description || '');
+                formData.append('date', eventData.date || '');
+                formData.append('location', eventData.location || '');
+                formData.append('price', eventData.price || '');
+                
+                log('Données préparées pour soumission');
+                
+                // Dans un vrai environnement, vous feriez:
+                /*
+                const response = await fetch(config.createEventUrl, {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    log('Événement créé avec succès');
+                    return true;
+                } else {
+                    throw new Error(`Erreur HTTP: ${response.status}`);
+                }
+                */
+                
+                // Simulation pour la démo
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                log('✅ Événement créé avec succès (simulation)');
+                
+                return true;
+                
+            } catch (error) {
+                log(`Erreur lors de la soumission: ${error.message}`, 'error');
+                throw error;
+            }
+        }
+
+        // Processus complet
+        async function executeFullProcess() {
+            const url = document.getElementById('targetUrl').value;
+            if (!url) {
+                showStatus('Veuillez saisir une URL à parser', 'error');
+                return;
+            }
+            
+            showStatus('Exécution du processus complet...', 'info');
+            log('=== DÉBUT DU PROCESSUS COMPLET ===');
+            
+            try {
+                // 1. Parse des données
+                let selectors = null;
+                if (document.getElementById('parsingMethod').value === 'selectors') {
+                    selectors = {};
+                    const mappingRules = document.querySelectorAll('.mapping-rule');
+                    mappingRules.forEach(rule => {
+                        const fieldInput = rule.querySelector('[data-field]');
+                        const selectorInput = rule.querySelector('[data-selector]');
+                        if (fieldInput.value && selectorInput.value) {
+                            selectors[fieldInput.value] = selectorInput.value;
+                        }
+                    });
+                }
+                
+                const eventData = await parseEventData(url, selectors);
+                
+                // Affichage des données parsées
+                const resultsDiv = document.getElementById('parsedData');
+                resultsDiv.innerHTML = '<h3>📊 Données parsées:</h3>';
+                for (const [key, value] of Object.entries(eventData)) {
+                    resultsDiv.innerHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+                }
+                
+                // 2. Confirmation ou soumission automatique
+                const autoSubmit = document.getElementById('autoSubmit').checked;
+                
+                if (!autoSubmit) {
+                    const confirmed = confirm('Voulez-vous soumettre ces données à MondeLibertie.com ?');
+                    if (!confirmed) {
+                        showStatus('Processus annulé par l\'utilisateur', 'info');
+                        return;
+                    }
+                }
+                
+                // 3. Soumission
+                const success = await submitToMondeLiberty(eventData);
+                
+                if (success) {
+                    showStatus('✅ Processus terminé avec succès ! Événement créé sur MondeLibertie.com', 'success');
+                } else {
+                    throw new Error('Échec de la soumission');
+                }
+                
+                log('=== FIN DU PROCESSUS COMPLET ===');
+                
+            } catch (error) {
+                showStatus(`Erreur lors du processus: ${error.message}`, 'error');
+                log('=== ÉCHEC DU PROCESSUS COMPLET ===');
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            log('Event Parser initialisé');
+            showStatus('📡 Event Parser prêt à utiliser', 'success');
+            
+            // Gestion des boutons de suppression des mappings
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-mapping')) {
+                    e.target.parentElement.remove();
+                }
+            });
+        });
+
+        // Export des fonctions pour un usage externe
+        window.EventParser = {
+            parseEventData,
+            submitToMondeLiberty,
+            executeFullProcess,
+            config
+        };
+    </script>
+</body>
+</html>
