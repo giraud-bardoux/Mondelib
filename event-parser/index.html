@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parseur d'Événements - Publication Automatique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab.active {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-section {
+            margin-bottom: 25px;
+        }
+
+        .form-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(17, 153, 142, 0.4);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .status-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .status-box h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .status-message {
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .preview-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .preview-section h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .event-preview {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .event-field {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .event-field:last-child {
+            border-bottom: none;
+        }
+
+        .event-field-label {
+            font-weight: 600;
+            color: #555;
+            min-width: 150px;
+        }
+
+        .event-field-value {
+            color: #333;
+            flex: 1;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .url-examples {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .saved-configs {
+            margin-top: 20px;
+        }
+
+        .config-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .config-item h5 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .config-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Parseur d'Événements Automatique</h1>
+            <p>Importez et publiez automatiquement des événements sur MondeLiberin.com</p>
+        </div>
+
+        <div class="main-card">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('parser')">📋 Parser un Événement</button>
+                <button class="tab" onclick="switchTab('config')">⚙️ Configuration</button>
+                <button class="tab" onclick="switchTab('history')">📊 Historique</button>
+                <button class="tab" onclick="switchTab('help')">❓ Aide</button>
+            </div>
+
+            <!-- Tab Parser -->
+            <div id="parser-tab" class="tab-content active">
+                <div class="form-section">
+                    <h3>URL de l'événement à parser</h3>
+                    <div class="form-group">
+                        <label for="event-url">URL de la page d'événement</label>
+                        <input type="url" id="event-url" placeholder="https://site-partenaire.com/event/123">
+                        <div class="url-examples">
+                            Exemples : Meetup, Facebook Events, Eventbrite, ou tout site partenaire
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="parser-type">Type de site</label>
+                        <select id="parser-type">
+                            <option value="auto">Détection automatique</option>
+                            <option value="custom">Configuration personnalisée</option>
+                            <option value="meetup">Meetup</option>
+                            <option value="facebook">Facebook Events</option>
+                            <option value="eventbrite">Eventbrite</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="parseEvent()">
+                        <span>🔍</span> Parser l'événement
+                    </button>
+                    <button class="btn btn-secondary" onclick="testParser()">
+                        <span>🧪</span> Tester le parsing
+                    </button>
+                </div>
+
+                <div id="parse-status" class="status-box hidden">
+                    <h4>Statut du parsing</h4>
+                    <div id="status-messages"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress"></div>
+                    </div>
+                </div>
+
+                <div id="event-preview" class="preview-section hidden">
+                    <h4>Aperçu de l'événement parsé</h4>
+                    <div class="event-preview">
+                        <div class="event-field">
+                            <span class="event-field-label">Titre :</span>
+                            <span class="event-field-value" id="preview-title">-</span>
+                        </div>
+                        <div class="event-field">
+                            <span class="event-field-label">Date :</span>
+                            <span class="event-field-value" id="preview-date">-</span>
+                        </div>
+                        <div class="event-field">
+                            <span class="event-field-label">Lieu :</span>
+                            <span class="event-field-value" id="preview-location">-</span>
+                        </div>
+                        <div class="event-field">
+                            <span class="event-field-label">Description :</span>
+                            <span class="event-field-value" id="preview-description">-</span>
+                        </div>
+                        <div class="event-field">
+                            <span class="event-field-label">Catégorie :</span>
+                            <span class="event-field-value" id="preview-category">-</span>
+                        </div>
+                    </div>
+                    <div class="btn-group" style="margin-top: 20px;">
+                        <button class="btn btn-success" onclick="publishEvent()">
+                            <span>📤</span> Publier sur MondeLiberin
+                        </button>
+                        <button class="btn btn-secondary" onclick="editEvent()">
+                            <span>✏️</span> Modifier avant publication
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Configuration -->
+            <div id="config-tab" class="tab-content">
+                <div class="form-section">
+                    <h3>Connexion à MondeLiberin.com</h3>
+                    <div class="credentials-grid">
+                        <div class="form-group">
+                            <label for="ml-username">Nom d'utilisateur</label>
+                            <input type="text" id="ml-username" placeholder="Votre identifiant">
+                        </div>
+                        <div class="form-group">
+                            <label for="ml-password">Mot de passe</label>
+                            <input type="password" id="ml-password" placeholder="Votre mot de passe">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Configuration du parsing</h3>
+                    <div class="form-group">
+                        <label for="default-category">Catégorie par défaut</label>
+                        <select id="default-category">
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="soiree">Soirée</option>
+                            <option value="club">Club</option>
+                            <option value="rencontre">Rencontre</option>
+                            <option value="evenement">Événement spécial</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="auto-publish">
+                            <input type="checkbox" id="auto-publish">
+                            Publier automatiquement après parsing
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Sites partenaires</h3>
+                    <div class="form-group">
+                        <label for="partner-sites">URLs des sites partenaires (un par ligne)</label>
+                        <textarea id="partner-sites" placeholder="https://site1.com&#10;https://site2.com"></textarea>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="saveConfig()">
+                    <span>💾</span> Sauvegarder la configuration
+                </button>
+
+                <div class="saved-configs">
+                    <h3>Configurations sauvegardées</h3>
+                    <div id="saved-configs-list"></div>
+                </div>
+            </div>
+
+            <!-- Tab Historique -->
+            <div id="history-tab" class="tab-content">
+                <div class="form-section">
+                    <h3>Événements récemment parsés</h3>
+                    <div id="history-list">
+                        <p style="color: #999;">Aucun événement parsé pour le moment</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Aide -->
+            <div id="help-tab" class="tab-content">
+                <div class="form-section">
+                    <h3>Comment utiliser cet outil ?</h3>
+                    <ol style="line-height: 1.8; color: #555;">
+                        <li><strong>Configuration initiale :</strong> Allez dans l'onglet Configuration et entrez vos identifiants MondeLiberin.com</li>
+                        <li><strong>Parser un événement :</strong> Collez l'URL de l'événement dans l'onglet Parser</li>
+                        <li><strong>Vérification :</strong> Vérifiez les informations parsées dans l'aperçu</li>
+                        <li><strong>Publication :</strong> Cliquez sur "Publier" pour envoyer l'événement sur MondeLiberin.com</li>
+                    </ol>
+                </div>
+
+                <div class="form-section">
+                    <h3>Sites supportés</h3>
+                    <ul style="line-height: 1.8; color: #555;">
+                        <li>✅ Meetup.com</li>
+                        <li>✅ Facebook Events</li>
+                        <li>✅ Eventbrite</li>
+                        <li>✅ Sites personnalisés (avec configuration)</li>
+                    </ul>
+                </div>
+
+                <div class="form-section">
+                    <h3>Installation sur votre site</h3>
+                    <p style="color: #555; line-height: 1.6;">
+                        Cette page est complètement autonome. Pour l'installer sur votre site :
+                    </p>
+                    <ol style="line-height: 1.8; color: #555; margin-top: 10px;">
+                        <li>Téléchargez tous les fichiers (HTML, JS, PHP)</li>
+                        <li>Uploadez-les dans un dossier de votre site</li>
+                        <li>Configurez le fichier proxy.php avec vos paramètres</li>
+                        <li>Accédez à la page via votre navigateur</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'édition -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Modifier l'événement</h3>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="form-group">
+                <label for="edit-title">Titre</label>
+                <input type="text" id="edit-title">
+            </div>
+            <div class="form-group">
+                <label for="edit-date">Date et heure</label>
+                <input type="datetime-local" id="edit-date">
+            </div>
+            <div class="form-group">
+                <label for="edit-location">Lieu</label>
+                <input type="text" id="edit-location">
+            </div>
+            <div class="form-group">
+                <label for="edit-description">Description</label>
+                <textarea id="edit-description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="edit-category">Catégorie</label>
+                <select id="edit-category">
+                    <option value="soiree">Soirée</option>
+                    <option value="club">Club</option>
+                    <option value="rencontre">Rencontre</option>
+                    <option value="evenement">Événement spécial</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="saveEdit()">Sauvegarder</button>
+                <button class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="parser.js"></script>
+</body>
+</html>
