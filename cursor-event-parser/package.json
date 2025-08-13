@@ -1,0 +1,36 @@
+{
+  "name": "cursor-event-parser",
+  "version": "1.0.0",
+  "description": "Cursor Event Parser - Application autonome pour parser et publier automatiquement des événements sur MondeLiberin.com",
+  "main": "index.html",
+  "scripts": {
+    "start": "php -S localhost:8000"
+  },
+  "keywords": [
+    "event",
+    "parser",
+    "mondelibertin",
+    "socialengine",
+    "automation",
+    "cursor"
+  ],
+  "author": "Cursor Event Parser Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cursor/cursor-event-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/cursor/cursor-event-parser/issues"
+  },
+  "homepage": "https://github.com/cursor/cursor-event-parser#readme",
+  "engines": {
+    "php": ">=7.2"
+  },
+  "requirements": {
+    "php": ">=7.2",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-session": "*"
+  }
+}

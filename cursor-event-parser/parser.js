@@ -1,4 +1,4 @@
-// Configuration globale
+// Cursor Event Parser - Configuration globale
 const CONFIG = {
     proxyUrl: 'proxy.php',
     mondeLibertin: {

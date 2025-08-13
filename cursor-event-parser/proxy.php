@@ -1,6 +1,6 @@
 <?php
 /**
- * Proxy PHP pour le parseur d'événements
+ * Proxy PHP pour Cursor Event Parser
  * Gère les requêtes cross-origin et l'authentification sur MondeLiberin.com
  */
 

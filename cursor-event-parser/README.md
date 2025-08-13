@@ -1,8 +1,8 @@
-# 🎉 Parseur d'Événements Automatique pour MondeLiberin.com
+# 🎉 Cursor Event Parser pour MondeLiberin.com
 
 ## Description
 
-Cette application web autonome permet de parser automatiquement des événements depuis des sites partenaires et de les publier directement sur MondeLiberin.com (ou tout site utilisant SocialEngine 7.4).
+Cursor Event Parser est une application web autonome qui permet de parser automatiquement des événements depuis des sites partenaires et de les publier directement sur MondeLiberin.com (ou tout site utilisant SocialEngine 7.4).
 
 ### ✨ Fonctionnalités principales
 
@@ -25,10 +25,11 @@ Cette application web autonome permet de parser automatiquement des événements
 
 ### 1. Téléchargement des fichiers
 
-Téléchargez les 3 fichiers suivants dans un dossier de votre serveur web :
+Téléchargez tous les fichiers de Cursor Event Parser dans un dossier de votre serveur web :
 - `index.html` - Interface utilisateur
 - `parser.js` - Logique JavaScript
 - `proxy.php` - Serveur proxy PHP
+- `.htaccess` - Configuration Apache (optionnel)
 
 ### 2. Configuration du serveur
 
@@ -52,7 +53,7 @@ Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
 
 Pour Nginx, ajoutez dans votre configuration :
 ```nginx
-location /event-parser/ {
+location /cursor-event-parser/ {
     try_files $uri $uri/ /index.html;
     
     location ~ \.php$ {
@@ -74,7 +75,7 @@ chmod 755 proxy.php
 
 ### Configuration initiale
 
-1. **Accédez à la page** via votre navigateur : `https://votresite.com/event-parser/`
+1. **Accédez à la page** via votre navigateur : `https://votresite.com/cursor-event-parser/`
 
 2. **Configurez vos identifiants** :
    - Allez dans l'onglet "⚙️ Configuration"
@@ -261,8 +262,8 @@ Cette application est fournie "telle quelle" sans garantie. L'utilisateur est re
 
 ## 🔄 Mises à jour
 
-### Version 1.0.0 (Janvier 2024)
-- Version initiale
+### Version 1.0.0 - Cursor Event Parser (Janvier 2024)
+- Version initiale de Cursor Event Parser
 - Support Meetup, Facebook, Eventbrite
 - Interface moderne
 - Système de cache et session

@@ -1,4 +1,4 @@
-# Configuration Apache pour le parseur d'événements
+# Configuration Apache pour Cursor Event Parser
 
 # Activer la réécriture d'URL
 Options +FollowSymLinks
@@ -63,7 +63,7 @@ RewriteRule .* - [F,L]
 
 # Protection par mot de passe (décommentez pour activer)
 # AuthType Basic
-# AuthName "Accès restreint - Parseur d'événements"
+# AuthName "Accès restreint - Cursor Event Parser"
 # AuthUserFile /chemin/absolu/vers/.htpasswd
 # Require valid-user
 
