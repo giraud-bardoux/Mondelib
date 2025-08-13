@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Publier une soirée sur Mondelibertin</title>
+  <style>
+    body{font-family:Arial, sans-serif;max-width:900px;margin:40px auto;padding:0 15px;line-height:1.5}
+    h1{color:#d23d7a}
+    label{display:block;margin-top:12px}
+    input[type=text],textarea{width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:4px}
+    button{margin-top:20px;padding:10px 18px;background:#d23d7a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:16px}
+    button:disabled{opacity:.6;cursor:not-allowed}
+    .status{margin-top:25px;padding:12px;border-radius:4px}
+    .status.ok{background:#e3f7e7;color:#23703d}
+    .status.err{background:#fde2e2;color:#a33a3a}
+    pre{white-space:pre-wrap;background:#f7f7f7;padding:10px;border-radius:4px}
+  </style>
+</head>
+<body>
+  <h1>Importateur de soirée → Mondelibertin</h1>
+  <p>Cette page vous permet d'importer automatiquement les informations d'une soirée présente sur un site partenaire, puis de publier l'évènement sur <strong>mondelibertin.com</strong>. Vous devez être préalablement connecté&nbsp;à Mondelibertin dans ce navigateur.</p>
+
+  <label for="eventUrl">URL de la page de la soirée (site partenaire)</label>
+  <input type="text" id="eventUrl" placeholder="https://partner-site.com/evenements/ma-soiree"/>
+  <button id="btnParse">1️⃣&nbsp;Analyser la page partenaire</button>
+
+  <div id="preview" style="display:none">
+    <h2>Aperçu des données extraites</h2>
+    <pre id="previewData"></pre>
+    <button id="btnPublish">2️⃣&nbsp;Publier sur Mondelibertin</button>
+  </div>
+
+  <div id="result" class="status" style="display:none"></div>
+
+<script>
+/* =====================
+ * PARSERS PAR SITE
+ * Ajoutez ici une fonction de parsing par nom de domaine
+ * Chaque fonction reçoit le document HTML et doit renvoyer un objet :
+ * {title, description, startDate, endDate, location, imageUrl, category}
+ * ===================== */
+function parsePartnerSite(url, doc){
+  const hostname = new URL(url).hostname;
+  if(hostname.includes('partner-site.com')){
+    return parsePartnerSiteExample(doc);
+  }
+  throw new Error('Aucun parseur disponible pour ce domaine ('+hostname+').');
+}
+
+function parsePartnerSiteExample(doc){
+  /* Exemple de parseur pour https://partner-site.com */
+  const title = doc.querySelector('h1.event-title')?.textContent.trim();
+  const description = doc.querySelector('.event-description')?.innerText.trim();
+  const dateString = doc.querySelector('.event-date')?.textContent.trim();
+  const [startDate, endDate] = dateString?.split('–').map(s=>s.trim()) || [];
+  const location = doc.querySelector('.event-location')?.textContent.trim();
+  const imageUrl = doc.querySelector('.event-cover img')?.src;
+  const category = doc.querySelector('.event-category')?.textContent.trim();
+  return {title, description, startDate, endDate, location, imageUrl, category};
+}
+
+/* =====================
+ * Helper: GET HTML document via fetch
+ * ===================== */
+async function fetchDocument(url){
+  const res = await fetch(url, {credentials:'include'});
+  if(!res.ok) throw new Error('Impossible de récupérer la page partenaire ('+res.status+').');
+  const html = await res.text();
+  return new DOMParser().parseFromString(html, 'text/html');
+}
+
+/* =====================
+ * Étape 1: Parse partenaire
+ * ===================== */
+async function parsePartnerPage(){
+  hideStatus();
+  const url = document.getElementById('eventUrl').value.trim();
+  if(!url){showError('Veuillez saisir une URL.');return;}
+  setLoading(true);
+  try{
+    const doc = await fetchDocument(url);
+    const data = parsePartnerSite(url, doc);
+    // Stocker pour étape 2
+    window.__eventData = {...data, sourceUrl:url};
+    document.getElementById('previewData').textContent = JSON.stringify(window.__eventData, null, 2);
+    document.getElementById('preview').style.display = 'block';
+    showOk('Analyse terminée. Vérifiez les données puis cliquez sur Publier.');
+  }catch(err){
+    showError(err.message);
+  }finally{
+    setLoading(false);
+  }
+}
+
+/* =====================
+ * Étape 2: Publication Mondelibertin
+ * ===================== */
+async function publishToMondelibertin(){
+  hideStatus();
+  const data = window.__eventData;
+  if(!data){showError('Aucune donnée à publier.');return;}
+  setLoading(true);
+  try{
+    // 1. Récupérer la page create pour obtenir le token CSRF
+    const createGet = await fetch('https://mondelibertin.com/events/create', {credentials:'include'});
+    if(!createGet.ok) throw new Error('Accès à /events/create refusé ('+createGet.status+'). Êtes-vous connecté ?');
+    const createHtml = await createGet.text();
+    const createDoc = new DOMParser().parseFromString(createHtml, 'text/html');
+    // Vous devrez peut-être adapter le sélecteur pour le token SocialEngine
+    const csrfToken = createDoc.querySelector('input[name="token"]')?.value || createDoc.querySelector('input[name="csrf_token"]')?.value || '';
+    if(!csrfToken) console.warn('Token CSRF introuvable, tentative sans.');
+
+    // 2. Préparer formulaire (adaptez les noms de champs à SocialEngine-Events)
+    const form = new URLSearchParams();
+    form.append('token', csrfToken);
+    form.append('title', data.title || 'Titre manquant');
+    form.append('description', data.description || '');
+    form.append('host_type', 0); // exemple de champ obligatoire SocialEngine
+    form.append('starttime_date', data.startDate || '');
+    form.append('endtime_date', data.endDate || '');
+    form.append('location', data.location || '');
+    form.append('category', data.category || '');
+    form.append('source_url', data.sourceUrl);
+    // TODO : upload d'image -> nécessite multipart/form-data.
+
+    const publishRes = await fetch('https://mondelibertin.com/events/create', {
+      method:'POST',
+      credentials:'include',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:form.toString()
+    });
+    if(!publishRes.ok) throw new Error('Erreur lors de la publication ('+publishRes.status+').');
+
+    showOk('Publication réussie !');
+  }catch(err){
+    showError(err.message);
+  }finally{
+    setLoading(false);
+  }
+}
+
+/* =====================
+ * UI helpers
+ * ===================== */
+function setLoading(is){
+  document.getElementById('btnParse').disabled = is;
+  document.getElementById('btnPublish').disabled = is;
+}
+function showOk(msg){
+  const el = document.getElementById('result');
+  el.className='status ok';
+  el.textContent=msg;
+  el.style.display='block';
+}
+function showError(msg){
+  const el = document.getElementById('result');
+  el.className='status err';
+  el.textContent=msg;
+  el.style.display='block';
+}
+function hideStatus(){
+  document.getElementById('result').style.display='none';
+}
+
+/* =====================
+ * Event listeners
+ * ===================== */
+ document.getElementById('btnParse').addEventListener('click', parsePartnerPage);
+ document.getElementById('btnPublish').addEventListener('click', publishToMondelibertin);
+</script>
+</body>
+</html>
