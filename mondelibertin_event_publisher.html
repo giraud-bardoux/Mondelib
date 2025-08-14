@@ -23,6 +23,18 @@
   <label for="eventUrl">URL de la page de la soirée (site partenaire)</label>
   <input type="text" id="eventUrl" placeholder="https://partner-site.com/evenements/ma-soiree"/>
   <button id="btnParse">1️⃣&nbsp;Analyser la page partenaire</button>
+  
+  <div style="margin-top: 15px; padding: 10px; background: #f9f9f9; border-radius: 4px;">
+    <strong>🔧 Problème CORS ?</strong>
+    <button id="btnManual" style="margin-left: 10px; font-size: 14px; padding: 5px 10px;">Import manuel</button>
+  </div>
+  
+  <div id="manualImport" style="display:none; margin-top: 15px;">
+    <h3>Import manuel</h3>
+    <p>Si l'analyse automatique ne fonctionne pas, copiez-collez le code HTML de la page :</p>
+    <textarea id="manualHtml" rows="8" placeholder="Collez ici le code HTML de la page..."></textarea>
+    <button id="btnParseManual">Analyser le HTML collé</button>
+  </div>
 
   <div id="preview" style="display:none">
     <h2>Aperçu des données extraites</h2>
@@ -44,6 +56,9 @@ function parsePartnerSite(url, doc){
   if(hostname.includes('partner-site.com')){
     return parsePartnerSiteExample(doc);
   }
+  if(hostname.includes('wemagnifique.fr')){
+    return parseWemagnifique(doc);
+  }
   throw new Error('Aucun parseur disponible pour ce domaine ('+hostname+').');
 }
 
@@ -59,14 +74,157 @@ function parsePartnerSiteExample(doc){
   return {title, description, startDate, endDate, location, imageUrl, category};
 }
 
+function parseWemagnifique(doc){
+  /* Parseur pour https://wemagnifique.fr */
+  
+  // Titre de l'événement
+  const title = doc.querySelector('h1, .page-title, .event-title, .entry-title')?.textContent?.trim() || 
+                doc.querySelector('title')?.textContent?.replace('WeMagnifique', '').trim();
+  
+  // Description - chercher dans plusieurs sélecteurs possibles
+  const description = doc.querySelector('.event-description, .entry-content, .post-content, .content, .description')?.innerText?.trim() ||
+                     doc.querySelector('meta[name="description"]')?.getAttribute('content') ||
+                     doc.querySelector('meta[property="og:description"]')?.getAttribute('content') ||
+                     '';
+  
+  // Date - format flexible pour différents formats de dates
+  let startDate = '';
+  let endDate = '';
+  
+  // Chercher les dates dans différents formats
+  const dateElements = [
+    doc.querySelector('.event-date, .date, .event-time, .time'),
+    doc.querySelector('[class*="date"]'),
+    doc.querySelector('[class*="time"]')
+  ].filter(el => el);
+  
+  if (dateElements.length > 0) {
+    const dateText = dateElements[0].textContent.trim();
+    // Gérer différents formats de dates
+    if (dateText.includes('–') || dateText.includes('-')) {
+      const dates = dateText.split(/[–-]/).map(s => s.trim());
+      startDate = dates[0];
+      endDate = dates[1] || dates[0];
+    } else {
+      startDate = dateText;
+      endDate = dateText;
+    }
+  }
+  
+  // Si pas de date trouvée, chercher dans le titre ou URL
+  if (!startDate && title.toLowerCase().includes('mardi')) {
+    startDate = 'Tous les mardis';
+  }
+  
+  // Localisation
+  const location = doc.querySelector('.event-location, .location, .venue, .address')?.textContent?.trim() ||
+                  (title.includes('Paris') ? 'Paris' : '') ||
+                  '';
+  
+  // Image
+  let imageUrl = '';
+  const imgElement = doc.querySelector('.event-image img, .featured-image img, .post-image img, img[class*="event"], img[class*="featured"]') ||
+                    doc.querySelector('meta[property="og:image"]') ||
+                    doc.querySelector('meta[name="twitter:image"]');
+  
+  if (imgElement) {
+    if (imgElement.tagName === 'IMG') {
+      imageUrl = imgElement.src;
+    } else {
+      imageUrl = imgElement.getAttribute('content');
+    }
+    
+    // Convertir URL relative en URL absolue si nécessaire
+    if (imageUrl && !imageUrl.startsWith('http')) {
+      imageUrl = new URL(imageUrl, 'https://wemagnifique.fr').href;
+    }
+  }
+  
+  // Catégorie
+  const category = doc.querySelector('.category, .event-category, .tag')?.textContent?.trim() ||
+                  'Soirée libertine' || // catégorie par défaut pour ce site
+                  '';
+  
+  return {
+    title: title || 'Soirée WeMagnifique',
+    description: description,
+    startDate: startDate,
+    endDate: endDate,
+    location: location,
+    imageUrl: imageUrl,
+    category: category
+  };
+}
+
 /* =====================
- * Helper: GET HTML document via fetch
+ * Helper: GET HTML document via fetch avec fallbacks CORS
  * ===================== */
 async function fetchDocument(url){
-  const res = await fetch(url, {credentials:'include'});
-  if(!res.ok) throw new Error('Impossible de récupérer la page partenaire ('+res.status+').');
-  const html = await res.text();
-  return new DOMParser().parseFromString(html, 'text/html');
+  const methods = [
+    // Méthode 1: Fetch direct (fonctionne si CORS est désactivé via extension)
+    () => fetch(url, {
+      mode: 'cors',
+      credentials: 'omit',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; Mondelibertin-Importer/1.0)'
+      }
+    }).then(r => r.text()),
+    
+    // Méthode 2: Proxy public AllOrigins
+    () => fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`)
+      .then(r => r.text()),
+    
+    // Méthode 3: Proxy local PHP (si disponible)
+    () => fetch(`proxy.php?url=${encodeURIComponent(url)}`, {credentials:'include'})
+      .then(r => r.json())
+      .then(data => {
+        if (!data.success) throw new Error(data.error);
+        return data.html;
+      }),
+    
+    // Méthode 4: Autre proxy public
+    () => fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`)
+      .then(r => r.text())
+  ];
+  
+  let lastError;
+  for (let i = 0; i < methods.length; i++) {
+    try {
+      console.log(`🔄 Tentative ${i + 1}/${methods.length} pour récupérer: ${url}`);
+      const html = await methods[i]();
+      console.log(`✅ Succès avec la méthode ${i + 1}`);
+      return new DOMParser().parseFromString(html, 'text/html');
+    } catch (error) {
+      console.warn(`❌ Méthode ${i + 1} échouée:`, error.message);
+      lastError = error;
+    }
+  }
+  
+  // Si toutes les méthodes échouent, afficher les instructions CORS
+  const corsInstructions = `
+❌ Impossible de récupérer la page. Erreur CORS détectée.
+
+🔧 SOLUTIONS DISPONIBLES:
+
+1️⃣ **Extension CORS (Recommandé)**:
+   - Installez "CORS Unblock" ou "CORS Everywhere" 
+   - Activez l'extension temporairement
+   - Rechargez cette page et relancez l'importation
+
+2️⃣ **Chrome avec sécurité désactivée**:
+   - Fermez Chrome complètement
+   - Redémarrez avec: --disable-web-security --user-data-dir=/tmp/chrome-dev
+
+3️⃣ **Serveur local PHP**:
+   - Configurez un serveur web local avec le fichier proxy.php
+
+4️⃣ **Import manuel**:
+   - Copiez le contenu de la page source
+   - Utilisez l'option d'import manuel (si disponible)
+
+Dernière erreur: ${lastError?.message || 'Inconnue'}`;
+
+  throw new Error(corsInstructions);
 }
 
 /* =====================
@@ -90,6 +248,39 @@ async function parsePartnerPage(){
   }finally{
     setLoading(false);
   }
+}
+
+/* =====================
+ * Import manuel
+ * ===================== */
+function parseManualHtml(){
+  hideStatus();
+  const url = document.getElementById('eventUrl').value.trim();
+  const html = document.getElementById('manualHtml').value.trim();
+  
+  if(!url){showError('Veuillez saisir une URL.');return;}
+  if(!html){showError('Veuillez coller le code HTML.');return;}
+  
+  setLoading(true);
+  try{
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const data = parsePartnerSite(url, doc);
+    // Stocker pour étape 2
+    window.__eventData = {...data, sourceUrl:url};
+    document.getElementById('previewData').textContent = JSON.stringify(window.__eventData, null, 2);
+    document.getElementById('preview').style.display = 'block';
+    document.getElementById('manualImport').style.display = 'none';
+    showOk('Analyse manuelle terminée. Vérifiez les données puis cliquez sur Publier.');
+  }catch(err){
+    showError('Erreur lors de l\'analyse manuelle: ' + err.message);
+  }finally{
+    setLoading(false);
+  }
+}
+
+function toggleManualImport(){
+  const manualDiv = document.getElementById('manualImport');
+  manualDiv.style.display = manualDiv.style.display === 'none' ? 'block' : 'none';
 }
 
 /* =====================
@@ -167,6 +358,8 @@ function hideStatus(){
  * ===================== */
  document.getElementById('btnParse').addEventListener('click', parsePartnerPage);
  document.getElementById('btnPublish').addEventListener('click', publishToMondelibertin);
+ document.getElementById('btnManual').addEventListener('click', toggleManualImport);
+ document.getElementById('btnParseManual').addEventListener('click', parseManualHtml);
 </script>
 </body>
 </html>

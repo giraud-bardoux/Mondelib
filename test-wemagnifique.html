@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test du parseur WeMagnifique</title>
+</head>
+<body>
+    <script>
+        // Simuler le HTML d'une page wemagnifique.fr
+        const mockHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Soirée libertine tous les mardis - Paris | WeMagnifique</title>
+            <meta name="description" content="Rejoignez-nous tous les mardis pour une soirée libertine exceptionnelle à Paris. Ambiance décontractée et raffinée.">
+            <meta property="og:image" content="https://wemagnifique.fr/images/soiree-mardi.jpg">
+        </head>
+        <body>
+            <h1>Soirée libertine tous les mardis</h1>
+            <div class="content">
+                <p>Une soirée libertine unique tous les mardis à Paris. Venez découvrir une ambiance décontractée et raffinée dans un cadre exceptionnel.</p>
+                <p>Dress code : Élégant décontracté</p>
+            </div>
+            <div class="location">Paris 15ème</div>
+        </body>
+        </html>
+        `;
+        
+        // Code du parseur (copié du fichier principal)
+        function parseWemagnifique(doc){
+          const title = doc.querySelector('h1, .page-title, .event-title, .entry-title')?.textContent?.trim() || 
+                        doc.querySelector('title')?.textContent?.replace('WeMagnifique', '').trim();
+          
+          const description = doc.querySelector('.event-description, .entry-content, .post-content, .content, .description')?.innerText?.trim() ||
+                             doc.querySelector('meta[name="description"]')?.getAttribute('content') ||
+                             doc.querySelector('meta[property="og:description"]')?.getAttribute('content') ||
+                             '';
+          
+          let startDate = '';
+          let endDate = '';
+          
+          const dateElements = [
+            doc.querySelector('.event-date, .date, .event-time, .time'),
+            doc.querySelector('[class*="date"]'),
+            doc.querySelector('[class*="time"]')
+          ].filter(el => el);
+          
+          if (dateElements.length > 0) {
+            const dateText = dateElements[0].textContent.trim();
+            if (dateText.includes('–') || dateText.includes('-')) {
+              const dates = dateText.split(/[–-]/).map(s => s.trim());
+              startDate = dates[0];
+              endDate = dates[1] || dates[0];
+            } else {
+              startDate = dateText;
+              endDate = dateText;
+            }
+          }
+          
+          if (!startDate && title.toLowerCase().includes('mardi')) {
+            startDate = 'Tous les mardis';
+          }
+          
+          const location = doc.querySelector('.event-location, .location, .venue, .address')?.textContent?.trim() ||
+                          (title.includes('Paris') ? 'Paris' : '') ||
+                          '';
+          
+          let imageUrl = '';
+          const imgElement = doc.querySelector('.event-image img, .featured-image img, .post-image img, img[class*="event"], img[class*="featured"]') ||
+                            doc.querySelector('meta[property="og:image"]') ||
+                            doc.querySelector('meta[name="twitter:image"]');
+          
+          if (imgElement) {
+            if (imgElement.tagName === 'IMG') {
+              imageUrl = imgElement.src;
+            } else {
+              imageUrl = imgElement.getAttribute('content');
+            }
+            
+            if (imageUrl && !imageUrl.startsWith('http')) {
+              imageUrl = new URL(imageUrl, 'https://wemagnifique.fr').href;
+            }
+          }
+          
+          const category = doc.querySelector('.category, .event-category, .tag')?.textContent?.trim() ||
+                          'Soirée libertine' ||
+                          '';
+          
+          return {
+            title: title || 'Soirée WeMagnifique',
+            description: description,
+            startDate: startDate,
+            endDate: endDate,
+            location: location,
+            imageUrl: imageUrl,
+            category: category
+          };
+        }
+        
+        // Test du parseur
+        const doc = new DOMParser().parseFromString(mockHtml, 'text/html');
+        const result = parseWemagnifique(doc);
+        
+        console.log('🧪 Test du parseur WeMagnifique:');
+        console.log(JSON.stringify(result, null, 2));
+        
+        // Affichage dans la page
+        document.body.innerHTML = `
+            <h1>Test du parseur WeMagnifique</h1>
+            <h2>Résultat de l'analyse :</h2>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+            <h2>HTML testé :</h2>
+            <textarea readonly style="width:100%; height:200px;">${mockHtml}</textarea>
+        `;
+    </script>
+</body>
+</html>
