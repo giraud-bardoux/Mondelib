@@ -11,3 +11,23 @@ install/
 *.zip
 *.tar.gz
 *.sql
+
+# === Uploads et contenu utilisateur ===
+public/album_photo/
+public/user/
+public/banner/
+public/activity_background/
+public/comment_reaction/
+public/event/
+public/event_photo/
+public/core_file/
+public/blog/
+public/poll/
+
+# === Fichiers générés automatiquement ===
+public/css/
+public/js/
+public/system/
+
+# === Outils de développement ===
+tools/

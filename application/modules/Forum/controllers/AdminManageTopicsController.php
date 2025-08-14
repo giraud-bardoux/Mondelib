@@ -1,0 +1,109 @@
+<?php
+/**
+ * SocialEngine
+ *
+ * @category   Application_Extensions
+ * @package    Forum
+ * @copyright  Copyright 2006-2020 Webligo Developments
+ * @license    http://www.socialengine.com/license/
+ * @version    $Id: AdminManageTopicsController.php 9747 2012-07-26 02:08:08Z john $
+ * @author     Sami
+ */
+
+/**
+ * @category   Application_Extensions
+ * @package    Forum
+ * @copyright  Copyright 2006-2020 Webligo Developments
+ * @license    http://www.socialengine.com/license/
+ */
+
+class Forum_AdminManageTopicsController extends Core_Controller_Action_Admin {
+  
+  public function indexAction()
+  {
+    $this->view->navigation = Engine_Api::_()->getApi('menus', 'core')
+      ->getNavigation('forum_admin_main', array(), 'forum_admin_main_managetopic');
+
+    if ($this->getRequest()->isPost()) {
+      $values = $this->getRequest()->getPost();
+      foreach ($values as $key => $value) {
+        if ($key == 'delete_' . $value) {
+          $item = Engine_Api::_()->getItem('forum_topic', $value);
+          if($item)
+            $item->delete();
+        }
+      }
+    }
+    
+    // Make paginator
+    $table = Engine_Api::_()->getItemTable('forum_topic');
+    $select = $table->select()
+              ->order('topic_id DESC');;
+      
+    if ($this->_getParam('search', false)) {
+      $select->where('title LIKE ? OR description LIKE ?', $this->_getParam('search').'%');
+    }
+
+    $this->view->paginator = $paginator = Zend_Paginator::factory($select);
+    $paginator->setItemCountPerPage(25);
+    $paginator->setCurrentPageNumber($this->_getParam('page',1));
+  }
+  
+  public function deleteAction()
+  {
+    // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    $id = $this->_getParam('id');
+    $this->view->blog_id=$id;
+    // Check post
+    if( $this->getRequest()->isPost() )
+    {
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+
+      try
+      {
+        $item = Engine_Api::_()->getItem('forum_topic', $id);
+        // delete the topic entry into the database
+        $item->delete();
+        $db->commit();
+      }
+
+      catch( Exception $e )
+      {
+        $db->rollBack();
+        throw $e;
+      }
+
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => 10,
+          'parentRefresh'=> 10,
+          'messages' => array('')
+      ));
+    }
+
+    // Output
+    $this->renderScript('admin-manage-topics/delete.tpl');
+  }
+  
+  //Approved Action
+  public function approvedAction() {
+  
+    $id = $this->_getParam('id');
+    if (!empty($id)) {
+      $item = Engine_Api::_()->getItem('forum_topic', $id);
+      $item->approved = !$item->approved;
+      $item->save();
+      
+      // Re-index
+      Engine_Api::_()->getApi('search', 'core')->index($item);
+      
+      if ($item->approved) {
+        Engine_Api::_()->getDbTable('notifications', 'activity')->addNotification($item->getOwner(), $item->getOwner(), $item, 'forum_approvedbyadmin', array('topic_title' => $item->getTitle(), 'topicowner_title' => $item->getOwner()->getTitle(), 'object_link' => $item->getHref(), 'host' => $_SERVER['HTTP_HOST']));
+      } else {
+        Engine_Api::_()->getDbTable('notifications', 'activity')->addNotification($item->getOwner(), $item->getOwner(), $item, 'forum_disapprovedbyadmin', array('topic_title' => $item->getTitle(), 'topicowner_title' => $item->getOwner()->getTitle(), 'object_link' => $item->getHref(), 'host' => $_SERVER['HTTP_HOST']));
+      }
+    }
+    $this->_redirect('admin/forum/manage-topics');
+  }
+}

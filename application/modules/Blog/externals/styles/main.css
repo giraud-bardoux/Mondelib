@@ -1,0 +1,218 @@
+
+/* ACTION TYPE ICONS */
+.activity_icon_comment_blog:before{
+  content:"\f075";
+  font-family:'Font Awesome 6 Free';
+}
+
+/* DEFAULT PHOTO THUMB */
+.bg_item_nophoto.bg_item_photo_blog:before{
+  content:"\f303";
+}
+
+/* ITEM TYPE ICONS */
+.item_icon_blog:before,
+.item_icon_blog_entry:before{
+  content:"\f075";
+  font-family:'Font Awesome 6 Free';
+}
+
+/* NOTIFICATION TYPE ICONS */
+.notification_type_blog_subscribed_new:before{
+  content:"\f0f6";
+}
+
+/* ICONS */
+.icon_blog_unsubscribe{
+  position:relative;
+}
+.icon_blog_new:before{
+  content:"\f067";
+}
+.icon_blog_unsubscribe:before{
+  content:"\f09e";
+ }
+.icon_blog_unsubscribe:after{
+  content:"\f056";
+	font-weight:900 !important;
+}
+.icon_blog_style:before{
+  content:"\f1fc";
+	font-weight:900 !important;
+}
+.icon_blog_viewall:before{
+  content:"\f15c";
+}
+.icon_blog_subscribe:before{
+  content:"\f09e";
+	font-weight:900 !important;
+}
+
+/* VIEW BLOG */
+.blog_gutter_owner_photo{
+  border-width:1px;
+  border-radius:50%;
+  height:150px;
+  width:150px;
+  margin:0 auto;
+  overflow:hidden;
+}
+.blog_gutter_owner_photo span{
+  border-width:0;
+}
+.blog_gutter_owner_name{
+  font-weight:var(--theme-font-weight-bold);
+  margin-top:15px;
+  text-align:center;
+}
+.blog_gutter_owner_name a{
+  color:var(--theme-font-color);
+}
+.blogs_gutter_options .icon_report:before{
+  font-weight:900 !important;
+}
+.blog_view_search .blog_search_form input{
+  width:100%;
+}
+.blog_view_search_section{
+  border-bottom-width:1px;
+  border-bottom-style:dashed;
+  padding:0.625rem 0;
+}
+.blog_view_search_section:nth-last-child(1){
+  border-bottom-width:0;
+}
+.blog_view_search_section > p{
+  font-weight:var(--theme-font-weight-bold);
+}
+.blog_view_search_section ul li{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.625rem;
+}
+.blog_view_search_section ul li:before{
+  content:"\f0da";
+  font-family:'Font Awesome 6 Free';
+  font-weight:900;
+  color:var(--theme-font-color-light);
+}
+.blog_view_search_section ul li + li{
+  margin-top:0.625rem;
+}
+.blog_view_search_section ul li a{
+  color:var(--theme-font-color);
+  flex:1;
+}
+.blog_view_search_section ul li a._active{
+  font-weight:var(--theme-font-weight-bold);
+}
+.blog_view_search_section ul li a:hover{
+  color:var(--theme-link-color-hover);
+}
+.blog_view_header_info{
+  flex:1;
+}
+.blog_view_header_stat > span + span:before{
+  content:"•";
+  margin:0 0.3125rem;
+  opacity:.8;
+}
+.blog_view_photo{
+  background-color: var(--theme-list-background-color-alt);
+  text-align:center;
+}
+.blog_view_photo img{
+  object-fit:contain;
+  max-height:25rem;
+  width:100%;
+}
+
+
+/* LANDING PAGE BLOGS */
+.layout_blog_landing_page_blogs {
+  padding:60px 0 !important;
+}
+.blogs_landing_page {
+	max-width:var(--theme-content-width);
+}
+.blogs_landing_page .blogs_photo > a {
+	display:block;
+	height:250px;
+}
+.blogs_landing_page .info * {
+  text-align:center;
+}
+.blogs_landing_page .blogs_lp_main{
+	margin:25px 15px 0;
+	background:var(--theme-list-background-color);
+	box-shadow:0 6px 6px #e0e0e0;
+	height:100%;
+}
+.blogs_landing_page > div > div {
+  margin-bottom:3rem;
+}
+.blogs_landing_page .title > a {
+	text-transform:uppercase;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	display:block;
+	font-size:20px;
+	font-weight:400;
+}
+.blogs_landing_page .owner,
+.blogs_landing_page .owner a{
+	color:var(--theme-button-background-color);
+	text-transform:uppercase;
+	font-size:16px;
+}
+.blogs_landing_page .info {
+  padding:25px;
+}
+.blogs_landing_page .description {
+  margin-top:20px;
+	font-size:110%;
+  line-height:160%;
+	word-break:break-all;
+}
+.blogs_landing_page .stats{
+	margin:5px 0;
+}
+@media(max-width:767px){
+	.layout_page_blog_index_view .layout_main{
+		display:flex;
+		flex-wrap:wrap;
+	}
+	.layout_page_blog_index_view .layout_main .layout_middle,
+	.layout_page_blog_index_view .layout_main .layout_left,
+	.layout_page_blog_index_view .layout_main .layout_right{
+		width:100%;
+	}
+	#global_content .layout_page_blog_index_view .layout_main .layout_middle{
+		order:1;
+	}
+	#global_content .layout_page_blog_index_view .layout_main .layout_left{
+		order:2;
+	}
+	#global_content .layout_page_blog_index_view .layout_main .layout_right{
+		order:3;
+	}
+  .blogs_landing_page > div > div {
+    margin-bottom:2rem;
+  }
+}
+@media (min-width:768px) and (max-width:1024px){
+  .blogs_landing_page > ul > li{
+    max-width:25%;
+    min-width:25%;
+  }
+  .blogs_landing_page .blogs_photo > a{
+    height:120px;
+  }
+  .blogs_landing_page .description {
+    display:none;
+  }
+	.blogs_landing_page .blogs_lp_main {
+    margin:15px 5px 0;
+	}
+}

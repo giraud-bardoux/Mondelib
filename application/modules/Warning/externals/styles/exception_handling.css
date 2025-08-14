@@ -1,0 +1,218 @@
+/* Common CSS */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+#content
+{
+  width:500px;
+  margin:250px auto 0px auto;
+}
+#message
+{
+  display:block;
+  font-size:18pt;
+  font-weight:bold;
+  letter-spacing:-1px;
+  text-align:center;
+}
+#message .caption
+{
+  display:block;
+  font-size:.8em;
+}
+#code
+{
+  margin-top:20px;
+  padding:20px;
+  background:#fff9e2;
+  border:3px dashed #dad1b0;
+  text-align:center;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+}
+#code > span
+{
+  font-weight:bold;
+  font-size:1.1em;
+  letter-spacing:-1px;
+}
+#code .codebox
+{
+  padding:3px;
+}
+#code .submit
+{
+  padding:5px;
+  font-weight:bold;
+  margin-left:3px;
+}
+#code .submit:hover
+{
+  cursor:pointer;
+}
+#error-code
+{
+  text-align:center;
+}
+
+/* Exception Handling Template One */
+.warning_exception_one {
+	background-repeat:no-repeat;
+  background-size:cover;
+	text-align:center;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.warning_exception_one * {
+  font-family:'Montserrat', sans-serif;
+}
+.warning_exception_one #message {
+   font-size:30px;
+}
+.warning_exception_one #message,.warning_exception_one #error-code{
+	font-weight:bold;
+}
+.warning_exception_one #message .caption {
+	font-weight:normal;
+	margin-top:10px;
+	font-size:19px;
+	line-height:25px;
+}
+
+/* Exception Handling Template Two */
+.warning_exception_two{
+  background-image:url(~/application/modules/Warning/externals/images/exception/design_2_bg.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+	text-align:center;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.warning_exception_two * {
+  font-family:'Montserrat', sans-serif;
+}
+.warning_exception_two #content {
+	background:#fff;
+	border-top:12px solid #000;
+	padding:100px 60px;
+	margin-top:150px;
+}
+.warning_exception_two #message {
+  font-size:30px;
+}
+.warning_exception_two #message,.warning_exception_two #error-code{
+	font-weight:bold;
+}
+.warning_exception_two #message .caption {
+	font-size:.65em;
+	font-weight:normal;
+	margin-top:15px;
+	line-height:25px;
+}
+
+/* Exception Handling Template Three */
+.warning_exception_three {
+  background-image:url(~/application/modules/Warning/externals/images/exception/design_3_bg.png);
+	background-repeat:no-repeat;
+  background-size:cover;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.warning_exception_three * {
+  font-family:'Montserrat', sans-serif;
+}
+.warning_exception_three #content {
+	float:right;
+	margin-right:100px;
+}
+.warning_exception_three #message {
+   font-size:30px;
+	 color:#fff;
+}
+.warning_exception_three #message,.warning_exception_three #error-code{
+  text-align:left;
+	font-weight:bold;
+}
+.warning_exception_three #error-code{
+	color:#fd4f55;
+}
+.warning_exception_three #message .caption {
+  font-size:.6em !important;
+	letter-spacing:.4px;
+	font-weight:normal;
+	margin-top:10px;
+	color:#fff;
+	line-height:25px;
+}
+
+/* Exception Handling Template Four */
+.warning_exception_four {
+  background-image:url(~/application/modules/Warning/externals/images/exception/design_4_bg.png);
+	background-size:cover;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.warning_exception_four * {
+  font-family:'Montserrat', sans-serif;
+}
+.warning_exception_four #content{
+	color:#fff;
+}
+.warning_exception_four #message {
+  font-size:30px;
+}
+.warning_exception_four #message,.warning_exception_four #error-code{
+	font-weight:bold;
+}
+.warning_exception_four #message .caption {
+	font-weight:normal;
+	margin-top:10px;
+	font-size:.65em !important;
+	line-height:25px;
+}
+
+/* Exception Handling Template Five */
+.warning_exception_five {
+  background-image:url(~/application/modules/Warning/externals/images/exception/design_5_bg.png);
+	background-repeat:no-repeat;
+  background-size:cover;
+  position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.warning_exception_five * {
+  font-family:'Montserrat', sans-serif;
+}
+.warning_exception_five #content {
+	float:right;
+	margin-right:100px;
+}
+.warning_exception_five #message {
+   font-size:30px;
+}
+.warning_exception_five #message,.warning_exception_five #error-code{
+  text-align:left;
+	font-weight:bold;
+	color:#799814;
+}
+.warning_exception_five #message .caption {
+  font-size:.6em !important;
+	letter-spacing:.4px;
+	font-weight:normal;
+	margin-top:10px;
+	color:#000;
+	line-height:25px;
+}

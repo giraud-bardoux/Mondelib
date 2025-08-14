@@ -1,0 +1,183 @@
+
+/* ITEM TYPE ICONS */
+.item_icon_forum_category:before,
+.item_icon_forum:before,
+.item_icon_forum_topic:before,
+.item_icon_forum_post:before{
+   content:"\f07b";
+}
+
+/* DEFAULT PHOTO THUMB */
+.bg_item_nophoto.bg_item_photo_forum_topic:before,
+.bg_item_nophoto.bg_item_photo_forum_post:before {
+  content:"\f075";
+}
+
+/* ACTION TYPE ICONS */
+.feed .activity_icon_forum_topic_create:before,
+.feed .activity_icon_forum_topic_reply:before,
+.feed .activity_icon_forum_promote:before{
+  content:"\f075";
+}
+
+/* NOTIFICATION TYPE ICONS */
+.notification_type_forum_topic_response:before,
+.notification_type_forum_topic_reply:before,
+.notification_type_forum_topic_subscribed:before{
+   content:"\f075";
+}
+.notification_type_forum_promote { 
+  position:relative;
+}
+.notification_type_forum_promote:before{
+  content:"\f27b";
+}
+.notification_type_forum_promote:after{
+  content:"\f055";
+	font-weight:900 !important;
+}
+
+/*FORUM INDEX*/
+.forums_header{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.forums_header_search input[type=text],
+.forums_header_search .btn{
+  padding: 0.625rem 0.9375rem;
+}
+.forums_header_search_input{
+  flex:1;
+}
+.forum_listing > li{
+  border-width:0.0625rem;
+  border-radius:var(--theme-item-radius);
+  overflow:hidden;
+}
+.forum_listing > li + li{
+  margin-top:1.25rem;
+}
+.forum_listing_title{
+  background:var(--theme-list-background-color-alt);
+  border-bottom-width:0.0625rem;
+  padding:var(--theme-item-spacing);
+}
+.forum_listing_title > h3{
+  font-weight:var(--theme-font-weight-bold);
+  margin:0px;
+  padding:0;
+}
+.forum_categories > li{
+  padding:var(--theme-item-spacing);
+  gap:var(--theme-item-spacing);
+}
+.forum_categories > li + li{
+  border-top-width:1px;
+}
+.forum_categories_item_icon{
+	margin:0.3125rem 0 0;
+}
+.forum_categories_item_icon a{
+  text-decoration:none;
+}
+.forum_categories_item_icon a > i{
+  font-size:1.25rem;
+  margin:0 0.125rem;
+}
+.forum_categories .forum_info{
+  flex:1;
+}
+.forum_categories .forum_info h3{
+  font-weight:var(--theme-font-weight-bold);
+  margin-bottom:0px;
+  padding:0;
+}
+.forum_categories .forum_desc{
+  margin-top:0.3125rem;
+  display:block;
+}
+.forum_categories_item_content{
+  flex:1;
+  gap:var(--theme-item-spacing);
+}
+.forum_categories .forum_stats{
+  gap:var(--theme-item-spacing);
+}
+.forum_categories .forum_topics,
+.forum_categories .forum_posts{
+  padding:0 0.3125rem 0.625rem;
+  min-width:80px;
+  float:right;
+  overflow:hidden;
+  text-align:center;
+}
+[dir="rtl"] .forum_categories .forum_topics,
+[dir="rtl"] .forum_categories .forum_posts{
+  float:left;
+}
+.forum_categories .forum_topics > span,
+.forum_categories .forum_posts > span{
+  display:block;
+  font-size:1.3em;
+  font-weight:var(--theme-font-weight-bold);
+}
+.forum_categories .forum_topics > span + span,
+.forum_categories .forum_posts > span + span{
+  margin-top:0.3125rem;
+  display:block;
+  font-size:var(--theme-font-size-small);
+  font-weight:normal;
+  text-transform:uppercase;
+  color:var(--theme-font-color-light);
+  letter-spacing:0.5px;
+}
+.forum_categories .forum_lastpost{
+  padding:0.0625rem 0.3125rem 0;
+  width:250px;
+  display:flex;
+  gap:0.625rem;
+}
+
+[dir="rtl"] .forum_categories .forum_lastpost > a{
+  float:right;
+  margin-left:0.625rem;
+  margin-right:0;
+}
+.forum_categories .forum_lastpost > a > .bg_item_photo{
+  display:block;
+  border-width:1px;
+  width:32px;
+  height:32px;
+}
+.forum_lastpost_info{
+  flex:1;
+  font-size:var(--theme-font-size-small);
+}
+.forum_lastpost_info a{
+  color:var(--theme-font-color);
+}
+.forum_lastpost_date{
+  display:block;
+  color:var(--theme-font-color-light);
+}
+@media only screen and (max-width:767px) {
+  .forum_categories_item_content{
+    gap:0.625rem;
+  }
+  .forum_categories .forum_topics,
+  .forum_categories .forum_posts,
+  .forum_categories .forum_lastpost > a{
+    display:none;
+  }
+  .forum_categories .forum_lastpost{
+    width:100%;
+  }
+}
+@media only screen and (max-width:540px) {
+  .forums_header_search{
+    width:100%;
+  } 
+}

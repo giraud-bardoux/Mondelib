@@ -77,5 +77,6 @@
   "(st)" => "rain.png",
   ":o)" => "party.png",
   "8-)" => "eyeroll.png",
-  "|-)" => "yawn.png"
+  "|-)" => "yawn.png",
+  ":-)2" => "smile2.webp",
 );
