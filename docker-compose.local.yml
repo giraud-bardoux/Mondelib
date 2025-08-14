@@ -3,7 +3,7 @@ services:
     image: php:8.0-apache
     container_name: mondelib-web
     ports:
-      - "8082:80"
+      - "8082:80"  # Changé de 8080 à 8082
     volumes:
       - .:/var/www/html
     depends_on:
@@ -12,21 +12,20 @@ services:
       - mondelib_net
     working_dir: /var/www/html
     environment:
-      - PHP_EXTENSIONS=mbstring,gd,zip,pdo,pdo_mysql,mysqli
-    command: bash -c "apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libzip-dev zip unzip libmagickwand-dev --no-install-recommends && pecl install imagick && docker-php-ext-enable imagick && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd zip pdo_mysql mysqli exif && apache2-foreground"
+      - PHP_EXTENSIONS=mbstring,gd,zip,pdo,pdo_mysql
+    command: bash -c "apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libzip-dev zip unzip libmagickwand-dev --no-install-recommends && pecl install imagick && docker-php-ext-enable imagick && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd zip pdo_mysql exif && apache2-foreground"
 
   db:
     image: mysql:8.0
     container_name: mondelib-db
     restart: always
-    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mondelib_db
       MYSQL_USER: se_user
       MYSQL_PASSWORD: se_pass
     ports:
-      - "3307:3306"
+      - "3307:3306"  # Changé de 3306 à 3307 pour éviter conflit avec ml_event_parser
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -37,11 +36,10 @@ services:
     container_name: mondelib-phpmyadmin
     restart: always
     ports:
-      - "8083:80"
+      - "8083:80"  # Changé de 8081 à 8083 pour éviter conflit
     environment:
       PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
     depends_on:
       - db
     networks:
