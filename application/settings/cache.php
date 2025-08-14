@@ -17,7 +17,7 @@ return array (
   array (
     'File' => 
     array (
-      'file_locking' => true,
+      'file_locking' => false,
       'cache_dir' => '/home/iwekyxd/mondelibertin/temporary/cache',
     ),
   ),
