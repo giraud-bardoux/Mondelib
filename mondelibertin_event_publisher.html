@@ -14,6 +14,8 @@
     .status.ok{background:#e3f7e7;color:#23703d}
     .status.err{background:#fde2e2;color:#a33a3a}
     pre{white-space:pre-wrap;background:#f7f7f7;padding:10px;border-radius:4px}
+    .loading{display:inline-block;margin-left:10px}
+    .loading:after{content:"⏳ Chargement en cours...";color:#666;font-size:14px}
   </style>
 </head>
 <body>
@@ -21,8 +23,9 @@
   <p>Cette page vous permet d'importer automatiquement les informations d'une soirée présente sur un site partenaire, puis de publier l'évènement sur <strong>mondelibertin.com</strong>. Vous devez être préalablement connecté&nbsp;à Mondelibertin dans ce navigateur.</p>
 
   <label for="eventUrl">URL de la page de la soirée (site partenaire)</label>
-  <input type="text" id="eventUrl" placeholder="https://partner-site.com/evenements/ma-soiree"/>
+  <input type="text" id="eventUrl" placeholder="https://wemagnifique.fr/soirees-libertines-paris/..." value="https://wemagnifique.fr/soirees-libertines-paris/tous-les-mardis/"/>
   <button id="btnParse">1️⃣&nbsp;Analyser la page partenaire</button>
+  <span id="loadingIndicator" class="loading" style="display:none"></span>
 
   <div id="preview" style="display:none">
     <h2>Aperçu des données extraites</h2>
@@ -41,10 +44,185 @@
  * ===================== */
 function parsePartnerSite(url, doc){
   const hostname = new URL(url).hostname;
+  
+  // Parser pour wemagnifique.fr
+  if(hostname.includes('wemagnifique.fr')){
+    return parseWeMagnifique(doc, url);
+  }
+  
+  // Parser exemple pour partner-site.com
   if(hostname.includes('partner-site.com')){
     return parsePartnerSiteExample(doc);
   }
+  
   throw new Error('Aucun parseur disponible pour ce domaine ('+hostname+').');
+}
+
+function parseWeMagnifique(doc, url){
+  /* Parser pour wemagnifique.fr */
+  console.log('Parsing WeMagnifique page...');
+  
+  // Titre de la soirée
+  let title = doc.querySelector('h1.entry-title')?.textContent?.trim() || 
+             doc.querySelector('h1')?.textContent?.trim() || 
+             doc.querySelector('.event-title')?.textContent?.trim() ||
+             'Soirée WeMagnifique';
+  
+  // Description - chercher dans plusieurs endroits possibles
+  let description = '';
+  const contentSelectors = [
+    '.entry-content',
+    '.event-description',
+    '.content-area main',
+    'article .content',
+    '[itemprop="description"]'
+  ];
+  
+  for(const selector of contentSelectors){
+    const elem = doc.querySelector(selector);
+    if(elem){
+      // Nettoyer le HTML et extraire le texte
+      const clone = elem.cloneNode(true);
+      // Supprimer les scripts et styles
+      clone.querySelectorAll('script, style').forEach(el => el.remove());
+      description = clone.textContent?.trim() || clone.innerText?.trim() || '';
+      if(description) break;
+    }
+  }
+  
+  // Si pas de description, prendre les premiers paragraphes
+  if(!description){
+    const paragraphs = doc.querySelectorAll('p');
+    let desc = [];
+    for(let i = 0; i < Math.min(3, paragraphs.length); i++){
+      const text = paragraphs[i].textContent?.trim();
+      if(text && text.length > 20){
+        desc.push(text);
+      }
+    }
+    description = desc.join('\n\n');
+  }
+  
+  // Dates - chercher les informations de date
+  let startDate = '';
+  let endDate = '';
+  
+  // Chercher des patterns de date dans le contenu
+  const datePatterns = [
+    /(\d{1,2})\s*(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s*(\d{4})?/gi,
+    /(\d{1,2})\/(\d{1,2})\/(\d{4})/g,
+    /le\s+(\d{1,2})\s+(\w+)/gi
+  ];
+  
+  const fullText = doc.body.textContent || '';
+  for(const pattern of datePatterns){
+    const matches = fullText.match(pattern);
+    if(matches && matches.length > 0){
+      startDate = matches[0];
+      if(matches.length > 1){
+        endDate = matches[1];
+      }
+      break;
+    }
+  }
+  
+  // Pour les soirées récurrentes comme "tous les mardis"
+  if(url.includes('tous-les-mardis')){
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    const daysUntilTuesday = (2 - dayOfWeek + 7) % 7 || 7; // 2 = mardi
+    const nextTuesday = new Date(today);
+    nextTuesday.setDate(today.getDate() + daysUntilTuesday);
+    startDate = nextTuesday.toLocaleDateString('fr-FR');
+    title = title || 'Soirée du Mardi - WeMagnifique';
+  }
+  
+  // Lieu/Location
+  let location = '';
+  const locationSelectors = [
+    '.event-location',
+    '.venue',
+    '[itemprop="location"]',
+    '.address',
+    '.lieu'
+  ];
+  
+  for(const selector of locationSelectors){
+    const elem = doc.querySelector(selector);
+    if(elem){
+      location = elem.textContent?.trim();
+      if(location) break;
+    }
+  }
+  
+  // Si pas trouvé, chercher "Paris" ou une adresse dans le texte
+  if(!location){
+    const addressPattern = /\d+[\s,]+[^,\n]+,?\s*(75\d{3}|Paris)/gi;
+    const addressMatch = fullText.match(addressPattern);
+    if(addressMatch){
+      location = addressMatch[0];
+    } else if(fullText.toLowerCase().includes('paris')){
+      location = 'Paris';
+    }
+  }
+  
+  // Image URL
+  let imageUrl = '';
+  const imageSelectors = [
+    'meta[property="og:image"]',
+    '.entry-thumbnail img',
+    '.post-thumbnail img',
+    '.featured-image img',
+    'article img',
+    '.wp-post-image'
+  ];
+  
+  for(const selector of imageSelectors){
+    const elem = doc.querySelector(selector);
+    if(elem){
+      imageUrl = elem.getAttribute('content') || elem.getAttribute('src');
+      if(imageUrl){
+        // Convertir en URL absolue si nécessaire
+        if(imageUrl.startsWith('//')){
+          imageUrl = 'https:' + imageUrl;
+        } else if(imageUrl.startsWith('/')){
+          const baseUrl = new URL(url);
+          imageUrl = baseUrl.origin + imageUrl;
+        }
+        break;
+      }
+    }
+  }
+  
+  // Catégorie
+  let category = 'Soirée libertine';
+  const categorySelectors = [
+    '.category',
+    '.event-category',
+    '[rel="category tag"]'
+  ];
+  
+  for(const selector of categorySelectors){
+    const elem = doc.querySelector(selector);
+    if(elem){
+      category = elem.textContent?.trim() || category;
+      break;
+    }
+  }
+  
+  // Retourner les données extraites
+  const eventData = {
+    title: title || 'Soirée WeMagnifique',
+    description: description || 'Soirée libertine organisée par WeMagnifique',
+    startDate: startDate,
+    endDate: endDate || startDate,
+    location: location || 'Paris',
+    imageUrl: imageUrl,
+    category: category
+  };
+  
+  console.log('Données extraites:', eventData);
+  return eventData;
 }
 
 function parsePartnerSiteExample(doc){
@@ -60,13 +238,35 @@ function parsePartnerSiteExample(doc){
 }
 
 /* =====================
- * Helper: GET HTML document via fetch
+ * Helper: GET HTML document via proxy
  * ===================== */
 async function fetchDocument(url){
-  const res = await fetch(url, {credentials:'include'});
-  if(!res.ok) throw new Error('Impossible de récupérer la page partenaire ('+res.status+').');
-  const html = await res.text();
-  return new DOMParser().parseFromString(html, 'text/html');
+  try{
+    // Utiliser le proxy PHP pour contourner CORS
+    const proxyUrl = '/proxy_fetch.php?url=' + encodeURIComponent(url);
+    console.log('Fetching via proxy:', proxyUrl);
+    
+    const res = await fetch(proxyUrl);
+    if(!res.ok){
+      const error = await res.text();
+      throw new Error('Erreur proxy: ' + error);
+    }
+    
+    const data = await res.json();
+    if(data.error){
+      throw new Error(data.error);
+    }
+    
+    if(!data.html){
+      throw new Error('Aucun contenu HTML reçu');
+    }
+    
+    console.log('HTML reçu, taille:', data.html.length);
+    return new DOMParser().parseFromString(data.html, 'text/html');
+  }catch(err){
+    console.error('Erreur fetchDocument:', err);
+    throw new Error('Impossible de récupérer la page: ' + err.message);
+  }
 }
 
 /* =====================
@@ -75,20 +275,32 @@ async function fetchDocument(url){
 async function parsePartnerPage(){
   hideStatus();
   const url = document.getElementById('eventUrl').value.trim();
-  if(!url){showError('Veuillez saisir une URL.');return;}
+  if(!url){
+    showError('Veuillez saisir une URL.');
+    return;
+  }
+  
   setLoading(true);
+  document.getElementById('loadingIndicator').style.display = 'inline-block';
+  
   try{
+    console.log('Début de l\'analyse de:', url);
     const doc = await fetchDocument(url);
+    console.log('Document récupéré, parsing en cours...');
+    
     const data = parsePartnerSite(url, doc);
+    
     // Stocker pour étape 2
     window.__eventData = {...data, sourceUrl:url};
     document.getElementById('previewData').textContent = JSON.stringify(window.__eventData, null, 2);
     document.getElementById('preview').style.display = 'block';
-    showOk('Analyse terminée. Vérifiez les données puis cliquez sur Publier.');
+    showOk('✅ Analyse terminée. Vérifiez les données puis cliquez sur Publier.');
   }catch(err){
-    showError(err.message);
+    console.error('Erreur:', err);
+    showError('❌ ' + err.message);
   }finally{
     setLoading(false);
+    document.getElementById('loadingIndicator').style.display = 'none';
   }
 }
 
@@ -98,44 +310,58 @@ async function parsePartnerPage(){
 async function publishToMondelibertin(){
   hideStatus();
   const data = window.__eventData;
-  if(!data){showError('Aucune donnée à publier.');return;}
+  if(!data){
+    showError('Aucune donnée à publier.');
+    return;
+  }
+  
   setLoading(true);
+  document.getElementById('loadingIndicator').style.display = 'inline-block';
+  
   try{
     // 1. Récupérer la page create pour obtenir le token CSRF
     const createGet = await fetch('https://mondelibertin.com/events/create', {credentials:'include'});
     if(!createGet.ok) throw new Error('Accès à /events/create refusé ('+createGet.status+'). Êtes-vous connecté ?');
     const createHtml = await createGet.text();
     const createDoc = new DOMParser().parseFromString(createHtml, 'text/html');
+    
     // Vous devrez peut-être adapter le sélecteur pour le token SocialEngine
-    const csrfToken = createDoc.querySelector('input[name="token"]')?.value || createDoc.querySelector('input[name="csrf_token"]')?.value || '';
+    const csrfToken = createDoc.querySelector('input[name="token"]')?.value || 
+                     createDoc.querySelector('input[name="csrf_token"]')?.value || 
+                     createDoc.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+    
     if(!csrfToken) console.warn('Token CSRF introuvable, tentative sans.');
 
     // 2. Préparer formulaire (adaptez les noms de champs à SocialEngine-Events)
-    const form = new URLSearchParams();
+    const form = new FormData();
     form.append('token', csrfToken);
     form.append('title', data.title || 'Titre manquant');
     form.append('description', data.description || '');
-    form.append('host_type', 0); // exemple de champ obligatoire SocialEngine
+    form.append('host_type', '0'); // exemple de champ obligatoire SocialEngine
     form.append('starttime_date', data.startDate || '');
     form.append('endtime_date', data.endDate || '');
     form.append('location', data.location || '');
     form.append('category', data.category || '');
     form.append('source_url', data.sourceUrl);
-    // TODO : upload d'image -> nécessite multipart/form-data.
+    
+    // Si une image est disponible, on pourrait l'uploader
+    // TODO : implémenter l'upload d'image
 
     const publishRes = await fetch('https://mondelibertin.com/events/create', {
       method:'POST',
       credentials:'include',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:form.toString()
+      body:form
     });
+    
     if(!publishRes.ok) throw new Error('Erreur lors de la publication ('+publishRes.status+').');
 
-    showOk('Publication réussie !');
+    showOk('✅ Publication réussie sur Mondelibertin !');
   }catch(err){
-    showError(err.message);
+    console.error('Erreur publication:', err);
+    showError('❌ Erreur publication: ' + err.message);
   }finally{
     setLoading(false);
+    document.getElementById('loadingIndicator').style.display = 'none';
   }
 }
 
@@ -144,20 +370,24 @@ async function publishToMondelibertin(){
  * ===================== */
 function setLoading(is){
   document.getElementById('btnParse').disabled = is;
-  document.getElementById('btnPublish').disabled = is;
+  const btnPublish = document.getElementById('btnPublish');
+  if(btnPublish) btnPublish.disabled = is;
 }
+
 function showOk(msg){
   const el = document.getElementById('result');
   el.className='status ok';
   el.textContent=msg;
   el.style.display='block';
 }
+
 function showError(msg){
   const el = document.getElementById('result');
   el.className='status err';
   el.textContent=msg;
   el.style.display='block';
 }
+
 function hideStatus(){
   document.getElementById('result').style.display='none';
 }
@@ -165,8 +395,11 @@ function hideStatus(){
 /* =====================
  * Event listeners
  * ===================== */
- document.getElementById('btnParse').addEventListener('click', parsePartnerPage);
- document.getElementById('btnPublish').addEventListener('click', publishToMondelibertin);
+document.getElementById('btnParse').addEventListener('click', parsePartnerPage);
+document.getElementById('btnPublish').addEventListener('click', publishToMondelibertin);
+
+// Auto-focus sur le champ URL
+document.getElementById('eventUrl').focus();
 </script>
 </body>
 </html>
