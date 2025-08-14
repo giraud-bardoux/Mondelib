@@ -44,6 +44,10 @@ function parsePartnerSite(url, doc){
   if(hostname.includes('partner-site.com')){
     return parsePartnerSiteExample(doc);
   }
+  // ⇩ Nouveau domaine pris en charge
+  if(hostname.includes('wemagnifique.fr')){
+    return parseWeMagnifique(doc);
+  }
   throw new Error('Aucun parseur disponible pour ce domaine ('+hostname+').');
 }
 
@@ -59,11 +63,25 @@ function parsePartnerSiteExample(doc){
   return {title, description, startDate, endDate, location, imageUrl, category};
 }
 
+// === Parseur pour https://wemagnifique.fr ===
+function parseWeMagnifique(doc){
+  const title = doc.querySelector('h1.page-title, h1.mec-single-title')?.textContent.trim();
+  const description = doc.querySelector('.mec-event-content')?.innerText.trim();
+  const startDate = doc.querySelector('.mec-start-date-label')?.textContent.trim();
+  const endDate = doc.querySelector('.mec-end-date-label')?.textContent.trim();
+  const location = doc.querySelector('.mec-address')?.innerText.trim();
+  const imageUrl = doc.querySelector('.mec-events-event-image img')?.src;
+  const category = 'Soirée libertine';
+  return {title, description, startDate, endDate, location, imageUrl, category};
+}
+
 /* =====================
  * Helper: GET HTML document via fetch
  * ===================== */
 async function fetchDocument(url){
-  const res = await fetch(url, {credentials:'include'});
+  // Utilisation d'un proxy CORS public pour contourner les restrictions du navigateur.
+  const proxiedUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+  const res = await fetch(proxiedUrl);
   if(!res.ok) throw new Error('Impossible de récupérer la page partenaire ('+res.status+').');
   const html = await res.text();
   return new DOMParser().parseFromString(html, 'text/html');
