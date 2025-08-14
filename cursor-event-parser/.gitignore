@@ -1,0 +1,52 @@
+# Cursor Event Parser - Git Ignore
+
+# Fichiers temporaires PHP
+*.tmp
+*.temp
+*.cache
+parser_cookies_*.txt
+parser_session_*.txt
+
+# Logs
+*.log
+error_log
+access_log
+
+# Fichiers de configuration locaux
+config.local.php
+.env
+.env.local
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+*~
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Fichiers de session PHP
+sess_*
+
+# Dossier de cache
+cache/
+tmp/
+temp/
+
+# Fichiers d'authentification
+.htpasswd
+.htaccess.local
+
+# Node modules (si ajout futur de dépendances JS)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Composer (si ajout futur de dépendances PHP)
+vendor/
+composer.lock
