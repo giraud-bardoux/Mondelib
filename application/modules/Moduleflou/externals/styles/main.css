@@ -1,0 +1,3 @@
+.moduleflou-index, .moduleflou-admin { padding: 12px; }
+.moduleflou-index h2, .moduleflou-admin h2 { margin-bottom: 8px; }
+.moduleflou-thumb--blur { filter: blur(var(--moduleflou-blur, 8px)); -webkit-filter: blur(var(--moduleflou-blur, 8px)); }
